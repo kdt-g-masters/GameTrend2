@@ -47,6 +47,6 @@ public class GameDAO {
 //	public int deletegame(int gameNo) {
 //		return session.delete("deletegame", gameNo);
 //	}
-	
+
 
 }

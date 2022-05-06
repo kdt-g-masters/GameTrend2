@@ -27,6 +27,5 @@ public class GameController {
 	}
 	
 	//@RequestMapping(value="/{platform}")
-	
-	
+
 }
