@@ -1,9 +1,5 @@
 package edu.kdt.gametrend.review;
 
-<<<<<<< HEAD
-public class ReviewController {
-
-=======
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,5 +85,4 @@ public class ReviewController {
 			return "{\"check\":\"���� �ۼ����� Ȯ���� �ּ���.\"}"; } 
 	}
 	
->>>>>>> devSH
 }

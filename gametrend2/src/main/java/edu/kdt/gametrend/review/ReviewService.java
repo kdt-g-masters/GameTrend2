@@ -1,9 +1,5 @@
 package edu.kdt.gametrend.review;
 
-<<<<<<< HEAD
-public interface ReviewService {
-
-=======
 import java.util.List;
 
 public interface ReviewService {
@@ -13,5 +9,4 @@ public interface ReviewService {
 	public List<ReviewDTO> selectReviewgameNo(int gameNo);
 	
 	public int insertReview(ReviewDTO dto);
->>>>>>> devSH
 }

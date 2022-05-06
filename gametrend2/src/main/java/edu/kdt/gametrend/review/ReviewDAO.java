@@ -1,9 +1,5 @@
 package edu.kdt.gametrend.review;
 
-<<<<<<< HEAD
-public interface ReviewDAO {
-
-=======
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -38,5 +34,4 @@ public class ReviewDAO {
 		return insertrow;
 	}
 	
->>>>>>> devSH
 }
