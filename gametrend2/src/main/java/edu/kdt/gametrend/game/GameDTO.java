@@ -1,9 +1,5 @@
 package edu.kdt.gametrend.game;
 
-<<<<<<< HEAD
-public class GameDTO {
-
-=======
 import org.springframework.stereotype.Component;
 
 @Component
@@ -168,6 +164,4 @@ public class GameDTO {
 		this.screenshot4 = screenshot4;
 	}
 	
-	
->>>>>>> devSH
 }
