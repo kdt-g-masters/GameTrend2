@@ -1,12 +1,8 @@
 package edu.kdt.gametrend.game;
 
-<<<<<<< HEAD
-public class GameDTO {
-
-=======
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("gamedto")
 public class GameDTO {
 	int gameNo;
 	String name;
@@ -167,7 +163,5 @@ public class GameDTO {
 	public void setScreenshot4(String screenshot4) {
 		this.screenshot4 = screenshot4;
 	}
-	
-	
->>>>>>> devSH
+
 }

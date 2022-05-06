@@ -1,9 +1,5 @@
 package edu.kdt.gametrend.game;
 
-<<<<<<< HEAD
-public class GameServiceImpl implements GameService {
-
-=======
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +18,4 @@ public class GameServiceImpl implements GameService {
 		return dao.gamelist(page);
 	}	
 	
->>>>>>> devSH
 }

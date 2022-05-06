@@ -1,8 +1,5 @@
 package edu.kdt.gametrend.game;
 
-<<<<<<< HEAD
-public interface GameDAO {
-=======
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -50,7 +47,6 @@ public class GameDAO {
 //	public int deletegame(int gameNo) {
 //		return session.delete("deletegame", gameNo);
 //	}
-	
->>>>>>> devSH
+
 
 }
