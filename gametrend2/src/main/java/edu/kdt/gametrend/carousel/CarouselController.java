@@ -20,7 +20,7 @@ public class CarouselController {
 		ModelAndView mv = new ModelAndView();
 		List<CarouselDTO> list = service.carousellist();
 		mv.addObject("carousellist", list);
-		mv.setViewName("/carousel");
+		mv.setViewName("carousel");
 		return mv;
 	}
 	
