@@ -2,36 +2,21 @@ package edu.kdt.gametrend.review;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+@Mapper
 @Repository("reviewdao")
-public class ReviewDAO {
-	@Autowired
-	SqlSession session;
+public interface ReviewDAO {
 	
-	public List<ReviewDTO> selectAllReview(){
-		List<ReviewDTO> list = session.selectList("selectAllReview");
-		return list;
-	}
+	public List<ReviewDTO> selectAllReview();
 	
-	public int selectCountReview() {
-		return session.selectOne("selectCountReview");
-	}
+	public int selectCountReview();
 	
-	public int countReviewgameNo(int gameNo) {
-		return session.selectOne("countReviewgameNo", gameNo);
-	}
+	public int countReviewgameNo(int gameNo);
 	
-	public List<ReviewDTO> selectReviewgameNo(int gameNo){
-		List<ReviewDTO> list = session.selectList("selectReviewgameNo", gameNo);
-		return list;
-	}
+	public List<ReviewDTO> selectReviewgameNo(int gameNo);
 	
-	public int insertReview(ReviewDTO dto) {
-		int insertrow = session.insert("insertReview", dto);
-		return insertrow;
-	}
+	public int insertReview(ReviewDTO dto);
 	
 }
