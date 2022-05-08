@@ -1,6 +1,7 @@
 package edu.kdt.gametrend.promotion;
 
 public class PromotionDTO {
+	
 	String platform, mainImage, image;
 
 	public String getPlatform() {

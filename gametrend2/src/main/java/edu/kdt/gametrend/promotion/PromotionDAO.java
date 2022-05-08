@@ -6,8 +6,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 @Mapper
-@Repository("promotiondao")
-public class PromotionDAO {
-	public List<PromotionDTO> promotionlist(String platform);
+@Repository("PromotionDAO")
+public interface PromotionDAO {
+	
+	public List<PromotionDTO> promotionlist(); 
 
 }

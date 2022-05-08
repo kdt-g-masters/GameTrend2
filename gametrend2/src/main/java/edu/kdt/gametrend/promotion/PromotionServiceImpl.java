@@ -6,14 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service("promotionservice")
+@Service("PromotionService")
 public class PromotionServiceImpl implements PromotionService {
+	
 	@Autowired
-	@Qualifier("promotiondao")
+	@Qualifier("PromotionDAO")
 	PromotionDAO dao;
 	
 	@Override
-	public List<PromotionDTO> promotionlist(String platform) {
-		return dao.promotionlist(platform);
+	public List<PromotionDTO> promotionlist() {
+		return dao.promotionlist();
 	}
+	
 }
