@@ -1,19 +1,12 @@
 package edu.kdt.gametrend.game;
 
-<<<<<<< HEAD
-public class GameDTO {
-
-=======
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("gamedto")
 public class GameDTO {
-	int gameNo;
+	int no;
 	String name;
 	String explanation;
-	String genre1;
-	String genre2;
-	String genre3;
 	String platform = null;
 	String thumbnail;
 	int views = 0;
@@ -24,20 +17,18 @@ public class GameDTO {
 	String screenshot2;
 	String screenshot3;
 	String screenshot4 = null;
-	int no;
+	
+	String genre;
 	
 	public GameDTO() {}
-	public GameDTO(int no, int gameNo, String name, String explanation, String genre1, String genre2, String genre3,
-			String platform, String thumbnail, int views, double rating, String releaseDate, String trailer,
+	public GameDTO(int no, String name, String explanation, String genre, String platform, 
+			String thumbnail, int views, double rating, String releaseDate, String trailer,
 			String screenshot1, String screenshot2, String screenshot3, String screenshot4) {
 		super();
 		this.no = no;
-		this.gameNo = gameNo;
 		this.name = name;
 		this.explanation = explanation;	
-		this.genre1 = genre1;
-		this.genre2 = genre2;
-		this.genre3 = genre3;
+		this.genre = genre;
 		this.platform = platform;
 		this.thumbnail = thumbnail;
 		this.views = views;
@@ -49,33 +40,11 @@ public class GameDTO {
 		this.screenshot3 = screenshot3;
 		this.screenshot4 = screenshot4;
 	}
-	public GameDTO(int gameNo, String name, String explanation, String genre1, String genre2, String genre3,
-			String platform, String thumbnail, int views, double rating, String releaseDate, String trailer,
-			String screenshot1, String screenshot2, String screenshot3, String screenshot4) {
-		super();
-		this.gameNo = gameNo;
-		this.name = name;
-		this.explanation = explanation;	
-		this.genre1 = genre1;
-		this.genre2 = genre2;
-		this.genre3 = genre3;
-		this.platform = platform;
-		this.thumbnail = thumbnail;
-		this.views = views;
-		this.rating = rating;
-		this.releaseDate = releaseDate;
-		this.trailer = trailer;
-		this.screenshot1 = screenshot1;
-		this.screenshot2 = screenshot2;
-		this.screenshot3 = screenshot3;
-		this.screenshot4 = screenshot4;
-	}	
-	
-	public int getGameNo() {
-		return gameNo;
+	public int getNo() {
+		return no;
 	}
-	public void setGameNo(int gameNo) {
-		this.gameNo = gameNo;
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public String getName() {
 		return name;
@@ -89,23 +58,11 @@ public class GameDTO {
 	public void setExplanation(String explanation) {
 		this.explanation = explanation;
 	}
-	public String getGenre1() {
-		return genre1;
+	public String getGenre() {
+		return genre;
 	}
-	public void setGenre1(String genre1) {
-		this.genre1 = genre1;
-	}
-	public String getGenre2() {
-		return genre2;
-	}
-	public void setGenre2(String genre2) {
-		this.genre2 = genre2;
-	}
-	public String getGenre3() {
-		return genre3;
-	}
-	public void setGenre3(String genre3) {
-		this.genre3 = genre3;
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	public String getPlatform() {
 		return platform;
@@ -167,7 +124,5 @@ public class GameDTO {
 	public void setScreenshot4(String screenshot4) {
 		this.screenshot4 = screenshot4;
 	}
-	
-	
->>>>>>> devSH
+
 }

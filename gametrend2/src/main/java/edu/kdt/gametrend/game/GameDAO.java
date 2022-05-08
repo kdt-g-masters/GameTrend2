@@ -1,8 +1,5 @@
 package edu.kdt.gametrend.game;
 
-<<<<<<< HEAD
-public interface GameDAO {
-=======
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +12,7 @@ public class GameDAO {
 	SqlSession session;
 	
 	//���Ӹ���Ʈ ����¡ ��ȸ
-	public List<GameDTO> gamelist(int page){
+	public List<GameDTO> gamelist(int page) {
 		int [] limit = new int[] {(page-1)*9, 9};
 		List<GameDTO> list = session.selectList("paginglist",limit);
 		return list;
@@ -50,7 +47,6 @@ public class GameDAO {
 //	public int deletegame(int gameNo) {
 //		return session.delete("deletegame", gameNo);
 //	}
-	
->>>>>>> devSH
+
 
 }

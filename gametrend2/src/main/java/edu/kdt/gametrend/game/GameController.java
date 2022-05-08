@@ -1,9 +1,5 @@
 package edu.kdt.gametrend.game;
 
-<<<<<<< HEAD
-public class GameController {
-
-=======
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +27,5 @@ public class GameController {
 	}
 	
 	//@RequestMapping(value="/{platform}")
-	
-	
->>>>>>> devSH
+
 }

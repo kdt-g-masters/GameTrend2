@@ -1,9 +1,7 @@
 package edu.kdt.gametrend.review;
 
 public class ReviewDTO {
-<<<<<<< HEAD
 
-=======
 	int reviewNo;
 	String userId;
 	int gameNo;
@@ -54,5 +52,5 @@ public class ReviewDTO {
 	public void setImage(String image) {
 		this.image = image;
 	}
->>>>>>> devSH
+	
 }

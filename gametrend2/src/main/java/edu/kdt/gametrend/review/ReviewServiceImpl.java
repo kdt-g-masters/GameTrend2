@@ -1,9 +1,5 @@
 package edu.kdt.gametrend.review;
 
-<<<<<<< HEAD
-public class ReviewServiceImpl implements ReviewService {
-
-=======
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +37,5 @@ public class ReviewServiceImpl implements ReviewService {
 	public int countReviewgameNo(int gameNo) {
 		return dao.countReviewgameNo(gameNo);
 	}
-
 	
-	
-	
->>>>>>> devSH
 }
