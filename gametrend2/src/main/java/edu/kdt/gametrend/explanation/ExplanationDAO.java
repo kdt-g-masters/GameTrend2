@@ -5,8 +5,8 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 @Repository("ExplanationDAO")
-public class ExplanationDAO {
+public interface ExplanationDAO {
 	
-	
+	public ExplanationDTO loadExplanation(); 
 
 }

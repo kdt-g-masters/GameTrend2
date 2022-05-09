@@ -22,44 +22,44 @@
 		ㅇㅇ<br><br><br>
 		
 		<form method="POST" action="/explanation1a" > 
-			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />
-			<input type="hidden" name="thisis" value="PC" />   
+			<input type="hidden" name="thisis" value="PC" /> 
+			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />  
 		</form>
 		<br>
 		
 		<form method="POST" action="/explanation1b" > 
-			<input type="submit" name="loadbtnB" value="PS와 PS 게임은?" />
-			<input type="hidden" name="thisis" value="PS" />   
+			<input type="hidden" name="thisis" value="PS" />
+			<input type="submit" name="loadbtnB" value="PS와 PS 게임은?" />   
 		</form>
 		<br>
 		
 		<form method="POST" action="/explanation1c" > 
-			<input type="submit" name="loadbtnC" value="Xbox와 Xbox 게임은?" />
-			<input type="hidden" name="thisis" value="Xbox" />   
+			<input type="hidden" name="thisis" value="Xbox" />
+			<input type="submit" name="loadbtnC" value="Xbox와 Xbox 게임은?" />   
 		</form>
 		<br>
 		
 		<form method="POST" action="/explanation1d" > 
-			<input type="submit" name="loadbtnD" value="NS와 NS 게임은?" />
-			<input type="hidden" name="thisis" value="NS" />   
+			<input type="hidden" name="thisis" value="NS" />  
+			<input type="submit" name="loadbtnD" value="NS와 NS 게임은?" /> 
 		</form>
 		<br>
 
 		<!-- 페이지 포함 --> 
 	
-		<c:if test="${survey.no == 1}"> 
+		<c:if test="${flatExpla.thisis == PC}"> 
 			<%@ include file="explanationP1.jspf" %> 
 		</c:if> 
 		
-		<c:if test="${survey.no == 2}"> 
+		<c:if test="${flatExpla.thisis == PS}"> 
 			<%@ include file="explanationP2.jspf" %>  
 		</c:if> 
 		
-		<c:if test="${survey.no == 3}"> 
+		<c:if test="${flatExpla.thisis == Xbox}"> 
 			<%@ include file="explanationP3.jspf" %>  
 		</c:if> 
 
-		<c:if test="${survey.no == 4}"> 
+		<c:if test="${flatExpla.thisis == NS}"> 
 			<%@ include file="explanationP4.jspf" %>  
 		</c:if> 	
 

@@ -11,4 +11,11 @@ public class ExplanationServiceImpl implements ExplanationService {
 	@Qualifier("ExplanationDAO") 
 	ExplanationDAO dao; 
 	
+	@Override 
+	public ExplanationDTO loadExplanation() { 
+		
+		return dao.loadExplanation();
+		
+	}; 
+	
 }
