@@ -13,7 +13,24 @@
 <script src="/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function() {
-		
+		$("#btnAdminLogin").on('click', function(){
+			$.ajax({
+				url: '/adminLogin',
+				data: {'id': $("#id").val(), 'password': $("#password").val()},
+				type: 'post',
+				dataType: 'json',
+				success: function(result) {
+					if (result == '1') {
+						location.replace('/');
+					}
+					else {
+						alert('로그인 실패');
+						//$('#msgLoginFail').html("아이디 또는 비밀번호가 일치하지 않습니다.");
+						//$('#msgLoginFail').css("visibility", "visible");
+					}
+				} // function end
+			});	// ajax end
+		}); // on end
 	});
 </script>
 <style>
@@ -33,17 +50,17 @@
 	    <h1 class="h3 mb-3 fw-normal">관리자 로그인</h1>
 	
 	    <div class="form-floating">
-	      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+	      <input type="email" class="form-control" id="id" placeholder="관리자 아이디">
 	      <label for="floatingInput">아이디</label>
 	    </div>
 	    <div class="form-floating">
-	      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+	      <input type="password" class="form-control" id="password" placeholder="Password">
 	      <label for="floatingPassword">비밀번호</label>
 	    </div>
 	
 	    <div class="checkbox mb-3">
 	    </div>
-	    <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
+	    <button id="btnAdminLogin" class="w-100 btn btn-lg btn-primary" type="button">로그인</button>
 	  </form>
 	</main>
 </body>
