@@ -25,10 +25,10 @@ public class ExplanationController {
 		public ModelAndView explanationAction2(ExplanationDTO dto) { 
 		
 		// 플랫폼 소개 로딩 
-		ExplanationDTO explanationdata = service.loadExplanation(dto);
+//		ExplanationDTO explanationdata = service.loadExplanation(dto);
 		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("flatExpla", explanationdata);
+//		mv.addObject("flatExpla", explanationdata);
 		mv.setViewName("explanation"); 
 		return mv;
 		
@@ -38,8 +38,6 @@ public class ExplanationController {
 	@RequestMapping(value="/Testpage", method=RequestMethod.GET)
 		public String explanationAction3() { 
 			return "Testpage";
-	}
-
-	
+	}	
 
 }

@@ -10,7 +10,7 @@ public class ExplanationServiceImpl implements ExplanationService {
 	@Autowired
 	@Qualifier("ExplanationDAO") 
 	ExplanationDAO dao; 
-	
+	 
 	@Override 
 	public ExplanationDTO loadExplanation(ExplanationDTO dto) { 
 		
