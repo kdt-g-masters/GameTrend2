@@ -1,19 +1,16 @@
 package edu.kdt.gametrend.member;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-@Repository("userDAO")
+@Mapper
+@Repository("memberDAO")
 public class MemberDAO {
 
-	@Autowired
-	SqlSession session;
-
-	public MemberDTO loginUser(MemberDTO dto) {
-		System.out.println("==> Mybatis�� loginUser() ��� ó��");
-		return session.selectOne("loginUser", dto);
-	}
+//	public MemberDTO loginUser(MemberDTO dto) {
+//		System.out.println("==> Mybatis�� loginUser() ��� ó��");
+//		return session.selectOne("loginUser", dto);
+//	}
 
 	/*public UserDTO findId(UserDTO dto) {
 		System.out.println("==> Mybatis�� findId() ��� ó��");
@@ -24,7 +21,8 @@ public class MemberDAO {
 		System.out.println("==> Mybatis�� findPassword() ��� ó��");
 		return session.selectOne("UserDAO.findPassword", dto);
 	}*/
-	
+
+	/*
 	// ���̵� �ߺ�Ȯ��
 	public String checkId(String id) {
 		System.out.println("dao Ŭ���� " + session.selectOne("checkId", id));
@@ -35,4 +33,5 @@ public class MemberDAO {
 		int row = session.insert("joinInsertUser", dto);
 		return row;
 	}
+	*/
 }

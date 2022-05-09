@@ -1,4 +1,4 @@
-package edu.kdt.gametrend.Admin;
+package edu.kdt.gametrend.admin;
 
 public interface AdminService {
 

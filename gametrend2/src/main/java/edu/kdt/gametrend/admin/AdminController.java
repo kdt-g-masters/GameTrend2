@@ -1,4 +1,4 @@
-package edu.kdt.gametrend.Admin;
+package edu.kdt.gametrend.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +13,7 @@ public class AdminController {
 	AdminService service;
 	
 	// 관리자 로그인
-	@RequestMapping(value="/adminLogin")
+	@RequestMapping(value="/admin")
 	public void adminLogin() {}
 	
 }
