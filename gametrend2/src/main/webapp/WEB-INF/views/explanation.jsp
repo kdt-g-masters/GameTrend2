@@ -19,7 +19,31 @@
 <body>
 
 		<!-- 기본 내용 -->
-		ㅇㅇ
+		ㅇㅇ<br><br><br>
+		
+		<form method="POST" action="/explanation1a" > 
+			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />
+			<input type="hidden" name="thisis" value="PC" />   
+		</form>
+		<br>
+		
+		<form method="POST" action="/explanation1b" > 
+			<input type="submit" name="loadbtnB" value="PS와 PS 게임은?" />
+			<input type="hidden" name="thisis" value="PS" />   
+		</form>
+		<br>
+		
+		<form method="POST" action="/explanation1c" > 
+			<input type="submit" name="loadbtnC" value="Xbox와 Xbox 게임은?" />
+			<input type="hidden" name="thisis" value="Xbox" />   
+		</form>
+		<br>
+		
+		<form method="POST" action="/explanation1d" > 
+			<input type="submit" name="loadbtnD" value="NS와 NS 게임은?" />
+			<input type="hidden" name="thisis" value="NS" />   
+		</form>
+		<br>
 
 		<!-- 페이지 포함 --> 
 	

@@ -26,5 +26,5 @@ public class PromotionController {
 		mv.setViewName("promotion");
 		return mv;
 	}
-	
+		
 }
