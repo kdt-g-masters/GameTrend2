@@ -4,13 +4,14 @@
   <!-- mybatis db 연결정보 세팅 파일 -->
 <configuration>
 	<!-- 1. sql 실행 결과 ...DTO 매핑 -->
-	<!-- <typeAliases>
+	<typeAliases>
 		<typeAlias type="edu.kdt.gametrend.carousel.CarouselDTO" alias="carouseldto"/>
 		<typeAlias type="edu.kdt.gametrend.game.GameDTO" alias="gamedto"/>
 		<typeAlias type="edu.kdt.gametrend.member.MemberDTO" alias="memberdto"/>
 		<typeAlias type="edu.kdt.gametrend.review.ReviewDTO" alias="reviewdto"/>
 		<typeAlias type="edu.kdt.gametrend.wishlist.WishlistDTO" alias="wishlistdto"/>
+		<typeAlias type="edu.kdt.gametrend.wishlist.WishlistGameDTO" alias="wishlistgamedto"/>
 		<typeAlias type="edu.kdt.gametrend.promotion.PromotionDTO" alias="promotiondto"/>
 		<typeAlias type="edu.kdt.gametrend.calendar.CalendarDTO" alias="CalendarDTO"/>
-	</typeAliases> -->
+	</typeAliases>
 </configuration>

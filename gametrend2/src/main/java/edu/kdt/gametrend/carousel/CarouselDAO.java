@@ -2,19 +2,15 @@ package edu.kdt.gametrend.carousel;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+@Mapper
 @Repository("carouseldao")
-public class CarouselDAO {
-	@Autowired
-	SqlSession session;
+public interface CarouselDAO {
 	
 	//전체 조회
-	public List<CarouselDTO> carousellist(){
-		return session.selectList("carousellist");
-	}	
+	public List<CarouselDTO> carousellist();
 	//추가
 //	public int insertcarousel(CarouselDTO dto) {
 //		return session.insert("insertcarousel", dto);

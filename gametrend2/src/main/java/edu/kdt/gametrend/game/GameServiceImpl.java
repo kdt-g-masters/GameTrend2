@@ -13,9 +13,10 @@ public class GameServiceImpl implements GameService {
 	@Qualifier("gamedao")
 	GameDAO dao;
 
+	/*
 	@Override
 	public List<GameDTO> gamelist(int page) {
 		return dao.gamelist(page);
 	}	
-	
+	*/
 }

@@ -15,6 +15,7 @@ public class GameController {
 	@Qualifier("gameservice")
 	GameService service;
 	
+	/*
 	@RequestMapping("/list")
 	public ModelAndView gamelist(@RequestParam(required = false) Integer page) {
 		if(page == null) page = 1;
@@ -25,7 +26,7 @@ public class GameController {
 		mv.setViewName("index");
 		return mv;
 	}
-	
+	*/
 	//@RequestMapping(value="/{platform}")
 
 }
