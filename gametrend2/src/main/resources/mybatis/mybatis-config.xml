@@ -11,5 +11,6 @@
 		<typeAlias type="edu.kdt.gametrend.review.ReviewDTO" alias="reviewdto"/>
 		<typeAlias type="edu.kdt.gametrend.wishlist.WishlistDTO" alias="wishlistdto"/>
 		<typeAlias type="edu.kdt.gametrend.promotion.PromotionDTO" alias="promotiondto"/>
+		<typeAlias type="edu.kdt.gametrend.calendar.CalendarDTO" alias="CalendarDTO"/>
 	</typeAliases> -->
 </configuration>
