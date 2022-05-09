@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 기본 선언 -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!-- mybatis 선언 -->
+
+<mapper namespace="edu.kdt.gametrend.promotion.PromotionDAO" > <!-- DAO 선언 -->
+
+	<!-- 구문 선언 -->
+	
+
+</mapper>
+
