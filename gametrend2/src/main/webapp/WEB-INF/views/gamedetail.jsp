@@ -132,10 +132,10 @@ $(document).ready(function(){
 	<main>
 		<div class="hidden" id="tema">
 			<div class="left" id="tema1">
-				<h1>리그 오브 레전드 <br> (League of Legends)</h1>
-				<img id="img1" src="/gametrend/resources/images/thumbnail/1.jpg">
-				<p>PC</p>
-				<p>2011년 12월 4일</p>
+				<h1>${ gamedetail.name }</h1>
+				<img id="img1" src="/gametrend/resources/images/thumbnail/${ gamedetail.thumbnail }">
+				<p>${ gamedetail.platform }</p>
+				<p>${ gamedetail.releaseDate }</p>
 				<p>MOBA, AOS</p>
 			</div>
 			
@@ -159,22 +159,19 @@ $(document).ready(function(){
 			
 			<div class="right" id="explain">
 				<h2>게임 설명</h2>
-				<p> 리그 오브 레전드는 세계 최고의 MOBA(Multiplayer Online Battle Arena) 게임입니다. 
-				끝없이 이어지는 실시간 전투와 협동을 통한 팀플레이, RTS와 RPG를 하나의 게임에서 동시에 즐길 수 있는 새로운 장르의 온라인 게임입니다. 
-				두 팀은 각기 독특한 특성과 플레이스타일을 자랑하는 강력한 챔피언을 소환하여, 다양한 모드의 전장에서 정면 대결을 펼칩니다. 
-				신규 챔피언이 끊임없이 추가되며, 지속적인 업데이트가 이루어지고, 흥미진진한 e스포츠 대회의 중심이기도 한 리그 오브 레전드에서 많은 동료 소환사들과 함께 박진감 넘치는 전투를 즐겨보세요!</p>
+				<p>${ gamedetail.explanation }</p>
 			</div>
 		</div>
 		
 		<h3>트레일러, 게임이미지 && 스크린샷</h3>
 		<div class="hidden1" style="background-color: black;">
 			<div style="float: left; margin-bottom: 0px; margin-right: 8px;">
-				<iframe width="390" height="315" src="https://www.youtube.com/embed/mDYqT0_9VR4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="390" height="315" src="${ gamedetail.trailer }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
-			<img class="img2" src="/gametrend/resources/images/screenshot/1_1.jpg">
-			<img class="img2" src="/gametrend/resources/images/screenshot/1_2.jpg">
-			<img class="img2" src="/gametrend/resources/images/screenshot/1_3.jpg">
-			<img class="img2" src="/gametrend/resources/images/screenshot/1_4.jpg">
+			<img class="img2" src="/gametrend/resources/images/screenshot/${ gamedetail.screenshot1 }">
+			<img class="img2" src="/gametrend/resources/images/screenshot/${ gamedetail.screenshot2 }">
+			<img class="img2" src="/gametrend/resources/images/screenshot/${ gamedetail.screenshot3 }">
+			<img class="img2" src="/gametrend/resources/images/screenshot/${ gamedetail.screenshot4 }">
 		</div>
 		
 		<h3>리뷰</h3>

@@ -15,14 +15,21 @@ public class GameController {
 	@Qualifier("gameservice")
 	GameService service;
 	
-	@RequestMapping("/list")
-	public ModelAndView gamelist(@RequestParam(required = false) Integer page) {
-		if(page == null) page = 1;
+	/*
+	 * @RequestMapping("/list") public ModelAndView gamelist(@RequestParam(required
+	 * = false) Integer page) { if(page == null) page = 1; ModelAndView mv = new
+	 * ModelAndView(); List<GameDTO> list = service.gamelist(page);
+	 * mv.addObject("paginglist",list); mv.addObject("name", "페이징처리리스트");
+	 * mv.setViewName("index"); return mv; }
+	 */
+	
+	//게임 상세 페이지
+	@RequestMapping("/gamedetail")
+	public ModelAndView gameDetail(int gameNo) {
 		ModelAndView mv = new ModelAndView();
-		List<GameDTO> list = service.gamelist(page);
-		mv.addObject("paginglist",list);
-		mv.addObject("name", "페이징처리리스트");
-		mv.setViewName("index");
+		GameDTO gamedetail = service.gameDetail(gameNo);
+		mv.addObject("gamedetail", gamedetail);
+		mv.setViewName("gamedetail");
 		return mv;
 	}
 	

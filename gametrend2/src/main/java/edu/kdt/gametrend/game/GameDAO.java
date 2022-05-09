@@ -2,21 +2,22 @@ package edu.kdt.gametrend.game;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+@Mapper
 @Repository("gamedao")
-public class GameDAO {
-	@Autowired
-	SqlSession session;
+public interface GameDAO {
 	
 	//���Ӹ���Ʈ ����¡ ��ȸ
-	public List<GameDTO> gamelist(int page) {
-		int [] limit = new int[] {(page-1)*9, 9};
-		List<GameDTO> list = session.selectList("paginglist",limit);
-		return list;
-	}
+//	public List<GameDTO> gamelist(int page) {
+//		int [] limit = new int[] {(page-1)*9, 9};
+//		List<GameDTO> list = session.selectList("paginglist",limit);
+//		return list;
+//	}
+	
+	//게임 상세 페이지
+	public GameDTO gameDetail(int gameNo);
 	
 //	public int totalcount() {
 //		return session.selectOne("totalgamecnt");
