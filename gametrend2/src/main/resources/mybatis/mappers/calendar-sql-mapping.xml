@@ -5,7 +5,7 @@
   
 <mapper namespace="edu.kdt.gametrend.calendar.CalendarDAO" > 
 
-	
+	 
 	
 
 </mapper>
