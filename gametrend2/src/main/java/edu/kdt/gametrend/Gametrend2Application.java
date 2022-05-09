@@ -9,6 +9,8 @@ import edu.kdt.gametrend.calendar.CalendarController;
 import edu.kdt.gametrend.calendar.CalendarDAO;
 import edu.kdt.gametrend.carousel.CarouselController;
 import edu.kdt.gametrend.carousel.CarouselDAO;
+import edu.kdt.gametrend.explanation.ExplanationController;
+import edu.kdt.gametrend.explanation.ExplanationDAO;
 import edu.kdt.gametrend.game.GameController;
 import edu.kdt.gametrend.game.GameDAO;
 import edu.kdt.gametrend.member.MemberController;
@@ -27,8 +29,8 @@ import edu.kdt.gametrend.wishlist.WishlistDAO;
 @ComponentScan(basePackageClasses = MemberController.class)
 @ComponentScan(basePackageClasses = PromotionController.class)
 @ComponentScan(basePackageClasses = CalendarController.class)
+@ComponentScan(basePackageClasses = ExplanationController.class)
 @ComponentScan(basePackageClasses = ReviewController.class)
-@ComponentScan(basePackageClasses = CalendarController.class)
 @ComponentScan(basePackageClasses = WishlistController.class)
 
 @MapperScan(basePackageClasses = GameDAO.class)
@@ -36,8 +38,8 @@ import edu.kdt.gametrend.wishlist.WishlistDAO;
 @MapperScan(basePackageClasses = MemberDAO.class)
 @MapperScan(basePackageClasses = PromotionDAO.class)
 @MapperScan(basePackageClasses = CalendarDAO.class)
+@MapperScan(basePackageClasses = ExplanationDAO.class)
 @MapperScan(basePackageClasses = ReviewDAO.class)
-@MapperScan(basePackageClasses = CalendarDAO.class)
 @MapperScan(basePackageClasses = WishlistDAO.class)
 public class Gametrend2Application {
 
