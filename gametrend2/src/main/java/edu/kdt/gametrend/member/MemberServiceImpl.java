@@ -4,18 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service("userService")
+@Service("memberservice")
 public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private
-	@Qualifier("userDAO")
+	@Qualifier("memberDAO")
 	MemberDAO dao;
 	
+	/*
 	@Override
 	public MemberDTO loginUser(MemberDTO dto) {
 		return dao.loginUser(dto);
 	}
+	*/
 	
 	/*@Override
 	public UserDTO findId(UserDTO dto) {
@@ -27,6 +29,7 @@ public class MemberServiceImpl implements MemberService {
 		return dao.findPassword(dto);
 	}*/
 	
+	/*
 	@Override
 	public boolean checkId(String id) {
 		String result = dao.checkId(id);
@@ -43,5 +46,6 @@ public class MemberServiceImpl implements MemberService {
 	public int joinInsertUser(MemberDTO dto) {
 		return dao.joinInsertUser(dto);
 	}
+	*/
 	
 }

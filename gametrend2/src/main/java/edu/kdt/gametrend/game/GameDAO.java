@@ -17,7 +17,7 @@ public interface GameDAO {
 //	}
 	
 	//게임 상세 페이지
-	public GameDTO gameDetail(int gameNo);
+	public GameDTO gameDetail(int no);
 	
 //	public int totalcount() {
 //		return session.selectOne("totalgamecnt");
@@ -29,11 +29,6 @@ public interface GameDAO {
 	//	//�÷����� ���ӷ�ŷ ��ȸ
 //	public List<GameDTO> gamelist(String platform){
 //		return session.selectList("platformgamesearch", platform);
-//	}
-	
-	//	//�� ���� ���ý� �Ѱ��� �� ���� ��ȸ
-//	public GameDTO game(int gameNo){
-//		return session.selectOne("game", gameNo);
 //	}
 
 	//�����߰�

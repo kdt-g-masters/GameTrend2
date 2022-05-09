@@ -25,9 +25,9 @@ public class GameController {
 	
 	//게임 상세 페이지
 	@RequestMapping("/gamedetail")
-	public ModelAndView gameDetail(int gameNo) {
+	public ModelAndView gameDetail(int no) {
 		ModelAndView mv = new ModelAndView();
-		GameDTO gamedetail = service.gameDetail(gameNo);
+		GameDTO gamedetail = service.gameDetail(no);
 		mv.addObject("gamedetail", gamedetail);
 		mv.setViewName("gamedetail");
 		return mv;

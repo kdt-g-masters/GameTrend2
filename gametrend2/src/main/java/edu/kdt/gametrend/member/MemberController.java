@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MemberController {
 
 	@Autowired
-	@Qualifier("userService")
+	@Qualifier("memberservice")
 	MemberService service;
 	
 	// �α��� ������
@@ -25,6 +25,7 @@ public class MemberController {
 	public void loginform() {	
 	}
 	
+	/*
     // �α��� �õ�
 	@RequestMapping(value="/login", method=RequestMethod.POST , produces = {"application/json;charset=utf-8"} )
 	@ResponseBody
@@ -42,6 +43,7 @@ public class MemberController {
 		}
 		
 	}
+	*/
 	
 	//���̵� ã�� ������ �̵�
 	/*@RequestMapping(value="/login2", method=RequestMethod.GET)
@@ -84,6 +86,7 @@ public class MemberController {
 		return "join";
 	}
 	
+	/*
 	@RequestMapping("/join/insertuser")
 	public ModelAndView joinInsertUser(MemberDTO dto) {
 		int row = service.joinInsertUser(dto);
@@ -93,8 +96,9 @@ public class MemberController {
 		mv.setViewName("joinResult");
 		return mv;
 	}
+	*/
 	
-	
+	/*
 	// ȸ������ ���̵� �ߺ�Ȯ�� ajax
 	@RequestMapping(value="/join/checkid", method=RequestMethod.POST, produces={"application/json; charset=utf-8"})
 	@ResponseBody
@@ -107,4 +111,5 @@ public class MemberController {
 			return "{\"result\": \"�̹� �����ϴ� ���̵� �Դϴ�. �ٽ� �Է����ּ���.\", \"state\": \"notAvailable\"}";
 		}
 	}
+	*/
 }

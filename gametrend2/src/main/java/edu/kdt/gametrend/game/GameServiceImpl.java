@@ -12,15 +12,15 @@ public class GameServiceImpl implements GameService {
 	@Autowired
 	@Qualifier("gamedao")
 	GameDAO dao;
-
+	
 	//@Override
 	//public List<GameDTO> gamelist(int page) {
 	//	return dao.gamelist(page);
 	//}
-
+	
 	@Override
-	public GameDTO gameDetail(int gameNo) {
-		return dao.gameDetail(gameNo);
+	public GameDTO gameDetail(int no) {
+		return dao.gameDetail(no);
 	}	
 	
 }
