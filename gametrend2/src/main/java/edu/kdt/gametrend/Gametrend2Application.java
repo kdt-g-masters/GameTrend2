@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import edu.kdt.gametrend.admin.AdminController;
+import edu.kdt.gametrend.admin.AdminDAO;
 import edu.kdt.gametrend.calendar.CalendarController;
 import edu.kdt.gametrend.calendar.CalendarDAO;
 import edu.kdt.gametrend.carousel.CarouselController;
@@ -32,6 +34,7 @@ import edu.kdt.gametrend.wishlist.WishlistDAO;
 @ComponentScan(basePackageClasses = ExplanationController.class)
 @ComponentScan(basePackageClasses = ReviewController.class)
 @ComponentScan(basePackageClasses = WishlistController.class)
+@ComponentScan(basePackageClasses = AdminController.class)
 
 @MapperScan(basePackageClasses = GameDAO.class)
 @MapperScan(basePackageClasses = CarouselDAO.class)
@@ -41,6 +44,7 @@ import edu.kdt.gametrend.wishlist.WishlistDAO;
 @MapperScan(basePackageClasses = ExplanationDAO.class)
 @MapperScan(basePackageClasses = ReviewDAO.class)
 @MapperScan(basePackageClasses = WishlistDAO.class)
+@MapperScan(basePackageClasses = AdminDAO.class)
 public class Gametrend2Application {
 
 	public static void main(String[] args) {

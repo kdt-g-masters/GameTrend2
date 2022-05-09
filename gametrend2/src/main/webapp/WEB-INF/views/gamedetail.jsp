@@ -11,7 +11,7 @@
 <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1" />
 <title>리그 오브 레전드</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link href="resources/css/sub.css" rel="stylesheet">
+<link href="/css/sub.css" rel="stylesheet">
 <script src="resources/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -133,7 +133,7 @@ $(document).ready(function(){
 		<div class="hidden" id="tema">
 			<div class="left" id="tema1">
 				<h1>${ gamedetail.name }</h1>
-				<img id="img1" src="/gametrend/resources/images/thumbnail/${ gamedetail.thumbnail }">
+				<img id="img1" src="/images/thumbnail/${ gamedetail.thumbnail }">
 				<p>${ gamedetail.platform }</p>
 				<p>${ gamedetail.releaseDate }</p>
 				<p>MOBA, AOS</p>
@@ -168,10 +168,10 @@ $(document).ready(function(){
 			<div style="float: left; margin-bottom: 0px; margin-right: 8px;">
 				<iframe width="390" height="315" src="${ gamedetail.trailer }" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
-			<img class="img2" src="/gametrend/resources/images/screenshot/${ gamedetail.screenshot1 }">
-			<img class="img2" src="/gametrend/resources/images/screenshot/${ gamedetail.screenshot2 }">
-			<img class="img2" src="/gametrend/resources/images/screenshot/${ gamedetail.screenshot3 }">
-			<img class="img2" src="/gametrend/resources/images/screenshot/${ gamedetail.screenshot4 }">
+			<img class="img2" src="/images/screenshot/${ gamedetail.screenshot1 }">
+			<img class="img2" src="/images/screenshot/${ gamedetail.screenshot2 }">
+			<img class="img2" src="/images/screenshot/${ gamedetail.screenshot3 }">
+			<img class="img2" src="/images/screenshot/${ gamedetail.screenshot4 }">
 		</div>
 		
 		<h3>리뷰</h3>

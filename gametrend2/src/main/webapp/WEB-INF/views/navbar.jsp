@@ -8,23 +8,11 @@
 <title>Game Trend</title>
 	<!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-	<link rel="stylesheet" href="/gametrend/resources/css/index.css"/>
-	<script src="/gametrend/resources/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" href="/css/index.css"/>
+	<script src="/jquery-3.6.0.min.js"></script>
 	<script>
 	$(document).ready(function(){
-		// Toggle the side navigation
-	    const sidebarToggle = $('sidebarToggle');
-	    if (sidebarToggle) {    	
-	        // Uncomment Below to persist sidebar toggle between refreshes
-	        if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-	            document.body.classList.toggle('sb-sidenav-toggled');
-	        }
-	        sidebarToggle.on('click', function(event) {
-	            event.preventDefault();
-	            document.body.classList.toggle('sb-sidenav-toggled');
-	            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-	        });
-	    }    	    
+		    	    
 	}
     $('#logoutBtn').on('click', function() {
     	<%
@@ -52,7 +40,7 @@
 	  <div class="container-fluid">
 		  <div class="d-flex justify-content-start">			
 		    <a class="navbar-brand " href="<%=request.getContextPath() %>">
-		    	<img src="resources/images/logo_sm.png" width="10%">	    	
+		    	<img src="/images/logo_sm.png" width="10%">	    	
 		    	<b>Game Trend</b>
 		    </a>	  	
 		  </div>	    	   
