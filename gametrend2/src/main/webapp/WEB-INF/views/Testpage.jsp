@@ -10,7 +10,15 @@
 
 설명 페이지로 이동할 거임 <br><br> 
 
-ㅇㅇ
+<input type="button" name="movetoexpla" value="설명 페이지로 이동(onclick)" onClick="location.href= 'http://localhost:8081/explanation' " /> 
+<br>
+<br>
+
+<form method="POST" action="/explanation1a" > 
+	<input type="hidden" name="thisis" value="PC" /> 
+	<input type="submit" name="loadbtnA" value="설명 페이지로 이동(POST)" />  
+</form>
+
 
 
 </body>

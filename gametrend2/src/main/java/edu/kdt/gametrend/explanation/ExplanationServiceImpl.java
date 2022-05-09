@@ -12,9 +12,9 @@ public class ExplanationServiceImpl implements ExplanationService {
 	ExplanationDAO dao; 
 	
 	@Override 
-	public ExplanationDTO loadExplanation() { 
+	public ExplanationDTO loadExplanation(ExplanationDTO dto) { 
 		
-		return dao.loadExplanation();
+		return dao.loadExplanation(dto);
 		
 	}; 
 	

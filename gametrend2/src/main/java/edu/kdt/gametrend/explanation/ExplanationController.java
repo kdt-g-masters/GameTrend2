@@ -22,10 +22,10 @@ public class ExplanationController {
 	
 	// 소개 페이지 호출 기본 
 	@RequestMapping(value="/explanation1a", method=RequestMethod.POST)
-		public ModelAndView explanationAction2() { 
+		public ModelAndView explanationAction2(ExplanationDTO dto) { 
 		
 		// 플랫폼 소개 로딩 
-		ExplanationDTO explanationdata = service.loadExplanation();
+		ExplanationDTO explanationdata = service.loadExplanation(dto);
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("flatExpla", explanationdata);

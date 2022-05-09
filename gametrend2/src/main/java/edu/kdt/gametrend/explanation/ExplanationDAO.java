@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository("ExplanationDAO")
 public interface ExplanationDAO {
 	
-	public ExplanationDTO loadExplanation(); 
+	public ExplanationDTO loadExplanation(ExplanationDTO dto); 
 
 }
