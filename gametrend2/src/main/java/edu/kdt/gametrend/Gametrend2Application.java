@@ -17,6 +17,8 @@ import edu.kdt.gametrend.promotion.PromotionController;
 import edu.kdt.gametrend.promotion.PromotionDAO;
 import edu.kdt.gametrend.review.ReviewController;
 import edu.kdt.gametrend.review.ReviewDAO;
+import edu.kdt.gametrend.wishlist.WishlistController;
+import edu.kdt.gametrend.wishlist.WishlistDAO;
 
 @SpringBootApplication
 @ComponentScan // 같은 패키지
@@ -26,6 +28,8 @@ import edu.kdt.gametrend.review.ReviewDAO;
 @ComponentScan(basePackageClasses = PromotionController.class)
 @ComponentScan(basePackageClasses = CalendarController.class)
 @ComponentScan(basePackageClasses = ReviewController.class)
+@ComponentScan(basePackageClasses = CalendarController.class)
+@ComponentScan(basePackageClasses = WishlistController.class)
 
 @MapperScan(basePackageClasses = GameDAO.class)
 @MapperScan(basePackageClasses = CarouselDAO.class)
@@ -33,6 +37,8 @@ import edu.kdt.gametrend.review.ReviewDAO;
 @MapperScan(basePackageClasses = PromotionDAO.class)
 @MapperScan(basePackageClasses = CalendarDAO.class)
 @MapperScan(basePackageClasses = ReviewDAO.class)
+@MapperScan(basePackageClasses = CalendarDAO.class)
+@MapperScan(basePackageClasses = WishlistDAO.class)
 public class Gametrend2Application {
 
 	public static void main(String[] args) {

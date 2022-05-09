@@ -7,16 +7,16 @@ public class GameDTO {
 	int no;
 	String name;
 	String explanation;
-	String platform = null;
+	String platform;
 	String thumbnail;
-	int views = 0;
-	double rating = 0;
+	int views;
+	double rating;
 	String releaseDate;
 	String trailer;
 	String screenshot1;
 	String screenshot2;
 	String screenshot3;
-	String screenshot4 = null;
+	String screenshot4;
 	
 	String genre;
 	
@@ -40,6 +40,8 @@ public class GameDTO {
 		this.screenshot3 = screenshot3;
 		this.screenshot4 = screenshot4;
 	}
+	
+	
 	public int getNo() {
 		return no;
 	}
