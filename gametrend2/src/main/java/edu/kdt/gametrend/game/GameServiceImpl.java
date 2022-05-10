@@ -15,8 +15,8 @@ public class GameServiceImpl implements GameService {
 	
 	
 	@Override
-	public List<GameDTO> toptenList(){
-		return dao.toptenList();
+	public List<GameDTO> toptenList(String platform){
+		return dao.toptenList(platform);
 	}
 	
 	
