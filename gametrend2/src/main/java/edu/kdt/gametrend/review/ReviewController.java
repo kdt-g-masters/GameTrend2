@@ -16,25 +16,6 @@ public class ReviewController {
 	@Qualifier("reviewservice")
 	ReviewService service;
 	
-	@RequestMapping("/subtest")
-	public String wishlisttest() {
-		return "sub";
-	}
-	
-	@RequestMapping(value = "/reviewalllist", produces = {"application/json;charset=utf-8"})
-	@ResponseBody
-	public List<ReviewDTO> selectAllReview() {
-		List<ReviewDTO> list = service.selectAllReview();
-		return list;
-	}
-	
-	@RequestMapping(value = "/selectcountreview", produces = {"application/json;charset=utf-8"})
-	@ResponseBody
-	public int selectCountReview() {
-		int reviewcount = service.selectCountReview();
-		return reviewcount;
-	}
-	
 	@RequestMapping(value = "/countreviewgameno", produces = {"application/json;charset=utf-8"})
 	@ResponseBody
 	public int countReviewgameNo(int gameNo) {
@@ -79,10 +60,10 @@ public class ReviewController {
 		System.out.println("����ǳ�");
 		int result = service.insertReview(dto);
 		if(result == 1) { 
-			return "{\"check\":\"���� �Է� �Ϸ�Ǿ����ϴ�.\"}"; 
+			return "{\"check\":\"리뷰 작성 완료\"}"; 
 		}
 		else {
-			return "{\"check\":\"���� �ۼ����� Ȯ���� �ּ���.\"}"; } 
+			return "{\"check\":\"리뷰 작성 실패\"}"; } 
 	}
 	
 }

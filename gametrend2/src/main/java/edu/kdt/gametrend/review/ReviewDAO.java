@@ -9,10 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository("reviewdao")
 public interface ReviewDAO {
 	
-	public List<ReviewDTO> selectAllReview();
-	
-	public int selectCountReview();
-	
 	public int countReviewgameNo(int gameNo);
 	
 	public List<ReviewDTO> selectReviewgameNo(int gameNo);

@@ -136,7 +136,7 @@ $(document).ready(function(){
 				<img id="img1" src="/images/thumbnail/${ gamedetail.thumbnail }">
 				<p>${ gamedetail.platform }</p>
 				<p>${ gamedetail.releaseDate }</p>
-				<p>MOBA, AOS</p>
+				<p></p>
 			</div>
 			
 			<div class="right" id="ratings" style="margin-bottom: 10px;">
@@ -187,7 +187,8 @@ $(document).ready(function(){
 					아이디:<input id="reviewuserId" type="text">
 					<input id="reviewgameNo" type="text" value="1" hidden>
 					별점:<input id="stars" type="text">
-					<input id="createAt" type="text" value="<%Date now = new Date(); SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); %><%=formatter.format(now) %>" hidden>
+					<%Date now = new Date(); SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); %>
+					<input id="createAt" type="text" value="<%=formatter.format(now) %>" hidden>
 					<textarea id="contents" rows="10" cols="70" style="width: 80%;"></textarea>
 					<br>
 					<input id="reviewinsert" type="button" value="리뷰 입력" style="background-color: #7244FE; color: #FFFFFF">

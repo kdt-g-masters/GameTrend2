@@ -14,16 +14,6 @@ public class ReviewServiceImpl implements ReviewService {
 	ReviewDAO dao;
 	
 	@Override
-	public List<ReviewDTO> selectAllReview() {
-		return dao.selectAllReview();
-	}
-
-	@Override
-	public int selectCountReview() {
-		return dao.selectCountReview();
-	}
-
-	@Override
 	public int insertReview(ReviewDTO dto) {
 		return dao.insertReview(dto);
 	}
