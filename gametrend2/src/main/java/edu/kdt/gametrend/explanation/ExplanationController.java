@@ -25,11 +25,13 @@ public class ExplanationController {
 		public ModelAndView explanationAction2(ExplanationDTO dto) { 
 		
 		// 플랫폼 소개 로딩 
-		ExplanationDTO explanationdata = service.loadExplanation(dto);
+//		ExplanationDTO explanationdata = service.loadExplanation(dto);
+		
+		String delivery="PC";
 		
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("flatExpla", explanationdata);
-		mv.setViewName("explanation"); 
+		mv.addObject("flatExpla", delivery);
+		mv.setViewName("Testpage"); 
 		return mv;
 		
 	}

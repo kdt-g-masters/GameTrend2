@@ -46,22 +46,30 @@
 		<br>
 
 		<!-- 페이지 포함 --> 
+		
+		현재 플랫폼 변수 테스트 1: ${flatExpla} <br> 
+		현재 플랫폼 변수 테스트 2 : <c:out value='${flatExpla}'/> <br>
+		<br>   
 	
 		<c:if test="${flatExpla == PC}"> 
 			<%@ include file="explanationP1.jspf" %> 
-		</c:if> 
+		</c:if>
+		<br> 
 		
 		<c:if test="${flatExpla == PS}"> 
 			<%@ include file="explanationP2.jspf" %>  
-		</c:if> 
+		</c:if>
+		<br> 
 		
 		<c:if test="${flatExpla == Xbox}"> 
 			<%@ include file="explanationP3.jspf" %>  
-		</c:if> 
+		</c:if>
+		<br> 
 
 		<c:if test="${flatExpla == NS}"> 
 			<%@ include file="explanationP4.jspf" %>  
-		</c:if> 	
+		</c:if>
+		<br> 	
 
 </body>
 
