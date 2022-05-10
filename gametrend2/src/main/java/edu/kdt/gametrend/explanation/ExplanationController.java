@@ -31,7 +31,7 @@ public class ExplanationController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("flatExpla", delivery);
-		mv.setViewName("Testpage"); 
+		mv.setViewName("explanation"); 
 		return mv;
 		
 	}
