@@ -9,7 +9,14 @@ public class MemberDTO {
 	int gender;
 	String phone;
 	String image;
+	String lastLogin;
 	
+	public String getLastLogin() {
+		return lastLogin;
+	}
+	public void setLastLogin(String lastLogin) {
+		this.lastLogin = lastLogin;
+	}
 	public String getId() {
 		return id;
 	}
