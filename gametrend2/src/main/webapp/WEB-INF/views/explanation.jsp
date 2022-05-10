@@ -22,25 +22,21 @@
 		ㅇㅇ<br><br><br>
 		
 		<form method="POST" action="/explanation1a" > 
-			<input type="hidden" name="thisis" value="PC" /> 
 			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />  
 		</form>
 		<br>
 		
 		<form method="POST" action="/explanation1b" > 
-			<input type="hidden" name="thisis" value="PS" />
 			<input type="submit" name="loadbtnB" value="PS와 PS 게임은?" />   
 		</form>
 		<br>
 		
 		<form method="POST" action="/explanation1c" > 
-			<input type="hidden" name="thisis" value="Xbox" />
 			<input type="submit" name="loadbtnC" value="Xbox와 Xbox 게임은?" />   
 		</form>
 		<br>
 		
-		<form method="POST" action="/explanation1d" > 
-			<input type="hidden" name="thisis" value="NS" />  
+		<form method="POST" action="/explanation1d" >  
 			<input type="submit" name="loadbtnD" value="NS와 NS 게임은?" /> 
 		</form>
 		<br>
@@ -54,22 +50,18 @@
 		<c:if test="${flatExpla == 'PC'}"> 
 			<%@ include file="explanationP1.jspf" %> 
 		</c:if>
-		<br> 
 		
 		<c:if test="${flatExpla == 'PS'}"> 
 			<%@ include file="explanationP2.jspf" %>  
 		</c:if>
-		<br> 
 		
 		<c:if test="${flatExpla == 'Xbox'}"> 
 			<%@ include file="explanationP3.jspf" %>  
 		</c:if>
-		<br> 
 
 		<c:if test="${flatExpla == 'NS'}"> 
 			<%@ include file="explanationP4.jspf" %>  
 		</c:if>
-		<br> 	
 
 </body>
 
