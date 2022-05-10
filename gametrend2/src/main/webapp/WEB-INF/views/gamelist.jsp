@@ -39,21 +39,22 @@
 				</ul>
 			</div>
 			<br><br>
+			
 		</div>
 	
 		<div class="container-fluid center">
 			<div class="row">
 				<% int i = 0; %>
-				<c:forEach items="${paginglist}" var="dto">
+				<c:forEach items="${gamelist}" var="dto">
 				<div class="col-md-4">
 					<div class="main-thumbnail-box">
-						<div><img src="resources/images/thumbnail/${dto.thumbnail}" class="main-thumbnail-img">
+						<div><img src="/images/thumbnail/${dto.thumbnail}" class="main-thumbnail-img">
 						</div> 
 						<div class="main-thumbnail-description">
 							<button class="btn btn-primary rank position-relative"><b>${dto.gameNo}</b>
 							</button><br>
 							<div class="title"><h4>${dto.name}</h4></div><br>
-							<span class="badge hashtag btn-outline-primary rounded-outline-pill">${dto.genre1}</span>
+							<span class="badge hashtag btn-outline-primary rounded-outline-pill">장르</span>
 						</div>
 					</div>
 				</div>
