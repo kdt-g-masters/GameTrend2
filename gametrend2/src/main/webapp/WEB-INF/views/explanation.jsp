@@ -24,7 +24,7 @@
 		<form method="POST" action="/explanation1a" > 
 			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />  
 		</form>
-		<br>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 		
 		<form method="POST" action="/explanation1b" > 
 			<input type="submit" name="loadbtnB" value="PS와 PS 게임은?" />   
