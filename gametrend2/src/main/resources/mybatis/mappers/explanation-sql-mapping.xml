@@ -6,7 +6,7 @@
 <mapper namespace="edu.kdt.gametrend.explanation.ExplanationDAO" > 
 
 	<select id="loadExplanation" parameterType="ExplanationDTO" resultType="ExplanationDTO"> 
-	
+		select platform from promotion
 	</select> 
 	 
 	

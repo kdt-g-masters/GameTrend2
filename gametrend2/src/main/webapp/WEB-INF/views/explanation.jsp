@@ -47,19 +47,19 @@
 
 		<!-- 페이지 포함 --> 
 	
-		<c:if test="${flatExpla.thisis == PC}"> 
+		<c:if test="${flatExpla == PC}"> 
 			<%@ include file="explanationP1.jspf" %> 
 		</c:if> 
 		
-		<c:if test="${flatExpla.thisis == PS}"> 
+		<c:if test="${flatExpla == PS}"> 
 			<%@ include file="explanationP2.jspf" %>  
 		</c:if> 
 		
-		<c:if test="${flatExpla.thisis == Xbox}"> 
+		<c:if test="${flatExpla == Xbox}"> 
 			<%@ include file="explanationP3.jspf" %>  
 		</c:if> 
 
-		<c:if test="${flatExpla.thisis == NS}"> 
+		<c:if test="${flatExpla == NS}"> 
 			<%@ include file="explanationP4.jspf" %>  
 		</c:if> 	
 
