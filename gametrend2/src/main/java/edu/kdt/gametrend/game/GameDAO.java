@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface GameDAO {
 	
 	//메인 - 플랫폼별 게임 Top10 리스트
-	public List<GameDTO> toptenList();
+	public List<GameDTO> toptenList(String platform);
 	
 	//게임리스트 페이징 조회
 	public List<GameDTO> gameList();	

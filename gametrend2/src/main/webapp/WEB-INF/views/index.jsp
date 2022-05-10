@@ -25,7 +25,7 @@
 	<%  request.setAttribute("toptenlist", request.getAttribute("toptenlist")); %>
 	<jsp:include page="main_gamelist.jsp" />
 	
-	<div class="space" style="height:500"></div> 
+	<div class="space" style="height:500px"></div> 
 	
 	<!-- footer -->
 	<%@ include file="footer.jsp" %>
