@@ -17,10 +17,17 @@ public class GameDTO {
 	String screenshot2;
 	String screenshot3;
 	String screenshot4;
-	
+	int ranking;
 	String genre;
 	
 	public GameDTO() {}
+	public GameDTO(int ranking, int no, String name, String thumbnail ) {
+		super();
+		this.ranking = ranking;
+		this.no = no;
+		this.name = name;
+		this.thumbnail = thumbnail;
+	}
 	public GameDTO(int no, String name, String explanation, String genre, String platform, 
 			String thumbnail, int views, double rating, String releaseDate, String trailer,
 			String screenshot1, String screenshot2, String screenshot3, String screenshot4) {
@@ -126,5 +133,12 @@ public class GameDTO {
 	public void setScreenshot4(String screenshot4) {
 		this.screenshot4 = screenshot4;
 	}
+	public int getRanking() {
+		return ranking;
+	}
+	public void setRanking(int ranking) {
+		this.ranking = ranking;
+	}
+	
 
 }
