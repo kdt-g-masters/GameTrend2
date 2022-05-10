@@ -73,29 +73,47 @@
 	color: #716F6F;
 }
 
-#box2 a:hover  {
+#box2 a:hover {
 	color: white;
 	text-decoration: none;
 }
-#box2 a button{
-	display: hidden;
+#box2 a .rank{
+	display: none;
+	
+	
+}
+#box2 a:hover .rank{
+	display: inline-block;
 	position: relative;
-	top: 10px;
-	left: 10px;
+	top: -80px;
+	left: -240px;
 	z-index: 10;
-	
 }
-#box2 a:hover button{
-	display: inherit;
-	
+#box2 a:hover .btn{
+	margin: 0;
 }
-#box2 h4 {
-	display: inline;
+#box2 h3 {
+	position:relative;
+	left: -250px;
+	display:none;
+	color: #7244FE;
 	font-weight: bold;
 	text-align: center;
 	line-height: 100%;
+	z-index:10;
 }
-#box2 h4:hover{display: inline;}
+#box2 .badge{
+	position:relative;
+	left: -250px;
+	display: none;
+	
+}
+#box2 a:hover h4{
+	display: inline;
+	position: relative;
+}
+#box2 a:hover .badge{
+}
 #gameListCards {
 	overflow-x: hidden;
 	width: 80vw;
@@ -115,8 +133,8 @@
 .shadow {
 	box-shadow: 5px 5px 10px;	
 }
-#image{
-filter: darkness(85%);
+.card-img:hover{
+	filter: grayscale(80%);
 }
 .gameCardStyle {
 	width: 15em;
@@ -129,12 +147,6 @@ filter: darkness(85%);
 .cardTextCenter {
 	text-align: center;
 	margin-top: 3em;
-}
-#gameList{
-display: inline-block;
-text-align: center;
-margin: 0 auto;
-padding : 10px;
 }
 
 </style>
@@ -150,15 +162,15 @@ padding : 10px;
 				<div id="gameListCards">
 					<c:forEach items="${ toptenlist }" var="dto">
 						<div class="inline" >
-							
-								<button class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></button>
 								<a href="/gamedetail?no=${ dto.no }" >
-						      	<img src="/images/thumbnail/${dto.thumbnail}" class="card-img text-white shadow gameCardStyle" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"> 				      
-						     	</a><%-- <h4 class="card-body  "> ${ dto.name } </h4> --%>
-						     	<div class="card-img-overlay">
-									<h5 class="card-title inline cardTextCenter">${ dto.name } </h5>
-									<span class="badge hashtag btn-outline-primary rounded-outline-pill">장르</span>
-								</div>
+							      	<img src="/images/thumbnail/${dto.thumbnail}" class="card-img text-white shadow gameCardStyle" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"/> 				      
+							     	<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
+									<div class="card-title inline cardTextCenter">
+										<%-- <h3>${ dto.name } </h3> --%>
+										<!-- <div class="badge hashtag btn-outline-primary rounded-outline-pill">장르</div> -->
+									</div>
+								</a><%-- <h4 class="card-body  "> ${ dto.name } </h4> --%>
+						     	
 						    
 						</div>
 					</c:forEach>
