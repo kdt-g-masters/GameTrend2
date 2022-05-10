@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+    컴퓨터와 콘솔 게임기 에 대하여 : <br> 
+    ㅁㅁㅁ
+    <br>
+    <br>
+    
     PC 소개 이미지 : <br> 
     <img src="images/jm/PC_intro.jpg" width="400" height="250" alt="no search image"> 
     <br> 
