@@ -3,13 +3,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.kdt.gametrend.game.GameDAO" >
+	<select id="toptenList" resultType="gamedto">
+		select @rank := @rank + 1 as ranking, no, name, thumbnail
+		from game where platform = "pc" and (@rank := 0) = 0 order by views desc, rating desc limit 10;
+	</select>
 
-	<select id="paginglist" resultType="gamedto">
-		select gameNo, name, genre1, rating, thumbnail 
-		from game where platform='pc' limit
-		<foreach collection="array" item="num" separator=",">
-			#{num}
-		</foreach>
+	<select id="gameList" resultType="gamedto">
+		select  no, name, thumbnail, views, rating 
+		from game where platform="pc" order by views desc, rating desc limit 10;
 	</select>
 	
 	<!-- 게임 상세 페이지 -->

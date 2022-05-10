@@ -13,14 +13,22 @@ public class GameServiceImpl implements GameService {
 	@Qualifier("gamedao")
 	GameDAO dao;
 	
-	//@Override
-	//public List<GameDTO> gamelist(int page) {
-	//	return dao.gamelist(page);
-	//}
+	
+	@Override
+	public List<GameDTO> toptenList(){
+		return dao.toptenList();
+	}
+	
+	
 	
 	@Override
 	public GameDTO gameDetail(int no) {
 		return dao.gameDetail(no);
 	}	
+	
+	@Override
+	public List<GameDTO> gameList() {
+		return dao.gameList();
+	}
 	
 }
