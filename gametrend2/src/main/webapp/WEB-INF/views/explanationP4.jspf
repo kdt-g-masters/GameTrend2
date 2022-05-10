@@ -1,5 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	NS 관련 설명 	
+    NS 소개 이미지 : <br> 
+    <img src="images/jm/NS_intro.jpg" width="400" height="250" alt="no search image"> 
+    <br> 
+    <br>
+
+	NS 소개 설명 : <br> 
+	ㅁㅁㅁ
+	<br>
+	<br>  
+	
+	NS 게임 이미지 : <br>  
+	<img src="images/jm/NS_games.png" width="400" height="250" alt="no search image">
+	<br>
+	<br> 
+	
+	NS 게임 설명 : <br> 
+	ㅁㅁㅁ 
+	<br>
+	<br> 
 

@@ -1,5 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    PC 소개 이미지 : <br> 
+    <img src="images/jm/PC_intro.jpg" width="400" height="250" alt="no search image"> 
+    <br> 
+    <br>
 
-	PC 관련 설명 	
+	PC 소개 설명 : <br> 
+	ㅁㅁㅁ
+	<br>
+	<br>  
+	
+	PC 게임 이미지 : <br>  
+	<img src="images/jm/PC_games.jpg" width="400" height="250" alt="no search image">
+	<br>
+	<br> 
+	
+	PC 게임 설명 : <br> 
+	ㅁㅁㅁ 
+	<br>
+	<br> 
 

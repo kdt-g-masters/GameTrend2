@@ -1,5 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	Xbox 관련 설명 	
+    Xbox 소개 이미지 : <br> 
+    <img src="images/jm/Xbox_intro.jpg" width="400" height="250" alt="no search image"> 
+    <br> 
+    <br>
+
+	Xbox 소개 설명 : <br> 
+	ㅁㅁㅁ
+	<br>
+	<br>  
+	
+	Xbox 게임 이미지 : <br>  
+	<img src="images/jm/Xbox_games.png" width="400" height="250" alt="no search image">
+	<br>
+	<br> 
+	
+	Xbox 게임 설명 : <br> 
+	ㅁㅁㅁ 
+	<br>
+	<br> 
 
