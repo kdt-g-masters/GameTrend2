@@ -18,15 +18,15 @@ public class ReviewController {
 	
 	@RequestMapping(value = "/countreviewgameno", produces = {"application/json;charset=utf-8"})
 	@ResponseBody
-	public int countReviewgameNo(int gameNo) {
-		int countreview = service.countReviewgameNo(gameNo);
+	public int countReviewgameNo(int game_no) {
+		int countreview = service.countReviewgameNo(game_no);
 		return countreview;
 	}
 	
 	@RequestMapping(value = "/reviewgameno", produces = {"application/json;charset=utf-8"})
 	@ResponseBody
-	public List<ReviewDTO> selectgameNo(int gameNo) {
-		List<ReviewDTO> list = service.selectReviewgameNo(gameNo);
+	public List<ReviewDTO> selectgameNo(int game_no) {
+		List<ReviewDTO> list = service.selectReviewgameNo(game_no);
 		return list;
 	}
 	
@@ -57,7 +57,6 @@ public class ReviewController {
 	@RequestMapping(value = "/insertReview", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
 	@ResponseBody 
 	public String insertReview(ReviewDTO dto) {
-		System.out.println("����ǳ�");
 		int result = service.insertReview(dto);
 		if(result == 1) { 
 			return "{\"check\":\"리뷰 작성 완료\"}"; 
