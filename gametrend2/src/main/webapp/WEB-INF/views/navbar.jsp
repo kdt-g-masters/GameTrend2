@@ -12,14 +12,13 @@
 	<script src="/jquery-3.6.0.min.js"></script>
 	<script>
 	$(document).ready(function(){
-		    	    
-	}
-    $('#logoutBtn').on('click', function() {
-    	<%
-			// session.removeAttribute("sessionid");
-    		//response.sendRedirect("/gametrend");
-		%>
-    });	
+	    $('#logoutBtn').on('click', function() {
+	    	<%
+				// session.removeAttribute("sessionid");
+	    		//response.sendRedirect("/gametrend");
+			%>
+	    });	
+    });
 	</script>
 	<style>
 		nav {
