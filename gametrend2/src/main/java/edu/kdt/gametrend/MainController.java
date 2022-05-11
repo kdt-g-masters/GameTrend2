@@ -29,8 +29,14 @@ public class MainController {
 	@RequestMapping(value ="/", method = RequestMethod.GET) 
 	public ModelAndView toptenList() {
 		ModelAndView mv = new ModelAndView();
-		List<GameDTO> toptenlist = service.toptenList();
-		mv.addObject("toptenlist",toptenlist);
+		List<GameDTO> pcTopten = service.toptenList("pc");
+		List<GameDTO> psTopten = service.toptenList("PlayStation");
+		List<GameDTO> xboxTopten = service.toptenList("Xbox");
+		List<GameDTO> switchTopten = service.toptenList("switch");
+		mv.addObject("pcTopten", pcTopten);
+		mv.addObject("psTopten", psTopten);
+		mv.addObject("xboxTopten", xboxTopten);
+		mv.addObject("switchTopten", switchTopten);
 		mv.setViewName("index");//VIEW
 		return mv;
 	}

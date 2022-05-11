@@ -15,24 +15,33 @@ public class GameController {
 	@Qualifier("gameservice")
 	GameService service;
 	
-	
-//	@RequestMapping("/list") 
-//	public ModelAndView gamelist() { 
-//		ModelAndView mv = new ModelAndView(); 
-//		List<GameDTO> list = service.gamelist();
-//	    mv.addObject("gamelist",list); 
-//	    mv.addObject("name", "게임리스트");
-//	    mv.setViewName("index"); 
-//	    return mv;
-//	}
+	//인기게임순위 페이지
+	@RequestMapping("/gamelist") 
+	public ModelAndView gamelist(@RequestParam(required = false) String platform, @RequestParam(required = false) Integer page) { 
+		if(platform == null) platform = "pc";
+		if(page == null) page = 1;
+		int [] limit = new int[] {(page-1)*9, 9};
+		ModelAndView mv = new ModelAndView(); 
+		List<GameDTO> list = service.gameList(platform, limit);
+	    mv.addObject("gamelist",list); 
+	    mv.setViewName("gamelist"); 
+	    return mv;
+	}
 	 
 	
 	//게임 상세 페이지
 	@RequestMapping("/gamedetail")
 	public ModelAndView gameDetail(int no) {
 		ModelAndView mv = new ModelAndView();
+		
+		//게임 상세 페이지
 		GameDTO gamedetail = service.gameDetail(no);
 		mv.addObject("gamedetail", gamedetail);
+		
+		//게임 장르
+		List<GenreDTO> list = service.gameGenreView(no);
+		mv.addObject("gamegenre", list);
+		
 		mv.setViewName("gamedetail");
 		return mv;
 	}

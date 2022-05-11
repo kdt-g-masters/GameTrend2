@@ -4,28 +4,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class WishlistDTO {
-	int wishlistNo;
-	String userId;
-	int gameNo;
+	String member_id;
+	int game_no;
 	
-	public int getWishlistNo() {
-		return wishlistNo;
+	public String getMember_id() {
+		return member_id;
 	}
-	public void setWishlistNo(int wishlistNo) {
-		this.wishlistNo = wishlistNo;
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
-	public String getUserId() {
-		return userId;
+	public int getGame_no() {
+		return game_no;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setGame_no(int game_no) {
+		this.game_no = game_no;
 	}
-	public int getGameNo() {
-		return gameNo;
-	}
-	public void setGameNo(int gameNo) {
-		this.gameNo = gameNo;
-	}
-	
 	
 }

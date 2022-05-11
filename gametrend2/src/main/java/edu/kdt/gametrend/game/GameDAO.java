@@ -3,8 +3,6 @@ package edu.kdt.gametrend.game;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Mapper
@@ -12,15 +10,16 @@ import org.springframework.stereotype.Repository;
 public interface GameDAO {
 	
 	//메인 - 플랫폼별 게임 Top10 리스트
-	public List<GameDTO> toptenList();
+	public List<GameDTO> toptenList(String platform);
 	
 	//게임리스트 페이징 조회
-	public List<GameDTO> gameList();	
+	public List<GameDTO> gameList(String platform, int [] limit);	
 	
 	//게임 상세 페이지
 	public GameDTO gameDetail(int no);
 	
-	
+	//게임 상세 페이지 장르 보여주기
+	public List<GenreDTO> gameGenreView(int no);
 	
 //	public int totalcount() {
 //		return session.selectOne("totalgamecnt");

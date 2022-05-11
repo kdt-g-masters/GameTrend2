@@ -12,7 +12,7 @@ public class WishlistServiceImpl implements WishlistService {
 	@Autowired
 	@Qualifier("wishlistDAO")
 	WishlistDAO dao;
-
+	
 	/*
 	@Override
 	public List<WishlistDTO> selectPagingWishlist(int[] limit) {
@@ -37,5 +37,20 @@ public class WishlistServiceImpl implements WishlistService {
 		return dao.selectAll();
 	}
 	*/
+	
+	@Override
+	public int wishlistCheck(WishlistDTO dto) {
+		return dao.wishlistCheck(dto);
+	}
+	
+	@Override
+	public int insertWishlist(WishlistDTO dto) {
+		return dao.insertWishlist(dto);
+	}
+
+	@Override
+	public int deleteWishlist(WishlistDTO dto) {
+		return dao.deleteWishlist(dto);
+	}
 	
 }

@@ -15,5 +15,6 @@
 		<typeAlias type="edu.kdt.gametrend.promotion.PromotionDTO" alias="promotiondto"/>
 		<typeAlias type="edu.kdt.gametrend.calendar.CalendarDTO" alias="calendardto"/>
 		<typeAlias type="edu.kdt.gametrend.admin.AdminDTO" alias="admindto"/>
+		<typeAlias type="edu.kdt.gametrend.game.GenreDTO" alias="genredto"/>
 	</typeAliases>
 </configuration>
