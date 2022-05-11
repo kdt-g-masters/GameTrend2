@@ -15,19 +15,11 @@
 	<script src="/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("ul.dropdown-menu > li > a").on('click',function(i){
-				$('#dropdownMenuLink').html($(this).text());
-				$("ul.dropdown-menu > li > a").removeClass('active');
-				$('.paging li').removeClass('active');
+			$("section nav a").on('click',function(){
+				$("section nav a").removeClass('active');
 				$(this).addClass('active');
-				$('.paging li:eq(0)').addClass('active');			
-				
 			}); 
-			
-			$('.main-thumbnail-box, .rank').on('click',function(){
-				location.href = '<%=request.getContextPath() %>/subtest';
-			});
-			
+		
 			$('.paging li').on('click',function(){
 				$('.paging li').removeClass('active');
 				$(this).addClass('active');
@@ -37,11 +29,67 @@
 			
 		});//ready end
 	</script>
+	<style>
+	/* .main-nav li:first-child{
+			color:white;
+			background-color: #7244FE;
+		} */
+		.main-thumbnail-box a:link,.main-thumbnail-box a:visited,.main-thumbnail-box a:active{
+			color: gray;
+		}
+		.main-thumbnail-box a:hover{
+			color: white;
+		}
+		#title {
+			width:  15vw;
+			padding: 20px auto;
+			border: black;
+			font-size: 1.3em;
+			font-weight: bold;
+			margin: 0 auto;
+		}
+		section nav{
+			text-align: center;
+			margin-top: 4vh;
+			margin-bottom: 7vh;
+		}
+		section nav a{
+			width: 10em;
+			/* padding: 10px;
+			margin: 10px; */
+			position: relative;
+			color: #4a4a4a;
+			margin: 5px 20px 10px;
+			padding: 0 20px 0;
+			font-size: 1.3em;
+			font-weight: lighter;
+		}
+		section nav a:active, section nav a:visited, section nav a:link{
+			color: #4a4a4a;
+		}
+		section nav a:hover, section nav a:active{
+			font-weight: bold;
+		}
+		
+	</style>
 </head>
 <body>
 	<!-- navbar -->
 	<%@ include file="navbar.jsp" %>   
 	<!-- gamelist --> 
+	<div class="space" style="height:150px"></div>  
+	<section id="section">
+		<div class="col-lg-12 mainTitle d-flex">
+			<a id="title" class="btn btn-primary btn-lg" href="">인기게임 순위</a>
+		</div>	
+				
+		<nav>
+			<a href="?platform=pc" id="tab1">PC</a>
+			<a href="?platform=PlayStation" id="tab2">PS</a>
+			<a href="?platform=Xbox" id="tab3">XBox</a>
+			<a href="?platform=Switch" id="tab4">Switch</a>
+		</nav>
+	</section>
 	 <div class="main-thumbnail-part">
 	  	<div class="container-fluid">
 			<div class="btn-group dropdown d-flex col-md-2">
@@ -49,9 +97,9 @@
 					PC</a>
 	  			<ul class="dropdown-menu center" id="platform" aria-labelledby="dropdownMenuLink">
 	    			<li value="pc" class="active" ><a class="dropdown-item" id="pc" href="<%=request.getContextPath() %>/list?page=1">PC</a></li>
-	    			<li value="PlayStation"><a class="dropdown-item" id="PlayStation" href="#">Play Station</a></li>
-	    			<li value="Xbox"><a class="dropdown-item" id="Xbox" href="#">Xbox</a></li>
-	    			<li value="Switch"><a class="dropdown-item" id="Switch" href="#">Switch</a></li>
+	    			<li value="PlayStation" class="active"><a class="dropdown-item" id="PlayStation" href="#">Play Station</a></li>
+	    			<li value="Xbox" class="active"><a class="dropdown-item" id="Xbox" href="#">Xbox</a></li>
+	    			<li value="Switch" ><a class="dropdown-item" id="Switch" href="#">Switch</a></li>
 				</ul>
 			</div>
 			<br><br>
@@ -64,14 +112,20 @@
 				<c:forEach items="${gamelist}" var="dto">
 				<div class="col-md-4">
 					<div class="main-thumbnail-box">
+						<a href="/gamedetail?no=${ dto.no }" >
 						<div><img src="/images/thumbnail/${dto.thumbnail}" class="main-thumbnail-img">
 						</div> 
 						<div class="main-thumbnail-description">
 							<button class="btn btn-primary rank position-relative"><b>${dto.ranking}</b>
 							</button><br>
 							<div class="title"><h4>${dto.name}</h4></div><br>
-							<span class="badge hashtag btn-outline-primary rounded-outline-pill">장르</span>
+							<c:forEach items="${genrelist}" var="genredto">
+								<c:if test="${ genredto.game_no == dto.no }">
+									<span class="badge hashtag btn-outline-primary rounded-outline-pill">${genredto.genre}</span>
+								</c:if>
+							</c:forEach>
 						</div>
+						</a>
 					</div>
 				</div>
 				<% ++i;

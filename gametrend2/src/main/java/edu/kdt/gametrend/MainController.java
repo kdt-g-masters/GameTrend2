@@ -36,8 +36,8 @@ public class MainController {
 		List<GenreDTO> psGenreTopten = service.genreToptenList("PlayStation");
 		List<GameDTO> xboxTopten = service.toptenList("Xbox");
 		List<GenreDTO> xboxGenreTopten = service.genreToptenList("Xbox");
-		List<GameDTO> switchTopten = service.toptenList("switch");
-		List<GenreDTO> switchGenreTopten = service.genreToptenList("switch");
+		List<GameDTO> switchTopten = service.toptenList("Switch");
+		List<GenreDTO> switchGenreTopten = service.genreToptenList("Switch");
 		mv.addObject("pcTopten", pcTopten);
 		mv.addObject("pcGenreTopten", pcGenreTopten);
 		mv.addObject("psTopten", psTopten);
