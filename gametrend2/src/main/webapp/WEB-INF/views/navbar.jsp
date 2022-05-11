@@ -32,34 +32,33 @@
 		li{
 			float: left;
 		    margin: 0 0 0 0;
-		    padding: 0 2vw 0;
+		    padding: 0.25vh 1vw 0.25vh;
 		    border-radius : 2em;
-		    
-		} 		
+		} 	 	
 		li:hover {
 			color:white;
 			background-color: #7244FE;
 		}
-		li:hover a{
-			color:white;
+		li:hover > a.active {
+			color: white;
 		} 
-		nav-item a{
-			text-align: center;
-		}
 		.navbar-brand{
 			margin:0;
 		}
 		.main-nav .navbar-nav{
 			display: inline-block;
+			text-align: center;
 		}
-
+		.main-nav li{
+			width: 10em;
+		}
 	</style>
 </head>
 <body>
 	<nav class="navbar navbar-light bg-light fixed-top">
 	  <div class="container-fluid">
 		  <div class="d-flex justify-content-start">			
-		    <a class="navbar-brand " href="<%=request.getContextPath() %>">
+		    <a class="navbar-brand " href="/">
 		    	<img src="/images/logo_sm.png" width="10%">	    	
 		    	<b>Game Trend</b>
 		    </a>	  	

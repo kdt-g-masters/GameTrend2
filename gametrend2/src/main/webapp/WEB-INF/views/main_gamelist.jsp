@@ -77,24 +77,13 @@
 	margin: 0;
 }
 #box2 h3 {
-position: static;
-	left: -250px;
-	display:none;
-	color: #7244FE;
+
 	font-weight: bold;
 	text-align: center;
 	line-height: 100%;
 	z-index:10;
 }
-#box2 a:hover h3{
-	display: inline;
-	position: static;
-	left: -250px;
-}
-#box2 img:hover + .card-img-overlay{
-	display: inline;
-	position: relative;
-}
+
 #gameListCards {
 	overflow-x: hidden;
 	width: 80vw;
@@ -131,6 +120,18 @@ position: static;
 .card{
 	margin:1em;
 }
+.content{
+	display: none;
+	position: relative;
+	left: -250px;
+	
+}
+#box2 a:hover .content{
+	display: inline-block;
+}
+/* #box2 img:hover + .card-img-overlay{
+	position: relative ;
+} */
 </style>
 <body>
 	<!-- PC -->
@@ -144,11 +145,15 @@ position: static;
 			<c:forEach items="${ pcTopten }" var="dto">
 			  <a href="/gamedetail?no=${ dto.no }" >
 				<img src="/images/thumbnail/${dto.thumbnail}" class="card-img text-white shadow gameCardStyle" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"/> 			      
-				  <div class="card-img-overlay">
+				  <div class="card-img-overlay content">
 					<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
 					<div class="card-title cardTextCenter position-relative">
 					  <h3>${ dto.name } </h3>
-					  <!-- <div class="badge hashtag btn-outline-primary rounded-outline-pill">장르</div> -->
+					  <c:forEach items="${ pcGenreTopten }" var="genredto">
+					  	<c:if test="${ genredto.game_no == dto.no }" >
+					    	<div class="badge hashtag btn-outline-primary rounded-outline-pill">${ genredto.genre }</div>
+					    </c:if>
+					  </c:forEach>
 					</div>
 				  </div>
 			  </a>
@@ -172,6 +177,11 @@ position: static;
 						  <div class="card-img-overlay" style="display:none;">
 						  	<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
 						    <h3 class="card-title">${dto.name}</h3>
+						    <c:forEach items="${ psGenreTopten }" var="genredto">
+							  <c:if test="${ genredto.game_no == dto.no }" >
+							    <div class="badge hashtag btn-outline-primary rounded-outline-pill">${ genredto.genre }</div>
+							  </c:if>
+							</c:forEach>
 						  </div>
 						</div>
 					  </a>
@@ -195,6 +205,11 @@ position: static;
 						  <div class="card-img-overlay" style="display:none;">
 						  	<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
 						    <h3 class="card-title">${dto.name}</h3>
+						    <c:forEach items="${ xboxGenreTopten }" var="genredto">
+							  <c:if test="${ genredto.game_no == dto.no }" >
+							    <div class="badge hashtag btn-outline-primary rounded-outline-pill">${ genredto.genre }</div>
+							  </c:if>
+							</c:forEach>
 						  </div>
 						</div>
 					  </a>
@@ -218,6 +233,11 @@ position: static;
 						  <div class="card-img-overlay" style="display:none;">
 						  	<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
 						    <h3 class="card-title">${dto.name}</h3>
+						    <c:forEach items="${ psGenreTopten }" var="genredto">
+							  <c:if test="${ genredto.game_no == dto.no }" >
+							    <div class="badge hashtag btn-outline-primary rounded-outline-pill">${ genredto.genre }</div>
+							  </c:if>
+							</c:forEach>
 						  </div>
 						</div>
 					  </a>
