@@ -1,5 +1,7 @@
 package edu.kdt.gametrend.promotion;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -20,11 +22,17 @@ public class PromotionController {
 			return "promotion"; 
 		}
 	
+	// 할인 이벤트 로딩 
 	@RequestMapping(value="/promotion", method=RequestMethod.POST)
 	public ModelAndView promotionAction2() {
+		
+		List<PromotionDTO> promotiondata = service.loadPromotionEvent(); 
+		
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("Event", promotiondata); 
 		mv.setViewName("promotion");
 		return mv;
+		
 	}
 		
 }

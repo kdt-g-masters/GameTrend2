@@ -13,7 +13,7 @@
 
 	});
 </script>
-<title>할인 페이지</title>
+<title>할인정보 안내 페이지</title>
 </head>
 
 <body>

@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository("PromotionDAO")
 public interface PromotionDAO {
 	
-	public List<PromotionDTO> promotionlist(); 
+	public List<PromotionDTO> loadPromotionEvent(); 
 
 }

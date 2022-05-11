@@ -26,7 +26,10 @@
 		현재 플랫폼 변수 테스트 2 : <c:out value='${flatExpla}'/> <br>
 		<br>  
 
-
+<form method="POST" action="/promotion" > 
+	<input type="submit" name="movebtnA" value="할인 페이지로 이동(POST)" />  
+</form>
+<br> 
 
 </body>
 </html>
