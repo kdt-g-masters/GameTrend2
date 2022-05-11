@@ -72,4 +72,29 @@ public class WishlistController {
 		return mv;
 	}
 	*/
+	
+	//위시리스트 기능
+	@RequestMapping(value = "/gamewishlist", produces = {"application/json;charset=utf-8"})
+	@ResponseBody
+	public int gameWishlist(WishlistDTO dto) throws Exception {
+		//위시리스트 중복 확인
+		int wishlistcheck = service.wishlistCheck(dto);
+		System.out.println(wishlistcheck);
+		if(wishlistcheck == 0) {
+			service.insertWishlist(dto);
+		}
+		else if(wishlistcheck == 1) {
+			service.deleteWishlist(dto);
+		}
+		return wishlistcheck;
+	}
+	
+	//게임 상세 페이지에서 위시리스트 확인
+	@RequestMapping(value = "/gamewishlistview", produces = {"application/json;charset=utf-8"})
+	@ResponseBody
+	public int gameWishlistView(WishlistDTO dto) {
+		int wishlistcheck = service.wishlistCheck(dto);
+		return wishlistcheck;
+	}
+	
 }

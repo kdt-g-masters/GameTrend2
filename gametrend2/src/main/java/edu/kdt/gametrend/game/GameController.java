@@ -2,15 +2,12 @@ package edu.kdt.gametrend.game;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-//import com.gmasters.gametrend.game.GameDTO;
 
 @Controller
 public class GameController {
@@ -36,10 +33,15 @@ public class GameController {
 	@RequestMapping("/gamedetail")
 	public ModelAndView gameDetail(int no) {
 		ModelAndView mv = new ModelAndView();
+		
+		//게임 상세 페이지
 		GameDTO gamedetail = service.gameDetail(no);
-		List<GenreDTO> list = service.gameGenreView(no);
 		mv.addObject("gamedetail", gamedetail);
+		
+		//게임 장르
+		List<GenreDTO> list = service.gameGenreView(no);
 		mv.addObject("gamegenre", list);
+		
 		mv.setViewName("gamedetail");
 		return mv;
 	}

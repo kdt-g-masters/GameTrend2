@@ -28,4 +28,13 @@ public interface WishlistDAO {
 		return session.selectList("selectAllWishlist");
 	}
 	*/
+	
+	//위시리스트에 동일 게임 있는지 확인
+	public int wishlistCheck(WishlistDTO dto);
+	
+	//위시리스트 게임 추가
+	public int insertWishlist(WishlistDTO dto);
+	
+	//위시리스트 게임 삭제
+	public int deleteWishlist(WishlistDTO dto);
 }

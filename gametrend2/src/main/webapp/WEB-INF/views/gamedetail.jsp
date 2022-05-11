@@ -8,63 +8,125 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1" />
-<title>리그 오브 레전드</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>${ gamedetail.name }</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="/css/sub.css" rel="stylesheet">
-<script src="resources/jquery-3.6.0.min.js"></script>
+<script src="/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function(){
+	//세션 아이디 값 가져오기
+	var memberid = '<%= String.valueOf(session.getAttribute("sessionid")) %>';
+	
+	//리뷰 작성
 	$("#reviewinsert").on('click', function () {
 		$.ajax({
 			url: '<%=request.getContextPath() %>/insertReview' ,
-			data: {'reviewNo':$("#reviewNo").val(), 'userId':$("#reviewuserId").val(), 'gameNo':$("#reviewgameNo").val(), 'contents':$("#contents").val(), 'stars':$("#stars").val(), 'createAt':$("#createAt").val() } ,
+			data: {'no':$("#reviewNo").val(), 'member_id':$("#reviewuserId").val(), 'game_no':${param.no}, 'contents':$("#contents").val(), 'stars':$("#stars").val(), 'date':$("#createAt").val() } ,
 			type: 'POST' ,
 			dataType: 'json',
 			success: function (a) {
 				alert(JSON.stringify(a));
+				<%--
+				//리뷰 작성 버튼 클릭 시 리뷰수 반영
 				$.ajax({
 					url: '<%=request.getContextPath() %>/countreviewgameno',
-					data: {'gameNo':1} ,
+					data: {'game_no':${param.no}} ,
 					dataType: 'json',
 					success: function(countreview){
 						$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
 					}
 				});
 				
+				//리뷰 작성 성공시 리뷰 추가
 				$.ajax({
 					url: '<%=request.getContextPath() %>/reviewgameno',
-					data: {'gameNo':1} ,
+					data: {'game_no':${param.no}} ,
 					dataType: 'json',
 					success: function (list) {
 						var j = (list.length - 1);
 						$('#review1').append("<div style=\"background-color: black;\"><p>" + list[0].userId + "<br>" +list[0].createAt + "</p><p>" + list[0].contents + "</p></div>");
 					}
 				});
-				
+				--%>
+				location.reload();
 			}//success end
 		});//ajax end
 	});//on end
 	
+	//게임 상세 페이지 이동시 리뷰수 반영
 	$.ajax({
 		url: '<%=request.getContextPath() %>/countreviewgameno',
-		data: {'gameNo':1} ,
+		data: {'game_no':${param.no}} ,
 		dataType: 'json',
 		success: function(countreview){
 			$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
 		}
 	});//ajax end
 	
+	//게임 상세 페이지 이동시 리뷰 보여주기
 	$.ajax({
 		url: '<%=request.getContextPath() %>/reviewgameno',
-		data: {'gameNo':1} ,
+		data: {'game_no':${param.no}} ,
 		dataType: 'json',
 		success: function (list) {
 			for(var i = 0; i < list.length; i++){
 				$('#review1').append("<div style=\"background-color: black;\"><p>" + list[i].userId + "<br>" +list[i].createAt + "</p><p>" + list[i].contents + "</p></div>");
 			}
 		}
-	});
+	});//ajax end
+	
+	//위시리스트 확인
+	$.ajax({
+		url: '<%=request.getContextPath() %>/gamewishlistview', 
+		data: {'member_id':memberid, 'game_no':${param.no}}, 
+		dataType: 'json', 
+		success: function (wishlistcheck) {
+			if(wishlistcheck == 0){
+				alert("0");
+				var like = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">'
+					like += '<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>'
+					like += "</svg>"
+				$("#wishlist").html(like);
+			}
+			else if(wishlistcheck == 1){
+				alert("1");
+				var like = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">'
+					like += '<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>'
+					like += "</svg>"
+				$("#wishlist").html(like);
+			}
+		}//success end
+	});//ajax end
+	
+	//게임 위시리스트 기능
+	$("#wishlist").on('click', function () {
+		if(memberid == "null"){
+			alert("로그인이 필요한 항목입니다.");
+			location.reload("/login");
+		}
+		else{
+			$.ajax({
+				url: '<%=request.getContextPath() %>/gamewishlist', 
+				data: {'member_id':memberid, 'game_no':${param.no}}, 
+				dataType: 'json', 
+				error: function () {
+					alert("에러");
+				}, 
+				success: function (wishlistcheck) {
+					if(wishlistcheck == 0){
+						alert("wishlist에 추가되었습니다.");
+						location.reload();
+					}
+					else if(wishlistcheck == 1){
+						alert("wishlist에서 삭제되었습니다.");
+						location.reload();
+					}
+				}//success end
+			});//ajax end
+		}//if end
+	});//on end
 	
 	var cnt = 0;
 	$('#star').on('click', function () {
@@ -141,6 +203,7 @@ $(document).ready(function(){
 						${ dto.genre }
 					</c:forEach>
 				</p>
+				<div id="wishlist" style="cursor: pointer;"></div>
 			</div>
 			
 			<div class="right" id="ratings" style="margin-bottom: 10px;">
@@ -189,7 +252,6 @@ $(document).ready(function(){
 				<form action="">
 					<input id="reviewNo" type="text" value="<% Random random = new Random(); %><%= random.nextInt(9999)+1 %>" hidden>
 					아이디:<input id="reviewuserId" type="text">
-					<input id="reviewgameNo" type="text" value="1" hidden>
 					별점:<input id="stars" type="text">
 					<%Date now = new Date(); SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); %>
 					<input id="createAt" type="text" value="<%=formatter.format(now) %>" hidden>
@@ -203,11 +265,11 @@ $(document).ready(function(){
 		<h3>게임 추천</h3>
 		<div class="hidden1">
 			<table>
-				<tr><td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/gametrend/resources/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
-					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/gametrend/resources/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
-					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/gametrend/resources/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
-					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/gametrend/resources/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
-					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/gametrend/resources/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td></tr>
+				<tr><td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
+					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
+					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
+					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
+					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td></tr>
 			</table>
 		</div>
 	</main>
