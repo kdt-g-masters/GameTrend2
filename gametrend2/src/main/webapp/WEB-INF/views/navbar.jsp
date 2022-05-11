@@ -19,19 +19,40 @@
 			%>
 	    });	
     });
+	
 	</script>
 	<style>
-		nav {
-			background-color: #F3F1F5;
-		}
-		
-		svg {
+ 		svg {
 			margin: 5px;
 		}
-		
-		.nav-item:hover {
-			background-color: #E8E0FF;
+		ul {
+		    list-style:none;
+		    width:100%;
 		}
+		li{
+			float: left;
+		    margin: 0 0 0 0;
+		    padding: 0 2vw 0;
+		    border-radius : 2em;
+		    
+		} 		
+		li:hover {
+			color:white;
+			background-color: #7244FE;
+		}
+		li:hover a{
+			color:white;
+		} 
+		nav-item a{
+			text-align: center;
+		}
+		.navbar-brand{
+			margin:0;
+		}
+		.main-nav .navbar-nav{
+			display: inline-block;
+		}
+
 	</style>
 </head>
 <body>
@@ -42,15 +63,30 @@
 		    	<img src="/images/logo_sm.png" width="10%">	    	
 		    	<b>Game Trend</b>
 		    </a>	  	
-		  </div>	    	   
-	      <form class="d-flex justify-content-center">   
-	        <input class="form-control me-2 col-12" type="Search" placeholder="검색" aria-label="Search">
+		  </div>
+		  <div class="main-nav d-flex justify-content-center"> 	 
+	        <ul class=" navbar-nav me-auto">
+	          <li class="nav-item">
+	            <a class="nav-link active" href="gamelist">인기게임순위</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link active" href="gamecalendar">게임달력</a>
+	          </li>
+	          <li class="nav-item">
+	          	<a class="nav-link active" href="promotion">게임할인정보</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link active" href="platform">게임플랫폼소개</a>
+	          </li>	                  
+	        </ul>
+	       </div>
+	        <!-- <input class="form-control me-2 col-12" type="Search" placeholder="검색" aria-label="Search"> 
 	        <button class="btn btn-primary mainColor" type="submit">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 				  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 				</svg>	        	
-	        </button>        
-	      </form>
+	        </button>-->        
+	      
 	      <c:if test="${ !empty sessionid }">
 	      	${ sessionid }님 안녕하세요 :)
 	      	<form class="d-flex justify-content-end">

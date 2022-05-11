@@ -18,6 +18,7 @@
 					pre_x = e.screenX;
 					pre_y = e.screenY;					
 					$(this).css("cursor", "pointer");
+					
 				}
 			);
 
@@ -34,14 +35,15 @@
 				function () {
 					dragFlag = false;
 					$(this).css("cursor", "default");
+					
 				});
-			$('body').mouseup(
+		 	$('body').mouseup(
 				function () {
 					dragFlag = false;					
 					$(this).css("cursor", "default");
-				});
+				}); 
 		});
-	
+		
 	});
 </script>
 <style>
@@ -64,13 +66,13 @@
 #box2 a .rank{
 	display: none;
 }
-#box2 a:hover .rank{
+/* #box2 a:hover .rank{
 	display: inherit;
 	position: static;
 	top: -80px;
 	left: -240px; 
 	z-index: 10;
-}
+} */
 #box2 a:hover .btn{
 	margin: 0;
 }
@@ -164,13 +166,15 @@ position: static;
 			<div id="box2">
 				<div id="gameListCards" class="xscroll">
 					<c:forEach items="${ psTopten }" var="dto">
-						<div class="card bg-dark text-white shadow gameCardStyle" width="20%" onclick="location.href='/gamedetail?no=${ dto.no }';" >
-						  <img src="/images/thumbnail/${dto.thumbnail}" class="card-img gameCardStyle" alt="..." onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"/>
+					  <a href="/gamedetail?no=${ dto.no }" >
+						<div class="card bg-dark text-white shadow gameCardStyle" width="20%">
+						  <img src="/images/thumbnail/${dto.thumbnail}" class="card-img gameCardStyle" alt="${dto.name}" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"/>
 						  <div class="card-img-overlay" style="display:none;">
 						  	<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
 						    <h3 class="card-title">${dto.name}</h3>
 						  </div>
 						</div>
+					  </a>
 					</c:forEach>
 				</div> 
 			</div>
@@ -185,13 +189,15 @@ position: static;
 			<div id="box2">
 				<div id="gameListCards" class="xscroll">
 					<c:forEach items="${ xboxTopten }" var="dto">
-						<div class="card bg-dark text-white shadow gameCardStyle" width="20%" onclick="location.href='/gamedetail?no=${ dto.no }';" >
+					  <a href="/gamedetail?no=${ dto.no }" >
+						<div class="card bg-dark text-white shadow gameCardStyle" width="20%">
 						  <img src="/images/thumbnail/${dto.thumbnail}" class="card-img gameCardStyle" alt="..." onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"/>
 						  <div class="card-img-overlay" style="display:none;">
 						  	<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
 						    <h3 class="card-title">${dto.name}</h3>
 						  </div>
 						</div>
+					  </a>
 					</c:forEach>
 				</div> 
 			</div>
@@ -206,13 +212,15 @@ position: static;
 			<div id="box2">
 				<div id="gameListCards" class="xscroll">
 					<c:forEach items="${ switchTopten }" var="dto">
-						<div class="card bg-dark text-white shadow gameCardStyle" width="20%" onclick="location.href='/gamedetail?no=${ dto.no }';" >
+					  <a href="/gamedetail?no=${ dto.no }" >
+						<div class="card bg-dark text-white shadow gameCardStyle" width="20%">
 						  <img src="/images/thumbnail/${dto.thumbnail}" class="card-img gameCardStyle" alt="..." onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"/>
 						  <div class="card-img-overlay" style="display:none;">
 						  	<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
 						    <h3 class="card-title">${dto.name}</h3>
 						  </div>
 						</div>
+					  </a>
 					</c:forEach>
 				</div> 
 			</div>
