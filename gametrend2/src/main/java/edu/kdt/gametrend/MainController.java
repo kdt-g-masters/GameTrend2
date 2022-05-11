@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.game.GameService;
+import edu.kdt.gametrend.game.GenreDTO;
 
 
 @Controller
@@ -30,13 +31,21 @@ public class MainController {
 	public ModelAndView toptenList() {
 		ModelAndView mv = new ModelAndView();
 		List<GameDTO> pcTopten = service.toptenList("pc");
+		List<GenreDTO> pcGenreTopten = service.genreToptenList("pc");
 		List<GameDTO> psTopten = service.toptenList("PlayStation");
+		List<GenreDTO> psGenreTopten = service.genreToptenList("PlayStation");
 		List<GameDTO> xboxTopten = service.toptenList("Xbox");
-		List<GameDTO> switchTopten = service.toptenList("switch");
+		List<GenreDTO> xboxGenreTopten = service.genreToptenList("Xbox");
+		List<GameDTO> switchTopten = service.toptenList("Switch");
+		List<GenreDTO> switchGenreTopten = service.genreToptenList("Switch");
 		mv.addObject("pcTopten", pcTopten);
+		mv.addObject("pcGenreTopten", pcGenreTopten);
 		mv.addObject("psTopten", psTopten);
+		mv.addObject("psGenreTopten", psGenreTopten);
 		mv.addObject("xboxTopten", xboxTopten);
+		mv.addObject("xboxGenreTopten", xboxGenreTopten);
 		mv.addObject("switchTopten", switchTopten);
+		mv.addObject("switchGenreTopten", switchGenreTopten);
 		mv.setViewName("index");//VIEW
 		return mv;
 	}

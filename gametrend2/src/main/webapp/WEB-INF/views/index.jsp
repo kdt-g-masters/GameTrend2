@@ -22,7 +22,7 @@
 	<%@ include file="carousel.jsp" %>
 	<br><hr>
 	<!-- gamelist-->
-	<%  request.setAttribute("toptenlist", request.getAttribute("toptenlist")); %>
+	<%-- <%  request.setAttribute("toptenlist", request.getAttribute("toptenlist")); %> --%>
 	<jsp:include page="main_gamelist.jsp" />
 	
 	<div class="space" style="height:500px"></div> 
