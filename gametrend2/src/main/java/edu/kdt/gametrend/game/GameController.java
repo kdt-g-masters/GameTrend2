@@ -18,6 +18,21 @@ public class GameController {
 	
 	//인기게임순위 페이지
 	@RequestMapping("/gamelist") 
+	public ModelAndView gamelist() { 
+		ModelAndView mv = new ModelAndView(); 
+		List<GameDTO> list = service.gameList();
+		
+		System.out.println(list.get(0).getNo());
+//		int [] no = new int[list.size()];
+//		for(int i = 0; i < list.size(); i++) {	
+//			no[i] = list.list.get(0).getNo();
+//		}
+	    mv.addObject("gamelist",list); 
+	    mv.setViewName("gamelist"); 
+	    return mv;
+	}
+
+/*	@RequestMapping("/gamelist") 
 	public ModelAndView gamelist(@RequestParam(required = false) String platform, @RequestParam(required = false) Integer page) { 
 		if(platform == null) platform = "pc";
 		if(page == null) page = 1;
@@ -28,7 +43,7 @@ public class GameController {
 	    mv.setViewName("gamelist"); 
 	    return mv;
 	}
-	 
+*/ 
 	
 	//게임 상세 페이지
 	@RequestMapping("/gamedetail")

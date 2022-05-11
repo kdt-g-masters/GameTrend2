@@ -3,18 +3,31 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.kdt.gametrend.game.GameDAO" >
+	<!-- 메인 - 플랫폼별 Top10 게임 리스트 -->
 	<select id="toptenList" resultType="gamedto" parameterType="String">
 		select @rank := @rank + 1 as ranking, no, name, thumbnail
 		from game where platform = #{platform} and (@rank := 0) = 0 order by views desc, rating desc limit 10;
 	</select>
-
+	<!-- 메인 - 플랫폼별 Top10 장르 리스트 -->
+	<select id="genreToptenList" resultType="genredto" parameterType="String">
+	select * from genre, (select @rank := @rank + 1 as ranking, no from game 
+		where platform = #{platform} and (@rank := 0) = 0 order by views desc, rating desc limit 10) game
+		where game_no = game.no;
+	</select>
+	
+	<!-- 게임리스트 전체 조회 -->
 	<select id="gameList" resultType="gamedto">
+		select  @rank := @rank + 1 as ranking, no, name, thumbnail
+		from game where platform ='pc' and (@rank := 0) = 0 order by views desc, rating desc
+	</select>
+	<!-- 게임리스트 페이징 조회 -->
+<!--<select id="gameList" resultType="gamedto">
 		select  @rank := @rank + 1 as ranking, no, name, thumbnail
 		from game where platform = #{platform} and (@rank := 0) = 0 order by views desc, rating desc limit 
 		<foreach collection="array" item="num" separator=",">
 			#{num}
 		</foreach>
-	</select>
+	</select> -->
 	
 	<!-- 게임 상세 페이지 -->
 	<select id="gameDetail" resultType="gamedto" parameterType="int">

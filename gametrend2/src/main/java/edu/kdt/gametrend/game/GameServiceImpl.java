@@ -20,9 +20,19 @@ public class GameServiceImpl implements GameService {
 	}
 	
 	@Override
-	public List<GameDTO> gameList(String platform, int [] limit) {
-		return dao.gameList(platform, limit);
+	public List<GenreDTO> genreToptenList(String platform) {
+		return dao.genreToptenList(platform);
 	}
+
+	@Override
+	public List<GameDTO> gameList() {
+		return dao.gameList();
+	}
+
+	/*
+	 * @Override public List<GameDTO> gameList(String platform, int [] limit) {
+	 * return dao.gameList(platform, limit); }
+	 */
 	
 	@Override
 	public GameDTO gameDetail(int no) {
