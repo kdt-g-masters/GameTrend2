@@ -3,8 +3,6 @@ package edu.kdt.gametrend.game;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Mapper
@@ -20,7 +18,8 @@ public interface GameDAO {
 	//게임 상세 페이지
 	public GameDTO gameDetail(int no);
 	
-	
+	//게임 상세 페이지 장르 보여주기
+	public List<GenreDTO> gameGenreView(int no);
 	
 //	public int totalcount() {
 //		return session.selectOne("totalgamecnt");

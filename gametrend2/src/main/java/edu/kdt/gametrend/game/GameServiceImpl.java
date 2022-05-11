@@ -27,5 +27,11 @@ public class GameServiceImpl implements GameService {
 	@Override
 	public GameDTO gameDetail(int no) {
 		return dao.gameDetail(no);
-	}	
+	}
+
+	@Override
+	public List<GenreDTO> gameGenreView(int no) {
+		return dao.gameGenreView(no);
+	}
+	
 }

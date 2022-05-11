@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gmasters.gametrend.game.GameDTO;
+//import com.gmasters.gametrend.game.GameDTO;
 
 @Controller
 public class GameController {
@@ -37,7 +37,9 @@ public class GameController {
 	public ModelAndView gameDetail(int no) {
 		ModelAndView mv = new ModelAndView();
 		GameDTO gamedetail = service.gameDetail(no);
+		List<GenreDTO> list = service.gameGenreView(no);
 		mv.addObject("gamedetail", gamedetail);
+		mv.addObject("gamegenre", list);
 		mv.setViewName("gamedetail");
 		return mv;
 	}

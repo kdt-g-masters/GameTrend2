@@ -20,6 +20,12 @@
 	<select id="gameDetail" resultType="gamedto" parameterType="int">
 		select * from game where no = #{no}
 	</select>
+	
+	<!-- 게임 상세 페이지 장르 보여주기 -->
+	<select id="gameGenreView" resultType="genredto" parameterType="int">
+		select * from genre where game_no = #{no}
+	</select>
+	
 <!-- <select id="gamebyplatform" resultType="gamedto" parameterType="String, int[]">
 		select * from game where platform=#{platform} order by rating desc limit
 	</select>

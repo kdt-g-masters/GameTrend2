@@ -136,7 +136,11 @@ $(document).ready(function(){
 				<img id="img1" src="/images/thumbnail/${ gamedetail.thumbnail }">
 				<p>${ gamedetail.platform }</p>
 				<p>${ gamedetail.releaseDate }</p>
-				<p></p>
+				<p>
+					<c:forEach items="${ gamegenre }" var="dto">
+						${ dto.genre }
+					</c:forEach>
+				</p>
 			</div>
 			
 			<div class="right" id="ratings" style="margin-bottom: 10px;">
