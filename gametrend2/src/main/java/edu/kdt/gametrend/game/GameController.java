@@ -2,6 +2,7 @@ package edu.kdt.gametrend.game;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -9,22 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gmasters.gametrend.game.GameDTO;
+
 @Controller
 public class GameController {
 	@Autowired
 	@Qualifier("gameservice")
 	GameService service;
 	
-	
-//	@RequestMapping("/list") 
-//	public ModelAndView gamelist() { 
-//		ModelAndView mv = new ModelAndView(); 
-//		List<GameDTO> list = service.gamelist();
-//	    mv.addObject("gamelist",list); 
-//	    mv.addObject("name", "게임리스트");
-//	    mv.setViewName("index"); 
-//	    return mv;
-//	}
+	//인기게임순위 페이지
+	@RequestMapping("/gamelist") 
+	public ModelAndView gamelist(@RequestParam(required = false) String platform, @RequestParam(required = false) Integer page) { 
+		if(platform == null) platform = "pc";
+		if(page == null) page = 1;
+		int [] limit = new int[] {(page-1)*9, 9};
+		ModelAndView mv = new ModelAndView(); 
+		List<GameDTO> list = service.gameList(platform, limit);
+	    mv.addObject("gamelist",list); 
+	    mv.setViewName("gamelist"); 
+	    return mv;
+	}
 	 
 	
 	//게임 상세 페이지

@@ -9,15 +9,17 @@
 	</select>
 
 	<select id="gameList" resultType="gamedto">
-		select  no, name, thumbnail, views, rating 
-		from game where platform="pc" order by views desc, rating desc limit 10;
+		select  @rank := @rank + 1 as ranking, no, name, thumbnail
+		from game where platform = #{platform} and (@rank := 0) = 0 order by views desc, rating desc limit 
+		<foreach collection="array" item="num" separator=",">
+			#{num}
+		</foreach>
 	</select>
 	
 	<!-- 게임 상세 페이지 -->
 	<select id="gameDetail" resultType="gamedto" parameterType="int">
 		select * from game where no = #{no}
 	</select>
-	
 <!-- <select id="gamebyplatform" resultType="gamedto" parameterType="String, int[]">
 		select * from game where platform=#{platform} order by rating desc limit
 	</select>

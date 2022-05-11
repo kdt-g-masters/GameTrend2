@@ -15,7 +15,7 @@ public interface GameDAO {
 	public List<GameDTO> toptenList(String platform);
 	
 	//게임리스트 페이징 조회
-	public List<GameDTO> gameList();	
+	public List<GameDTO> gameList(String platform, int [] limit);	
 	
 	//게임 상세 페이지
 	public GameDTO gameDetail(int no);
