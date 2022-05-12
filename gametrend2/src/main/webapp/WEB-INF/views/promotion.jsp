@@ -30,7 +30,7 @@
 		<a href="${event.link}"> 
 		<img src="images/jm/${event.mainImage}" width="350" height="300" alt="no search image"></a> &nbsp;&nbsp;&nbsp;&nbsp; 
 		<a href="${event.link}">
-		<img src="images/jm/${event.image}" width="690" height="300" alt="no search image"></a> 
+		<img src="images/jm/${event.image}" width="670" height="300" alt="no search image"></a> 
 		<br>
 		<br>  
 	</c:forEach> 
