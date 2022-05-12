@@ -24,6 +24,13 @@ Test1
 <br> 
 
 ()
+	
+	<br> 
+	<br> 
+	<c:forEach items="${Event}" var="event" varStatus="number">
+		${event.platform} 출력 <br> 
+	</c:forEach> 
+	<br> 
 
 </body>
 
