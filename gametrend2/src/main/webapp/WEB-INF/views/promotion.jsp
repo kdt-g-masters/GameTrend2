@@ -18,15 +18,10 @@
 
 <body>
 
-<br> 
 Test1 
 <br> 
 <br> 
-
-()
 	
-	<br> 
-	<br> 
 	<br> 
 	<br>
 	<br>
@@ -40,6 +35,7 @@ Test1
 		<br>
 		<br>  
 	</c:forEach> 
+	<br> 
 	<br> 
 
 </body>
