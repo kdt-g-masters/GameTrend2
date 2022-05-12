@@ -91,21 +91,6 @@
 		</nav>
 	</section>
 	 <div class="main-thumbnail-part">
-	  	<div class="container-fluid">
-			<div class="btn-group dropdown d-flex col-md-2">
-				<a class="btn btn-primary dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown">
-					PC</a>
-	  			<ul class="dropdown-menu center" id="platform" aria-labelledby="dropdownMenuLink">
-	    			<li value="pc" class="active" ><a class="dropdown-item" id="pc" href="<%=request.getContextPath() %>/list?page=1">PC</a></li>
-	    			<li value="PlayStation" class="active"><a class="dropdown-item" id="PlayStation" href="#">Play Station</a></li>
-	    			<li value="Xbox" class="active"><a class="dropdown-item" id="Xbox" href="#">Xbox</a></li>
-	    			<li value="Switch" ><a class="dropdown-item" id="Switch" href="#">Switch</a></li>
-				</ul>
-			</div>
-			<br><br>
-			
-		</div>
-	
 		<div class="container-fluid center">
 			<div class="row">
 				<% int i = 0; %>
