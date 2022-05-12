@@ -19,7 +19,14 @@
 			%>
 	    });	
     });
-	
+	function goPostPromotion(){
+	    let f = document.createElement('form');
+	    f.setAttribute('method', 'post');
+	    f.setAttribute('action', '/promotion');
+	    document.body.appendChild(f);
+	    f.submit();
+	}
+
 	</script>
 	<style>
  		svg {
@@ -72,7 +79,7 @@
 	            <a class="nav-link active" href="calendar">게임달력</a>
 	          </li>
 	          <li class="nav-item">
-	          	<a class="nav-link active" href="promotion">게임할인정보</a>
+	          	<a class="nav-link active" href="javascript:void(0)" name="movebtnA" onClick="javascript:goPostPromotion()">게임할인정보</a>
 	          </li>
 	          <li class="nav-item">
 	            <a class="nav-link active" href="explanation">게임플랫폼소개</a>
