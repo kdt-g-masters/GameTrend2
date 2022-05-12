@@ -99,19 +99,16 @@
 	display: inline;
 }
 .shadow {
-	box-shadow: 5px 5px 10px;	
-}
-.card-img:hover{
-	filter: grayscale(80%);
+	box-shadow: 5px 5px 10px 50%;	
 }
 .gameCardStyle, .card-img-overlay{
-	width: 15em;
-	height: 15em;
+	width: 12em;
+	height: 12em;
 	display: inline-block;
 	border-radius: 2em;
 }
 .card-title{
-	display: inherit;
+	/* display: absolute; */
 }
 .cardTextCenter {
 	text-align: center;
@@ -122,9 +119,7 @@
 }
 .content{
 	display: none;
-	position: relative;
-	left: -250px;
-	
+	position: absolute;
 }
 #box2 a:hover .content{
 	display: inline-block;
