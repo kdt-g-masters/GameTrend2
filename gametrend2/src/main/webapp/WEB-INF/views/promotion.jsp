@@ -28,7 +28,8 @@ Test1
 	<br> 
 	<br> 
 	<c:forEach items="${Event}" var="event" varStatus="number">
-		${event.platform} 출력 <br> 
+		플랫폼 : ${event.platform} &nbsp;&nbsp;&nbsp;&nbsp; 할인 기간 : ${event.startDate} ~ ${event.endDate} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${event.mainImage} &nbsp;&nbsp;&nbsp;&nbsp; ${event.image} <br> 
 	</c:forEach> 
 	<br> 
 
