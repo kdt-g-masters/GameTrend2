@@ -11,8 +11,8 @@ public interface GameService {
 	public List<GenreDTO> genreToptenList(String platform);
 	
 	//게임리스트 플랫폼별 전체 갯수 조회
-	public int getGameListCnt(String platform) throws Exception;
-		
+	public int getGameListCnt(Criteria cri);
+			
 	//게임리스트 플랫폼별 조회
 	public List<GameDTO> gameList(String platform);	
 	
@@ -20,8 +20,11 @@ public interface GameService {
 	public List<GenreDTO> genreList(String platform);	
 		
 	//게임리스트 페이징 조회
-	//public List<GameDTO> gameList(String platform, int [] limit);	
+	public List<GameDTO> pagingGameList(Criteria cri);
 	
+	//게임리스트 장르 페이징 조회
+	public List<GenreDTO> pagingGenreList(Criteria cri);
+			
 	//게임 상세 페이지
 	public GameDTO gameDetail(int no);
 	
