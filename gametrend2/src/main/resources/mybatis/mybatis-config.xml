@@ -11,8 +11,10 @@
 		<typeAlias type="edu.kdt.gametrend.review.ReviewDTO" alias="reviewdto"/>
 		<typeAlias type="edu.kdt.gametrend.wishlist.WishlistDTO" alias="wishlistdto"/>
 		<typeAlias type="edu.kdt.gametrend.wishlist.WishlistGameDTO" alias="wishlistgamedto"/>
+		<typeAlias type="edu.kdt.gametrend.explanation.ExplanationDTO" alias="explanationdto"/>
 		<typeAlias type="edu.kdt.gametrend.promotion.PromotionDTO" alias="promotiondto"/>
-		<typeAlias type="edu.kdt.gametrend.calendar.CalendarDTO" alias="CalendarDTO"/>
+		<typeAlias type="edu.kdt.gametrend.calendar.CalendarDTO" alias="calendardto"/>
 		<typeAlias type="edu.kdt.gametrend.admin.AdminDTO" alias="admindto"/>
+		<typeAlias type="edu.kdt.gametrend.game.GenreDTO" alias="genredto"/>
 	</typeAliases>
 </configuration>

@@ -4,18 +4,14 @@
 
 <mapper namespace="edu.kdt.gametrend.wishlist.WishlistDAO" >
 	<resultMap type="edu.kdt.gametrend.wishlist.WishlistDTO" id="wishlistMap">
-		<id property="wishlistNo" column="wishlistNo" />
-		<id property="userId" column="userId" />
-		<id property="gameNo" column="gameNo" />
+		<id property="member_id" column="member_id" />
+		<id property="game_no" column="game_no" />
 	</resultMap>
 	
 	<resultMap type="edu.kdt.gametrend.game.GameDTO" id="gameMap">
-		<id property="gameNo" column="gameNo" />
+		<id property="no" column="no" />
 		<id property="name" column="name" />
 		<id property="explanation" column="explanation" />
-		<id property="genre1" column="genre1" />
-		<id property="genre2" column="genre2" />
-		<id property="genre3" column="genre3" />
 		<id property="platform" column="platform" />
 		<id property="thumbnail" column="thumbnail" />
 		<id property="views" column="views" />
@@ -39,10 +35,26 @@
 	
 	<select id="joinWishlistGame" resultMap="WishlistGameMap" resultType="wishlistgamedto">
 		select * from wishlist a, game b
-		where a.gameNo = b.gameNo and a.userId=#{id}
+		where a.game_no = b.no and a.member_id=#{id}
 		limit
 		<foreach collection="limit" item="li" separator=",">
 			#{li}
 		</foreach>
 	</select>
+	
+	<!-- 위시리스트에 동일 게임 있는지 확인 -->
+	<select id="wishlistCheck" resultType="int">
+		select count(*) from wishlist where member_id=#{member_id} and game_no=#{game_no}
+	</select>
+	
+	<!-- 위시리스트 게임 추가 -->
+	<insert id="insertWishlist">
+		insert into wishlist values(#{member_id}, #{game_no})
+	</insert>
+	
+	<!-- 위시리스트 게임 삭제 -->
+	<delete id="deleteWishlist">
+		delete from wishlist where member_id=#{member_id} and game_no=#{game_no}
+	</delete>
+	
 </mapper>

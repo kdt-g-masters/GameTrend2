@@ -1,5 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    ㅇ PC 소개 이미지 : <br> 
+    <img src="images/jm/PC_intro.jpg" width="400" height="250" alt="no search image"> 
+    <br> 
+    <br>
 
-	dd	
+	ㅇ PC 소개 설명 : <br> 
+	현재의 PC 는, 크게 OS 에 따라 구분할 수 있다. <br> 
+	MS 사의 Windows 와 Apple 사의 Mac OS 와 프리소스 기반의 Linux 가 있으며, <br> 
+	각 OS 들에서 게임을 플레이 할 수 있지만, <br> 
+	PC 게임은 MS 사의 Windows 의 압도적인 점유율로 인해, 주로 Windows 를 기반으로 대부분 출시된다. <br> 
+	게임마다 Windows 지원 버전에 상이한 부분들이 존재하긴 하지만, <br> 
+	2022년 기준으로는 대부분 Windows 10 64bit 를 기준으로 출시되고 있다. <br> 
+	<br>
+	<br>  
+	
+	ㅇ PC 게임 이미지 : <br>  
+	<img src="images/jm/PC_games.jpg" width="400" height="250" alt="no search image">
+	<br>
+	<br> 
+	
+	ㅇ PC 게임 설명 : <br> 
+	PC 게임들은, 아래와 같은 특성을 가진다. <br> 
+	1) 멀티 플랫폼 게임들의 주요 출시 대상 <br> 
+	2) 온라인 요소 강화 <br> 
+	3) 어느정도 규격화 된 기존의 게임제작방식 외의 다양하고 참신한 게임들의 출시 <br> 
+	4) 1인 개발자 게임 또는 인디 개발사 게임들의 출시 <br> 
+	이러한 특성들 때문에, PC 게임들은 게임마다 타겟 대상이 다르며, <br> 
+	메이저 장르도 제각각이나, 주로 온라인 요소를 활용한 게임들이 강세를 보인다. <br> 
+	<br>
+	<br> 
 

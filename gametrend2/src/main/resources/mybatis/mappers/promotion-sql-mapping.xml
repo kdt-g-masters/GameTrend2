@@ -5,8 +5,9 @@
 
 <mapper namespace="edu.kdt.gametrend.promotion.PromotionDAO" > 
 
-	
-	
+	<select id="loadPromotionEvent" parameterType="PromotionDTO" resultType="PromotionDTO"> 
+		select * from promotion 
+	</select> 
 
 </mapper>
 

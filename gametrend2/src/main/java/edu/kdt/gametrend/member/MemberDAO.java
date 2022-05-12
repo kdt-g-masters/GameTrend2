@@ -5,12 +5,24 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 @Repository("memberDAO")
-public class MemberDAO {
+public interface MemberDAO {
+	//로그인
+	public MemberDTO loginMember(MemberDTO dto); 
+	//회원가입
+	public int joinMember(MemberDTO dto); 
+	// 회원가입 아이디 중복 체크
+	public String checkId(String id);
+	
+}
 
-//	public MemberDTO loginUser(MemberDTO dto) {
-//		System.out.println("==> Mybatis�� loginUser() ��� ó��");
-//		return session.selectOne("loginUser", dto);
-//	}
+	
+	
+	
+	
+//public MemberDTO loginUser(MemberDTO dto) {
+//System.out.println("==> Mybatis�� loginUser() ��� ó��");
+//return session.selectOne("loginUser", dto);
+//}
 
 	/*public UserDTO findId(UserDTO dto) {
 		System.out.println("==> Mybatis�� findId() ��� ó��");
@@ -34,4 +46,3 @@ public class MemberDAO {
 		return row;
 	}
 	*/
-}

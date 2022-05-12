@@ -12,46 +12,86 @@
 	<script src="/jquery-3.6.0.min.js"></script>
 	<script>
 	$(document).ready(function(){
-		    	    
-	}
-    $('#logoutBtn').on('click', function() {
-    	<%
-			// session.removeAttribute("sessionid");
-    		//response.sendRedirect("/gametrend");
-		%>
-    });	
+	    $('#logoutBtn').on('click', function() {
+	    	<%
+				// session.removeAttribute("sessionid");
+	    		//response.sendRedirect("/gametrend");
+			%>
+	    });	
+    });
 	</script>
 	<style>
-		nav {
-			background-color: #F3F1F5;
-		}
-		
-		svg {
+ 		svg {
 			margin: 5px;
 		}
-		
-		.nav-item:hover {
-			background-color: #E8E0FF;
+		ul {
+		    list-style:none;
+		    width:100%;
 		}
+		li{
+			float: left;
+		    margin: 0 0 0 0;
+		    padding: 0.25vh 1vw 0.25vh;
+		    border-radius : 2em;
+		} 	 	
+		li:hover {
+			color:white;
+			background-color: #7244FE;
+		}
+		li:hover > a.active {
+			color: white;
+		} 
+		.navbar-brand{
+			margin:0;
+		}
+		.main-nav .navbar-nav{
+			display: inline-block;
+			text-align: center;
+		}
+		.main-nav li{
+			width: 10em;
+		}
+		.nav-item input[type=submit]{
+		    background-color:transparent;  
+		    border:0px transparent solid; 
+		    margin: 0 auto;
+		} 
 	</style>
 </head>
 <body>
 	<nav class="navbar navbar-light bg-light fixed-top">
 	  <div class="container-fluid">
 		  <div class="d-flex justify-content-start">			
-		    <a class="navbar-brand " href="<%=request.getContextPath() %>">
+		    <a class="navbar-brand " href="/">
 		    	<img src="/images/logo_sm.png" width="10%">	    	
 		    	<b>Game Trend</b>
 		    </a>	  	
-		  </div>	    	   
-	      <form class="d-flex justify-content-center">   
-	        <input class="form-control me-2 col-12" type="Search" placeholder="검색" aria-label="Search">
+		  </div>
+		  <div class="main-nav d-flex justify-content-center"> 	 
+	        <ul class=" navbar-nav me-auto">
+	          <li class="nav-item">
+	            <a class="nav-link active" href="gamelist">인기게임순위</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link active" href="calendar">게임달력</a>
+	          </li>
+	          <li class="nav-item">
+	            <form method="POST" action="/promotion" > 
+				   <input type="submit" class="nav-link active" name="movebtnA"  value="게임할인정보"/>  
+				</form>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link active" href="explanation">게임플랫폼소개</a>
+	          </li>	                  
+	        </ul>
+	       </div>
+	        <!-- <input class="form-control me-2 col-12" type="Search" placeholder="검색" aria-label="Search"> 
 	        <button class="btn btn-primary mainColor" type="submit">
 				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 				  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
 				</svg>	        	
-	        </button>        
-	      </form>
+	        </button>-->        
+	      
 	      <c:if test="${ !empty sessionid }">
 	      	${ sessionid }님 안녕하세요 :)
 	      	<form class="d-flex justify-content-end">

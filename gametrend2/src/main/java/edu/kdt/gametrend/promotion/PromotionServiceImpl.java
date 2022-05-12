@@ -14,8 +14,8 @@ public class PromotionServiceImpl implements PromotionService {
 	PromotionDAO dao;
 	
 	@Override
-	public List<PromotionDTO> promotionlist() {
-		return dao.promotionlist();
+	public List<PromotionDTO> loadPromotionEvent() {
+		return dao.loadPromotionEvent();
 	}
 	
 }

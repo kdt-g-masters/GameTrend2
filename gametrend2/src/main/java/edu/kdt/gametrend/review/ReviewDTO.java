@@ -2,31 +2,37 @@ package edu.kdt.gametrend.review;
 
 public class ReviewDTO {
 
-	int reviewNo;
-	String userId;
-	int gameNo;
+	int no;
+	String member_id;
+	int game_no;
+	String date;
 	String contents;
-	double stars;
-	String createAt;
+	Double stars;
 	String image;
 	
-	public int getReviewNo() {
-		return reviewNo;
+	public int getNo() {
+		return no;
 	}
-	public void setReviewNo(int reviewNo) {
-		this.reviewNo = reviewNo;
+	public void setNo(int no) {
+		this.no = no;
 	}
-	public String getUserId() {
-		return userId;
+	public String getMember_id() {
+		return member_id;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
-	public int getGameNo() {
-		return gameNo;
+	public int getGame_no() {
+		return game_no;
 	}
-	public void setGameNo(int gameNo) {
-		this.gameNo = gameNo;
+	public void setGame_no(int game_no) {
+		this.game_no = game_no;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
 	}
 	public String getContents() {
 		return contents;
@@ -34,17 +40,11 @@ public class ReviewDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public double getStars() {
+	public Double getStars() {
 		return stars;
 	}
-	public void setStars(double stars) {
+	public void setStars(Double stars) {
 		this.stars = stars;
-	}
-	public String getCreateAt() {
-		return createAt;
-	}
-	public void setCreateAt(String createAt) {
-		this.createAt = createAt;
 	}
 	public String getImage() {
 		return image;

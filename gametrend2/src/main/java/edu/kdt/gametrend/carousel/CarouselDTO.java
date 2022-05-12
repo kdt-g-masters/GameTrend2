@@ -1,14 +1,14 @@
 package edu.kdt.gametrend.carousel;
 
 public class CarouselDTO {
-	int carouselNo;
+	int no;
 	String image, title, subtitle;
 	
-	public int getCarouselNo() {
-		return carouselNo;
+	public int getNo() {
+		return no;
 	}
-	public void setCarouselNo(int carouselNo) {
-		this.carouselNo = carouselNo;
+	public void setNo(int no) {
+		this.no = no;
 	}
 	public String getImage() {
 		return image;
@@ -28,5 +28,6 @@ public class CarouselDTO {
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
 	}
+	
 	
 }

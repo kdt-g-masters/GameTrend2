@@ -29,7 +29,7 @@
 <body>
 <footer>
 	<br>
-	<div class="inner"><div class="footer-logo center"><img src="resources/images/logo.png" width="80px"></div><br>
+	<div class="inner"><div class="footer-logo center"><img src="images/logo.png" width="80px"></div><br>
 	<div class="copyright center">Copyright<time>2022</time>. <a href='#'><b> G-Masters</b></a> all rights reserved.</div>
 	<div class="designed-by center">Designed by <a href='https://getbootstrap.kr/docs/5.1/assets/brand/bootstrap-logo.svg'><b>Bootstrap and G-Masters</b></a></div>
 	<br>

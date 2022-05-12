@@ -9,19 +9,31 @@ import org.springframework.stereotype.Repository;
 @Repository("gamedao")
 public interface GameDAO {
 	
-	//���Ӹ���Ʈ ����¡ ��ȸ
-//	public List<GameDTO> gamelist(int page) {
-//		int [] limit = new int[] {(page-1)*9, 9};
-//		List<GameDTO> list = session.selectList("paginglist",limit);
-//		return list;
-//	}
+	//메인 - 플랫폼별 Top10 게임 리스트
+	public List<GameDTO> toptenList(String platform);
+	
+	//메인 - 플랫폼별 Top10 게임 장르
+	public List<GenreDTO> genreToptenList(String platform);
+	
+	//게임리스트 플랫폼별 전체 갯수 조회
+	public int getGameListCnt(String platform) throws Exception;
+	
+	//게임리스트 플랫폼별 조회
+	public List<GameDTO> gameList(String platform);
+	
+	//게임리스트 플랫폼별 장르 조회
+	public List<GenreDTO> genreList(String platform);
+		
+	//게임리스트 페이징 조회
+	//public List<GameDTO> gameList(String platform, int [] limit);	
 	
 	//게임 상세 페이지
 	public GameDTO gameDetail(int no);
 	
-//	public int totalcount() {
-//		return session.selectOne("totalgamecnt");
-//	}
+	//게임 상세 페이지 장르 보여주기
+	public List<GenreDTO> gameGenreView(int no);
+	
+	
 //	
 //	public int totalcount(String platform) {
 //		return session.selectOne("platformtotal");

@@ -1,6 +1,7 @@
 package edu.kdt.gametrend.member;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,41 +18,101 @@ import org.springframework.web.servlet.ModelAndView;
 public class MemberController {
 
 	@Autowired
-	@Qualifier("memberservice")
+	@Qualifier("MemberServiceImpl")
 	MemberService service;
 	
-	// �α��� ������
+	// 로그인 페이지
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public void loginform() {	
 	}
 	
-	/*
-    // �α��� �õ�
+	// 로그인 시도
 	@RequestMapping(value="/login", method=RequestMethod.POST , produces = {"application/json;charset=utf-8"} )
 	@ResponseBody
 	public String loginAction(HttpServletRequest request, MemberDTO dto) throws Exception {
-		MemberDTO loginUser = service.loginUser(dto);
+		MemberDTO loginUserDTO = service.loginMember(dto);
 		
-	if(loginUser != null) {
-		// ���� ���̵� ��������
+	if(loginUserDTO != null) {
+		// 세션
 		HttpSession session = request.getSession();
-		session.setAttribute("sessionid", loginUser.getId());
-		return "1";//{\"process\":\"����α���\" , \"role\":\"user\"}";	
+		
+		//로그인 상태로 설정
+		session.setAttribute("isLogOn", true);
+		
+		session.setAttribute("sessionid", loginUserDTO.getId());
+		session.setAttribute("memberInfo", loginUserDTO.getId());
+		
+			return "1";	
 		}
 		else {
-		return "2";//"{\"process\":\"������α���\" , \"role\":\"admin\"}";		
+			return "2";		
 		}
 		
 	}
+	
+	// 로그아웃
+	/*
+	@RequestMapping(value="/member/logout.do", method = RequestMethod.GET)
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		HttpSession session = request.getSession();
+		session.setAttribute("isLogOn", false);
+		session.removeAttribute("memberInfo");
+		mv.setViewName("redirect:/");
+		return mv;
+	}
 	*/
 	
-	//���̵� ã�� ������ �̵�
+	
+	// 아이디 / 비밀번호 찾기 페이지
+	@RequestMapping(value="/login2", method=RequestMethod.GET)
+	public void loginfind() {	
+	}
+		
+	// 회원가입 페이지
+	@RequestMapping(value="/join", method=RequestMethod.GET)
+	public void joininsert() {	
+	}
+			
+	// 회원가입
+	@RequestMapping(value="/join", method=RequestMethod.POST)
+	public ModelAndView joinAction(MemberDTO dto) {
+		int row = service.joinMember(dto);			
+		
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("result", row);
+		mv.setViewName("joinResult");
+		return mv;
+	}
+	
+	// 회원가입 아이디 중복확인 ajax 
+	@RequestMapping(value="/join/checkid", method=RequestMethod.POST, produces={"application/json; charset=utf-8"})
+	@ResponseBody
+	public String checkId(String id) {
+		boolean result = service.checkId(id);
+		if (result == true) {
+			return "{\"result\": \"사용 가능한 아이디 입니다.\", \"state\": \"available\"}";
+		}
+		else {			
+			return "{\"result\": \"이미 존재하는 아이디 입니다. 다시 입력해주세요.\", \"state\": \"notAvailable\"}";
+		}
+	}
+	
+	@RequestMapping(value="/joinResult", method=RequestMethod.GET)
+	public void joinResult() {	
+	}
+	
+	
+		
+	
+	
+	//아이디 찾기 페이지
 	/*@RequestMapping(value="/login2", method=RequestMethod.GET)
 	public String findIdView() {
 		return "";
 	}*/
 	
-    // ���̵� ã�� ����
+    // 아이디 찾기 
 	/*@RequestMapping(value="/login2", method=RequestMethod.GET , produces = {"application/json;charset=utf-8"} )
 	public String findIdAction(UserDTO dto) {
 		UserDTO findId = service.findId(dto);
@@ -65,18 +126,20 @@ public class MemberController {
 		
 	}*/
 	
-    /* // ��й�ȣ ã�� �������� �̵�
+    /* // 비밀번호 찾기 페이지 이동
 	@RequestMapping(value="find_password_form")
 	public String findPasswordView() {
 		return "member/findPassword";
 	} */
 	
-	@RequestMapping("/index")
+	
+	//주석처리 안했던 곳
+	/*@RequestMapping("/index")
 	public String index(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		String temp = (String) session.getAttribute("sessionid");
 		if (temp != null) {
-			System.out.println("���ǿ� ����� ���̵�: " + temp);
+			System.out.println("세션에 저장된 아이디: " + temp);
 		}
 		return "index";
 	}
@@ -84,7 +147,10 @@ public class MemberController {
 	@RequestMapping("/join")
 	public String joinForm() {
 		return "join";
-	}
+	} 여기까지*/
+	
+	
+	
 	
 	/*
 	@RequestMapping("/join/insertuser")
@@ -99,16 +165,16 @@ public class MemberController {
 	*/
 	
 	/*
-	// ȸ������ ���̵� �ߺ�Ȯ�� ajax
+	// 회원가입 아이디 중복확인 ajax
 	@RequestMapping(value="/join/checkid", method=RequestMethod.POST, produces={"application/json; charset=utf-8"})
 	@ResponseBody
 	public String checkId(String id) {
 		boolean result = service.checkId(id);
 		if (result == true) {
-			return "{\"result\": \"��� ������ ���̵��Դϴ�.\", \"state\": \"available\"}";
+			return "{\"result\": \"사용 가능한 아이디 입니다.\", \"state\": \"available\"}";
 		}
 		else {			
-			return "{\"result\": \"�̹� �����ϴ� ���̵� �Դϴ�. �ٽ� �Է����ּ���.\", \"state\": \"notAvailable\"}";
+			return "{\"result\": \""이미 존재하는 아이디 입니다. 다시 입력해주세요.\", \"state\": \"notAvailable\"}";
 		}
 	}
 	*/

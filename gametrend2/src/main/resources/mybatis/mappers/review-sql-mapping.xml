@@ -3,38 +3,31 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.kdt.gametrend.review.ReviewDAO" >
-	<select id="selectAllReview" resultType="reviewdto">
-		select * from review
-	</select>
-	
-	<select id="selectCountReview" resultType="int">
-		select count(*) from review
-	</select>
 	
 	<select id="selectStarsgameNo" resultType="reviewdto" parameterType="int">
-		select stars from review where gameNo=#{gameNo}
+		select stars from review where game_no=#{game_no}
 	</select>
 	
 	<select id="countReviewgameNo" resultType="int" parameterType="int">
-		select count(*) from review where gameNo=#{gameNo}
+		select count(*) from review where game_no=#{game_no}
 	</select>
 	
 	<select id="selectReviewgameNo" resultType="reviewdto" parameterType="int">
-		select * from review where gameNo=#{gameNo}
+		select * from review where game_no=#{game_no}
 	</select>
 	
 	<insert id="insertReview" parameterType="reviewdto">
-		insert into review values(#{reviewNo}, #{userId}, #{gameNo}, #{contents}, #{stars}, #{createAt}, #{image})
+		insert into review values(#{no}, #{member_id}, #{game_no}, #{date}, #{contents}, #{stars}, #{image})
 	</insert>
 	
 	<update id="updateReview" parameterType="reviewdto">
 		update review 
-		set contents=#{contents}, stars=#{stars}, createAt=#{createAt}
-		where reviewNo=#{reviewNo}
+		set contents=#{contents}, stars=#{stars}
+		where no=#{no}
 	</update>
 	
 	<delete id="deleteReview" parameterType="String">
-		delete from review where userId=#{userId}
+		delete from review where member_id=#{member_id}
 	</delete>
 	
 </mapper>

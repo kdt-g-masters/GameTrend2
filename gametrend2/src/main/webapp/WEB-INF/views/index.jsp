@@ -1,3 +1,5 @@
+<%@page import="edu.kdt.gametrend.game.GameDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -11,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/index.css"/>
 	<script src="/jquery-3.6.0.min.js"></script>
-	<script src="/js/index.js"></script>
+<!-- 	<script src="/js/index.js"></script> -->
 </head>
 <body>
 	<!-- navbar -->
@@ -20,9 +22,10 @@
 	<%@ include file="carousel.jsp" %>
 	<br><hr>
 	<!-- gamelist-->
-	<%@ include file="gamelist.jsp" %>
+	<%-- <%  request.setAttribute("toptenlist", request.getAttribute("toptenlist")); %> --%>
+	<jsp:include page="main_gamelist.jsp" />
 	
-	<div class="space" style="height:500"></div> 
+	<div class="space" style="height:500px"></div> 
 	
 	<!-- footer -->
 	<%@ include file="footer.jsp" %>

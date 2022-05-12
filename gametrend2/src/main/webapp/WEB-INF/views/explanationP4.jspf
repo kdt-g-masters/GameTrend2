@@ -1,5 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    ㅇ NS 소개 이미지 : <br> 
+    <img src="images/jm/NS_intro.jpg" width="400" height="250" alt="no search image"> 
+    <br> 
+    <br>
 
-	dd	
+	ㅇ NS 소개 설명 : <br> 
+	Nintendo Switch 는, 일본 기업 Nintendo 의 게이밍 브랜드 명칭인 Nintendo 의 라인업 기기 중 하나로서, NS 라고 줄여서 부르기도 하며, <br> 
+	해당 네이밍의 게임 기기 및 전반적인 게임 서비스를 총칭한다. <br> 
+	Nintendo 계열 기기는 1980 년대 초에 NES 가 처음 출시되어, 대략 7년 주기로 새로운 Nintendo 기기 가 출시되어 왔다. <br> 
+	2022년 기준으로 Nintendo 기기는 7번째 버전까지 나와, NS 가 최신 Nintendo 게임 기기로서 있으며, <br> 
+	대한민국에서는, Wii 와 NS 가 인지도가 높으며, PS4 에 이어 국내 콘솔 시장 확대를 진행중이다. <br> 
+
+	<br>
+	<br>  
+	
+	ㅇ NS 게임 이미지 : <br>  
+	<img src="images/jm/NS_games.png" width="400" height="250" alt="no search image">
+	<br>
+	<br> 
+	
+	ㅇ NS 게임 설명 : <br> 
+	NS 게임들은, 양성 전연령을 타겟으로 하여, <br> 
+	온가족 게임기의 대표적인 이미지를 가지고 있다. <br> 
+	때문에, 남녀노소 모두 즐길 수 있는 캐쥬얼하고 라이트한 게임들이 주를 이루어, 그만큼 진입장벽이 낮다. <br> 
+	또한, 주로 아기자기 한 이미지의 게임들이 많고, 밝은 분위기의 게임들이 특징이다. <br> 
+	이러한 이미지의 게임들은 Sony 와 마찬가지로, Nintendo 산하의 게임 개발 스튜디오들이, Nintendo 로 부터 지원받아 제작하며, <br> 
+	Nintendo 산하 게임 개발 스튜디오 외의 게임들은, NS의 기기 사양이 높지 않아, 일부만 출시된다. <br>  
+	<br>
+	<br> 
 
