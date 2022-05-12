@@ -69,13 +69,13 @@
 	            <a class="nav-link active" href="gamelist">인기게임순위</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link active" href="gamecalendar">게임달력</a>
+	            <a class="nav-link active" href="calendar">게임달력</a>
 	          </li>
 	          <li class="nav-item">
 	          	<a class="nav-link active" href="promotion">게임할인정보</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link active" href="platform">게임플랫폼소개</a>
+	            <a class="nav-link active" href="explanation">게임플랫폼소개</a>
 	          </li>	                  
 	        </ul>
 	       </div>

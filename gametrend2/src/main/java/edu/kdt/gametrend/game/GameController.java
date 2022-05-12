@@ -22,14 +22,28 @@ public class GameController {
 		ModelAndView mv = new ModelAndView(); 
 		List<GameDTO> list = service.gameList(platform);
 		List<GenreDTO> genre = service.genreList(platform);
-		int totalcnt = service.totalcnt(platform);
+		//int totalcnt = service.getGameListCnt(platform);
+		//System.out.println(totalcnt);
+	    mv.addObject("gamelist",list); 
+	    mv.addObject("genrelist",genre); 
+	    mv.setViewName("gamelist"); 
+	    return mv;
+	}
+	//페이지네이션
+/*	@RequestMapping("/gamelist") 
+	public ModelAndView gamelist(@RequestParam(required = false) String platform) { 
+		if(platform == null) platform = "pc"; 
+		ModelAndView mv = new ModelAndView(); 
+		List<GameDTO> list = service.gameList(platform);
+		List<GenreDTO> genre = service.genreList(platform);
+		//int totalcnt = service.getGameListCnt(platform);
 		System.out.println(totalcnt);
 	    mv.addObject("gamelist",list); 
 	    mv.addObject("genrelist",genre); 
 	    mv.setViewName("gamelist"); 
 	    return mv;
 	}
-
+*/ 
 /*	@RequestMapping("/gamelist") 
 	public ModelAndView gamelist(@RequestParam(required = false) String platform, @RequestParam(required = false) Integer page) { 
 		if(platform == null) platform = "pc";

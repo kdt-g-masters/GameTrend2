@@ -16,7 +16,7 @@ public interface GameDAO {
 	public List<GenreDTO> genreToptenList(String platform);
 	
 	//게임리스트 플랫폼별 전체 갯수 조회
-	public int totalcnt(String platform);
+	public int getGameListCnt(String platform) throws Exception;
 	
 	//게임리스트 플랫폼별 조회
 	public List<GameDTO> gameList(String platform);
