@@ -2,6 +2,7 @@ package edu.kdt.gametrend.game;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,6 @@ public class GameServiceImpl implements GameService {
 	@Autowired
 	@Qualifier("gamedao")
 	GameDAO dao;
-	
 	
 	@Override
 	public List<GameDTO> toptenList(String platform){
@@ -25,8 +25,8 @@ public class GameServiceImpl implements GameService {
 	}
     
 	@Override
-	public int totalcnt(String platform) {
-		return dao.totalcnt(platform);
+	public int getGameListCnt(String platform) throws Exception{
+		return dao.getGameListCnt(platform);
 	}
 
 	@Override

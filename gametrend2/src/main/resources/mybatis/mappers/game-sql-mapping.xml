@@ -17,8 +17,8 @@
 	</select>
 	
 	<!-- 게임리스트 플랫폼별 전체 갯수 조회 -->
-	<select id="totalcnt" resultType="int">
-		select count(*) as count from game where platform=#{platform}
+	<select id="getGameListCnt" resultType="int">
+		select count(*) as listCnt from game where platform=#{platform}
 	</select> 
 	
 	<!-- 게임리스트 전체 조회 -->
