@@ -3,20 +3,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.kdt.gametrend.carousel.CarouselDAO" >
+ 	<!-- 메인 이미지 조회 -->
  	<select id="carousellist" resultType="carouseldto">
-		select * from gamedb.carousel
+		select * from mainImgs
 	</select>
 	
 	<insert id="insertcarousel" parameterType="carouseldto" >
-		insert into gamedb.carousel values(#{carouselNo},#{image},#{title},#{subtitle})
+		insert into mainImgs values(#{no},#{image},#{title},#{subtitle})
 	</insert>
 
 	<update id="updatecarousel" parameterType="carouseldto" >
-		update gamedb.carousel set image=#{image}, title=#{title}, subtitle=#{subtitle} where carouselNo=#{carouselNo}
+		update mainImgs set image=#{image}, title=#{title}, subtitle=#{subtitle} where no=#{no}
 	</update>
 	
 	<delete id="deletecarousel" parameterType="int">
-		delete from gamedb.carousel where carouselNo=#{no}
+		delete from mainImgs where no=#{no}
 	</delete>
 	
 </mapper>
