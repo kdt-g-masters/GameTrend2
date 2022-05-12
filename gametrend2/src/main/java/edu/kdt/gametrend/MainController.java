@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.kdt.gametrend.carousel.CarouselDTO;
+import edu.kdt.gametrend.carousel.CarouselService;
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.game.GameService;
 import edu.kdt.gametrend.game.GenreDTO;
@@ -19,8 +21,11 @@ import edu.kdt.gametrend.game.GenreDTO;
 public class MainController {
 	@Autowired
 	@Qualifier("gameservice")
-	GameService service;
+	GameService game;
 	
+	@Autowired
+	@Qualifier("carouselservice")
+	CarouselService carousel;
 	// 메인 화면
 	/*
 	 * @RequestMapping(value = "/", method = RequestMethod.GET) public ModelAndView
@@ -30,14 +35,18 @@ public class MainController {
 	@RequestMapping(value ="/", method = RequestMethod.GET) 
 	public ModelAndView toptenList() {
 		ModelAndView mv = new ModelAndView();
-		List<GameDTO> pcTopten = service.toptenList("pc");
-		List<GenreDTO> pcGenreTopten = service.genreToptenList("pc");
-		List<GameDTO> psTopten = service.toptenList("PlayStation");
-		List<GenreDTO> psGenreTopten = service.genreToptenList("PlayStation");
-		List<GameDTO> xboxTopten = service.toptenList("Xbox");
-		List<GenreDTO> xboxGenreTopten = service.genreToptenList("Xbox");
-		List<GameDTO> switchTopten = service.toptenList("Switch");
-		List<GenreDTO> switchGenreTopten = service.genreToptenList("Switch");
+		List<CarouselDTO> carousellist = carousel.carousellist();
+		mv.addObject("carousellist", carousellist);
+		
+		List<GameDTO> pcTopten = game.toptenList("pc");
+		List<GenreDTO> pcGenreTopten = game.genreToptenList("pc");
+		List<GameDTO> psTopten = game.toptenList("PlayStation");
+		List<GenreDTO> psGenreTopten = game.genreToptenList("PlayStation");
+		List<GameDTO> xboxTopten = game.toptenList("Xbox");
+		List<GenreDTO> xboxGenreTopten = game.genreToptenList("Xbox");
+		List<GameDTO> switchTopten = game.toptenList("Switch");
+		List<GenreDTO> switchGenreTopten = game.genreToptenList("Switch");
+		
 		mv.addObject("pcTopten", pcTopten);
 		mv.addObject("pcGenreTopten", pcGenreTopten);
 		mv.addObject("psTopten", psTopten);

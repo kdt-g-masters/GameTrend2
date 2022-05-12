@@ -15,15 +15,6 @@ public class CarouselController {
 	@Qualifier("carouselservice")
 	CarouselService service;
 	
-	@RequestMapping(value="/", method=RequestMethod.POST)
-	public ModelAndView carouselist() {
-		ModelAndView mv = new ModelAndView();
-		List<CarouselDTO> list = service.carousellist();
-		mv.addObject("carousellist", list);
-		mv.setViewName("carousel");
-		return mv;
-	}
-	
 //	@RequestMapping(value = "/insertcarousel", method = RequestMethod.GET )
 //	public String insertform() {
 //		return "admin/insertcarousel";
