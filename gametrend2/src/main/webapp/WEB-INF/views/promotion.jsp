@@ -33,7 +33,9 @@ Test1
 	<br> 
 	<c:forEach items="${Event}" var="event" varStatus="number">
 		플랫폼 : ${event.platform} &nbsp;&nbsp;&nbsp;&nbsp; 할인 기간 : ${event.startDate} ~ ${event.endDate} &nbsp;&nbsp;&nbsp;&nbsp; 
-		<img src="images/jm/${event.mainImage}" width="350" height="300" alt="no search image"> &nbsp;&nbsp;&nbsp;&nbsp; <img src="images/jm/${event.image}" width="550" height="300" alt="no search image"> 
+		<a href="${event.link}"> 
+		<img src="images/jm/${event.mainImage}" width="350" height="300" alt="no search image"> &nbsp;&nbsp;&nbsp;&nbsp; <img src="images/jm/${event.image}" width="550" height="300" alt="no search image">
+		</a> 
 		<br>
 		<br>  
 	</c:forEach> 
