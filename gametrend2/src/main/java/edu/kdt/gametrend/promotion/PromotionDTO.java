@@ -2,7 +2,7 @@ package edu.kdt.gametrend.promotion;
 
 public class PromotionDTO {
 	
-	String platform, startDate, endDate, mainImage, image;
+	String platform, startDate, endDate, mainImage, image, link;
 
 	public String getPlatform() {
 		return platform;
@@ -42,6 +42,14 @@ public class PromotionDTO {
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 	
 }
