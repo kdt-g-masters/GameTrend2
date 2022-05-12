@@ -120,9 +120,13 @@
 .content{
 	display: none;
 	position: absolute;
+	text-align: center;
 }
 #box2 a:hover .content{
 	display: inline-block;
+}
+.card-img{
+	object-fit:cover;
 }
 /* #box2 img:hover + .card-img-overlay{
 	position: relative ;
@@ -139,6 +143,7 @@
 		  <div id="gameListCards" class="xscroll">
 			<c:forEach items="${ pcTopten }" var="dto">
 			  <a href="/gamedetail?no=${ dto.no }" >
+			  <div class="card bg-dark text-white shadow gameCardStyle" >
 				<img src="/images/thumbnail/${dto.thumbnail}" class="card-img text-white shadow gameCardStyle" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"/> 			      
 				  <div class="card-img-overlay content">
 					<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
@@ -151,6 +156,7 @@
 					  </c:forEach>
 					</div>
 				  </div>
+				</div>  
 			  </a>
 			</c:forEach>
 		  </div>
@@ -167,7 +173,7 @@
 				<div id="gameListCards" class="xscroll">
 					<c:forEach items="${ psTopten }" var="dto">
 					  <a href="/gamedetail?no=${ dto.no }" >
-						<div class="card bg-dark text-white shadow gameCardStyle" width="20%">
+						<div class="card bg-dark text-white shadow gameCardStyle">
 						  <img src="/images/thumbnail/${dto.thumbnail}" class="card-img gameCardStyle" alt="${dto.name}" onmouseover="this.style.opacity='0.5'" onmouseout="this.style.opacity='1'"/>
 						  <div class="card-img-overlay" style="display:none;">
 						  	<div class="btn btn-primary rank position-relative"><b>${dto.ranking}</b></div>
