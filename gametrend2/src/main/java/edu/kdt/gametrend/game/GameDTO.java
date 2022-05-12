@@ -1,6 +1,7 @@
 package edu.kdt.gametrend.game;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Component("gamedto")
 public class GameDTO {
@@ -18,17 +19,19 @@ public class GameDTO {
 	String screenshot3;
 	String screenshot4;
 	
-	String genre;
+	MultipartFile file1;
+	MultipartFile file2;
+	MultipartFile file3;
+	MultipartFile file4;
 	
 	public GameDTO() {}
-	public GameDTO(int no, String name, String explanation, String genre, String platform, 
+	public GameDTO(int no, String name, String explanation, String platform, 
 			String thumbnail, int views, double rating, String releaseDate, String trailer,
 			String screenshot1, String screenshot2, String screenshot3, String screenshot4) {
 		super();
 		this.no = no;
 		this.name = name;
 		this.explanation = explanation;	
-		this.genre = genre;
 		this.platform = platform;
 		this.thumbnail = thumbnail;
 		this.views = views;
@@ -59,12 +62,6 @@ public class GameDTO {
 	}
 	public void setExplanation(String explanation) {
 		this.explanation = explanation;
-	}
-	public String getGenre() {
-		return genre;
-	}
-	public void setGenre(String genre) {
-		this.genre = genre;
 	}
 	public String getPlatform() {
 		return platform;
@@ -125,6 +122,30 @@ public class GameDTO {
 	}
 	public void setScreenshot4(String screenshot4) {
 		this.screenshot4 = screenshot4;
+	}
+	public MultipartFile getFile1() {
+		return file1;
+	}
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
+	}
+	public MultipartFile getFile2() {
+		return file2;
+	}
+	public void setFile2(MultipartFile file2) {
+		this.file2 = file2;
+	}
+	public MultipartFile getFile3() {
+		return file3;
+	}
+	public void setFile3(MultipartFile file3) {
+		this.file3 = file3;
+	}
+	public MultipartFile getFile4() {
+		return file4;
+	}
+	public void setFile4(MultipartFile file4) {
+		this.file4 = file4;
 	}
 
 }

@@ -21,7 +21,7 @@
 				dataType: 'json',
 				success: function(result) {
 					if (result == '1') {
-						location.replace('/');
+						location.replace('/adminPage?page=1');
 					}
 					else {
 						alert('로그인 실패');

@@ -3,8 +3,44 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.kdt.gametrend.admin.AdminDAO" >
+
+	<!-- 관리자 로그인 -->
  	<select id="loginAdmin" parameterType="admindto" resultType="admindto">
 		select id, password, name from member
 		where id = #{id} and password = #{password}
 	</select>
+	
+	<!-- 최근 추가한 게임 -->
+	<select id="selectGameList" parameterType="int[]" resultType="gamedto">
+		select * from game
+		order by no desc
+		limit
+		<foreach collection="array" item="num" separator=",">
+			#{num}
+		</foreach>
+	</select>
+	
+	<!-- 게임 추가 -->
+	<insert id="insertGame" parameterType="gamedto">
+		insert into game (no, name, explanation, platform, thumbnail, releaseDate) values(#{no}, #{name}, #{explanation}, #{platform}, #{thumbnail}, #{releaseDate})
+	</insert>
+	
+	<!-- 게임 삭제 -->
+	<delete id="deleteGame" parameterType="int">
+		delete from game
+		where no=#{no}
+	</delete>
+	
+	<!-- 게임 조회 -->
+	<select id="selectGame" parameterType="int" resultType="gamedto">
+		select * from game
+		where no=#{no}
+	</select>
+	
+	<!-- 게임 수정 -->
+	<update id="updateGame" parameterType="gamedto">
+		update game
+		set name=#{name}, explanation=#{explanation}, platform=#{platform}, thumbnail=#{thumbnail}, releaseDate=#{releaseDate}, trailer=#{trailer}, screenshot1=#{screenshot1}, screenshot2=#{screenshot2}, screenshot3=#{screenshot3}, screenshot4=#{screenshot4}
+		where no=#{no}
+	</update>
 </mapper>
