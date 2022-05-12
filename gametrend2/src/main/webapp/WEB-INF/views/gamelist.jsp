@@ -23,7 +23,7 @@
 			$('.paging li').on('click',function(){
 				$('.paging li').removeClass('active');
 				$(this).addClass('active');
-				location.href ='list?page='+$(this).text();
+				location.href ='gamelist?page='+$(this).text();
 			});
 			
 			
