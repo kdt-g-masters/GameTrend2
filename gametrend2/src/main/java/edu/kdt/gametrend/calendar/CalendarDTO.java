@@ -3,6 +3,7 @@ package edu.kdt.gametrend.calendar;
 public class CalendarDTO {
 	
 	String platform;
+	String name;
 	String releaseDate; 
 	String views; 
 	
@@ -30,5 +31,13 @@ public class CalendarDTO {
 	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	} 
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 }
