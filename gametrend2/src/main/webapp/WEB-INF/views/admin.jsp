@@ -160,6 +160,7 @@
                                 <a class="nav-link active" href="#"><i class="fa fa-fw fa-gamepad"></i>게임 목록<span class="badge badge-success">6</span></a>
                                 <a class="nav-link" href="#"><i class="fa fa-fw fa-gift"></i>프로모션<span class="badge badge-success">6</span></a>
                                 <a class="nav-link" href="#"><i class="fa fa-fw fa-clipboard-check"></i>리뷰 승인<span class="badge badge-success">6</span></a>
+                                <a class="nav-link" href="#"><i class="fa fa-fw fa-file-image"></i>메인 이미지 설정<span class="badge badge-success">6</span></a>
                             </li>
                         </ul>
                     </div>
