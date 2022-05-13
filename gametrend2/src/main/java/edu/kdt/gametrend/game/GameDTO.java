@@ -18,9 +18,10 @@ public class GameDTO {
 	String screenshot2;
 	String screenshot3;
 	String screenshot4;
+	String relevant_site1;
+	String relevant_site2;
 
 	int ranking;
-	String genre;
 	
 	MultipartFile file1;
 	MultipartFile file2;
@@ -37,7 +38,8 @@ public class GameDTO {
 	}
 	public GameDTO(int no, String name, String explanation, String genre, String platform,
 			String thumbnail, int views, double rating, String releaseDate, String trailer,
-			String screenshot1, String screenshot2, String screenshot3, String screenshot4) {
+			String screenshot1, String screenshot2, String screenshot3, String screenshot4,
+			String relevant_site1, String relevant_site2) {
 		super();
 		this.no = no;
 		this.name = name;
@@ -52,6 +54,8 @@ public class GameDTO {
 		this.screenshot2 = screenshot2;
 		this.screenshot3 = screenshot3;
 		this.screenshot4 = screenshot4;
+		this.relevant_site1 = relevant_site1;
+		this.relevant_site2 = relevant_site2;
 	}
 	
 	
@@ -163,4 +167,17 @@ public class GameDTO {
 	public void setFile4(MultipartFile file4) {
 		this.file4 = file4;
 	}
+	public String getRelevant_site1() {
+		return relevant_site1;
+	}
+	public void setRelevant_site1(String relevant_site1) {
+		this.relevant_site1 = relevant_site1;
+	}
+	public String getRelevant_site2() {
+		return relevant_site2;
+	}
+	public void setRelevant_site2(String relevant_site2) {
+		this.relevant_site2 = relevant_site2;
+	}
+	
 }
