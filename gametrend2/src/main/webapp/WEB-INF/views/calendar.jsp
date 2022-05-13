@@ -40,6 +40,16 @@
 불러올 데이터 : <br> 
 1) 출시일자 
 <br>  
+<br> 
+
+	<c:forEach items="${Data}" var="data" varStatus="number">
+		${data.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${data.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${data.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${data.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	<br> 
+	<br> 
 
 </body>
 
