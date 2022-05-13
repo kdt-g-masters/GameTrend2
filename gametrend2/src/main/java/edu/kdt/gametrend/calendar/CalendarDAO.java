@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository("CalendarDAO")
 public interface CalendarDAO {
 	
-	public List<CalendarDTO> calendarlist();
+	public List<CalendarDTO> loadGamedata();
 
 }

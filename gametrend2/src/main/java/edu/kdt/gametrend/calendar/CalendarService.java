@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface CalendarService {
 	
-	public List<CalendarDTO> calendarlist();
+	public List<CalendarDTO> loadGamedata();
 
 }

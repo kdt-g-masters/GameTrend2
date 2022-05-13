@@ -5,8 +5,9 @@
   
 <mapper namespace="edu.kdt.gametrend.calendar.CalendarDAO" > 
 
-	 
+	<select id="loadGamedata" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+	</select> 
 	
-
 </mapper>
 

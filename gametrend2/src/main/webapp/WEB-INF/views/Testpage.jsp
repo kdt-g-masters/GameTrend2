@@ -30,6 +30,13 @@
 	<input type="submit" name="movebtnA" value="할인 페이지로 이동(POST)" />  
 </form>
 <br> 
+<br> 
+
+<form method="POST" action="/calendar" > 
+	<input type="submit" name="movebtnB" value="달력 페이지로 이동(POST)" />  
+</form>
+<br> 
+<br> 
 
 </body>
 </html>

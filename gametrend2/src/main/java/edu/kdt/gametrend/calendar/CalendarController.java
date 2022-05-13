@@ -1,5 +1,7 @@
 package edu.kdt.gametrend.calendar;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -20,11 +22,17 @@ public class CalendarController {
 			return "calendar"; 
 	}
 	
+	// 달력 내용 로딩 
 	@RequestMapping(value="/calendar", method=RequestMethod.POST)
 	public ModelAndView calendarAction2() { 
+		
+		List<CalendarDTO> gamedata = service.loadGamedata();
+		
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("Data", gamedata);
 		mv.setViewName("calendar");
-		return mv;
+		return mv; 
+		
 	}
 
 }
