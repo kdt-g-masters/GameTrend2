@@ -79,7 +79,6 @@ public class WishlistController {
 	public int gameWishlist(WishlistDTO dto) throws Exception {
 		//위시리스트 중복 확인
 		int wishlistcheck = service.wishlistCheck(dto);
-		System.out.println(wishlistcheck);
 		if(wishlistcheck == 0) {
 			service.insertWishlist(dto);
 		}

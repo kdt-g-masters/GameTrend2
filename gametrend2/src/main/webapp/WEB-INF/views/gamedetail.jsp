@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${ gamedetail.name }</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" crossorigin="anonymous">
 <link href="/css/sub.css" rel="stylesheet">
 <script src="/jquery-3.6.0.min.js"></script>
 <script>
@@ -21,38 +21,44 @@ $(document).ready(function(){
 	
 	//리뷰 작성
 	$("#reviewinsert").on('click', function () {
-		$.ajax({
-			url: '<%=request.getContextPath() %>/insertReview' ,
-			data: {'no':$("#reviewNo").val(), 'member_id':$("#reviewuserId").val(), 'game_no':${param.no}, 'contents':$("#contents").val(), 'stars':$("#stars").val(), 'date':$("#createAt").val() } ,
-			type: 'POST' ,
-			dataType: 'json',
-			success: function (a) {
-				alert(JSON.stringify(a));
-				<%--
-				//리뷰 작성 버튼 클릭 시 리뷰수 반영
-				$.ajax({
-					url: '<%=request.getContextPath() %>/countreviewgameno',
-					data: {'game_no':${param.no}} ,
-					dataType: 'json',
-					success: function(countreview){
+		if(memberid == "null"){
+			alert("로그인이 필요한 항목입니다.");
+			location.replace("/login");
+		}
+		else{
+			$.ajax({
+				url: '<%=request.getContextPath() %>/insertReview' ,
+				data: {'no':$("#reviewNo").val(), 'member_id':$("#reviewuserId").val(), 'game_no':${param.no}, 'contents':$("#contents").val(), 'stars':$("#stars").val(), 'date':$("#createAt").val() } ,
+				type: 'POST' ,
+				dataType: 'json',
+				success: function (a) {
+					alert(JSON.stringify(a));
+					<%--
+					//리뷰 작성 버튼 클릭 시 리뷰수 반영
+					$.ajax({
+						url: '<%=request.getContextPath() %>/countreviewgameno',
+						data: {'game_no':${param.no}} ,
+						dataType: 'json',
+						success: function(countreview){
 						$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
-					}
-				});
-				
-				//리뷰 작성 성공시 리뷰 추가
-				$.ajax({
-					url: '<%=request.getContextPath() %>/reviewgameno',
-					data: {'game_no':${param.no}} ,
-					dataType: 'json',
-					success: function (list) {
-						var j = (list.length - 1);
-						$('#review1').append("<div style=\"background-color: black;\"><p>" + list[0].userId + "<br>" +list[0].createAt + "</p><p>" + list[0].contents + "</p></div>");
-					}
-				});
-				--%>
-				location.reload();
-			}//success end
-		});//ajax end
+						}
+					});
+												
+					//리뷰 작성 성공시 리뷰 추가
+					$.ajax({
+						url: '<%=request.getContextPath() %>/reviewgameno',
+						data: {'game_no':${param.no}} ,
+						dataType: 'json',
+						success: function (list) {
+							var j = (list.length - 1);
+							$('#review1').append("<div style=\"background-color: black;\"><p>" + list[0].userId + "<br>" +list[0].createAt + "</p><p>" + list[0].contents + "</p></div>");
+						}
+					});
+					--%>
+					location.reload();
+				}//success end
+			});//ajax end
+		}//if end
 	});//on end
 	
 	//게임 상세 페이지 이동시 리뷰수 반영
@@ -84,24 +90,24 @@ $(document).ready(function(){
 		dataType: 'json', 
 		success: function (wishlistcheck) {
 			if(wishlistcheck == 0){
-				alert("0");
-				var like = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">'
-					like += '<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>'
-					like += "</svg>"
-				$("#wishlist").html(like);
+				var wish = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">'
+					wish += '<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>'
+					wish += "</svg>"
+					wish += "wish"
+				$("#rcm").html(wish);
 			}
 			else if(wishlistcheck == 1){
-				alert("1");
-				var like = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">'
-					like += '<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>'
-					like += "</svg>"
-				$("#wishlist").html(like);
+				var wish = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">'
+					wish += '<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>'
+					wish += "</svg>"
+					wish += "wish"
+				$("#rcm").html(wish);
 			}
 		}//success end
 	});//ajax end
 	
 	//게임 위시리스트 기능
-	$("#wishlist").on('click', function () {
+	$("#rcm").on('click', function () {
 		if(memberid == "null"){
 			alert("로그인이 필요한 항목입니다.");
 			location.reload("/login");
@@ -128,6 +134,7 @@ $(document).ready(function(){
 		}//if end
 	});//on end
 	
+	<%--
 	var cnt = 0;
 	$('#star').on('click', function () {
 		cnt++;
@@ -185,6 +192,7 @@ $(document).ready(function(){
 			$('#star5-1').attr('d','M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z');
 		}
 	});//star end	
+	--%>
 });//jquary end
 </script>
 </head>
@@ -193,20 +201,31 @@ $(document).ready(function(){
 	<%@ include file="navbar.jsp" %>	
 	<main>
 		<div class="hidden" id="tema">
-			<div class="left" id="tema1">
+			<div class="left b-ground" id="tema1">
 				<h1>${ gamedetail.name }</h1>
-				<img id="img1" src="/images/thumbnail/${ gamedetail.thumbnail }">
-				<p>${ gamedetail.platform }</p>
-				<p>${ gamedetail.releaseDate }</p>
-				<p>
-					<c:forEach items="${ gamegenre }" var="dto">
-						${ dto.genre }
-					</c:forEach>
-				</p>
-				<div id="wishlist" style="cursor: pointer;"></div>
+				<div class="hidden">
+					<div class="left">
+						<img id="img1" src="/images/thumbnail/${ gamedetail.thumbnail }">
+					</div>
+					<div class="right">
+						<p>${ gamedetail.platform }</p>
+						<!-- 게임 출시일 -->
+						<p>${ gamedetail.releaseDate }</p>
+						<!-- 게임 장르 -->
+						<p>
+							<c:forEach items="${ gamegenre }" var="dto">
+								${ dto.genre }
+							</c:forEach>
+						</p>
+						<!-- 위시리스트 -->
+						<p id="rcm" style="cursor: pointer; width: 80px;"></p>
+						<!-- 판매링크 -->
+						<a class="btn btn-primary me-2 mainColor" href="${ gamedetail.relevant_site1 }">${ gamedetail.relevant_site2 }</a>
+					</div>
+				</div>
 			</div>
 			
-			<div class="right" id="ratings" style="margin-bottom: 10px;">
+			<div class="right b-ground" id="ratings" style="margin-bottom: 10px;">
 				<div style="float: left;">
 					<h2 id="star">별점:<svg id="star5" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
 							<path id="star5-1" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg>
@@ -224,7 +243,7 @@ $(document).ready(function(){
 				<div id="reviewcount" style="float: right;"></div>
 			</div>
 			
-			<div class="right" id="explain">
+			<div class="right b-ground" id="explain">
 				<h2>게임 설명</h2>
 				<p>${ gamedetail.explanation }</p>
 			</div>
@@ -243,11 +262,11 @@ $(document).ready(function(){
 		
 		<h3>리뷰</h3>
 		<div class="hidden">
-			<div class="left" id="review1">
+			<div class="left b-ground" id="review1">
 				<p>리뷰내용</p>
 			</div>
 			
-			<div class="right">
+			<div class="right b-ground">
 				<h4>리뷰 쓰기</h4>
 				<form action="">
 					<input id="reviewNo" type="text" value="<% Random random = new Random(); %><%= random.nextInt(9999)+1 %>" hidden>
@@ -257,7 +276,7 @@ $(document).ready(function(){
 					<input id="createAt" type="text" value="<%=formatter.format(now) %>" hidden>
 					<textarea id="contents" rows="10" cols="70" style="width: 80%;"></textarea>
 					<br>
-					<input id="reviewinsert" type="button" value="리뷰 입력" style="background-color: #7244FE; color: #FFFFFF">
+					<input class="btn btn-primary me-2 mainColor" type="button" value="리뷰 입력">
 				</form>
 			</div>
 		</div>

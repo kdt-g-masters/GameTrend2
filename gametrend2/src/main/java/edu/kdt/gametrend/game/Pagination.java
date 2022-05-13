@@ -2,7 +2,7 @@ package edu.kdt.gametrend.game;
 
 public class Pagination {
 		private int listSize = 3;
-		private int rangeSize = 9;
+		private int rangeSize = 3;
 		private int page, range, listCnt, pageCnt, startPage, startList, endPage;
 		private boolean prev, next;
 		

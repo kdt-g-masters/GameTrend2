@@ -1,16 +1,27 @@
 package edu.kdt.gametrend.admin;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
-import edu.kdt.gametrend.member.MemberDTO;
+import edu.kdt.gametrend.game.GameDTO;
 
 @Controller
 public class AdminController {
@@ -18,6 +29,9 @@ public class AdminController {
 	@Autowired
 	@Qualifier("adminservice")
 	AdminService service;
+	
+	@Autowired
+	ResourceLoader resourceLoader;
 	
 	// 관리자 로그인
 	@RequestMapping(value="/admin")
@@ -48,5 +62,181 @@ public class AdminController {
 		}
 	}
 	
+	@RequestMapping(value="/adminPage")
+	public ModelAndView adminPage(int page) {
+		int[] limit = new int[2];
+		limit[0] = (page - 1) * 5;
+		limit[1] = 5;
+		ModelAndView mv = new ModelAndView();
+		List<GameDTO> list = service.selectGameList(limit);
+		mv.addObject("gameList", list);
+		mv.setViewName("admin");
+		return mv;
+	}
 	
+	@RequestMapping(value="/addGame", method=RequestMethod.POST)
+	public String addGame(GameDTO dto, MultipartFile image, HttpServletRequest request) throws IOException {
+		
+		// 파일 저장 경로
+		String resourceSrc = request.getServletContext().getRealPath("");
+		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
+		String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\thumbnail";
+		System.out.println(savePath);
+		
+		// 가장 최근 추가된 게임 항목 가져오기
+		int[] limit = new int[2];
+		limit[0] = 0;
+		limit[1] = 1;
+		List<GameDTO> list = service.selectGameList(limit);
+		
+		
+		if (!image.isEmpty()) {
+			// 파일 이름
+			String originName = image.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = list.get(0).getNo()+1 + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePath, fileName);
+			image.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setThumbnail(fileName);
+			dto.setNo(list.get(0).getNo()+1);
+		}
+		else {
+			dto.setThumbnail(null);
+		}
+		
+		service.insertGame(dto);
+		
+		return "redirect:/adminPage?page=1";
+	}
+	
+	// 게임 삭제
+	@RequestMapping(value="/deleteGame")
+	public String deleteGame(int no) {
+		int row = service.deleteGame(no);
+		return "redirect:/adminPage?page=1";
+	}
+	
+	// 게임 수정 페이지
+	@RequestMapping(value="/updateGame")
+	public ModelAndView updateGameForm(int no) {
+		ModelAndView mv = new ModelAndView();
+		GameDTO dto = service.selectGame(no);
+		mv.addObject("gameDTO", dto);
+		mv.setViewName("adminEditGame");
+		return mv;
+	}
+	
+	// 게임 수정 완료
+	@RequestMapping(value="/updateGame", method=RequestMethod.POST)
+	public String updateGame(GameDTO dto, MultipartFile mfThumbnail, HttpServletRequest request) throws IOException {
+		
+		// 스크린샷 저장
+		
+		// 파일 저장 경로
+		String resourceSrc = request.getServletContext().getRealPath("");
+		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
+		String savePathThumbnail = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\thumbnail";
+		String savePathScreenshot = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\screenshot";
+		
+		
+		MultipartFile screenshot1 = dto.getFile1();
+		MultipartFile screenshot2 = dto.getFile2();
+		MultipartFile screenshot3 = dto.getFile3();
+		MultipartFile screenshot4 = dto.getFile4();
+		
+		if (!mfThumbnail.isEmpty()) {
+			// 파일 이름
+			String originName = mfThumbnail.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getNo() + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePathThumbnail, fileName);
+			mfThumbnail.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setThumbnail(fileName);
+		}
+		else {
+			dto.setThumbnail(service.selectGame(dto.getNo()).getThumbnail()); 
+		}
+		
+		if (!screenshot1.isEmpty()) {
+			// 파일 이름
+			String originName = screenshot1.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getNo() + "_1" + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePathScreenshot, fileName);
+			screenshot1.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setScreenshot1(fileName);
+		}
+		else {
+			dto.setScreenshot1(null);
+		}
+		
+		if (!screenshot2.isEmpty()) {
+			// 파일 이름
+			String originName = screenshot2.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getNo() + "_2" + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePathScreenshot, fileName);
+			screenshot2.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setScreenshot2(fileName);
+		}
+		else {
+			dto.setScreenshot2(null);
+		}
+		
+		if (!screenshot3.isEmpty()) {
+			// 파일 이름
+			String originName = screenshot3.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getNo() + "_3" + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePathScreenshot, fileName);
+			screenshot3.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setScreenshot3(fileName);
+		}
+		else {
+			dto.setScreenshot3(null);
+		}
+		
+		if (!screenshot4.isEmpty()) {
+			// 파일 이름
+			String originName = screenshot4.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getNo() + "_4" + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePathScreenshot, fileName);
+			screenshot4.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setScreenshot4(fileName);
+		}
+		else {
+			dto.setScreenshot4(null);
+		}
+		
+		int row = service.updateGame(dto);
+		return "redirect:/adminPage?page=1";
+	}
+	
+	@RequestMapping(value="/adminEditGame")
+	public void adminEditGame() {}
 }

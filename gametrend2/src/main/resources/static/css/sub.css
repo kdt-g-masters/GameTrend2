@@ -36,23 +36,22 @@ main #img1 {
 	width: 180px;
 	height: 180px;
 }
+main .b-ground {
+	background: linear-gradient(to right, #C165DD, #5C27FE);
+	border-radius: 20px;
+	color: #FFFFFF;
+}
 main .left {
 	float: left;
 	margin-bottom: 0;
 	width: 47%;
-	background: linear-gradient(to right, #C165DD, #5C27FE);
 	padding: 10px;
-	border-radius: 20px;
-	color: #FFFFFF;
 }
 main .right {
 	float: right;
 	margin-bottom: 0;
 	width: 47%;
-	background: linear-gradient(to right, #C165DD, #5C27FE);
 	padding: 10px;
-	border-radius: 20px;
-	color: #FFFFFF;
 }
 main #ratings {
 	height: 80px;
@@ -274,4 +273,5 @@ a {
 	main #tema { height: auto; }
 	main #explain { width: 100%; }
 	main #review1 { height: 300px; white-space:normal; overflow: auto; }
+	main #tema1 {height: 500px; margin-top: 35px;}
 }

@@ -2,7 +2,6 @@ package edu.kdt.gametrend.game;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -25,8 +24,8 @@ public class GameServiceImpl implements GameService {
 	}
     
 	@Override
-	public int getGameListCnt(String platform) throws Exception{
-		return dao.getGameListCnt(platform);
+	public int getGameListCnt(Criteria cri){
+		return dao.getGameListCnt(cri);
 	}
 
 	@Override
@@ -39,11 +38,15 @@ public class GameServiceImpl implements GameService {
 		return dao.genreList(platform);
 	}
 
-	/*
-	 * @Override public List<GameDTO> gameList(String platform, int [] limit) {
-	 * return dao.gameList(platform, limit); }
-	 */
+	@Override 
+	public List<GameDTO> pagingGameList(Criteria cri) {
+		return dao.pagingGameList(cri); 
+	}
 	
+	@Override 
+	public List<GenreDTO> pagingGenreList(Criteria cri)  {
+		return dao.pagingGenreList(cri);
+	}
 	
 	@Override
 	public GameDTO gameDetail(int no) {

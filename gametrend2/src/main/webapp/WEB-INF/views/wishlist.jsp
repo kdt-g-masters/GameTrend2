@@ -119,9 +119,9 @@
 		    </div>
 		    </a>
 		  </li>
-		  </c:forEach>		  
-		</div>
-	</ul>
+		</c:forEach>		  
+		</ul>
+	</div>
 
 		<div class="row center">  
 			<div class="paging" role="toolbar" aria-label="Toolbar with button groups">
