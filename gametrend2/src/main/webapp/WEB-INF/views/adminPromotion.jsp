@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/vendor/fonts/fontawesome/css/fontawesome-all.css">    
     <link rel="stylesheet" href="/vendor/datepicker/tempusdominus-bootstrap-4.css" />
-<title>관리자 페이지</title>
-<link rel="stylesheet" href="/css/admin.css">
+	<title>관리자 페이지</title>
+	<link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
     <!-- ============================================================== -->
@@ -30,13 +30,13 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">게임 목록</h2>
+                                <h2 class="pageheader-title">프로모션</h2>
                                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">메뉴</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">게임 목록</li>
+                                            <li class="breadcrumb-item active" aria-current="page">프로모션</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -52,44 +52,27 @@
                       
                             <!-- ============================================================== -->
 
-                                          <!-- 게임목록 추가  -->
+                                          <!-- 프로모션 추가  -->
                             <!-- ============================================================== -->
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header">게임 추가</h5>
+                                    <h5 class="card-header">프로모션 추가</h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
-                                            <table class="table">
-                                                <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">이미지</th>
-                                                        <th class="border-0">이름</th>
-                                                        <th class="border-0">설명</th>                                                        
-                                                        <th class="border-0">플랫폼</th>
-                                                        <th class="border-0">발매일</th>                                                      
-                                                    </tr>
-                                                </thead>
-                                                <form action="addGame" method="post" enctype="multipart/form-data">
+                                        	<form action="addPromotion" method="post" enctype="multipart/form-data">
+	                                            <table class="table">
+	                                                <thead class="bg-light">
+	                                                    <tr class="border-0">
+	                                                        <th class="border-0">플랫폼</th>
+	                                                        <th class="border-0">시작 날짜</th>
+	                                                        <th class="border-0">종료 날짜</th>                                                        
+	                                                        <th class="border-0">이벤트 이미지</th>
+	                                                        <th class="border-0">이벤트 리스트 이미지</th>
+	                                                        <th class="border-0">링크</th>                                                 
+	                                                    </tr>
+	                                                </thead>                                                
 	                                                <tbody>
 	                                                    <tr>
-	                                                        <td>
-	                                                            <div class="m-r-10">
-		                                                            <div class="custom-file mb-3">
-	                                                					<input type="file" class="custom-file-input" id="customFile" name="image">
-	                                                					<label class="custom-file-label" for="customFile">thumbnail</label>
-	                                            					</div>
-	                                                            </div>
-	                                                        </td>
-	                                                        <td>
-	                                                        	<div class="form-group">
-					                                                <input id="inputText3" type="text" class="form-control" name="name">
-					                                            </div>
-	                                                        </td>
-	                                                        <td>
-	                                                        	<div class="form-group">				                                                
-					                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="1" name="explanation"></textarea>
-					                                            </div>
-	                                                        </td>
 	                                                        <td>
 	                                                        	<div class="form-group">
 					                                                <select class="form-control" id="input-select" name="platform">
@@ -102,21 +85,52 @@
 	                                                        </td>
 	                                                        <td>
 							                                    <div class="form-group">
-							                                        <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-							                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" name="releaseDate"/>
-							                                            <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+							                                        <div class="input-group date" id="datetimepickerStartDate" data-target-input="nearest">
+							                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepickerStartDate" name="startDate"/>
+							                                            <div class="input-group-append" data-target="#datetimepickerStartDate" data-toggle="datetimepicker">
 							                                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
 							                                            </div>
 							                                        </div>
 							                                    </div>
-	                                                        </td>                                                       
+	                                                        </td>
+	                                                        <td>
+							                                    <div class="form-group">
+							                                        <div class="input-group date" id="datetimepickerEndDate" data-target-input="nearest">
+							                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepickerEndDate" name="endDate"/>
+							                                            <div class="input-group-append" data-target="#datetimepickerEndDate" data-toggle="datetimepicker">
+							                                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+							                                            </div>
+							                                        </div>
+							                                    </div>
+	                                                        </td>	                                                        	                                                        	                                                    
+	                                                        <td>
+	                                                            <div class="m-r-10">
+		                                                            <div class="custom-file mb-3">
+	                                                					<input type="file" class="custom-file-input" id="customFile" name="file1">
+	                                                					<label class="custom-file-label" for="customFile">이벤트 이미지</label>
+	                                            					</div>
+	                                                            </div>
+	                                                        </td>
+	                                                        <td>
+	                                                            <div class="m-r-10">
+		                                                            <div class="custom-file mb-3">
+	                                                					<input type="file" class="custom-file-input" id="customFile" name="file2">
+	                                                					<label class="custom-file-label" for="customFile">이벤트 리스트 이미지</label>
+	                                            					</div>
+	                                                            </div>
+	                                                        </td>	                                                        
+	                                                        <td>
+	                                                        	<div class="form-group">
+					                                                <input id="inputText3" type="text" class="form-control" name="link">
+					                                            </div>
+	                                                        </td>                                                    
 	                                                    </tr>                                                    
 	                                                    <tr>
 	                                                        <td colspan="9"><input type="submit" class="btn btn-outline-light float-right" value="추가" /></td>
 	                                                    </tr>
-	                                                </tbody>
-                                                </form>
-                                            </table>
+	                                                </tbody>                               
+                                            	</table>
+                 							</form>                                            
                                         </div>
                                     </div>
                                 </div>
@@ -130,43 +144,45 @@
                       
                             <!-- ============================================================== -->
 
-                                          <!-- 게임목록  -->
+                                          <!-- 프로모션 목록  -->
                             <!-- ============================================================== -->
                             <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
                                 <div class="card">
-                                    <h5 class="card-header">최근 추가된 게임 목록</h5>
+                                    <h5 class="card-header">프로모션 목록</h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead class="bg-light">
-                                                    <tr class="border-0">
-                                                        <th class="border-0">#</th>
-                                                        <th class="border-0">이미지</th>
-                                                        <th class="border-0">이름</th>
-                                                        <th class="border-0">설명</th>
+                                                    <tr class="border-0">                                                        
                                                         <th class="border-0">플랫폼</th>
-                                                        <th class="border-0">발매일</th>
+                                                        <th class="border-0">시작 날짜</th>
+                                                        <th class="border-0">종료 날짜</th>
+                                                        <th class="border-0">이벤트 이미지</th>
+                                                        <th class="border-0">이벤트 리스트 이미지</th>
+                                                        <th class="border-0">링크</th>
                                                         <th class="border-0">수정</th>
                                                         <th class="border-0">삭제</th>                                                      
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                	<c:forEach items="${ gameList }" var="dto">
+                                                	<c:forEach items="${ promotionList }" var="dto">
 	                                                	<tr>	
-	                                                        <td>${ dto.no }</td>
-	                                                        <td>
-	                                                            <div class="m-r-10"><img src="/images/thumbnail/${ dto.thumbnail }" alt="thumbnail" class="rounded" width="45"></div>
-	                                                        </td>
-	                                                        <td>${ dto.name }</td>
-	                                                        <td>${ dto.explanation }</td>
 	                                                        <td>${ dto.platform }</td>
-	                                                        <td>${ dto.releaseDate }</td>
-	                                                        <td><a href="/updateGame?no=${ dto.no }"><i class="fas fa-edit"></i></a></td>
-	                                                        <td><a href="/deleteGame?no=${ dto.no }"><i class="fas fa-trash"></i></a></td>                                                       
+	                                                        <td>${ dto.startDate }</td>
+	                                                        <td>${ dto.endDate }</td>
+	                                                        <td>
+	                                                            <div class="m-r-10"><img src="/images/jm/${ dto.mainImage }" alt="이벤트 이미지" class="rounded" width="45"></div>
+	                                                        </td>
+	                                                        <td>
+	                                                            <div class="m-r-10"><img src="/images/jm/${ dto.image }" alt="이벤트 리스트 이미지" class="rounded" width="70"></div>
+	                                                        </td>
+	                                                        <td>${ dto.link }</td>
+	                                                        <td><a href="/updatePromotion?platform=${ dto.platform }"><i class="fas fa-edit"></i></a></td>
+	                                                        <td><a href="/deletePromotion?platform=${ dto.platform }"><i class="fas fa-trash"></i></a></td>                                                       
 	                                                    </tr>
                                                 	</c:forEach>                                                                                               
                                                     <tr>
-                                                        <td colspan="9"><a href="#" class="btn btn-outline-light float-right">더보기</a></td>
+                                                        <td colspan="9"> </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -225,7 +241,7 @@
     <script src="/vendor/datepicker/datepicker.js"></script>
     <script>
 		$(document).ready(function() {
-			$('#navGameList').addClass('active');
+			$('#navPromotion').addClass('active');
 		}); // ready end		
 	</script>
 </body>

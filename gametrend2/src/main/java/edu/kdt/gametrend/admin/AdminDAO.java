@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import edu.kdt.gametrend.game.GameDTO;
+import edu.kdt.gametrend.promotion.PromotionDTO;
 
 @Mapper
 @Repository("adminDAO")
@@ -28,4 +29,19 @@ public interface AdminDAO {
 	
 	// 게임 수정
 	public int updateGame(GameDTO dto);
+	
+	// 프로모션 리스트
+	public List<PromotionDTO> selectPromotionList();
+	
+	// 프로모션 추가
+	public int insertPromotion(PromotionDTO dto);
+	
+	// 프로모션 삭제
+	public int deletePromotion(String platform);
+	
+	// 프로모션 조회
+	public PromotionDTO selectPromotion(String platform);
+	
+	// 프로모션 수정
+	public int updatePromotion(PromotionDTO dto);
 }
