@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.kdt.gametrend.game.GameDTO;
+import edu.kdt.gametrend.promotion.PromotionDTO;
 
 @Controller
 public class AdminController {
@@ -29,9 +30,6 @@ public class AdminController {
 	@Autowired
 	@Qualifier("adminservice")
 	AdminService service;
-	
-	@Autowired
-	ResourceLoader resourceLoader;
 	
 	// 관리자 로그인
 	@RequestMapping(value="/admin")
@@ -74,6 +72,7 @@ public class AdminController {
 		return mv;
 	}
 	
+	// 게임 추가
 	@RequestMapping(value="/addGame", method=RequestMethod.POST)
 	public String addGame(GameDTO dto, MultipartFile image, HttpServletRequest request) throws IOException {
 		
@@ -140,8 +139,7 @@ public class AdminController {
 		String resourceSrc = request.getServletContext().getRealPath("");
 		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
 		String savePathThumbnail = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\thumbnail";
-		String savePathScreenshot = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\screenshot";
-		
+		String savePathScreenshot = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\screenshot";	
 		
 		MultipartFile screenshot1 = dto.getFile1();
 		MultipartFile screenshot2 = dto.getFile2();
@@ -237,6 +235,125 @@ public class AdminController {
 		return "redirect:/adminPage?page=1";
 	}
 	
-	@RequestMapping(value="/adminEditGame")
-	public void adminEditGame() {}
+	// 프로모션 설정 페이지
+	@RequestMapping(value="/adminPromotion")
+	public ModelAndView adminPromotion() {
+		ModelAndView mv = new ModelAndView();
+		List<PromotionDTO> list = service.selectPromotionList();
+		mv.addObject("promotionList", list);
+		mv.setViewName("adminPromotion");
+		return mv;
+	}
+	
+	// 프로모션 추가
+	@RequestMapping(value="/addPromotion", method=RequestMethod.POST)
+	public String addPromotion(PromotionDTO dto, HttpServletRequest request) throws IOException {
+		
+		// 파일 저장 경로
+		String resourceSrc = request.getServletContext().getRealPath("");
+		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
+		String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\jm";
+		
+		MultipartFile mainImage = dto.getFile1();
+		MultipartFile image = dto.getFile2();
+		
+		if (!mainImage.isEmpty()) {
+			// 파일 이름
+			String originName = mainImage.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getPlatform() + "_Event" + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePath, fileName);
+			mainImage.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setMainImage(fileName);			
+		}
+		
+		if (!image.isEmpty()) {
+			// 파일 이름
+			String originName = image.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getPlatform() + "_EventList" + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePath, fileName);
+			image.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setImage(fileName);			
+		}
+		
+		service.insertPromotion(dto);
+		
+		return "redirect:/adminPromotion";
+	}
+	
+	// 프로모션 삭제
+	@RequestMapping(value="/deletePromotion")
+	public String deletePromotion(String platform) {
+		int row = service.deletePromotion(platform);
+		return "redirect:/adminPromotion";
+	}
+	
+	// 게임 수정 페이지
+	@RequestMapping(value="/updatePromotion")
+	public ModelAndView updatePromotionForm(String platform) {
+		ModelAndView mv = new ModelAndView();
+		PromotionDTO dto = service.selectPromotion(platform);
+		mv.addObject("promotionDTO", dto);
+		mv.setViewName("adminEditPromotion");
+		return mv;
+	}
+	
+	// 프로모션 수정 완료
+	@RequestMapping(value="/updatePromotion", method=RequestMethod.POST)
+	public String updatePromotion(PromotionDTO dto, HttpServletRequest request) throws IOException {
+		
+		// 파일 저장 경로
+		String resourceSrc = request.getServletContext().getRealPath("");
+		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
+		String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\jm";
+		
+		MultipartFile mainImage = dto.getFile1();
+		MultipartFile image = dto.getFile2();
+		
+		if (!mainImage.isEmpty()) {
+			// 파일 이름
+			String originName = mainImage.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getPlatform() + "_Event" + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePath, fileName);
+			mainImage.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setMainImage(fileName);
+		}
+		else {
+			dto.setMainImage(service.selectPromotion(dto.getPlatform()).getMainImage()); 
+		}
+		
+		if (!image.isEmpty()) {
+			// 파일 이름
+			String originName = image.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getPlatform() + "_EventList" + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePath, fileName);
+			image.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setImage(fileName);
+		}
+		else {
+			dto.setImage(service.selectPromotion(dto.getPlatform()).getImage());
+		}
+		
+		int row = service.updatePromotion(dto);
+		return "redirect:/adminPromotion";
+	}
 }

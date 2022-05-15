@@ -218,7 +218,7 @@ a{
     float: right;
     opacity: 50%;
 }
-/* �뒳�씪�씠�뱶 �씠誘몄�, nav 愿��젴 css 遺�遺� */
+/* carousel, nav 관련 css */
 @font-face {
     font-family: 'KoPubDotumMedium';
      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff');

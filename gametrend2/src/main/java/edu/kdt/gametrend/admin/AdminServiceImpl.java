@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.member.MemberDAO;
 import edu.kdt.gametrend.member.MemberDTO;
+import edu.kdt.gametrend.promotion.PromotionDTO;
 
 @Service("adminservice")
 public class AdminServiceImpl implements AdminService {
@@ -53,7 +54,36 @@ public class AdminServiceImpl implements AdminService {
 	public int updateGame(GameDTO dto) {		
 		return dao.updateGame(dto);
 	}
-	
+
+	// 프로모션 목록
+	@Override
+	public List<PromotionDTO> selectPromotionList() {
+		return dao.selectPromotionList();
+	}
+
+	// 프로모션 추가
+	@Override
+	public int insertPromotion(PromotionDTO dto) {
+		return dao.insertPromotion(dto);
+	}
+
+	// 프로모션 삭제
+	@Override
+	public int deletePromotion(String platform) {
+		return dao.deletePromotion(platform);
+	}
+
+	// 프로모션 조회
+	@Override
+	public PromotionDTO selectPromotion(String platform) {
+		return dao.selectPromotion(platform);
+	}
+
+	// 프로모션 수정
+	@Override
+	public int updatePromotion(PromotionDTO dto) {
+		return dao.updatePromotion(dto);
+	}	
 	
 	
 }

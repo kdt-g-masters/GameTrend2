@@ -32,14 +32,14 @@
                         <div class="row">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header" id="top">
-                                    <h2 class="pageheader-title">게임 데이터 수정</h2>
-                                    <p class="pageheader-text">게임 데이터 수정</p>
+                                    <h2 class="pageheader-title">프로모션 수정</h2>
+                                    <p class="pageheader-text">프로모션 수정</p>
                                     <div class="page-breadcrumb">
                                         <nav aria-label="breadcrumb">
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">메뉴</a></li>
-                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">게임 목록</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">게임 데이터 수정</li>
+                                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">프로모션</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">프로모션 수정</li>
                                             </ol>
                                         </nav>
                                     </div>
@@ -58,69 +58,44 @@
                                 <div class="card">
                                     <h5 class="card-header">편집</h5>
                                     <div class="card-body">
-                                        <form action="updateGame" method="post" enctype="multipart/form-data">
-                                        	<input id="inputText3" type="text" class="form-control" value="${ gameDTO.no }" name="no" readonly>
-                                        	<label class="col-form-label">썸네일</label><br>
-                                        	<img src="/images/thumbnail/${ gameDTO.thumbnail }"/>
-                                        	<div class="custom-file mb-3">
-                                                <input type="file" class="custom-file-input" id="customFile" value="${ gameDTO.thumbnail }" name="mfThumbnail">
-                                                <label class="custom-file-label" for="customFile">이미지 파일 선택</label>
+                                        <form action="updatePromotion" method="post" enctype="multipart/form-data">
+                                        	<div class="form-group">
+                                                <label for="inputText3" class="col-form-label">플랫폼</label>
+                                                <input id="inputText3" type="text" class="form-control" value="${ promotionDTO.platform }" name="platform" readonly>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputText3" class="col-form-label">제목</label>
-                                                <input id="inputText3" type="text" class="form-control" value="${ gameDTO.name }" name="name">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleFormControlTextarea1">설명</label>
-                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="explanation">${ gameDTO.explanation }</textarea>
-                                            </div>
-                                            <div class="form-group">
-	                                            <label>플랫폼</label><br>
-	                                            <label class="custom-control custom-radio custom-control-inline">
-	                                                <input type="radio" name="platform" class="custom-control-input" value="pc" <c:if test="${gameDTO.platform eq 'pc'}">checked</c:if>><span class="custom-control-label">PC</span>
-	                                            </label>
-	                                            <label class="custom-control custom-radio custom-control-inline">
-	                                                <input type="radio" name="platform" class="custom-control-input" value="PlayStation" <c:if test="${gameDTO.platform eq 'PlayStation'}">checked</c:if>><span class="custom-control-label">PlayStation</span>
-	                                            </label>
-	                                            <label class="custom-control custom-radio custom-control-inline">
-	                                                <input type="radio" name="platform" class="custom-control-input" value="Xbox" <c:if test="${gameDTO.platform eq 'Xbox'}">checked</c:if>><span class="custom-control-label">Xbox</span>
-	                                            </label>
-	                                            <label class="custom-control custom-radio custom-control-inline">
-	                                                <input type="radio" name="platform" class="custom-control-input" value="Switch" <c:if test="${gameDTO.platform eq 'Switch'}">checked</c:if>><span class="custom-control-label">Switch</span>
-	                                            </label>                                           	
-                                            </div>
-		                                    <div class="form-group">
-		                                    	<label>발매일</label><br>
-		                                        <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-		                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" name="releaseDate" value="${ gameDTO.releaseDate }"/>
-		                                            <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+		                                    	<label>시작 날짜</label><br>
+		                                        <div class="input-group date" id="datetimepickerStartDate" data-target-input="nearest">
+		                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepickerStartDate" name="startDate" value="${ promotionDTO.startDate }"/>
+		                                            <div class="input-group-append" data-target="#datetimepickerStartDate" data-toggle="datetimepicker">
 		                                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
 		                                            </div>
 		                                        </div>
 		                                    </div>
+		                                    <div class="form-group">
+		                                    	<label>종료 날짜</label><br>
+		                                        <div class="input-group date" id="datetimepickerEndDate" data-target-input="nearest">
+		                                            <input type="text" class="form-control datetimepicker-input" data-target="#datetimepickerEndDate" name="endDate" value="${ promotionDTO.endDate }"/>
+		                                            <div class="input-group-append" data-target="#datetimepickerEndDate" data-toggle="datetimepicker">
+		                                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+		                                            </div>
+		                                        </div>
+		                                    </div>                                        	
+                                        	<label class="col-form-label">이벤트 이미지</label><br>
+                                        	<img src="/images/jm/${ promotionDTO.mainImage }"/>
+                                        	<div class="custom-file mb-3">
+                                                <input type="file" class="custom-file-input" id="customFile" value="${ promotionDTO.mainImage }" name="file1">
+                                                <label class="custom-file-label" for="customFile">이미지 파일 선택</label>
+                                            </div>
+                                            <label class="col-form-label">이벤트 리스트 이미지</label><br>
+                                        	<img src="/images/jm/${ promotionDTO.image }"/>
+                                        	<div class="custom-file mb-3">
+                                                <input type="file" class="custom-file-input" id="customFile" value="${ promotionDTO.image }" name="file2">
+                                                <label class="custom-file-label" for="customFile">이미지 파일 선택</label>
+                                            </div>
                                             <div class="form-group">
-                                                <label for="inputText3" class="col-form-label">트레일러 URL</label>
-                                                <input id="inputText3" type="text" class="form-control" value="${ gameDTO.trailer }" name="trailer">
-                                            </div>
-                                            <img src="/images/screenshot/${ gameDTO.screenshot1 }"/>
-                                            <div class="custom-file mb-3">                                            	
-                                                <input type="file" class="custom-file-input" id="customFile" name="file1">
-                                                <label class="custom-file-label" for="customFile">스크린샷 1</label>
-                                            </div>
-                                            <img src="/images/screenshot/${ gameDTO.screenshot2 }"/>
-                                            <div class="custom-file mb-3">
-                                                <input type="file" class="custom-file-input" id="customFile" name="file2">
-                                                <label class="custom-file-label" for="customFile">스크린샷 2</label>
-                                            </div>
-                                            <img src="/images/screenshot/${ gameDTO.screenshot3 }"/>
-                                            <div class="custom-file mb-3">
-                                                <input type="file" class="custom-file-input" id="customFile" name="file3">
-                                                <label class="custom-file-label" for="customFile">스크린샷 3</label>
-                                            </div>
-                                            <img src="/images/screenshot/${ gameDTO.screenshot4 }"/>
-                                            <div class="custom-file mb-3">
-                                                <input type="file" class="custom-file-input" id="customFile" name="file4">
-                                                <label class="custom-file-label" for="customFile">스크린 샷 4</label>
+                                                <label for="inputText3" class="col-form-label">링크</label>
+                                                <input id="inputText3" type="text" class="form-control" value="${ promotionDTO.link }" name="link">
                                             </div>
                                             <div class="form-group">
                                                 <input type="submit" class="btn btn-primary float-right" value="수정" />
@@ -178,11 +153,11 @@
     <script src="/js/admin-js.js"></script>
     <script src="/vendor/datepicker/moment.js"></script>
     <script src="/vendor/datepicker/tempusdominus-bootstrap-4.js"></script>
-    <script src="/vendor/datepicker/datepicker.js"></script>  
+    <script src="/vendor/datepicker/datepicker.js"></script>
     <script>
 		$(document).ready(function() {
-			$('#navGameList').addClass('active');
+			$('#navPromotion').addClass('active');
 		}); // ready end		
-	</script>      
+	</script>
 </body>
 </html>

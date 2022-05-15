@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.member.MemberDTO;
+import edu.kdt.gametrend.promotion.PromotionDTO;
 
 public interface AdminService {
 	// 관리자 로그인
@@ -23,4 +24,19 @@ public interface AdminService {
 	
 	// 게임 수정
 	public int updateGame(GameDTO dto);
+	
+	// 프로모션 목록
+	public List<PromotionDTO> selectPromotionList();
+	
+	// 프로모션 추가
+	public int insertPromotion(PromotionDTO dto);
+	
+	// 프로모션 삭제
+	public int deletePromotion(String platform);
+	
+	// 프로모션 조회
+	public PromotionDTO selectPromotion(String platform);
+	
+	// 프로모션 수정
+	public int updatePromotion(PromotionDTO dto);
 }
