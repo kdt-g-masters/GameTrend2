@@ -59,7 +59,7 @@
                                     <h5 class="card-header">프로모션 추가</h5>
                                     <div class="card-body p-0">
                                         <div class="table-responsive">
-                                        	<form action="addPromotion" method="post" enctype="multipart/form-data">
+                                        	<form action="addPromotion" method="post" enctype="multipart/form-data" id="formPromotion">
 	                                            <table class="table">
 	                                                <thead class="bg-light">
 	                                                    <tr class="border-0">
@@ -77,9 +77,9 @@
 	                                                        	<div class="form-group">
 					                                                <select class="form-control" id="input-select" name="platform">
 					                                                    <option>PC</option>
-					                                                    <option>PlayStation</option>
+					                                                    <option>PS</option>
 					                                                    <option>Xbox</option>
-					                                                    <option>Switch</option>
+					                                                    <option>NS</option>
 					                                                </select>
 					                                            </div>
 	                                                        </td>
@@ -242,7 +242,27 @@
     <script>
 		$(document).ready(function() {
 			$('#navPromotion').addClass('active');
-		}); // ready end		
+			
+			$('#formPromotion').on('submit', function(e) {
+				var formPromotion = $(this);
+				e.preventDefault();
+				$.ajax({
+					url: '/selectPromotion',
+					data: {'platform': $('#input-select').val()},
+					type: 'post',
+					dataType: 'json',
+					success: function(existPromotion) {
+						if (existPromotion == "1") {
+							alert('해당 플랫폼의 프로모션이 존재합니다.');							
+						}
+						else {
+							formPromotion[0].submit();
+						}
+					} // success end
+				}); // ajax end
+			}); // on end			
+		}); // ready end
+		
 	</script>
 </body>
 </html>

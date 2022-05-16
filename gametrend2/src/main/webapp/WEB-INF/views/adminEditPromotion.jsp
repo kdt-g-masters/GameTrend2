@@ -82,13 +82,13 @@
 		                                        </div>
 		                                    </div>                                        	
                                         	<label class="col-form-label">이벤트 이미지</label><br>
-                                        	<img src="/images/jm/${ promotionDTO.mainImage }"/>
+                                        	<img src="/images/jm/${ promotionDTO.mainImage }" width="700"/>
                                         	<div class="custom-file mb-3">
                                                 <input type="file" class="custom-file-input" id="customFile" value="${ promotionDTO.mainImage }" name="file1">
                                                 <label class="custom-file-label" for="customFile">이미지 파일 선택</label>
                                             </div>
                                             <label class="col-form-label">이벤트 리스트 이미지</label><br>
-                                        	<img src="/images/jm/${ promotionDTO.image }"/>
+                                        	<img src="/images/jm/${ promotionDTO.image }" width="700"/>
                                         	<div class="custom-file mb-3">
                                                 <input type="file" class="custom-file-input" id="customFile" value="${ promotionDTO.image }" name="file2">
                                                 <label class="custom-file-label" for="customFile">이미지 파일 선택</label>

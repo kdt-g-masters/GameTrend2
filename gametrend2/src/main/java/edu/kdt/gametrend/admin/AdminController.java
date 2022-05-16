@@ -245,6 +245,19 @@ public class AdminController {
 		return mv;
 	}
 	
+	// 프로모션 플랫폼 중복 확인
+	@RequestMapping(value="/selectPromotion", method=RequestMethod.POST, produces={"application/json;charset=utf-8"})
+	@ResponseBody
+	public String selectPromotion(String platform) {
+		PromotionDTO dto = service.selectPromotion(platform);
+		if (dto == null) {
+			return "0";
+		}
+		else {
+			return "1";
+		}
+	}
+	
 	// 프로모션 추가
 	@RequestMapping(value="/addPromotion", method=RequestMethod.POST)
 	public String addPromotion(PromotionDTO dto, HttpServletRequest request) throws IOException {
