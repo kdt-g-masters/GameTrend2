@@ -66,4 +66,34 @@ public class CalendarServiceImpl implements CalendarService {
 		return dao.loadOrderedGamedataPS2015();
 	}
 
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPS2016() { 
+		return dao.loadOrderedGamedataPS2016();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPS2017() { 
+		return dao.loadOrderedGamedataPS2017();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPS2018() { 
+		return dao.loadOrderedGamedataPS2018();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPS2019() { 
+		return dao.loadOrderedGamedataPS2019();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPS2020() { 
+		return dao.loadOrderedGamedataPS2020();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPS2021() { 
+		return dao.loadOrderedGamedataPS2021();
+	}
+
 }

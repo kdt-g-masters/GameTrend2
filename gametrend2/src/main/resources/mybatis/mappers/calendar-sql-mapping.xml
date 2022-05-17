@@ -73,6 +73,49 @@
 		substring(releaseDate, 1, 4) = 2015 
 		order by views desc; 
 	</select> 
+	
+	<select id="loadOrderedGamedataPS2016" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'PlayStation' and 
+		substring(releaseDate, 1, 4) = 2016 
+		order by views desc; 
+	</select> 
+
+	<select id="loadOrderedGamedataPS2017" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'PlayStation' and 
+		substring(releaseDate, 1, 4) = 2017 
+		order by views desc; 
+	</select> 
+
+	<select id="loadOrderedGamedataPS2018" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'PlayStation' and 
+		substring(releaseDate, 1, 4) = 2018 
+		order by views desc; 
+	</select> 
+
+	<select id="loadOrderedGamedataPS2019" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'PlayStation' and 
+		substring(releaseDate, 1, 4) = 2019 
+		order by views desc; 
+	</select> 
+
+	<select id="loadOrderedGamedataPS2020" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'PlayStation' and 
+		substring(releaseDate, 1, 4) = 2020 
+		order by views desc; 
+	</select> 
+
+	<select id="loadOrderedGamedataPS2021" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'PlayStation' and 
+		substring(releaseDate, 1, 4) = 2021 
+		order by views desc; 
+	</select> 
+	
 
 </mapper>
 

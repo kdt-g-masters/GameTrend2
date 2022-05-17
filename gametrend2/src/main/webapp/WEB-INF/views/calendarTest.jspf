@@ -123,3 +123,64 @@
 	<br> 
 	<br> 
 
+	<c:forEach items="${DataPS2016}" var="dataPS2016" varStatus="number">
+		${dataPS2016.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2016.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2016.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2016.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2017}" var="dataPS2017" varStatus="number">
+		${dataPS2017.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2017.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2017.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2017.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2018}" var="dataPS2018" varStatus="number">
+		${dataPS2018.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2018.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2018.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2018.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2019}" var="dataPS2019" varStatus="number">
+		${dataPS2019.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2019.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2019.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2019.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2020}" var="dataPS2020" varStatus="number">
+		${dataPS2020.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2020.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2020.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2020.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2021}" var="dataPS2021" varStatus="number">
+		${dataPS2021.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2021.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2021.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2021.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+
