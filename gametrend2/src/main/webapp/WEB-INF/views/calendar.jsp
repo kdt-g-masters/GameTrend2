@@ -42,6 +42,9 @@
 <br>  
 <br> 
 
+	<!-- (POST 로 데이터 받아와져있는 상태) --> 
+
+	<!-- 데이터 리스트 출력 --> 
 	<c:forEach items="${Data}" var="data" varStatus="number">
 		${data.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${data.name} &nbsp;&nbsp;&nbsp;&nbsp; 
 		${data.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${data.views}
@@ -50,6 +53,8 @@
 	</c:forEach> 
 	<br> 
 	<br> 
+	
+	
 
 </body>
 
