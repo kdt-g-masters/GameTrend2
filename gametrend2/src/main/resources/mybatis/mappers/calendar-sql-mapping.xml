@@ -9,5 +9,12 @@
 		select * from game 
 	</select> 
 	
+	<select id="loadOrderedGamedataPCTest" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'pc' 
+		order by views desc; 
+	</select> 
+	
+	
 </mapper>
 

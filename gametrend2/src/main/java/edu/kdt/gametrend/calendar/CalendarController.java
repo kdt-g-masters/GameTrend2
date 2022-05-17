@@ -26,11 +26,15 @@ public class CalendarController {
 	@RequestMapping(value="/calendar", method=RequestMethod.POST)
 	public ModelAndView calendarAction2() { 
 		
+		// 게임 데이터 전체 로딩 
 		List<CalendarDTO> gamedata = service.loadGamedata();
-//		List<CalendarDTO> OrderedGamedata = service.loadOrderedGamedata(); 
+		
+		// PC 게임 데이터 정렬 로딩 테스트 
+		List<CalendarDTO> OrderedGamedataPCTest = service.loadOrderedGamedataPCTest(); 
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("Data", gamedata);
+		mv.addObject("DataPCTest", OrderedGamedataPCTest);
 		mv.setViewName("calendar");
 		return mv; 
 		

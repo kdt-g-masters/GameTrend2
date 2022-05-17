@@ -54,6 +54,15 @@
 	<br> 
 	<br> 
 	
+	<c:forEach items="${DataPCTest}" var="dataPCtest" varStatus="number">
+		${dataPCtest.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPCtest.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPCtest.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPCtest.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	<br> 
+	<br> 
+	
 	
 
 </body>
