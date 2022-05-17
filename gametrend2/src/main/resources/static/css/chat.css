@@ -143,7 +143,8 @@
 	 position: fixed;
 	 bottom: 0;
   	 right: 0;
-	 z-index: 1000;
+  	 overflow: hidden;
+	 z-index: 10;
 }
 li a, li a:link {
 	text-decoration-line: none;
@@ -172,7 +173,7 @@ li:hover a{
 }
 #record-box{
 	margin: 10px 3px;
-	height: 32em;
+	height: 490px;
 	overflow: hidden;
 	overflow-y: auto;
 }
@@ -187,14 +188,15 @@ li:hover a{
     border: 2px solid transparent;
  }
 .ch-input{	
-	width: 23%;
+	width: inherit;
 	position: fixed;
 	bottom: 0;
-	margin: 35px 10px;
+	padding: 35px 10px;
+	overflow: hidden;
 }
-#event1, #event2{
+#event1{
 	float: right;
-	width: 18.5%;
+	width: 20%;
 	padding: 0.6vh 0.6vw 0.6vh 0.6vw;
 	border: 0;
 	background-color: #8A63FE;
@@ -202,10 +204,6 @@ li:hover a{
 	font-weight: bolder;
 }
 #event1{
-	border-radius: 0;
-	margin: 0.1vw;
-}
-#event2{
 	border-radius: 0 1.5em 1.5em 0;
 	padding: 0.6vh 0.9vw 0.6vh 0.6vw;
 	margin: 0.1vw;
@@ -249,9 +247,15 @@ li:hover a{
 	overflow: hidden;
 	overflow-x: auto;
 }
-.link{
+.list-wrap{
+	display: block;
+	overflow:auto; 
+	margin: 1vh 5vw 1vh 0.3vw;
+	padding: 1px;
+}
+.link, .list{
 	float: left;
-	margin: 0.1px 0.1vw 0.1vh 0.1vw;
+	margin: 0.1px 2px 5px;
 	padding: 0.5vh 0.5vw;
 	display: inline;
 	border-radius: 1.5em;
@@ -261,9 +265,23 @@ li:hover a{
 	font-size : 0.9em;
 	cursor : pointer;
 }
-.link:hover{
+.list{
+	margin-bottom: 5px;	
+}
+.link:hover, .list:hover, .list:active{
 	background-color: #8A63FE;
 	border-color: #8A63FE;
 	color : white;
 	cursor : pointer;
 } 
+.initialQuestionList{
+	width: 1000px;
+	overflow: scroll;
+	overflow-x : hidden;
+	white-space: nowrap;
+	/* background: linear-gradient(to left, rgba(255,255,255,0) 50%);
+	z-index: 20; */
+}
+.initialQuestionList::-webkit-scrollbar{
+	display: none;
+}

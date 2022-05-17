@@ -1,6 +1,6 @@
 /*chatbot.js */
+
  $(document).ready(function() {	
-	/*document.getElementById('record-box').scrollTop = document.getElementById('record-box').scrollHeight;*/
 		/*챗봇 버튼 클릭 시 웰컴 메세지 출력*/
 		$(".floating-button").click( function(){
 			$("#ch-window").fadeToggle();
@@ -12,7 +12,108 @@
 				success : function(serverdata){
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 					parser(serverdata)
-					$("li").on('click',function(){
+				}//function end
+			});// ajax end
+				
+			$("#close").on('click',function(){
+				$("#ch-window").fadeOut();
+			});
+		});
+		/*초기 리스트 선택시*/
+		$(".initialQuestionList span").on('click',function(){
+			var login =  '<%=String.valueOf(session.getAttribute("sessionid"))%>';
+			$("#record").append("<div class='question'>" + $(this).text() + "</div>");	//선택한 것출력
+			/*초기 리스트*/
+			var kindQ =  $(this).attr("id");
+			$.ajax({
+				url : "/chatbot",
+				data : {"request": $(this).html(), "event":"입력"}, //request: 인사/생활습관병/식재료/맞춤/후기
+				type : "get",
+				dataType : "json",
+				success : function(serverdata){
+					parser(serverdata);
+					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+					//내가 가진 플랫폼 선택시
+					if (kindQ == "platform"){
+						$.ajax({
+								url : "/chatplatform",
+								type : 'get',
+								success : function(list){
+									$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+									var textlist = "<div class='list-wrap platform-li'>";
+									for(var i = 0 ; i < list.length; i++){
+										textlist += "<div class='link'>" + list[i] +"</div>";
+									}
+									$("#record").append(textlist + "</div>");
+									$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+									/*플랫폼 종류 중 하나를 선택하면*/
+									$(".platform-li .link").on('click',function(){
+										$("#record").append("<div class='question'>" + $(this).text() + "</div>");
+										var selected = $(this).text();
+										$.ajax({
+											url: "/selectplatform",
+											type: 'get',
+											data: {"platform": selected},
+											success : function(genrelist){
+												$("#record").append("<div class='answer'>[" + selected + "]에 포함된 장르들이에요.<br>이 중 어떤 장르의 게임추천을 원하시나요?</div>");
+												var textlist = "<div class='list-wrap genre-li'>";
+												for(var i = 0 ; i < genrelist.length; i++){
+													textlist += "<div class='link'>" + genrelist[i] +"</div>";
+												}
+												$("#record").append(textlist + "</div>");
+												$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+											}
+										})
+									});
+								} // success function
+							}); // ajax
+					}
+					//"내가 선택한 장르" 선택시
+					else if(kindQ == "genre"){
+						$.ajax({
+							url : "/chatgenre",
+							type : 'get',
+							success : function(list){
+									var textlist = "<div class='list-wrap genre-li'>";
+									for(var i = 0 ; i < list.length; i++){
+										textlist += "<div class='link'>" + list[i] +"</div>";
+									}
+									$("#record").append(textlist + "</div>");
+									$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+								} // success function
+							
+						});
+					}
+					
+					//나의 위시리스트 선택시
+					else if(kindQ == "mywishlist"){
+						if(!login){
+							$("#record").append("<div class='answer'>로그인이 필요해요. 로그인하러 가볼까요? </div><div class='link'><a href='login'>로그인</a></div>");
+						}
+						else{
+							$.ajax({
+								url : "/chatmywishlist",
+								type : 'get',
+								data : {"memberid" : login},
+								
+								success : function(list){
+										
+										var textlist = "<div class='list-wrap genre-li'>";
+										for(var i = 0 ; i < list.length; i++){
+											textlist += "<div class='link'>" + list[i] +"</div>";
+										}
+										$("#record").append(textlist + "</div>");
+										$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+									} // success function
+								
+							});
+						}
+					}
+					//내가 쓴 리뷰 선택시
+					else if(kindQ == "mywishlist"){
+						
+					}
+				/*	$("li").on('click',function(){
 						console.log($(this).text());
 						$("#record").append("<div class='question'>" + $(this).html() + "</div>");	//선택한 것출력
 						$.ajax({
@@ -45,20 +146,6 @@
 													success : function(serverdata){
 														parser(serverdata);
 														$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-														$("li").on('click',function(){
-															console.log($(this).text());
-															$("#record").append("<div class='question'>" + $(this).html() + "</div>");	//선택한 것출력
-															$.ajax({
-																url : "/chatbot",
-																data : {"request": $(this).html(), "event":"입력"}, //request: 인사/생활습관병/식재료/맞춤/후기
-																type : "get",
-																dataType : "json",
-																success : function(serverdata){
-																	parser(serverdata);
-																	$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-																}
-															});//ajax end
-														});  //li end
 													}
 												});//ajax end
 											});  //li end
@@ -68,14 +155,9 @@
 							}
 						});//ajax end
 					});  //li end
-				}//function end
-			});// ajax end
-				
-			$("#close").on('click',function(){
-				$("#ch-window").fadeOut();
-			});
-		});
-		
+*/				}
+			});//ajax end
+		});  //li end
 		//---입력, 대화시작 클릭시 
 		$(".ch-bnt").on('click', function(){
 			if($("#request").val() != ""){

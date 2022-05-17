@@ -57,5 +57,23 @@ public class GameServiceImpl implements GameService {
 	public List<GenreDTO> gameGenreView(int no) {
 		return dao.gameGenreView(no);
 	}
+
+	@Override
+	public List<GameDTO> platformList() {
+		return dao.platformList();
+	}
+
+	@Override
+	public List<GenreDTO> allGenreList() {
+		return dao.allGenreList();
+	}
+
+	@Override
+	public List<GenreDTO> platformGenreList(String platform) {
+		return dao.platformGenreList(platform);
+		
+	}
+	
+	
 	
 }

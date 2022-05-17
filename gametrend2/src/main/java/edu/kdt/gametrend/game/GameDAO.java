@@ -35,7 +35,15 @@ public interface GameDAO {
 	//게임 상세 페이지 장르 보여주기
 	public List<GenreDTO> gameGenreView(int no);
 	
+	/*-------------------- 챗봇 --------------------*/
+	//플랫폼 종류
+	public List<GameDTO> platformList();
 	
+	//게임 장르 전체 
+	public List<GenreDTO> allGenreList();
+	
+	//선택한 플랫폼의 장르
+	public List<GenreDTO> platformGenreList(String platform);
 //	
 //	public int totalcount(String platform) {
 //		return session.selectOne("platformtotal");

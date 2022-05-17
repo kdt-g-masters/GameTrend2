@@ -1,17 +1,29 @@
 package edu.kdt.gametrend.chatbot;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import edu.kdt.gametrend.game.GameDTO;
+import edu.kdt.gametrend.game.GameService;
+import edu.kdt.gametrend.game.GenreDTO;
 
 @Controller
 public class ChatbotContoller {
 	@Autowired
 	@Qualifier("chatbotservice")
-	ChatbotService service;
+	ChatbotService chatservice;
+	
+	@Autowired
+	@Qualifier("gameservice")
+	GameService gameservice;
 	
 	@RequestMapping("/chatbottest")
 	public String chatbottest() {
@@ -20,38 +32,41 @@ public class ChatbotContoller {
 	
 	@RequestMapping("/chatbot")
 	@ResponseBody
-	public String chatbotajax2(String request, String event) {
+	public String chatbotajax(String request, String event) {
 		System.out.println(event);
 		
 		String response = "";
 		if(event.equals("입력")) {
-			response = service.test(request);
+			response = chatservice.test(request);
 		}
 		else if(event.equals("대화시작")) {
-			response = service.test(request, "open");
+			response = chatservice.test(request, "open");
 		}
 		System.out.println("==> " + response);
 		
 		return response;
 	}
 	
-	@RequestMapping("/kindgenre")
+	@RequestMapping("/chatplatform")
 	@ResponseBody
-	public String kindgenre(String genre) {
-		String menu [] = {"컴비네이션피자","고구마피자","파인애플피자"};
-		int price[] = {10000, 12000, 15000};
-		int pay = 0;
-		for(int i = 0; i < menu.length; i++) {
-			if(menu[i].equals(kind)) {
-				if(size.equals("L")) pay = price[i] + 5000;
-				else if(size.equals("M")) pay = price[i] + 2500;
-				else if(size.equals("S")) pay = price[i];
-			} 
-		}
-		System.out.println("총 "+ pay+ "원을 지불하셔야 합니다. " + phoneNum +  "로 안내드립니다.");
-		return "총 "+ pay + "원을 지불하셔야 합니다. " + phoneNum +  "로 안내드립니다.";
-		
+	public List<GameDTO> chatPlatform() {
+		List<GameDTO> platformlist = gameservice.platformList();
+		System.out.println(platformlist);
+		return platformlist;
+	}
+	@RequestMapping("/chatgenre")
+	@ResponseBody
+	public List<GenreDTO> chatGenre() {
+		List<GenreDTO> allgenrelist = gameservice.allGenreList();
+		System.out.println(allgenrelist);
+		return allgenrelist;
 	}
 	
-	
+	@RequestMapping("/selectplatform")
+	@ResponseBody
+	public List<GenreDTO> selectPlatform(String platform) {
+		List<GenreDTO> platformgenrelist = gameservice.platformGenreList(platform);
+		System.out.println(platformgenrelist);
+		return platformgenrelist;
+	}
 }
