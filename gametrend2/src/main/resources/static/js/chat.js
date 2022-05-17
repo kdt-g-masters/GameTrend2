@@ -67,24 +67,7 @@
 												/*장르 선택 시 해당 장르 Top3게임 추천*/
 												$(".genre-li .link").on('click',function(){
 													var genre = $(this).text();
-													$("#record").append("<div class='question'>" + genre +"</div>");
-													$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-													$.ajax({
-														url : "/recommendgame3",
-														data : {"platform": selectedPlatform, "genre": genre}, //request: 인사/생활습관병/식재료/맞춤/후기
-														type : "post",
-														success : function(gamelist){
-															$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
-															var textanswer = "<div class='recommend-wrap'>";
-															for(var i = 0; i < gamelist.length; i++){
-																textanswer += "<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
-																+ "</b></div><br><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
-																+"'/></div><br><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
-															}
-															$("#record").append(textanswer + "</div>");
-															$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-														}
-													});//ajax end
+													rcmBasedOnPlatform(selectedPlatform,genre);
 												});
 											}
 										})
@@ -226,3 +209,24 @@
 				}
 			});//ajax end
 	}
+	function rcmBasedOnPlatform(selectedPlatform, genre){
+		$("#record").append("<div class='question'>" + genre +"</div>");
+			$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+			$.ajax({
+				url : "/recommendgame3",
+				data : {"platform": selectedPlatform, "genre": genre}, //request: 인사/생활습관병/식재료/맞춤/후기
+				type : "post",
+				success : function(gamelist){
+					$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
+					var textanswer = "<div class='recommend-wrap'>";
+					for(var i = 0; i < gamelist.length; i++){
+						textanswer += "<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
+						+ "</b></div><br><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
+						+"'/></div><br><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
+					}
+					$("#record").append(textanswer + "</div>");
+					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+				}
+			});//ajax end
+	}
+	

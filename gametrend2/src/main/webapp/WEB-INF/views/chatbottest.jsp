@@ -19,7 +19,6 @@
 	<script type="text/javascript">
 	 $(document).ready(function() {	
 		 var memberid = '<%= String.valueOf(session.getAttribute("sessionid")) %>';
-		console.log(memberid);
 		$(".initialQuestionList span").on('click',function(){
 			
 			/*초기 리스트*/
