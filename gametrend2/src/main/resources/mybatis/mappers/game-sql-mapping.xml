@@ -58,7 +58,6 @@
 		select * from genre where game_no = #{no}
 	</select>
 	
-<<<<<<< HEAD
 	<!-- 추천 게임 보여주기 -->
 	<select id="gameRecommend" resultType="gamedto" parameterType="String">
 		select game.* from genre 
@@ -66,7 +65,7 @@
 		where genre=#{genre}
 		limit 0, 10
 	</select>
-=======
+	
 	<!-- 챗봇 : 플랫폼 리스트 조회 -->
     <select id="platformList" resultType="String">
 		select distinct platform from game
@@ -87,6 +86,5 @@
 		from game left join genre on game.no = genre.game_no where genre=#{genre} 
 		order by reviews desc, rating desc, views desc limit 3;
 	</select>
->>>>>>> 42662108711cc29ce84dd5157335013628b40b78
 	
 </mapper>
