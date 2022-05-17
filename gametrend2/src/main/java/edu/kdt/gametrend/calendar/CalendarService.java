@@ -54,5 +54,28 @@ public interface CalendarService {
 
 	// 2021 PS 게임 데이터 정렬 로딩 
 	public List<CalendarDTO> loadOrderedGamedataPS2021();
+	
+	
+	// 2015 Xbox 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataXbox2015();
+
+	// 2016 Xbox 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataXbox2016();
+
+	// 2017 Xbox 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataXbox2017();
+
+	// 2018 Xbox 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataXbox2018();
+
+	// 2019 Xbox 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataXbox2019();
+
+	// 2020 Xbox 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataXbox2020();
+
+	// 2021 Xbox 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataXbox2021();
+
 
 }

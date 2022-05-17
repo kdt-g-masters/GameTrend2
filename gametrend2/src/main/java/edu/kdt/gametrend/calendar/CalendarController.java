@@ -76,6 +76,28 @@ public class CalendarController {
 
 		// 2021 PS 게임 데이터 정렬 로딩 
 		List<CalendarDTO> OrderedGamedataPS2021 = service.loadOrderedGamedataPS2021();	
+		
+		
+		// 2015 Xbox 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataXbox2015 = service.loadOrderedGamedataXbox2015();	
+
+		// 2016 Xbox 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataXbox2016 = service.loadOrderedGamedataXbox2016();	
+
+		// 2017 Xbox 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataXbox2017 = service.loadOrderedGamedataXbox2017();	
+
+		// 2018 Xbox 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataXbox2018 = service.loadOrderedGamedataXbox2018();	
+
+		// 2019 Xbox 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataXbox2019 = service.loadOrderedGamedataXbox2019();	
+
+		// 2020 Xbox 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataXbox2020 = service.loadOrderedGamedataXbox2020();	
+
+		// 2021 Xbox 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataXbox2021 = service.loadOrderedGamedataXbox2021();	
 
 		
 		ModelAndView mv = new ModelAndView();
@@ -98,6 +120,13 @@ public class CalendarController {
 		mv.addObject("DataPS2020", OrderedGamedataPS2020);
 		mv.addObject("DataPS2021", OrderedGamedataPS2021);
 		
+		mv.addObject("DataXbox2015", OrderedGamedataXbox2015);
+		mv.addObject("DataXbox2016", OrderedGamedataXbox2016);
+		mv.addObject("DataXbox2017", OrderedGamedataXbox2017);
+		mv.addObject("DataXbox2018", OrderedGamedataXbox2018);
+		mv.addObject("DataXbox2019", OrderedGamedataXbox2019);
+		mv.addObject("DataXbox2020", OrderedGamedataXbox2020);
+		mv.addObject("DataXbox2021", OrderedGamedataXbox2021);
 		
 		mv.setViewName("calendar");
 		return mv; 

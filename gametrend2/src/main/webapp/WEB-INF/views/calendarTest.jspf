@@ -183,4 +183,74 @@
 	<br> 
 	<br> 
 
+	<c:forEach items="${DataXbox2015}" var="dataXbox2015" varStatus="number">
+		${dataXbox2015.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2015.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2015.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2015.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2016}" var="dataXbox2016" varStatus="number">
+		${dataXbox2016.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2016.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2016.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2016.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2017}" var="dataXbox2017" varStatus="number">
+		${dataXbox2017.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2017.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2017.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2017.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2018}" var="dataXbox2018" varStatus="number">
+		${dataXbox2018.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2018.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2018.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2018.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2019}" var="dataXbox2019" varStatus="number">
+		${dataXbox2019.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2019.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2019.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2019.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2020}" var="dataXbox2020" varStatus="number">
+		${dataXbox2020.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2020.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2020.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2020.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2021}" var="dataXbox2021" varStatus="number">
+		${dataXbox2021.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2021.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2021.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2021.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
 
