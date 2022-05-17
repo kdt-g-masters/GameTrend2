@@ -81,5 +81,22 @@ public interface CalendarService {
 	// 2015 NS 게임 데이터 정렬 로딩 
 	public List<CalendarDTO> loadOrderedGamedataNS2015();
 
+	// 2016 NS 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataNS2016();
+
+	// 2017 NS 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataNS2017();
+
+	// 2018 NS 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataNS2018();
+
+	// 2019 NS 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataNS2019();
+
+	// 2020 NS 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataNS2020();
+
+	// 2021 NS 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataNS2021();
 
 }

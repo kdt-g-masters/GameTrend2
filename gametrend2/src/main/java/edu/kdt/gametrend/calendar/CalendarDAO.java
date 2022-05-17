@@ -61,5 +61,17 @@ public interface CalendarDAO {
 	
 	
 	public List<CalendarDTO> loadOrderedGamedataNS2015();
+	
+	public List<CalendarDTO> loadOrderedGamedataNS2016();
+	
+	public List<CalendarDTO> loadOrderedGamedataNS2017();
+	
+	public List<CalendarDTO> loadOrderedGamedataNS2018();
+	
+	public List<CalendarDTO> loadOrderedGamedataNS2019();
+	
+	public List<CalendarDTO> loadOrderedGamedataNS2020();
+	
+	public List<CalendarDTO> loadOrderedGamedataNS2021();
 
 }

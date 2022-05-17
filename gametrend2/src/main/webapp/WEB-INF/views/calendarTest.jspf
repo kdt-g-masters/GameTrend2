@@ -263,4 +263,64 @@
 	<br> 
 	<br> 
 
+	<c:forEach items="${DataNS2016}" var="dataNS2016" varStatus="number">
+		${dataNS2016.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2016.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2016.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2016.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2017}" var="dataNS2017" varStatus="number">
+		${dataNS2017.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2017.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2017.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2017.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2018}" var="dataNS2018" varStatus="number">
+		${dataNS2018.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2018.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2018.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2018.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2019}" var="dataNS2019" varStatus="number">
+		${dataNS2019.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2019.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2019.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2019.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2020}" var="dataNS2020" varStatus="number">
+		${dataNS2020.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2020.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2020.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2020.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2021}" var="dataNS2021" varStatus="number">
+		${dataNS2021.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2021.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2021.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2021.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
 

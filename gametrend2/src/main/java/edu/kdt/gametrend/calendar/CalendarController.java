@@ -103,6 +103,24 @@ public class CalendarController {
 		// 2015 NS 게임 데이터 정렬 로딩 
 		List<CalendarDTO> OrderedGamedataNS2015 = service.loadOrderedGamedataNS2015();	
 
+		// 2016 NS 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataNS2016 = service.loadOrderedGamedataNS2016();	
+
+		// 2017 NS 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataNS2017 = service.loadOrderedGamedataNS2017();	
+
+		// 2018 NS 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataNS2018 = service.loadOrderedGamedataNS2018();	
+
+		// 2019 NS 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataNS2019 = service.loadOrderedGamedataNS2019();	
+
+		// 2020 NS 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataNS2020 = service.loadOrderedGamedataNS2020();	
+
+		// 2021 NS 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataNS2021 = service.loadOrderedGamedataNS2021();	
+
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("Data", gamedata);
@@ -133,6 +151,12 @@ public class CalendarController {
 		mv.addObject("DataXbox2021", OrderedGamedataXbox2021);
 		
 		mv.addObject("DataNS2015", OrderedGamedataNS2015);
+		mv.addObject("DataNS2016", OrderedGamedataNS2016);
+		mv.addObject("DataNS2017", OrderedGamedataNS2017);
+		mv.addObject("DataNS2018", OrderedGamedataNS2018);
+		mv.addObject("DataNS2019", OrderedGamedataNS2019);
+		mv.addObject("DataNS2020", OrderedGamedataNS2020);
+		mv.addObject("DataNS2021", OrderedGamedataNS2021);
 		
 		mv.setViewName("calendar");
 		return mv; 
