@@ -27,6 +27,7 @@ public class CalendarController {
 	public ModelAndView calendarAction2() { 
 		
 		List<CalendarDTO> gamedata = service.loadGamedata();
+//		List<CalendarDTO> OrderedGamedata = service.loadOrderedGamedata(); 
 		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("Data", gamedata);
