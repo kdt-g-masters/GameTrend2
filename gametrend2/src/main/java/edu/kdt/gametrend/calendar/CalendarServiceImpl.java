@@ -18,10 +18,12 @@ public class CalendarServiceImpl implements CalendarService {
 		return dao.loadGamedata();
 	}
 	
+	
 	@Override
 	public List<CalendarDTO> loadOrderedGamedataPCTest() { 
 		return dao.loadOrderedGamedataPCTest(); 
 	} 
+	
 	
 	@Override
 	public List<CalendarDTO> loadOrderedGamedataPC2015() { 
@@ -31,6 +33,31 @@ public class CalendarServiceImpl implements CalendarService {
 	@Override
 	public List<CalendarDTO> loadOrderedGamedataPC2016() { 
 		return dao.loadOrderedGamedataPC2016();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPC2017() { 
+		return dao.loadOrderedGamedataPC2017();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPC2018() { 
+		return dao.loadOrderedGamedataPC2018();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPC2019() { 
+		return dao.loadOrderedGamedataPC2019();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPC2020() { 
+		return dao.loadOrderedGamedataPC2020();
+	}
+
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPC2021() { 
+		return dao.loadOrderedGamedataPC2021();
 	}
 
 }

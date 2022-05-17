@@ -85,6 +85,57 @@
 	<br> 
 	<br> 
 	
+	<c:forEach items="${DataPC2017}" var="dataPC2017" varStatus="number">
+		${dataPC2017.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2017.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2017.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2017.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2018}" var="dataPC2018" varStatus="number">
+		${dataPC2018.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2018.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2018.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2018.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2019}" var="dataPC2019" varStatus="number">
+		${dataPC2019.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2019.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2019.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2019.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2020}" var="dataPC2020" varStatus="number">
+		${dataPC2020.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2020.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2020.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2020.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2021}" var="dataPC2021" varStatus="number">
+		${dataPC2021.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2021.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2021.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2021.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	
 
 </body>
 
