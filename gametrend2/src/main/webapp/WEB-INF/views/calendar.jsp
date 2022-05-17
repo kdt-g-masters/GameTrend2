@@ -51,6 +51,7 @@
 		<br>
 		<br>  
 	</c:forEach> 
+	---------------- 
 	<br> 
 	<br> 
 	
@@ -60,6 +61,7 @@
 		<br>
 		<br>  
 	</c:forEach> 
+	---------------- 
 	<br> 
 	<br> 
 	
@@ -69,9 +71,19 @@
 		<br>
 		<br>  
 	</c:forEach> 
+	---------------- 
 	<br> 
 	<br> 
 
+	<c:forEach items="${DataPC2016}" var="dataPC2016" varStatus="number">
+		${dataPC2016.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2016.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2016.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2016.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
 	
 
 </body>

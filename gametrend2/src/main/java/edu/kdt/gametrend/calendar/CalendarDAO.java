@@ -14,5 +14,7 @@ public interface CalendarDAO {
 	public List<CalendarDTO> loadOrderedGamedataPCTest(); 
 	
 	public List<CalendarDTO> loadOrderedGamedataPC2015();
+	
+	public List<CalendarDTO> loadOrderedGamedataPC2016();
 
 }

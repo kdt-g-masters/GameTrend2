@@ -28,4 +28,9 @@ public class CalendarServiceImpl implements CalendarService {
 		return dao.loadOrderedGamedataPC2015();
 	}
 
+	@Override
+	public List<CalendarDTO> loadOrderedGamedataPC2016() { 
+		return dao.loadOrderedGamedataPC2016();
+	}
+
 }

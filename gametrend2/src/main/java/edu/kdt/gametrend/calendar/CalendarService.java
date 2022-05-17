@@ -13,4 +13,7 @@ public interface CalendarService {
 	// 2015 PC 게임 데이터 정렬 로딩 
 	public List<CalendarDTO> loadOrderedGamedataPC2015();
 
+	// 2016 PC 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataPC2016();
+
 }
