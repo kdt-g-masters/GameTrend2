@@ -1,4 +1,7 @@
 @charset "UTF-8";
+*{
+	user-select : none;
+}
 /* ----------부트스트랩 custom----------*/
 .input-group{
 	width: 100%;
@@ -146,12 +149,12 @@
   	 overflow: hidden;
 	 z-index: 10;
 }
-li a, li a:link {
+li a, li a:link, .link a{
 	text-decoration-line: none;
 	text-decoration: none;
 	color: gray;
 }
-li:hover a{
+li:hover a, .link:hover a{
 	color: white;
 }
 .menu-bar{
@@ -284,4 +287,28 @@ li:hover a{
 }
 .initialQuestionList::-webkit-scrollbar{
 	display: none;
+}
+.recommend .topgame{
+	border-radius: 5px;
+	padding:0;
+	width: 150px;
+}
+.topgame-img {
+	width: 150px;
+	height: 150px;
+}
+.topgame-img img{
+	width: 100%;
+	height: inherit;
+	align-items: center;
+	text-align: center;
+}
+.topgame .topgame-name{
+	padding: 5px;
+	width: inherit;
+	height: 50px;
+	overflow: auto;
+}
+.topgame a{
+	text-align: rignt;
 }

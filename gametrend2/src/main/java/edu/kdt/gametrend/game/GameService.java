@@ -40,4 +40,7 @@ public interface GameService {
 	
 	//선택한 플랫폼의 장르
 	public List<GenreDTO> platformGenreList(String platform);
+	
+	//선택한 장르의 Top3게임 추천
+	public List<GameDTO> recommendGameList(String genre);
 }

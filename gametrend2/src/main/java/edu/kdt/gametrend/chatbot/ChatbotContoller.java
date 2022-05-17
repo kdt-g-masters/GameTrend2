@@ -69,4 +69,12 @@ public class ChatbotContoller {
 		System.out.println(platformgenrelist);
 		return platformgenrelist;
 	}
+	@RequestMapping("/recommendgame")
+	@ResponseBody
+	public List<GameDTO> recommendGame(String genre) {
+		List<GameDTO> recommendgamelist = gameservice.recommendGameList(genre);
+		System.out.println(recommendgamelist.toString());
+		return recommendgamelist;
+	}
+	
 }
