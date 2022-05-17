@@ -36,6 +36,9 @@ public interface GameService {
 	public List<GameDTO> gameRecommend(String genre);
 	
 	/*-------------------- 챗봇 --------------------*/
+	//위시리스트 게임의 장르
+	public List<GenreDTO> genreOfWishlist(String member_id);
+		
 	//플랫폼 리스트
 	public List<GameDTO> platformList();
 	
@@ -44,6 +47,9 @@ public interface GameService {
 	
 	//선택한 플랫폼의 장르
 	public List<GenreDTO> platformGenreList(String platform);
+	
+	//선택한 플랫폼, 선택한 장르의 Top3게임 추천
+	public List<GameDTO> recommendGameList3(String platform, String genre);
 	
 	//선택한 장르의 Top3게임 추천
 	public List<GameDTO> recommendGameList(String genre);

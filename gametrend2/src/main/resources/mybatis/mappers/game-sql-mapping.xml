@@ -67,6 +67,12 @@
 	</select>
 	
 	<!-- 챗봇 : 플랫폼 리스트 조회 -->
+    <select id="genreOfWishlist" resultType="String">
+	select distinct genre from genre, (select * from wishlist where member_id = #{member_id}) as wishlist 
+	where genre.game_no = wishlist.game_no;
+	</select>
+	
+	<!-- 챗봇 : 플랫폼 리스트 조회 -->
     <select id="platformList" resultType="String">
 		select distinct platform from game
 	</select>
@@ -86,5 +92,12 @@
 		from game left join genre on game.no = genre.game_no where genre=#{genre} 
 		order by reviews desc, rating desc, views desc limit 3;
 	</select>
+	<select id="recommendGameList3" resultType="gamedto">
+		select *, genre 
+		from game left join genre on game.no = genre.game_no 
+		where genre=#{genre} and platform=#{platform} 
+		order by reviews desc, rating desc, views desc limit 3;
+	</select>
+	
 	
 </mapper>

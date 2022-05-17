@@ -52,5 +52,12 @@ public class WishlistServiceImpl implements WishlistService {
 	public int deleteWishlist(WishlistDTO dto) {
 		return dao.deleteWishlist(dto);
 	}
+
+	@Override
+	public List<WishlistDTO> wishlist(String member_id) {
+		return dao.wishlist(member_id);
+	}
+
+	
 	
 }

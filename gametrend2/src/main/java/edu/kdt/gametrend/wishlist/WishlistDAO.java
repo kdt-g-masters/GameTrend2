@@ -37,4 +37,8 @@ public interface WishlistDAO {
 	
 	//위시리스트 게임 삭제
 	public int deleteWishlist(WishlistDTO dto);
+	
+	//해당 아이디의 위시리스트 조회 
+	public List<WishlistDTO> wishlist(String member_id);
+
 }
