@@ -31,13 +31,8 @@
 	<%@ include file="calendarTest.jspf" %> 
 	
 	
-	<!-- 연도별 베스트 처리 페이지 -->
-	<%@ include file="calendarCalculating.jspf" %> 
-	
-	
 	<!-- 연도별 베스트 출력 페이지 -->
-	
-	
+	<%@ include file="calendarCalculating.jspf" %> 
 
 </body>
 
