@@ -3,29 +3,35 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.kdt.gametrend.review.ReviewDAO" >
-	
+	<!-- 한 게임의 별점 -->
 	<select id="selectStarsgameNo" resultType="reviewdto" parameterType="int">
 		select stars from review where game_no=#{game_no}
 	</select>
 	
+	<!-- 한 게임의 리뷰 갯수 -->
 	<select id="countReviewgameNo" resultType="int" parameterType="int">
 		select count(*) from review where game_no=#{game_no}
 	</select>
 	
+	<!-- 한 게임의 리뷰  -->
 	<select id="selectReviewgameNo" resultType="reviewdto" parameterType="int">
 		select * from review where game_no=#{game_no}
+		order by date desc
 	</select>
 	
+	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterType="reviewdto">
-		insert into review values(#{no}, #{member_id}, #{game_no}, #{date}, #{contents}, #{stars}, #{image})
+		insert into review values(null, #{member_id}, #{game_no}, #{date}, #{contents}, #{stars}, #{image}, #{approve})
 	</insert>
 	
+	<!-- 리뷰 수정 -->
 	<update id="updateReview" parameterType="reviewdto">
 		update review 
-		set contents=#{contents}, stars=#{stars}
+		set contents=#{contents}, stars=#{stars}, date=#{date}
 		where no=#{no}
 	</update>
 	
+	<!-- 리뷰 삭제 -->
 	<delete id="deleteReview" parameterType="String">
 		delete from review where member_id=#{member_id}
 	</delete>

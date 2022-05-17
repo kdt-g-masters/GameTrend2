@@ -30,33 +30,11 @@ $(document).ready(function(){
 		else{
 			$.ajax({
 				url: '<%=request.getContextPath() %>/insertReview' ,
-				data: {'no':$("#reviewNo").val(), 'member_id':$("#reviewuserId").val(), 'game_no':${param.no}, 'contents':$("#contents").val(), 'stars':$("#stars").val(), 'date':$("#createAt").val() } ,
+				data: {'member_id':$("#memberid").val(), 'game_no':${param.no}, 'contents':$("#contents").val(), 'stars':$("#stars").val(), 'date':$("#createAt").val(), 'image':$("#imagefile").val(), 'approve':$("#approve").val() } ,
 				type: 'POST' ,
 				dataType: 'json',
 				success: function (a) {
 					alert(JSON.stringify(a));
-					<%--
-					//리뷰 작성 버튼 클릭 시 리뷰수 반영
-					$.ajax({
-						url: '<%=request.getContextPath() %>/countreviewgameno',
-						data: {'game_no':${param.no}} ,
-						dataType: 'json',
-						success: function(countreview){
-						$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
-						}
-					});
-												
-					//리뷰 작성 성공시 리뷰 추가
-					$.ajax({
-						url: '<%=request.getContextPath() %>/reviewgameno',
-						data: {'game_no':${param.no}} ,
-						dataType: 'json',
-						success: function (list) {
-							var j = (list.length - 1);
-							$('#review1').append("<div style=\"background-color: black;\"><p>" + list[0].userId + "<br>" +list[0].createAt + "</p><p>" + list[0].contents + "</p></div>");
-						}
-					});
-					--%>
 					location.reload();
 				}//success end
 			});//ajax end
@@ -80,7 +58,7 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function (list) {
 			for(var i = 0; i < list.length; i++){
-				$('#review1').append("<div style=\"background-color: black;\"><p>" + list[i].userId + "<br>" +list[i].createAt + "</p><p>" + list[i].contents + "</p></div>");
+				$('#review1').append("<div style=\"background-color: black;\"><p>" + list[i].member_id + "<br>" +list[i].date + "</p><p>" + list[i].contents + "</p></div>");
 			}
 		}
 	});//ajax end
@@ -299,12 +277,13 @@ $(document).ready(function(){
 			<div class="right b-ground">
 				<h4>리뷰 쓰기</h4>
 				<form action="">
-					<input id="reviewNo" type="text" value="<% Random random = new Random(); %><%= random.nextInt(9999)+1 %>" hidden>
-					아이디:<input id="reviewuserId" type="text">
+					<input id="memberid" type="text" value="<%= String.valueOf(session.getAttribute("sessionid")) %>" hidden>
 					별점:<input id="stars" type="text">
+					<input id="imagefile" type="file">
 					<%Date now = new Date(); SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); %>
 					<input id="createAt" type="text" value="<%=formatter.format(now) %>" hidden>
 					<textarea id="contents" rows="10" cols="70" style="width: 80%;"></textarea>
+					<input id="approve" type="text" value="0" hidden>
 					<br>
 					<input id="reviewinsert" class="btn btn-primary me-2 mainColor" type="button" value="리뷰 입력">
 				</form>
