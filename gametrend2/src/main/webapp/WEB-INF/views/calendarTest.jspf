@@ -329,7 +329,11 @@
  
  
  	<%= "--- Queue Test ---" %>
-	<br> 
+	<br><br>  
+	
+	
+	<%= "- q1 큐 출력 " %>
+	<br>
 	
 	<% 
 
@@ -341,8 +345,6 @@
 	
 	%> 
 	
-	<%= "q1 큐 출력 " %>
-	<br>
 	<%= q1.poll() %>
 	<br> 
 	<%= q1.poll() %>
@@ -354,6 +356,10 @@
 	
 	<br> 
  
+ 
+	<%= "- q2 큐 출력 " %>
+	<br>
+	
  	<% 
 
 	Queue<String> q2 = new LinkedList<String>(); 
@@ -365,11 +371,37 @@
 	
 	%> 
 	
-	<%= "q2 큐 출력 " %>
-	<br>
 	<c:forEach items="${dataQ}" var="i">
 		원소 출력 : ${i} <br> 
 	</c:forEach>
-	
+
 	<br> 
+	
+	
+	<%= "- data 큐 출력 " %>
+	<br> 
+	
+	<% 
+
+	Queue<String> B2015Test = new LinkedList<String>(); 
+	
+	B2015Test.offer("0");
+	
+	request.setAttribute("DataB2015Test", B2015Test); 
+	
+	%> 
+	
+	<c:forEach items="${DataPS2015}" var="dataPS2015" varStatus="number">
+		<c:forEach items="${DataB2015Test}" var="dataB2015Test">
+			<c:set var="dataB2015Test" value="${dataPS2015.name}" />
+			2015년 PS 1위 출력 : ${dataB2015Test} <br> 
+		</c:forEach>
+	</c:forEach> 
+	<br><br> 
+	
+	<%= B2015Test.poll() %>
+	<br> 
+	<br> 
+
+	
 	
