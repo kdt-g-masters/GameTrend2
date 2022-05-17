@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.Queue" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+	<%= "--- Queue ---" %>
+	<br> 
+	
+	<% 
+
+	Queue<String> A2015 = new LinkedList<String>(); 
+	
+	A2015.offer("0");
+	
+	request.setAttribute("DataA2015", A2015); 
+	
+	%> 
+	
+	<c:forEach items="${DataPC2015}" var="dataPC2015" varStatus="number">
+		<c:forEach items="${DataA2015}" var="dataA2015">
+			<c:set var="dataA2015" value="${dataPC2015.name}" />
+			1위 출력 : ${dataA2015} <br> 
+		</c:forEach>
+	</c:forEach> 
+	<br><br> 
+	
+	<%= A2015.poll() %>
+	<br> 
+	<%= A2015.poll() %>
+	<br> 
+	<%= A2015.poll() %>
+	<br> 
+
+
+
+
+
