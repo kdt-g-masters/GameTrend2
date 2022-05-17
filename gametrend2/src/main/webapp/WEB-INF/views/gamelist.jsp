@@ -70,15 +70,16 @@
 			font-weight: bold;
 			margin: 0 auto;
 		}
+		.title h4{
+			font-size: 1.295em;
+		}
 		section nav{
 			text-align: center;
 			margin-top: 4vh;
 			margin-bottom: 7vh;
 		}
 		section nav a{
-			width: 10em;
-			/* padding: 10px;
-			margin: 10px; */
+			width: 10vw;
 			position: relative;
 			color: #4a4a4a;
 			margin: 5px 20px 10px;
@@ -111,8 +112,7 @@
 		/* index.css에 적용할 것 */
 		.active{
 			font-weight: bold;
-		}
-		
+		}		
 		
 	</style>
 </head>
@@ -127,9 +127,9 @@
 		</div>	
 				
 		<nav>
-			<a href="#" id="pc">PC</a>
-			<a href="#" id="PlayStation">PS</a>
-			<a href="#" id="Xbox">XBox</a>
+			<a href="#" id="pc">PC</a>|
+			<a href="#" id="PlayStation">PS</a>|
+			<a href="#" id="Xbox">XBox</a>|
 			<a href="#" id="Switch">Switch</a>
 		</nav>
 	</section>

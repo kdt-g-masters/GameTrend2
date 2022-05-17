@@ -1,5 +1,6 @@
 /*chatbot.js */
 
+
  $(document).ready(function() {	
 		/*챗봇 버튼 클릭 시 웰컴 메세지 출력*/
 		$(".floating-button").click( function(){
@@ -25,7 +26,7 @@
 			
 			/*초기 리스트*/
 			var kindQ =  $(this).attr("id");
-			var login =  '<%=String.valueOf(session.getAttribute("sessionid"))%>';
+			
 			$.ajax({
 				url : "/chatbot",
 				data : {"request": $(this).html(), "event":"입력"}, //request: 인사/생활습관병/식재료/맞춤/후기
@@ -34,7 +35,7 @@
 				success : function(serverdata){
 					parser(serverdata);
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-					//내가 가진 플랫폼 선택시
+					//"내가 가진 플랫폼" 선택시
 					if (kindQ == "platform"){
 						$.ajax({
 								url : "/chatplatform",
@@ -50,19 +51,41 @@
 									/*플랫폼 종류 중 하나를 선택하면*/
 									$(".platform-li .link").on('click',function(){
 										$("#record").append("<div class='question'>" + $(this).text() + "</div>");
-										var selected = $(this).text();
+										var selectedPlatform = $(this).text();
 										$.ajax({
 											url: "/selectplatform",
 											type: 'get',
-											data: {"platform": selected},
+											data: {"platform": selectedPlatform},
 											success : function(genrelist){
-												$("#record").append("<div class='answer'>[" + selected + "]에 포함된 장르들이에요.<br>이 중 어떤 장르의 게임추천을 원하시나요?</div>");
+												$("#record").append("<div class='answer'>[" + selectedPlatform + "]에 포함된 장르들이에요.<br>이 중 어떤 장르의 게임추천을 원하시나요?</div>");
 												var textlist = "<div class='list-wrap genre-li'>";
 												for(var i = 0 ; i < genrelist.length; i++){
 													textlist += "<div class='link'>" + genrelist[i] +"</div>";
 												}
 												$("#record").append(textlist + "</div>");
 												$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+												/*장르 선택 시 해당 장르 Top3게임 추천*/
+												$(".genre-li .link").on('click',function(){
+													var genre = $(this).text();
+													$("#record").append("<div class='question'>" + genre +"</div>");
+													$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+													$.ajax({
+														url : "/recommendgame3",
+														data : {"platform": selectedPlatform, "genre": genre}, //request: 인사/생활습관병/식재료/맞춤/후기
+														type : "post",
+														success : function(gamelist){
+															$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
+															var textanswer = "<div class='recommend-wrap'>";
+															for(var i = 0; i < gamelist.length; i++){
+																textanswer += "<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
+																+ "</b></div><br><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
+																+"'/></div><br><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
+															}
+															$("#record").append(textanswer + "</div>");
+															$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+														}
+													});//ajax end
+												});
 											}
 										})
 									});
@@ -81,62 +104,16 @@
 									}
 									$("#record").append(textlist + "</div>");
 									$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+									
 									/*장르 선택 시 해당 장르 Top3게임 추천*/
 									$(".genre-li .link").on('click',function(){
 										var genre = $(this).text();
-										$("#record").append("<div class='question'>" + genre +"</div>");
-										$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-										$.ajax({
-											url : "/recommendgame",
-											data : {"genre": genre}, //request: 인사/생활습관병/식재료/맞춤/후기
-											type : "post",
-											success : function(gamelist){
-												$("#record").append("<div class='answer'>[" + genre + "] 장르 Top" + gamelist.length + " 게임 추천</div>");
-												$("#record").append("<div class='list-wrap'>");
-												for(var i = 0; i < gamelist.length; i++){
-													$("#record").append("<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
-													+ "</b></div><br><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
-													+"'/></div><br><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>");
-												}
-												$("#record").append("</div>");
-												$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-											}
-										});//ajax end
+										recommendGame(genre);
 									});
 								} // success function
 						});
 						
 					}
-					
-					//나의 위시리스트 선택시
-					else if(kindQ == "mywishlist"){
-						if(!login){
-							$("#record").append("<div class='answer'>로그인이 필요해요. 로그인하러 가볼까요? </div><div class='link'><a href='login'>로그인</a></div>");
-						}
-						else{
-							$.ajax({
-								url : "/chatmywishlist",
-								type : 'get',
-								data : {"memberid" : sessionid},
-								
-								success : function(list){
-										
-										var textlist = "<div class='list-wrap genre-li'>";
-										for(var i = 0 ; i < list.length; i++){
-											textlist += "<div class='link'>" + list[i] +"</div>";
-										}
-										$("#record").append(textlist + "</div>");
-										$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-									} // success function
-								
-							});
-						}
-					}
-					//내가 쓴 리뷰 선택시
-					else if(kindQ == "mywishlist"){
-						
-					}
-
 				}
 			});//ajax end
 		});  //li end
@@ -229,3 +206,23 @@
 			$("#record").append(quickbnt+"</ul>");
 		}
 	} 
+	function recommendGame(genre){
+		$("#record").append("<div class='question'>" + genre +"</div>");
+			$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+			$.ajax({
+				url : "/recommendgame4",
+				data : {"genre": genre}, //request: 인사/생활습관병/식재료/맞춤/후기
+				type : "post",
+				success : function(gamelist){
+					$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
+					var textanswer = "<div class='recommend-wrap'>";
+					for(var i = 0; i < gamelist.length; i++){
+						textanswer += "<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
+						+ "</b></div><br><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
+						+"'/></div><br><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
+					}
+					$("#record").append(textanswer + "</div>");
+					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+				}
+			});//ajax end
+	}

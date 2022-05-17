@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.game.GameService;
 import edu.kdt.gametrend.game.GenreDTO;
+import edu.kdt.gametrend.wishlist.WishlistDTO;
+import edu.kdt.gametrend.wishlist.WishlistService;
 
 @Controller
 public class ChatbotContoller {
@@ -24,6 +26,11 @@ public class ChatbotContoller {
 	@Autowired
 	@Qualifier("gameservice")
 	GameService gameservice;
+	
+	@Autowired
+	@Qualifier("wishlistservice")
+	WishlistService wishlistservice;
+	
 	
 	@RequestMapping("/chatbottest")
 	public String chatbottest() {
@@ -45,6 +52,22 @@ public class ChatbotContoller {
 		System.out.println("==> " + response);
 		
 		return response;
+	}
+	
+	@RequestMapping("/chatmywishlist")
+	@ResponseBody
+	public List<WishlistDTO> existWishlist(String member_id) { 
+		List<WishlistDTO> wishlist = wishlistservice.wishlist(member_id);
+		System.out.println(wishlist);
+		return wishlist;
+	}
+	
+	@RequestMapping("/genreOfWishlist")
+	@ResponseBody
+	public List<GenreDTO> genreOfWishlist(String member_id) { 
+		List<GenreDTO> genreofwishlist = gameservice.genreOfWishlist(member_id);
+		System.out.println(genreofwishlist);
+		return genreofwishlist;
 	}
 	
 	@RequestMapping("/chatplatform")
@@ -69,9 +92,18 @@ public class ChatbotContoller {
 		System.out.println(platformgenrelist);
 		return platformgenrelist;
 	}
-	@RequestMapping("/recommendgame")
+	
+	@RequestMapping("/recommendgame3")
 	@ResponseBody
-	public List<GameDTO> recommendGame(String genre) {
+	public List<GameDTO> recommendGame3(String platform, String genre) {
+		List<GameDTO> recommendgamelist = gameservice.recommendGameList3(platform, genre);
+		System.out.println(recommendgamelist.toString());
+		return recommendgamelist;
+	}
+	
+	@RequestMapping("/recommendgame4")
+	@ResponseBody
+	public List<GameDTO> recommendGame4(String genre) {
 		List<GameDTO> recommendgamelist = gameservice.recommendGameList(genre);
 		System.out.println(recommendgamelist.toString());
 		return recommendgamelist;

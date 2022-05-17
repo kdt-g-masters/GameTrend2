@@ -128,6 +128,9 @@
 .card-img{
 	object-fit:cover;
 }
+.col-md-2{
+	width: 10vw;
+}
 /* #box2 img:hover + .card-img-overlay{
 	position: relative ;
 } */
@@ -136,7 +139,7 @@
 	<!-- PC -->
 	<div class="container-fluid">
 	  <div class="btn-group d-flex col-md-2">
-		 <a class="platform btn btn-primary" href="" role="button" id="pc">PC</a>
+		 <a class="platform btn btn-primary" href="" role="button" id="pc"><b>PC</b></a>
 	  </div>
 	  <div class="row">
 		<div id="box2">
@@ -166,7 +169,7 @@
 	<!-- Play Station -->
 	<div class="container-fluid" style="background-color: #e8e0ff">
 		<div class="btn-group d-flex col-md-2">
-			<a class="platform btn btn-primary" href="" role="button" id="ps">Play Station</a>
+			<a class="platform btn btn-primary" href="" role="button" id="ps"><b>Play Station</b></a>
 		</div>
 		<div class="row">
 			<div id="box2">
@@ -194,7 +197,7 @@
 	<!-- xbox -->
 	<div class="container-fluid">
 		<div class="btn-group d-flex col-md-2">
-			<a class="platform btn btn-primary" href="" role="button" id="xbox">Xbox</a>
+			<a class="platform btn btn-primary" href="" role="button" id="xbox"><b>Xbox</b></a>
 		</div>
 		<div class="row">
 			<div id="box2">
@@ -222,7 +225,7 @@
 	<!-- switch -->
 	<div class="container-fluid" style="background-color: #e8e0ff">
 		<div class="btn-group d-flex col-md-2">
-			<a class="platform btn btn-primary" href="" role="button" id="switch">Switch</a>
+			<a class="platform btn btn-primary" href="" role="button" id="switch"><b>Switch</b></a>
 		</div>
 		<div class="row">
 			<div id="box2">
