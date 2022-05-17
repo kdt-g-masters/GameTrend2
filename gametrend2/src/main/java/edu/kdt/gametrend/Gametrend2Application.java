@@ -11,6 +11,7 @@ import edu.kdt.gametrend.calendar.CalendarController;
 import edu.kdt.gametrend.calendar.CalendarDAO;
 import edu.kdt.gametrend.carousel.CarouselController;
 import edu.kdt.gametrend.carousel.CarouselDAO;
+import edu.kdt.gametrend.chatbot.ChatbotContoller;
 import edu.kdt.gametrend.explanation.ExplanationController;
 import edu.kdt.gametrend.explanation.ExplanationDAO;
 import edu.kdt.gametrend.game.GameController;
@@ -35,6 +36,7 @@ import edu.kdt.gametrend.wishlist.WishlistDAO;
 @ComponentScan(basePackageClasses = ReviewController.class)
 @ComponentScan(basePackageClasses = WishlistController.class)
 @ComponentScan(basePackageClasses = AdminController.class)
+@ComponentScan(basePackageClasses = ChatbotContoller.class)
 
 @MapperScan(basePackageClasses = GameDAO.class)
 @MapperScan(basePackageClasses = CarouselDAO.class)
