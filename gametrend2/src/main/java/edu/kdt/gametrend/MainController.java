@@ -59,9 +59,4 @@ public class MainController {
 		return mv;
 	}
 	
-	/*
-	 * @RequestMapping("/") public ModelAndView toptenList() { ModelAndView mv = new
-	 * ModelAndView(); List<GameDTO> toptenlist = service.toptenList();
-	 * mv.addObject("toptenlist",toptenlist); mv.setViewName("index"); return mv; }
-	 */
 }
