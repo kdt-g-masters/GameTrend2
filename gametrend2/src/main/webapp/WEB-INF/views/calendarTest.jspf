@@ -5,9 +5,7 @@
 <%@ page import="java.util.LinkedList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-	<br>
-	<br> 
-	<br> 
+    <br> 
 	<br> 
 	ㅇ 연도별 베스트 게임 <br> 
 	<br> 
