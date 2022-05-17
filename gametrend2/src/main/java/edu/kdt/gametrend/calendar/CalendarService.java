@@ -77,5 +77,9 @@ public interface CalendarService {
 	// 2021 Xbox 게임 데이터 정렬 로딩 
 	public List<CalendarDTO> loadOrderedGamedataXbox2021();
 
+	
+	// 2015 NS 게임 데이터 정렬 로딩 
+	public List<CalendarDTO> loadOrderedGamedataNS2015();
+
 
 }

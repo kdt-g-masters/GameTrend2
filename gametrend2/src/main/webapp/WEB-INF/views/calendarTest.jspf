@@ -253,4 +253,14 @@
 	<br> 
 	<br> 
 
+	<c:forEach items="${DataNS2015}" var="dataNS2015" varStatus="number">
+		${dataNS2015.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2015.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2015.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2015.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
 

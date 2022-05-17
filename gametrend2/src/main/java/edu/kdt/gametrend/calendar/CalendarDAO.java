@@ -58,5 +58,8 @@ public interface CalendarDAO {
 	public List<CalendarDTO> loadOrderedGamedataXbox2020();
 	
 	public List<CalendarDTO> loadOrderedGamedataXbox2021();
+	
+	
+	public List<CalendarDTO> loadOrderedGamedataNS2015();
 
 }

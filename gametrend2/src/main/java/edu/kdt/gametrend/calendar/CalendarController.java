@@ -100,6 +100,10 @@ public class CalendarController {
 		List<CalendarDTO> OrderedGamedataXbox2021 = service.loadOrderedGamedataXbox2021();	
 
 		
+		// 2015 NS 게임 데이터 정렬 로딩 
+		List<CalendarDTO> OrderedGamedataNS2015 = service.loadOrderedGamedataNS2015();	
+
+		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("Data", gamedata);
 		mv.addObject("DataPCTest", OrderedGamedataPCTest);
@@ -127,6 +131,8 @@ public class CalendarController {
 		mv.addObject("DataXbox2019", OrderedGamedataXbox2019);
 		mv.addObject("DataXbox2020", OrderedGamedataXbox2020);
 		mv.addObject("DataXbox2021", OrderedGamedataXbox2021);
+		
+		mv.addObject("DataNS2015", OrderedGamedataNS2015);
 		
 		mv.setViewName("calendar");
 		return mv; 

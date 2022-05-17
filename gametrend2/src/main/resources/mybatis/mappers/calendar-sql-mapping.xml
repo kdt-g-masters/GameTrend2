@@ -165,6 +165,15 @@
 		substring(releaseDate, 1, 4) = 2021 
 		order by views desc; 
 	</select> 
+	
+	
+	<select id="loadOrderedGamedataNS2015" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'Switch' and 
+		substring(releaseDate, 1, 4) = 2015 
+		order by views desc; 
+	</select> 
+
 
 
 </mapper>
