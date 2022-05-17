@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.Queue" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 	<br>
 	<br> 
@@ -323,4 +327,49 @@
 	<br> 
 	<br> 
  
+ 
+ 	<%= "--- Queue Test ---" %>
+	<br> 
+	
+	<% 
 
+	Queue<String> q1 = new LinkedList<String>(); 
+	
+	q1.offer("0");
+	q1.offer("1");
+	q1.offer("2"); 
+	
+	%> 
+	
+	<%= "q1 큐 출력 " %>
+	<br>
+	<%= q1.poll() %>
+	<br> 
+	<%= q1.poll() %>
+	<br> 
+	<%= q1.poll() %>
+	<br> 
+	<%= q1.poll() %>
+	<br> 
+	
+	<br> 
+ 
+ 	<% 
+
+	Queue<String> q2 = new LinkedList<String>(); 
+	
+	q2.offer("0");
+	q2.offer("1");
+	q2.offer("2");
+	request.setAttribute("dataQ", q2); 
+	
+	%> 
+	
+	<%= "q2 큐 출력 " %>
+	<br>
+	<c:forEach items="${dataQ}" var="i">
+		원소 출력 : ${i} <br> 
+	</c:forEach>
+	
+	<br> 
+	
