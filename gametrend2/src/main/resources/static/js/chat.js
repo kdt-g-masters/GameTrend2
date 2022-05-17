@@ -21,10 +21,11 @@
 		});
 		/*초기 리스트 선택시*/
 		$(".initialQuestionList span").on('click',function(){
-			var login =  '<%=String.valueOf(session.getAttribute("sessionid"))%>';
 			$("#record").append("<div class='question'>" + $(this).text() + "</div>");	//선택한 것출력
+			
 			/*초기 리스트*/
 			var kindQ =  $(this).attr("id");
+			var login =  '<%=String.valueOf(session.getAttribute("sessionid"))%>';
 			$.ajax({
 				url : "/chatbot",
 				data : {"request": $(this).html(), "event":"입력"}, //request: 인사/생활습관병/식재료/맞춤/후기
@@ -80,9 +81,31 @@
 									}
 									$("#record").append(textlist + "</div>");
 									$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+									/*장르 선택 시 해당 장르 Top3게임 추천*/
+									$(".genre-li .link").on('click',function(){
+										var genre = $(this).text();
+										$("#record").append("<div class='question'>" + genre +"</div>");
+										$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+										$.ajax({
+											url : "/recommendgame",
+											data : {"genre": genre}, //request: 인사/생활습관병/식재료/맞춤/후기
+											type : "post",
+											success : function(gamelist){
+												$("#record").append("<div class='answer'>[" + genre + "] 장르 Top" + gamelist.length + " 게임 추천</div>");
+												$("#record").append("<div class='list-wrap'>");
+												for(var i = 0; i < gamelist.length; i++){
+													$("#record").append("<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
+													+ "</b></div><br><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
+													+"'/></div><br><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>");
+												}
+												$("#record").append("</div>");
+												$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+											}
+										});//ajax end
+									});
 								} // success function
-							
 						});
+						
 					}
 					
 					//나의 위시리스트 선택시
@@ -94,7 +117,7 @@
 							$.ajax({
 								url : "/chatmywishlist",
 								type : 'get',
-								data : {"memberid" : login},
+								data : {"memberid" : sessionid},
 								
 								success : function(list){
 										
@@ -113,52 +136,12 @@
 					else if(kindQ == "mywishlist"){
 						
 					}
-				/*	$("li").on('click',function(){
-						console.log($(this).text());
-						$("#record").append("<div class='question'>" + $(this).html() + "</div>");	//선택한 것출력
-						$.ajax({
-							url : "/chatbot",
-							data : {"request": $(this).html(), "event":"입력"}, //request: 인사/생활습관병/식재료/맞춤/후기
-							type : "get",
-							dataType : "json",
-							success : function(serverdata){
-								parser(serverdata);
-								$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-								$("li").on('click',function(){
-									console.log($(this).text());
-									$("#record").append("<div class='question'>" + $(this).html() + "</div>");	//선택한 것출력
-									$.ajax({
-										url : "/chatbot",
-										data : {"request": $(this).html(), "event":"입력"}, //request: 인사/생활습관병/식재료/맞춤/후기
-										type : "get",
-										dataType : "json",
-										success : function(serverdata){
-											parser(serverdata);
-											$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-											$("li").on('click',function(){
-												console.log($(this).text());
-												$("#record").append("<div class='question'>" + $(this).html() + "</div>");	//선택한 것출력
-												$.ajax({
-													url : "/chatbot",
-													data : {"request": $(this).html(), "event":"입력"}, //request: 인사/생활습관병/식재료/맞춤/후기
-													type : "get",
-													dataType : "json",
-													success : function(serverdata){
-														parser(serverdata);
-														$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-													}
-												});//ajax end
-											});  //li end
-										}
-									});//ajax end
-								});  //li end
-							}
-						});//ajax end
-					});  //li end
-*/				}
+
+				}
 			});//ajax end
 		});  //li end
-		//---입력, 대화시작 클릭시 
+		
+		//---입력 클릭시 
 		$(".ch-bnt").on('click', function(){
 			if($("#request").val() != ""){
 				$("#record").append("<div class='question'>" + $("#request").val() + "</div>");	//질문출력

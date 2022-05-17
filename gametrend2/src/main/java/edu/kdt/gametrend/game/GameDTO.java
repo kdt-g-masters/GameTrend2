@@ -28,6 +28,8 @@ public class GameDTO {
 	MultipartFile file3;
 	MultipartFile file4;
 	
+	String genre;
+	
 	public GameDTO() {}
 	public GameDTO(int ranking, int no, String name, String thumbnail ) {
 		super();
@@ -178,6 +180,12 @@ public class GameDTO {
 	}
 	public void setRelevant_site2(String relevant_site2) {
 		this.relevant_site2 = relevant_site2;
+	}
+	public String getGenre() {
+		return genre;
+	}
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 	
 }

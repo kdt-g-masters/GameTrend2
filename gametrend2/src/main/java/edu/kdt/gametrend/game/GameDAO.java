@@ -44,27 +44,8 @@ public interface GameDAO {
 	
 	//선택한 플랫폼의 장르
 	public List<GenreDTO> platformGenreList(String platform);
-//	
-//	public int totalcount(String platform) {
-//		return session.selectOne("platformtotal");
-//	}
-	//	//�÷����� ���ӷ�ŷ ��ȸ
-//	public List<GameDTO> gamelist(String platform){
-//		return session.selectList("platformgamesearch", platform);
-//	}
-
-	//�����߰�
-//	public int insertgame(GameDTO dto) {
-//		return session.insert("insertgame", dto);
-//	}
-//	//�������� ����
-//	public int updategame(GameDTO dto) {
-//		return session.update("updategame", dto);
-//	}
-//	//���� ����
-//	public int deletegame(int gameNo) {
-//		return session.delete("deletegame", gameNo);
-//	}
-
+	
+	//선택한 장르의 Top3게임 추천
+	public List<GameDTO> recommendGameList(String genre);
 
 }
