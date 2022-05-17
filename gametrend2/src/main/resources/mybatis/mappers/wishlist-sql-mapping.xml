@@ -57,4 +57,8 @@
 		delete from wishlist where member_id=#{member_id} and game_no=#{game_no}
 	</delete>
 	
+	<!-- 챗봇 : 위시 리스트 존재여부 조회 -->
+    <select id="wishlist" resultType="wishlistdto">
+		select * from wishlist where member_id = #{member_id};
+	</select>
 </mapper>

@@ -57,6 +57,11 @@ public class GameServiceImpl implements GameService {
 	public List<GenreDTO> gameGenreView(int no) {
 		return dao.gameGenreView(no);
 	}
+	
+	@Override
+	public List<GenreDTO> genreOfWishlist(String member_id) {
+		return dao.genreOfWishlist(member_id);
+	}
 
 	@Override
 	public List<GameDTO> platformList() {
@@ -73,13 +78,15 @@ public class GameServiceImpl implements GameService {
 		return dao.platformGenreList(platform);
 	}
 
+
+	@Override
+	public List<GameDTO> recommendGameList3(String platform, String genre) {
+		return dao.recommendGameList3(platform, genre);
+	}
+
 	@Override
 	public List<GameDTO> recommendGameList(String genre) {
 		return dao.recommendGameList(genre);
 	}
-	
-	
-	
-	
 	
 }

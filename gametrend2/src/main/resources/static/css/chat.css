@@ -138,7 +138,7 @@
 #ch-window {
 	display: none;
 	 width :  470px;
-	 height : 70vh;
+	 height : 700px;
 	 margin: 35px 25px;
 	 border-radius: 1.5em;
 	 box-shadow: 0.2em 0.2em 2em rgba(147,147,147,30%);
@@ -176,7 +176,7 @@ li:hover a, .link:hover a{
 }
 #record-box{
 	margin: 10px 3px;
-	height: 490px;
+	height: 530px;
 	overflow: hidden;
 	overflow-y: auto;
 }
@@ -288,7 +288,15 @@ li:hover a, .link:hover a{
 .initialQuestionList::-webkit-scrollbar{
 	display: none;
 }
-.recommend .topgame{
+.recommend-wrap{
+	display: block;
+	width: 900px;
+	margin:0.1vh 0.1vw 1vh 0.1vw;
+	padding: 0.1vh 0.1vw 0.1vh 0.1vw;
+	overflow: auto;
+	overflow-x: hidden;
+}
+.topgame{
 	border-radius: 5px;
 	padding:0;
 	width: 150px;
@@ -308,6 +316,7 @@ li:hover a, .link:hover a{
 	width: inherit;
 	height: 50px;
 	overflow: auto;
+	overflow-y : hidden;
 }
 .topgame a{
 	text-align: rignt;
