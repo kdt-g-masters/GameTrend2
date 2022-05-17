@@ -63,6 +63,15 @@
 	<br> 
 	<br> 
 	
+	<c:forEach items="${DataPC2015}" var="dataPC2015" varStatus="number">
+		${dataPC2015.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2015.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2015.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2015.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	<br> 
+	<br> 
+
 	
 
 </body>

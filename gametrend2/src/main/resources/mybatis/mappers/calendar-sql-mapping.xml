@@ -15,6 +15,14 @@
 		order by views desc; 
 	</select> 
 	
+	<select id="loadOrderedGamedataPC2015" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'pc' and 
+		substring(releaseDate, 1, 4) = 2015 
+		order by views desc; 
+	</select> 
+
+	
 	
 </mapper>
 
