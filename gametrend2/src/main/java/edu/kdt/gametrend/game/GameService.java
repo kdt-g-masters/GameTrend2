@@ -31,4 +31,7 @@ public interface GameService {
 	//게임 상세 페이지 장르 보여주기
 	public List<GenreDTO> gameGenreView(int no);
 	
+	//추천 게임 보여주기
+	public List<GameDTO> gameRecommend(String genre);
+	
 }

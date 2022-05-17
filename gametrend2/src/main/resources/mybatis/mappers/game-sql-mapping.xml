@@ -60,12 +60,12 @@
 		select * from genre where game_no = #{no}
 	</select>
 	
-<!-- <select id="gamebyplatform" resultType="gamedto" parameterType="String, int[]">
-		select * from game where platform=#{platform} order by rating desc limit
+	<!-- 추천 게임 보여주기 -->
+	<select id="gameRecommend" resultType="gamedto" parameterType="String">
+		select game.* from genre 
+		left join game on genre.game_no = game.no
+		where genre=#{genre}
+		limit 0, 10
 	</select>
- 	<select id="getallcount" resultType="int">
-	   	select count(*) as count from game
-	</select> -->
-	
 	
 </mapper>

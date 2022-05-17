@@ -1,3 +1,5 @@
+<%@page import="edu.kdt.gametrend.game.GenreDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Random"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
@@ -11,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${ gamedetail.name }</title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <link href="/css/sub.css" rel="stylesheet">
 <script src="/jquery-3.6.0.min.js"></script>
 <script>
@@ -110,7 +112,7 @@ $(document).ready(function(){
 	$("#rcm").on('click', function () {
 		if(memberid == "null"){
 			alert("로그인이 필요한 항목입니다.");
-			location.reload("/login");
+			location.replace("/login");
 		}
 		else{
 			$.ajax({
@@ -133,6 +135,34 @@ $(document).ready(function(){
 			});//ajax end
 		}//if end
 	});//on end
+	
+	//장르 데이터 분류
+	<%
+	ArrayList arr = (ArrayList)request.getAttribute("gamegenre");
+	GenreDTO genre = (GenreDTO)arr.get(0);
+	%>
+	
+	//같은 장르인 게임 추천
+	$.ajax({
+		url: '<%=request.getContextPath() %>/gamerecommend',
+		data: {'genre':'<%= genre.getGenre() %>'},
+		dataType: 'json',
+		success: function (list) {
+			var recommend = "<div class='card-group'>";
+			for (var i = 0; i < list.length; i++){
+				recommend += "<div class='card'><a href='/gamedetail?no=" + list[i].no + "'>"
+					+ "<img src='/images/thumbnail/" + list[i].thumbnail + "' class='card-img-top' style='height: 160px'>"
+					+ "<div class='card-body'>"
+					+ "<h5 class='card-title'>" + list[i].name + "</h5>"
+					+ "<p class='card-text'>" + list[i].platform + "</p>"
+					+ "<p class='card-text'>" + list[i].releaseDate + "</p>"
+					+ "</div></a></div>"
+			}
+			recommend +="</div>"
+			$("#gamerecommend").html(recommend);
+		}//success end
+		
+	});//ajax end
 	
 	<%--
 	var cnt = 0;
@@ -276,20 +306,14 @@ $(document).ready(function(){
 					<input id="createAt" type="text" value="<%=formatter.format(now) %>" hidden>
 					<textarea id="contents" rows="10" cols="70" style="width: 80%;"></textarea>
 					<br>
-					<input class="btn btn-primary me-2 mainColor" type="button" value="리뷰 입력">
+					<input id="reviewinsert" class="btn btn-primary me-2 mainColor" type="button" value="리뷰 입력">
 				</form>
 			</div>
 		</div>
 		
 		<h3>게임 추천</h3>
-		<div class="hidden1">
-			<table>
-				<tr><td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
-					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
-					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
-					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td>
-					<td><div class="recommendation" style="background-color: #B9A1FF;"><a><img class="img3" src="/images/thumbnail/10.jpg"><p>그랜드 테프트 오토 V</p><p>PS3</p><p>2013년 9월 17일</p></a></div></td></tr>
-			</table>
+		<div id="gamerecommend">
+			
 		</div>
 	</main>
 	<div class="space" style="height:500"></div>

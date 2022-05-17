@@ -78,14 +78,11 @@ main .img3 {
 	width: 140px;
 	height: 160px;
 }
-main .recommendation {
-	overflow: hidden;
-	width: 140px;
-	height: 270px;
-	white-space: nowrap;
-	font-size: 13px;
-	text-overflow: ellipsis;
-	border-radius: 5px;
+main #list {
+	display: inline-block;
+	text-align: center;
+	margin: 0 auto;
+	padding : 10px;
 }
 :root {
     --bs-primary: #5c27fe;

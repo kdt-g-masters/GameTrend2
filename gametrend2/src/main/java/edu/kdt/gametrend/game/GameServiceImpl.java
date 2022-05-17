@@ -57,5 +57,10 @@ public class GameServiceImpl implements GameService {
 	public List<GenreDTO> gameGenreView(int no) {
 		return dao.gameGenreView(no);
 	}
+
+	@Override
+	public List<GameDTO> gameRecommend(String genre) {
+		return dao.gameRecommend(genre);
+	}
 	
 }
