@@ -16,6 +16,11 @@
 	<script src="/jquery-3.6.0.min.js"></script>
 	<script src="/js/chat.js"></script>
 <!-- 	<script src="/js/index.js"></script> -->
+	<script type="text/javascript">
+	 $(document).ready(function() {	
+		
+	 });
+	</script>
 </head>
 <body>
 	<!-- navbar -->
@@ -40,16 +45,20 @@
 		</div>	
 		
 		<div class="ch-input">
-			<hr>
+			<div class="initialQuestionList">
+				<span id="mywishlist" class="list">나의 위시리스트</span>
+				<span id="myreview" class="list">내가 쓴 리뷰</span>
+				<span id="platform" class="list">내가 가진 게임플랫폼</span>
+				<span id="genre" class="list">내가 선택한 장르</span>
+			</div> 
 			<div class="input-group mb-3">
-			    <input type="text" id="request" class="form-control" placeholder="..입력 시 첫대화로 이동" aria-label="Recipient's username" aria-describedby="basic-addon2">
-			    <input type="button" id="event1" class="ch-bnt" value="입력" name="event">
-				    <!-- send 부분 아이콘으로 변경하기
+			    <input type="text" id="request" class="form-control" placeholder="질문을 입력하세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
+			    <button id="event1" class="ch-bnt" value="입력" name="event">
 				    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
 		  				<path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-					</svg> 
-					-->
-				<input type="button" id="event2" class="ch-bnt" value="대화시작" name="event">
+					</svg> </button>
+					
+				<!-- <input type="button" id="event2" class="ch-bnt" value="대화시작" name="event"> -->
 			</div>
 		</div>
 		

@@ -31,4 +31,13 @@ public interface GameService {
 	//게임 상세 페이지 장르 보여주기
 	public List<GenreDTO> gameGenreView(int no);
 	
+	/*-------------------- 챗봇 --------------------*/
+	//플랫폼 리스트
+	public List<GameDTO> platformList();
+	
+	//게임 장르 전체 
+	public List<GenreDTO> allGenreList();
+	
+	//선택한 플랫폼의 장르
+	public List<GenreDTO> platformGenreList(String platform);
 }
