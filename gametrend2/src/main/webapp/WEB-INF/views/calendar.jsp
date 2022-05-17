@@ -24,7 +24,7 @@
 	<!-- (POST 로 데이터 리스트 받아와져있는 상태) --> 
 
 	<!-- 테스트 페이지 -->
-	<%@ include file="calendarTest.jspf" %>  
+	<%@ include file="calendarTest.jspf" %> 
 	
 	
 

@@ -65,6 +65,14 @@
 		substring(releaseDate, 1, 4) = 2021 
 		order by views desc; 
 	</select> 
+	
+	
+	<select id="loadOrderedGamedataPS2015" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+		select * from game 
+		where platform = 'PlayStation' and 
+		substring(releaseDate, 1, 4) = 2015 
+		order by views desc; 
+	</select> 
 
 </mapper>
 

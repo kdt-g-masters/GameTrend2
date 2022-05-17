@@ -29,4 +29,7 @@ public interface CalendarDAO {
 
 	public List<CalendarDTO> loadOrderedGamedataPC2021();
 
+	
+	public List<CalendarDTO> loadOrderedGamedataPS2015();
+
 }
