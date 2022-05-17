@@ -1,0 +1,326 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+	<br>
+	<br> 
+	<br> 
+	<br> 
+	ㅇ 연도별 베스트 게임 <br> 
+	<br> 
+	불러올 데이터 : <br> 
+	1) 플랫폼 <br> 
+	2) 게임 이름 <br> 
+	3) 출시일자 <br> 
+	4) 랭킹(초기값+추가 리뷰수) <br> 
+	<br> 
+	<br> 
+	
+	ㅇ 출시달력 <br> 
+	<br> 
+	불러올 데이터 : <br> 
+	1) 출시일자 
+	<br>  
+	<br> 
+    
+	<!-- 데이터 리스트 출력 --> 
+	<c:forEach items="${Data}" var="data" varStatus="number">
+		${data.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${data.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${data.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${data.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPCTest}" var="dataPCtest" varStatus="number">
+		${dataPCtest.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPCtest.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPCtest.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPCtest.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2015}" var="dataPC2015" varStatus="number">
+		${dataPC2015.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2015.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2015.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2015.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPC2016}" var="dataPC2016" varStatus="number">
+		${dataPC2016.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2016.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2016.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2016.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2017}" var="dataPC2017" varStatus="number">
+		${dataPC2017.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2017.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2017.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2017.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2018}" var="dataPC2018" varStatus="number">
+		${dataPC2018.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2018.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2018.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2018.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2019}" var="dataPC2019" varStatus="number">
+		${dataPC2019.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2019.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2019.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2019.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2020}" var="dataPC2020" varStatus="number">
+		${dataPC2020.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2020.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2020.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2020.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPC2021}" var="dataPC2021" varStatus="number">
+		${dataPC2021.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2021.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPC2021.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPC2021.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+	
+	<c:forEach items="${DataPS2015}" var="dataPS2015" varStatus="number">
+		${dataPS2015.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2015.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2015.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2015.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2016}" var="dataPS2016" varStatus="number">
+		${dataPS2016.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2016.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2016.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2016.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2017}" var="dataPS2017" varStatus="number">
+		${dataPS2017.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2017.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2017.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2017.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2018}" var="dataPS2018" varStatus="number">
+		${dataPS2018.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2018.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2018.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2018.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2019}" var="dataPS2019" varStatus="number">
+		${dataPS2019.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2019.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2019.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2019.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2020}" var="dataPS2020" varStatus="number">
+		${dataPS2020.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2020.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2020.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2020.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataPS2021}" var="dataPS2021" varStatus="number">
+		${dataPS2021.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2021.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataPS2021.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPS2021.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2015}" var="dataXbox2015" varStatus="number">
+		${dataXbox2015.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2015.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2015.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2015.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2016}" var="dataXbox2016" varStatus="number">
+		${dataXbox2016.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2016.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2016.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2016.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2017}" var="dataXbox2017" varStatus="number">
+		${dataXbox2017.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2017.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2017.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2017.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2018}" var="dataXbox2018" varStatus="number">
+		${dataXbox2018.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2018.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2018.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2018.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2019}" var="dataXbox2019" varStatus="number">
+		${dataXbox2019.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2019.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2019.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2019.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2020}" var="dataXbox2020" varStatus="number">
+		${dataXbox2020.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2020.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2020.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2020.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataXbox2021}" var="dataXbox2021" varStatus="number">
+		${dataXbox2021.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2021.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataXbox2021.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataXbox2021.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2015}" var="dataNS2015" varStatus="number">
+		${dataNS2015.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2015.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2015.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2015.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2016}" var="dataNS2016" varStatus="number">
+		${dataNS2016.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2016.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2016.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2016.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2017}" var="dataNS2017" varStatus="number">
+		${dataNS2017.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2017.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2017.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2017.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2018}" var="dataNS2018" varStatus="number">
+		${dataNS2018.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2018.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2018.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2018.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2019}" var="dataNS2019" varStatus="number">
+		${dataNS2019.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2019.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2019.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2019.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2020}" var="dataNS2020" varStatus="number">
+		${dataNS2020.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2020.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2020.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2020.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+
+	<c:forEach items="${DataNS2021}" var="dataNS2021" varStatus="number">
+		${dataNS2021.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2021.name} &nbsp;&nbsp;&nbsp;&nbsp; 
+		${dataNS2021.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataNS2021.views}
+		<br>
+		<br>  
+	</c:forEach> 
+	---------------- 
+	<br> 
+	<br> 
+ 
+

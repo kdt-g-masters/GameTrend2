@@ -29,6 +29,7 @@ public interface GameDAO {
 	//게임리스트 장르 페이징 조회
 	public List<GenreDTO> pagingGenreList(Criteria cri);
 	
+	/*----------------상세 페이지------------------*/
 	//게임 상세 페이지
 	public GameDTO gameDetail(int no);
 	
@@ -37,28 +38,18 @@ public interface GameDAO {
 	
 	//추천 게임 보여주기
 	public List<GameDTO> gameRecommend(String genre);
+
+	/*-------------------- 챗봇 --------------------*/
+	//플랫폼 종류
+	public List<GameDTO> platformList();
 	
-//	
-//	public int totalcount(String platform) {
-//		return session.selectOne("platformtotal");
-//	}
-	//	//�÷����� ���ӷ�ŷ ��ȸ
-//	public List<GameDTO> gamelist(String platform){
-//		return session.selectList("platformgamesearch", platform);
-//	}
-
-	//�����߰�
-//	public int insertgame(GameDTO dto) {
-//		return session.insert("insertgame", dto);
-//	}
-//	//�������� ����
-//	public int updategame(GameDTO dto) {
-//		return session.update("updategame", dto);
-//	}
-//	//���� ����
-//	public int deletegame(int gameNo) {
-//		return session.delete("deletegame", gameNo);
-//	}
-
+	//게임 장르 전체 
+	public List<GenreDTO> allGenreList();
+	
+	//선택한 플랫폼의 장르
+	public List<GenreDTO> platformGenreList(String platform);
+	
+	//선택한 장르의 Top3게임 추천
+	public List<GameDTO> recommendGameList(String genre);
 
 }

@@ -21,35 +21,12 @@
 # 게임 달력 출력
 <br>
 
-<br>
-<br> 
-<br> 
-<br> 
-ㅇ 연도별 베스트 게임 <br> 
-<br> 
-불러올 데이터 : <br> 
-1) 플랫폼 <br> 
-2) 게임 이름 <br> 
-3) 출시일자 <br> 
-4) 랭킹(초기값+추가 리뷰수) <br> 
-<br> 
-<br> 
+	<!-- (POST 로 데이터 리스트 받아와져있는 상태) --> 
 
-ㅇ 출시달력 <br> 
-<br> 
-불러올 데이터 : <br> 
-1) 출시일자 
-<br>  
-<br> 
-
-	<c:forEach items="${Data}" var="data" varStatus="number">
-		${data.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${data.name} &nbsp;&nbsp;&nbsp;&nbsp; 
-		${data.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${data.views}
-		<br>
-		<br>  
-	</c:forEach> 
-	<br> 
-	<br> 
+	<!-- 테스트 페이지 -->
+	<%@ include file="calendarTest.jspf" %> 
+	
+	
 
 </body>
 

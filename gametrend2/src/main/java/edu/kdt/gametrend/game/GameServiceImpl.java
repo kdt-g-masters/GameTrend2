@@ -62,5 +62,25 @@ public class GameServiceImpl implements GameService {
 	public List<GameDTO> gameRecommend(String genre) {
 		return dao.gameRecommend(genre);
 	}
+
+	public List<GameDTO> platformList() {
+		return dao.platformList();
+	}
+
+	@Override
+	public List<GenreDTO> allGenreList() {
+		return dao.allGenreList();
+	}
+
+	@Override
+	public List<GenreDTO> platformGenreList(String platform) {
+		return dao.platformGenreList(platform);
+	}
+
+	@Override
+	public List<GameDTO> recommendGameList(String genre) {
+		return dao.recommendGameList(genre);
+	}
+	
 	
 }

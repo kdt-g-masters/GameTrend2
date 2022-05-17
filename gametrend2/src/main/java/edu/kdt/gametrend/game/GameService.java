@@ -24,7 +24,8 @@ public interface GameService {
 	
 	//게임리스트 장르 페이징 조회
 	public List<GenreDTO> pagingGenreList(Criteria cri);
-			
+	
+	/*---------------상세 페이지-----------------*/
 	//게임 상세 페이지
 	public GameDTO gameDetail(int no);
 	
@@ -33,5 +34,18 @@ public interface GameService {
 	
 	//추천 게임 보여주기
 	public List<GameDTO> gameRecommend(String genre);
+	
+	/*-------------------- 챗봇 --------------------*/
+	//플랫폼 리스트
+	public List<GameDTO> platformList();
+	
+	//게임 장르 전체 
+	public List<GenreDTO> allGenreList();
+	
+	//선택한 플랫폼의 장르
+	public List<GenreDTO> platformGenreList(String platform);
+	
+	//선택한 장르의 Top3게임 추천
+	public List<GameDTO> recommendGameList(String genre);
 	
 }

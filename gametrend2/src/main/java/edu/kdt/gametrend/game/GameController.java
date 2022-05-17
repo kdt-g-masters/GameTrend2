@@ -19,21 +19,6 @@ public class GameController {
 	@Qualifier("gameservice")
 	GameService service;
 	
-	//인기게임순위 페이지
-/*	@RequestMapping("/gamelist") 
-	public ModelAndView gamelist(@RequestParam(required = false) String platform) { 
-		if(platform == null) platform = "pc"; 
-		ModelAndView mv = new ModelAndView(); 
-		List<GameDTO> list = service.gameList(platform);
-		List<GenreDTO> genre = service.genreList(platform);
-		//int totalcnt = service.getGameListCnt(platform);
-		//System.out.println(totalcnt);
-	    mv.addObject("gamelist",list); 
-	    mv.addObject("genrelist",genre); 
-	    mv.setViewName("gamelist"); 
-	    return mv;
-	}
- */	
 	//페이지네이션
 	@RequestMapping(value="/gamelist", method=RequestMethod.GET) 
 	public ModelAndView gamelist(Criteria cri, HttpServletResponse response) throws Exception { 
@@ -58,18 +43,7 @@ public class GameController {
 	    return mv;
 	}
 
-/*	@RequestMapping("/gamelist") 
-	public ModelAndView gamelist(@RequestParam(required = false) String platform, @RequestParam(required = false) Integer page) { 
-		if(platform == null) platform = "pc";
-		if(page == null) page = 1;
-		int [] limit = new int[] {(page-1)*9, 9};
-		ModelAndView mv = new ModelAndView(); 
-		List<GameDTO> list = service.gameList(platform, limit);
-	    mv.addObject("gamelist",list); 
-	    mv.setViewName("gamelist"); 
-	    return mv;
-	}
-*/ 
+
 	
 	//게임 상세 페이지
 	@RequestMapping("/gamedetail")
