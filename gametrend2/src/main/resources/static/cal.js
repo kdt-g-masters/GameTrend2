@@ -1,84 +1,92 @@
-<script type="text/javascript">
-var CDate = new Date(); 
-var today = new Date();
-var selectCk = 0;
+$(document).ready(function() {
+    calendarInit();
+});
+/*
+    달력 렌더링 할 때 필요한 정보 목록 
 
-var buildcalendar = function(){
-	var htmlDates = ''; 
-	var prevLast = new Date(CDate.getFullYear(), CDate.getMonth(), 0); //지난 달의 마지막 날 
-	var thisFirst = new Date(CDate.getFullYear(), CDate.getMonth(), 1); //이번 달의 첫쨰 날
-	var thisLast = new Date(CDate.getFullYear(), CDate.getMonth() + 1, 0); //이번 달의 마지막 날
-	document.querySelector(".year").innerHTML = CDate.getFullYear() + "년";  // year에 년도 출력
-	document.querySelector(".month").innerHTML = (CDate.getMonth() + 1) + "월";  //month에 월 출력
-	const dates = []; 
-	if(thisFirst.getDay()!=0){ 
-		for(var i = 0; i < thisFirst.getDay(); i++){
-			dates.unshift(prevLast.getDate()-i); // 지난 달 날짜 채우기
-		} 
-	} 
-	for(var i = 1; i <= thisLast.getDate(); i++){
-			 dates.push(i); // 이번 달 날짜 채우기 
-	} 
-	for(var i = 1; i <= 13 - thisLast.getDay(); i++){ 
-			 dates.push(i); // 다음 달 날짜 채우기 (나머지 다 채운 다음 출력할 때 42개만 출력함)
-	} 
-	
-	for(var i = 0; i < 42; i++){
-		if(i < thisFirst.getDay()){
-			htmlDates += '<div class="date last">'+dates[i]+'</div>'; 
-		}else if(today.getDate()==dates[i] && today.getMonth()==CDate.getMonth() && today.getFullYear()==CDate.getFullYear()){
-			 htmlDates += '<div id="date_'+dates[i]+'" class="date today" onclick="fn_selectDate('+dates[i]+');">'+dates[i]+'</div>'; 
-		}else if(i >= thisFirst.getDay() + thisLast.getDate()){
-			 htmlDates += '<div class="date next">'+dates[i]+'</div>'; 
-		}else{
-			htmlDates += '<div id="date_'+dates[i]+'" class="date" onclick="fn_selectDate('+dates[i]+');">'+dates[i]+'</div>'; 
-		}
-	 } 
-document.querySelector(".dates").innerHTML = htmlDates; 
-} 
+    현재 월(초기값 : 현재 시간)
+    금월 마지막일 날짜와 요일
+    전월 마지막일 날짜와 요일
+*/
 
-function prevCal(){
-	 CDate.setMonth(CDate.getMonth()-1); 
-	 buildcalendar(); 
-} 
-function nextCal(){
-	 CDate.setMonth(CDate.getMonth()+1);
-	 buildcalendar(); 
+function calendarInit() {
+
+    // 날짜 정보 가져오기
+    var date = new Date(); // 현재 날짜(로컬 기준) 가져오기
+    var utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); // uct 표준시 도출
+    var kstGap = 9 * 60 * 60 * 1000; // 한국 kst 기준시간 더하기
+    var today = new Date(utc + kstGap); // 한국 시간으로 date 객체 만들기(오늘)
+  
+    var thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    // 달력에서 표기하는 날짜 객체
+  
+    
+    var currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
+    var currentMonth = thisMonth.getMonth(); // 달력에서 표기하는 월
+    var currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
+
+    // kst 기준 현재시간
+    // console.log(thisMonth);
+
+    // 캘린더 렌더링
+    renderCalender(thisMonth);
+
+    function renderCalender(thisMonth) {
+
+        // 렌더링을 위한 데이터 정리
+        currentYear = thisMonth.getFullYear();
+        currentMonth = thisMonth.getMonth();
+        currentDate = thisMonth.getDate();
+
+        // 이전 달의 마지막 날 날짜와 요일 구하기
+        var startDay = new Date(currentYear, currentMonth, 0);
+        var prevDate = startDay.getDate();
+        var prevDay = startDay.getDay();
+
+        // 이번 달의 마지막날 날짜와 요일 구하기
+        var endDay = new Date(currentYear, currentMonth + 1, 0);
+        var nextDate = endDay.getDate();
+        var nextDay = endDay.getDay();
+
+        // console.log(prevDate, prevDay, nextDate, nextDay);
+
+        // 현재 월 표기
+        $('.year-month').text(currentYear + '.' + (currentMonth + 1));
+
+        // 렌더링 html 요소 생성
+        calendar = document.querySelector('.dates')
+        calendar.innerHTML = '';
+        
+        // 지난달
+        for (var i = prevDate - prevDay + 1; i <= prevDate; i++) {
+            calendar.innerHTML = calendar.innerHTML + '<div class="day prev disable">' + i + '</div>'
+        }
+        // 이번달
+        for (var i = 1; i <= nextDate; i++) {
+            calendar.innerHTML = calendar.innerHTML + '<div class="day current">' + i + '</div>'
+        }
+        // 다음달
+        for (var i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
+            calendar.innerHTML = calendar.innerHTML + '<div class="day next disable">' + i + '</div>'
+        }
+
+        // 오늘 날짜 표기
+        if (today.getMonth() == currentMonth) {
+            todayDate = today.getDate();
+            var currentMonthDate = document.querySelectorAll('.dates .current');
+            currentMonthDate[todayDate -1].classList.add('today');
+        }
+    }
+
+    // 이전달로 이동
+    $('.go-prev').on('click', function() {
+        thisMonth = new Date(currentYear, currentMonth - 1, 1);
+        renderCalender(thisMonth);
+    });
+
+    // 다음달로 이동
+    $('.go-next').on('click', function() {
+        thisMonth = new Date(currentYear, currentMonth + 1, 1);
+        renderCalender(thisMonth); 
+    });
 }
-
-function fn_selectDate(date){
-	
-	var year = CDate.getFullYear();
-	var month = CDate.getMonth() + 1;
-	var date_txt = "";
-	if(CDate.getMonth + 1 < 10){
-		month = "0" + (CDate.getMonth() + 1);
-	}
-	if(date < 10){
-		date_txt = "0" + date;
-	}
-	
-	if(selectCk == 0){
-		$(".date").css("background-color", "");
-		$(".date").css("color", "");
-		$("#date_"+date).css("background-color", "red");
-		$("#date_"+date).css("color", "white");
-		
-		$("#period_1").val(year+"-"+month+"-"+date);
-		$("#period_2").val("");
-		selectCk = date;
-	}else{
-		$("#date_"+date).css("background-color", "red");
-		$("#date_"+date).css("color", "white");		
-		for(var i = selectCk + 1 ; i < date ; i++){
-			$("#date_"+i).css("background-color", "#FFDDDD");
-		}
-		
-		$("#period_2").val(year+"-"+month+"-"+date);
-		selectCk = 0;
-	}
-	
-}
-
-buildcalendar();
-</script>

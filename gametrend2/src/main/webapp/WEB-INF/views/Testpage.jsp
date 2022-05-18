@@ -52,29 +52,25 @@
 	<!-- 달력 테스트 -->
 	<br> 
 	
-	<div class="calendar">
-	
-	<div class="header">
-		<button class="calendar_btn" onclick="prevCal();">&lt;</button>
-		<div class="title"><span class="year"></span><span class="month"></span></div>
-		<button class="calendar_btn" onclick="nextCal();">&gt;</button>
+	<div class="sec_cal">
+	  <div class="cal_nav">
+	    <a href="javascript:;" class="nav-btn go-prev">prev</a>
+	    <div class="year-month"></div>
+	    <a href="javascript:;" class="nav-btn go-next">next</a>
+	  </div>
+	  <div class="cal_wrap">
+	    <div class="days">
+	      <div class="day">MON</div>
+	      <div class="day">TUE</div>
+	      <div class="day">WED</div>
+	      <div class="day">THU</div>
+	      <div class="day">FRI</div>
+	      <div class="day">SAT</div>
+	      <div class="day">SUN</div>
+	    </div>
+	    <div class="dates"></div>
+	  </div>
 	</div>
-	
-	<div class="day">
-		<div>S</div>
-		<div>M</div>
-		<div>T</div>
-		<div>W</div>
-		<div>T</div>
-		<div>F</div>
-		<div>S</div>
-	</div>
-	
-	<div class="dates"></div>
-	
-	</div>
-	
-	<input type="text" id="period_1"> ~ <input type="text" id="period_2"> 
 
 	<br> 
 
