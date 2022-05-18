@@ -146,8 +146,8 @@
                             <li class="nav-item ">
                                 <a id="navGameList" class="nav-link" href="/adminPage?page=1"><i class="fa fa-fw fa-gamepad"></i>게임 목록<span class="badge badge-success">6</span></a>
                                 <a id="navPromotion" class="nav-link" href="/adminPromotion"><i class="fa fa-fw fa-gift"></i>프로모션<span class="badge badge-success">6</span></a>
-                                <a id="navReviewAppr" class="nav-link" href="#"><i class="fa fa-fw fa-clipboard-check"></i>리뷰 승인<span class="badge badge-success">6</span></a>
-                                <a id="navCarousel" class="nav-link" href="#"><i class="fa fa-fw fa-file-image"></i>메인 이미지 설정<span class="badge badge-success">6</span></a>
+                                <a id="navReviewAppr" class="nav-link" href="/adminReviewAppr"><i class="fa fa-fw fa-clipboard-check"></i>리뷰 승인<span class="badge badge-success">6</span></a>
+                                <a id="navCarousel" class="nav-link" href="/adminCarousel"><i class="fa fa-fw fa-file-image"></i>메인 이미지 설정<span class="badge badge-success">6</span></a>
                             </li>
                         </ul>
                     </div>

@@ -5,8 +5,10 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import edu.kdt.gametrend.carousel.CarouselDTO;
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.promotion.PromotionDTO;
+import edu.kdt.gametrend.review.ReviewDTO;
 
 @Mapper
 @Repository("adminDAO")
@@ -44,4 +46,22 @@ public interface AdminDAO {
 	
 	// 프로모션 수정
 	public int updatePromotion(PromotionDTO dto);
+	
+	// 리뷰 조회
+	public List<ReviewGameDTO> selectReviewList();
+	
+	// 메인 이미지 리스트
+	public List<CarouselDTO> selectMainImgs();
+	
+	// 메인 이미지 추가
+	public int insertMainImg(CarouselDTO dto);
+	
+	// 메인 이미지 삭제
+	public int deleteMainimg(int no);
+	
+	// 메인 이미지 조회
+	public CarouselDTO selectMainimg(int no);
+	
+	// 메인 이미지 수정
+	public int updateMainimg(CarouselDTO dto);
 }
