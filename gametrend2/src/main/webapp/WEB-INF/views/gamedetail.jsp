@@ -41,7 +41,7 @@ $(document).ready(function(){
 		}//if end
 	});//on end
 	
-	//게임 상세 페이지 이동시 리뷰수 반영
+	//게임 상세 페이지 리뷰수
 	$.ajax({
 		url: '<%=request.getContextPath() %>/countreviewgameno',
 		data: {'game_no':${param.no}} ,
@@ -51,7 +51,7 @@ $(document).ready(function(){
 		}
 	});//ajax end
 	
-	//게임 상세 페이지 이동시 리뷰 보여주기
+	//게임 상세 페이지 리뷰 보여주기
 	$.ajax({
 		url: '<%=request.getContextPath() %>/reviewgameno',
 		data: {'game_no':${param.no}} ,
@@ -128,13 +128,16 @@ $(document).ready(function(){
 		success: function (list) {
 			var recommend = "<div class='card-group'>";
 			for (var i = 0; i < list.length; i++){
-				recommend += "<div class='card'><a href='/gamedetail?no=" + list[i].no + "'>"
-					+ "<img src='/images/thumbnail/" + list[i].thumbnail + "' class='card-img-top' style='height: 160px'>"
-					+ "<div class='card-body'>"
-					+ "<h5 class='card-title'>" + list[i].name + "</h5>"
-					+ "<p class='card-text'>" + list[i].platform + "</p>"
-					+ "<p class='card-text'>" + list[i].releaseDate + "</p>"
-					+ "</div></a></div>"
+				//지금 페이지의 게임 추천에서 제외
+				if(list[i].no != ${param.no}){					
+					recommend += "<div class='card'><a href='/gamedetail?no=" + list[i].no + "'>"
+						+ "<img src='/images/thumbnail/" + list[i].thumbnail + "' class='card-img-top' style='height: 160px'>"
+						+ "<div class='card-body'>"
+						+ "<h5 class='card-title'>" + list[i].name + "</h5>"
+						+ "<p class='card-text'>" + list[i].platform + "</p>"
+						+ "<p class='card-text'>" + list[i].releaseDate + "</p>"
+						+ "</div></a></div>"
+				}
 			}
 			recommend +="</div>"
 			$("#gamerecommend").html(recommend);

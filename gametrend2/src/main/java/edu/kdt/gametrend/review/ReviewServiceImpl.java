@@ -22,6 +22,11 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<ReviewDTO> selectReviewgameNo(int game_no) {
 		return dao.selectReviewgameNo(game_no);
 	}
+	
+	@Override
+	public int reviewCheck(ReviewDTO dto) {
+		return dao.reviewCheck(dto);
+	}
 
 	@Override
 	public int countReviewgameNo(int game_no) {
