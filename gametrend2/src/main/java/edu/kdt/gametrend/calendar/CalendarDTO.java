@@ -6,6 +6,7 @@ public class CalendarDTO {
 	String name;
 	String releaseDate; 
 	String views; 
+	String reviews;
 	
 
 	public String getPlatform() {
@@ -38,6 +39,14 @@ public class CalendarDTO {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(String reviews) {
+		this.reviews = reviews;
 	}
 
 }
