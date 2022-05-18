@@ -52,10 +52,6 @@
 		
 	</script>
 	<style>
-	/* .main-nav li:first-child{
-			color:white;
-			background-color: #7244FE;
-		} */
 		.main-thumbnail-box a:link,.main-thumbnail-box a:visited,.main-thumbnail-box a:active{
 			color: gray;
 		}
