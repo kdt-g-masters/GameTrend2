@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="/css/cal.css" rel="stylesheet"/>
 <script src="/jquery-3.6.0.min.js"></script>
+
 <script>
 	$(document).ready(function() {
 
@@ -98,6 +99,7 @@ function fn_selectDate(date){
 
 buildcalendar();
 </script>
+
 <title>테스트 페이지</title>
 </head>
 
