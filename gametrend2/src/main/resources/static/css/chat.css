@@ -1,7 +1,4 @@
 @charset "UTF-8";
-*{
-	user-select : none;
-}
 /* ----------부트스트랩 custom----------*/
 .input-group{
 	width: 100%;
@@ -57,82 +54,6 @@
     opacity: 1;
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.floating-container {
-  position: fixed;
-  width: 100px;
-  height: 100px;
-  bottom: 0;
-  right: 0;
-  margin: 35px 25px;
-}
-.floating-container:hover {
-  height: 300px;
-}
-.floating-container:hover .floating-button {
-  box-shadow: 0 10px 25px rgba(92, 39, 254, 0.6);
-  -webkit-transform: translatey(5px);
-          transform: translatey(5px);
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.floating-container:hover .element-container .float-element:nth-child(1) {
-  -webkit-animation: come-in 0.4s forwards 0.2s;
-          animation: come-in 0.4s forwards 0.2s;
-}
-.floating-container:hover .element-container .float-element:nth-child(2) {
-  -webkit-animation: come-in 0.4s forwards 0.4s;
-          animation: come-in 0.4s forwards 0.4s;
-}
-.floating-container:hover .element-container .float-element:nth-child(3) {
-  -webkit-animation: come-in 0.4s forwards 0.6s;
-          animation: come-in 0.4s forwards 0.6s;
-}
-.floating-container .floating-button {
-  position: absolute;
-  width: 65px;
-  height: 65px;
-  background: linear-gradient(to right, #8A63FE, #C165DD);
-  bottom: 0;
-  border-radius: 50%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  color: white;
-  line-height: 65px;
-  text-align: center;
-  font-size: 23px;
-  z-index: 100;
-  box-shadow: 0 10px 25px -5px rgba(92, 39, 254, 0.6);
-  cursor: pointer;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-.floating-container .float-element {
-  position: relative;
-  display: block;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin: 15px auto;
-  color: white;
-  font-weight: 500;
-  text-align: center;
-  line-height: 50px;
-  z-index: 0;
-  opacity: 0;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
-}
-
-.floating-container .float-element .material-icons {
-  vertical-align: middle;
-  font-size: 16px;
-}
 
 /* custom */
 #ch-window {
@@ -147,7 +68,7 @@
 	 bottom: 0;
   	 right: 0;
   	 overflow: hidden;
-	 z-index: 10;
+	 z-index: 999;
 }
 li a, li a:link, .link a{
 	text-decoration-line: none;
