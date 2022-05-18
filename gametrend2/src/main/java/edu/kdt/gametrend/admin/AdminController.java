@@ -2,19 +2,14 @@ package edu.kdt.gametrend.admin;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.List;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import edu.kdt.gametrend.carousel.CarouselDTO;
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.promotion.PromotionDTO;
-import edu.kdt.gametrend.review.ReviewDTO;
 
 @Controller
 public class AdminController {
@@ -383,10 +377,16 @@ public class AdminController {
 	
 	// 리뷰 승인
 	@RequestMapping(value="/updateReviewAppr")
-	public ModelAndView updateReviewAppr() {
-		ModelAndView mv = new ModelAndView();
-		// service.updateReviewAppr();
-		return null;
+	public String updateReviewAppr(int no) {		
+		service.updateReviewAppr(no);
+		return "redirect:/adminReviewAppr";
+	}
+	
+	// 리뷰 비승인
+	@RequestMapping(value="/updateReviewDisappr")
+	public String updateReviewDisappr(int no, String disapprRsn) {		
+		service.updateReviewDisappr(no, disapprRsn);
+		return "redirect:/adminReviewAppr";
 	}
 	
 	// 메인 이미지 설정 페이지

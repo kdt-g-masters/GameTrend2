@@ -5,7 +5,7 @@
 <mapper namespace="edu.kdt.gametrend.review.ReviewDAO" >
 	<!-- 한 게임의 별점 -->
 	<select id="selectStarsgameNo" resultType="reviewdto" parameterType="int">
-		select stars from review where game_no=#{game_no}
+		select stars from review where game_no=#{game_no} and approve=1
 	</select>
 	
 	<!-- 한 게임의 리뷰 갯수 -->
@@ -24,6 +24,11 @@
 		select count(*) from review where game_no=#{game_no} and member_id=#{member_id}
 	</select>
 	
+	<!-- 리뷰 작성 내용 -->
+	<select id="reviewMemberGame" resultType="reviewdto" parameterType="reviewdto">
+		select * from review where game_no=#{game_no} and member_id=#{member_id}
+	</select>
+	
 	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterType="reviewdto">
 		insert into review values(null, #{member_id}, #{game_no}, #{date}, #{contents}, #{stars}, #{image}, #{approve})
@@ -33,12 +38,12 @@
 	<update id="updateReview" parameterType="reviewdto">
 		update review 
 		set contents=#{contents}, stars=#{stars}, date=#{date}
-		where no=#{no}
+		where game_no=#{game_no} and member_id=#{member_id}
 	</update>
 	
 	<!-- 리뷰 삭제 -->
-	<delete id="deleteReview" parameterType="String">
-		delete from review where member_id=#{member_id}
+	<delete id="deleteReview" parameterType="reviewdto">
+		delete from review where game_no=#{game_no} and member_id=#{member_id}
 	</delete>
 	
 	<!-- 챗봇 - 로그인한 회원의 리뷰리스트 조회 -->

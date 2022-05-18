@@ -44,12 +44,16 @@
 		.navbar-brand{
 			margin:0;
 		}
+		
 		.main-nav .navbar-nav{
 			display: inline-block;
 			text-align: center;
 		}
 		.main-nav li{
 			width: 10em;
+		}
+		.main-nav .nav-link{
+			font-weight: bold;
 		}
 		.nav-item input[type=submit]{
 		    background-color:transparent;  

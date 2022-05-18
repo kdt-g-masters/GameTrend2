@@ -50,6 +50,12 @@ public interface AdminDAO {
 	// 리뷰 조회
 	public List<ReviewGameDTO> selectReviewList();
 	
+	// 리뷰 승인
+	public int updateReviewAppr(int no);
+	
+	// 리뷰 비승인
+	public int updateReviewDisappr(int no, String disapprRsn);
+	
 	// 메인 이미지 리스트
 	public List<CarouselDTO> selectMainImgs();
 	

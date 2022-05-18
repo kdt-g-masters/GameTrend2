@@ -52,24 +52,13 @@
 		
 	</script>
 	<style>
-	/* .main-nav li:first-child{
-			color:white;
-			background-color: #7244FE;
-		} */
 		.main-thumbnail-box a:link,.main-thumbnail-box a:visited,.main-thumbnail-box a:active{
 			color: gray;
 		}
 		.main-thumbnail-box a:hover{
 			color: white;
 		}
-		#title {
-			width:  15vw;
-			padding: 20px auto;
-			border: black;
-			font-size: 1.3em;
-			font-weight: bold;
-			margin: 0 auto;
-		}
+		
 		.title h4{
 			font-size: 1.295em;
 		}
