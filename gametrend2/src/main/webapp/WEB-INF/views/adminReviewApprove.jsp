@@ -46,7 +46,7 @@
                     <!-- ============================================================== -->
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
-                    <div class="ecommerce-widget">
+                    <div class="ecommerce-widget">                 
                     	<div class="row">
                             <!-- ============================================================== -->
                       
@@ -68,20 +68,49 @@
 		                                    </div>
 		                                    <div class="card-footer p-0 text-center d-flex justify-content-center">
 		                                        <div class="card-footer-item card-footer-item-bordered">
-		                                            <a href="#" class="card-link">X</a>
+		                                            <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModal">비승인</a>
 		                                        </div>
 		                                        <div class="card-footer-item card-footer-item-bordered">
-		                                            <a href="/updateReviewAppr" class="card-link">승인</a>
+		                                            <a href="/updateReviewAppr?no=${ dto.reviewDTO.no }" class="card-link">승인</a>
 		                                        </div>
 		                                    </div>	                                    
 		                                </div>
 		                            </div>
-	                           	</c:forEach>                           	                            
+	                                <!-- Modal -->
+	                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	                                    <div class="modal-dialog" role="document">
+	                                        <div class="modal-content">
+	                                            <div class="modal-header">
+	                                                <h5 class="modal-title" id="exampleModalLabel">사유 입력</h5>
+	                                                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+	                                                    <span aria-hidden="true">&times;</span>
+	                                                </a>
+	                                            </div>
+	                                            <form action="/updateReviewDisappr">
+	                                            <div class="modal-body">
+	                                                <p>미승인 사유를 입력해주세요.</p>
+		                                            <div class="form-group">
+		                                                <label for="inputText3" class="col-form-label">#</label>
+		                                                <input id="inputText3" type="text" class="form-control" value="${ dto.reviewDTO.no }" name="no">
+		                                            </div>                                               
+		                                            <div class="form-group">
+		                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="disapprRsn"></textarea>
+		                                            </div>                                                
+	                                            </div>
+	                                            <div class="modal-footer">
+	                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">취소</a>
+	                                                <input type="submit" class="btn btn-primary" value="등록">
+	                                            </div>
+	                                            </form>
+	                                        </div>
+	                                    </div>
+	                                </div>		                            
+	                           	</c:forEach>	                           	                           	                            
 	                        </div>
 	                        <!-- ============================================================== -->
 	                        <!-- end image cards  -->
 	                        <!-- ============================================================== -->     
-                            
+                                                        
                         </div>                                    
                     </div>
                 </div>

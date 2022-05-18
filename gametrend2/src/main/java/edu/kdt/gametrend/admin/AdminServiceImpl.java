@@ -92,6 +92,18 @@ public class AdminServiceImpl implements AdminService {
 	public List<ReviewGameDTO> selectReviewList() {
 		return dao.selectReviewList();
 	}
+	
+	// 리뷰 승인
+	@Override
+	public int updateReviewAppr(int no) {
+		return dao.updateReviewAppr(no);
+	}
+	
+	// 리뷰 비승인
+	@Override
+	public int updateReviewDisappr(int no, String disapprRsn) {
+		return dao.updateReviewDisappr(no, disapprRsn);
+	}
 
 	// 메인 이미지 조회
 	@Override
@@ -122,5 +134,5 @@ public class AdminServiceImpl implements AdminService {
 	public int updateMainimg(CarouselDTO dto) {
 		return dao.updateMainimg(dto);
 	}
-	
+
 }

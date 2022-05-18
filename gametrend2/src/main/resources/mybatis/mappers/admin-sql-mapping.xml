@@ -109,6 +109,20 @@
 		order by date;
 	</select>
 	
+	<!-- 리뷰 승인 -->
+	<update id="updateReviewAppr" parameterType="int">
+		update review
+		set approve=1
+		where no=#{no}
+	</update>
+	
+	<!-- 리뷰 비승인 -->
+	<update id="updateReviewDisappr">
+		update review
+		set approve=-1, disapprRsn=#{disapprRsn}
+		where no=#{no}
+	</update>
+	
 	<!-- 메인 이미지 리스트 -->
 	<select id="selectMainImgs" resultType="carouseldto">
 		select * from mainimgs
