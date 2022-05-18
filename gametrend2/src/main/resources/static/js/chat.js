@@ -26,7 +26,7 @@
 			
 			/*초기 리스트*/
 			var kindQ =  $(this).attr("id");
-			if(kindQ == "platform" | kindQ ==  "genre"){
+			if(kindQ == "myplatform" | kindQ ==  "genre"){
 				$.ajax({
 					url : "/chatbot",
 					data : {"request": $(this).html(), "event":"입력"}, //request: 인사/생활습관병/식재료/맞춤/후기
@@ -36,7 +36,7 @@
 						parser(serverdata);
 						$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 						//"내가 가진 플랫폼" 선택시
-						if (kindQ == "platform"){
+						if (kindQ == "myplatform"){
 							$.ajax({
 									url : "/chatplatform",
 									type : 'get',
@@ -245,5 +245,82 @@
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 				}
 			});//ajax end
+	}
+	 function basedOnReview(memberid){
+		 if(memberid == "null"){
+			$("#record").append("<div class='answer'>로그인이 필요해요. 로그인하러 가볼까요? </div><div class='link-group'><div class='link'><a href='/login'>로그인하러 가기</a></div></div>");
+			$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+		}
+		else{
+			$.ajax({
+				url : "/chatmyreview",
+				type : 'get',
+				data : {"member_id" : memberid},
+				success : function(reviewlist){
+					console.log(reviewlist);
+					if(reviewlist.length == 0){
+						$("#record").append("<div class='answer'>["+ memberid +"]회원님 아직 리뷰를 작성하지 않으셨군요?<br>인기게임순위에서 리뷰를 작성해보세요.</div>");
+						$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+					}
+					else{
+						var approveReview = 0;
+						for(var i in reviewlist){
+							approveReview += reviewlist[i].approve;
+						}
+						console.log(approveReview);
+						if(approveReview == 0){
+							$("#record").append("<div class='answer'>["+ memberid +"]회원님의 리뷰가 아직 승인되지 않았어요. 조금만 기다리시면 곧 승인여부를 알려드릴께요.</div>");
+							$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+						}
+						else{
+							$("#record").append("<div class='answer'>["+ memberid +"]회원님의 리뷰리스트에 포함된 게임들의 장르에요.<br>이 중 가장 좋아하는 장르는 무엇인가요?</div>");
+							$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+							$.ajax({
+								url : "/genreOfReviewlist",
+								type : 'get',
+								data : {"member_id" : memberid},
+								success : function(genrelist){
+									genreList(genrelist);
+									
+								} //success
+							}); //ajax
+						} //else
+					} //else
+				} //success
+			}); //ajax
+		} //else
+	 }
+	 function basedOnWishlist(memberid){
+		if(memberid == "null"){
+			$("#record").append("<div class='answer'>로그인이 필요해요. 로그인하러 가볼까요? </div><div class='link-group'><div class='link'><a href='/login'>로그인하러 가기</a></div></div>");
+			$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+		}
+		else{
+			$.ajax({
+				url : "/chatmywishlist",
+				type : 'get',
+				data : {"member_id" : memberid},
+				success : function(wishlist){
+					console.log(wishlist);
+					if(wishlist.length == 0){
+						$("#record").append("<div class='answer'>["+ memberid +"]회원님의 위시리스트가 없어요ㅠㅠ <br>인기게임순위에서 ♡를 눌러 위시리스트를 추가해보세요.</div>");
+						$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+					}
+					else{
+						$("#record").append("<div class='answer'>["+ memberid +"]회원님의 위시리스트에 포함된 게임들의 장르에요.<br>장르 하나를 선택하면 게임을 추천해드릴께요.</div>");
+						$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+						$.ajax({
+							url : "/genreOfWishlist",
+							type : 'get',
+							data : {"member_id" : memberid},
+							success : function(genrelist){
+								genreList(genrelist);
+								
+							} //success
+						}); //ajax
+					} // else
+				} //success
+			});
+		}
 	}
 	

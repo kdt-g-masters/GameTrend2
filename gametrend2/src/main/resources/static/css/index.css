@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select : none;
+}
 :root{
     --bs-primary: #7244FE;
 }
@@ -244,4 +249,8 @@ a{
 .carousel-caption h1{
 	font-style: italic; 
 	font-weight: bold;
+}
+
+section{
+	position: relative;
 }
