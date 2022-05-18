@@ -58,14 +58,7 @@
 		.main-thumbnail-box a:hover{
 			color: white;
 		}
-		#title {
-			width:  15vw;
-			padding: 20px auto;
-			border: black;
-			font-size: 1.3em;
-			font-weight: bold;
-			margin: 0 auto;
-		}
+		
 		.title h4{
 			font-size: 1.295em;
 		}
