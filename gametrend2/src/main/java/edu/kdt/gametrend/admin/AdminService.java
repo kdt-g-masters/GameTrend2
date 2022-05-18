@@ -2,9 +2,11 @@ package edu.kdt.gametrend.admin;
 
 import java.util.List;
 
+import edu.kdt.gametrend.carousel.CarouselDTO;
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.member.MemberDTO;
 import edu.kdt.gametrend.promotion.PromotionDTO;
+import edu.kdt.gametrend.review.ReviewDTO;
 
 public interface AdminService {
 	// 관리자 로그인
@@ -39,4 +41,22 @@ public interface AdminService {
 	
 	// 프로모션 수정
 	public int updatePromotion(PromotionDTO dto);
+	
+	// 리뷰 조회
+	public List<ReviewGameDTO> selectReviewList();
+	
+	// 메인 이미지 조회
+	public List<CarouselDTO> selectMainImgs();
+	
+	// 메인 이미지 추가
+	public int insertMainImg(CarouselDTO dto);
+	
+	// 메인 이미지 삭제
+	public int deleteMainimg(int no);
+	
+	// 메인 이미지 조회
+	public CarouselDTO selectMainimg(int no);
+	
+	// 메인 이미지 수정
+	public int updateMainimg(CarouselDTO dto);
 }

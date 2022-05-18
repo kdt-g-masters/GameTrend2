@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.kdt.gametrend.carousel.CarouselDTO;
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.promotion.PromotionDTO;
+import edu.kdt.gametrend.review.ReviewDTO;
 
 @Controller
 public class AdminController {
@@ -79,8 +81,7 @@ public class AdminController {
 		// 파일 저장 경로
 		String resourceSrc = request.getServletContext().getRealPath("");
 		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
-		String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\thumbnail";
-		System.out.println(savePath);
+		String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\thumbnail";		
 		
 		// 가장 최근 추가된 게임 항목 가져오기
 		int[] limit = new int[2];
@@ -368,5 +369,110 @@ public class AdminController {
 		
 		int row = service.updatePromotion(dto);
 		return "redirect:/adminPromotion";
+	}
+	
+	// 리뷰 승인 페이지
+	@RequestMapping(value="/adminReviewAppr")
+	public ModelAndView adminReviewAppr() {
+		ModelAndView mv = new ModelAndView();
+		List<ReviewGameDTO> reviewList = service.selectReviewList();
+		mv.addObject("reviewList", reviewList);
+		mv.setViewName("adminReviewApprove");
+		return mv;
+	}
+	
+	// 리뷰 승인
+	@RequestMapping(value="/updateReviewAppr")
+	public ModelAndView updateReviewAppr() {
+		ModelAndView mv = new ModelAndView();
+		// service.updateReviewAppr();
+		return null;
+	}
+	
+	// 메인 이미지 설정 페이지
+	@RequestMapping(value="/adminCarousel")
+	public ModelAndView adminCarousel() {
+		ModelAndView mv = new ModelAndView();	
+		List<CarouselDTO> mainimgList = service.selectMainImgs();
+		mv.addObject("mainimgList", mainimgList);
+		mv.setViewName("adminCarousel");
+		return mv;
+	}
+	
+	// 메인 이미지 등록
+	@RequestMapping(value="/addMainImg", method=RequestMethod.POST)
+	public String addMainImg(CarouselDTO dto, MultipartFile multipartFile, HttpServletRequest request) throws IOException {
+		
+		// 파일 저장 경로
+		String resourceSrc = request.getServletContext().getRealPath("");
+		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
+		String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\carousel";
+		
+		if (!multipartFile.isEmpty()) {
+			// 파일 이름
+			String originName = multipartFile.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getNo() + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePath, fileName);
+			multipartFile.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setImage(fileName);			
+		}
+		else {
+			dto.setImage(null);
+		}						
+		service.insertMainImg(dto);
+		
+		return "redirect:/adminCarousel";
+	}
+	
+	// 메인 이미지 삭제
+	@RequestMapping(value="/deleteMainimg")
+	public String deleteMainimg(int no) {
+		service.deleteMainimg(no);
+		return "redirect:/adminCarousel";
+	}
+	
+	// 메인 이미지 수정 페이지
+	@RequestMapping(value="/updateMainimg")
+	public ModelAndView updateCarousel(int no) {
+		ModelAndView mv = new ModelAndView();
+		CarouselDTO dto = service.selectMainimg(no);
+		mv.addObject("carouselDTO", dto);
+		mv.setViewName("adminEditCarousel");
+		return mv;
+	}
+	
+	// 프로모션 수정 완료
+	@RequestMapping(value="/updateMainimg", method=RequestMethod.POST)
+	public String updateMainimg(CarouselDTO dto, MultipartFile multipartFile, HttpServletRequest request) throws IOException {
+		
+		// 파일 저장 경로
+		String resourceSrc = request.getServletContext().getRealPath("");
+		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
+		String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\carousel";
+		
+		if (!multipartFile.isEmpty()) {
+			// 파일 이름
+			String originName = multipartFile.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = dto.getNo() + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePath, fileName);
+			multipartFile.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setImage(fileName);			
+		}
+		else {
+			dto.setImage(service.selectMainimg(dto.getNo()).getImage());
+		}		
+		service.updateMainimg(dto);
+		
+		return "redirect:/adminCarousel";
 	}
 }
