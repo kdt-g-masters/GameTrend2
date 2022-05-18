@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import edu.kdt.gametrend.carousel.CarouselDTO;
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.member.MemberDAO;
 import edu.kdt.gametrend.member.MemberDTO;
 import edu.kdt.gametrend.promotion.PromotionDTO;
+import edu.kdt.gametrend.review.ReviewDTO;
 
 @Service("adminservice")
 public class AdminServiceImpl implements AdminService {
@@ -83,7 +85,42 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int updatePromotion(PromotionDTO dto) {
 		return dao.updatePromotion(dto);
-	}	
-	
+	}
+
+	// 리뷰 조회
+	@Override
+	public List<ReviewGameDTO> selectReviewList() {
+		return dao.selectReviewList();
+	}
+
+	// 메인 이미지 조회
+	@Override
+	public List<CarouselDTO> selectMainImgs() {
+		return dao.selectMainImgs();
+	}
+
+	// 메인 이미지 추가
+	@Override
+	public int insertMainImg(CarouselDTO dto) {
+		return dao.insertMainImg(dto);
+	}
+
+	// 메인 이미지 삭제
+	@Override
+	public int deleteMainimg(int no) {
+		return dao.deleteMainimg(no);
+	}
+
+	// 메인 이미지 조회
+	@Override
+	public CarouselDTO selectMainimg(int no) {
+		return dao.selectMainimg(no);
+	}
+
+	// 메인 이미지 수정
+	@Override
+	public int updateMainimg(CarouselDTO dto) {
+		return dao.updateMainimg(dto);
+	}
 	
 }

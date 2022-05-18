@@ -22,6 +22,7 @@ public class GameDTO {
 	String relevant_site2;
 
 	int ranking;
+	int reviews;
 	
 	MultipartFile file1;
 	MultipartFile file2;
@@ -178,6 +179,12 @@ public class GameDTO {
 	}
 	public void setRelevant_site2(String relevant_site2) {
 		this.relevant_site2 = relevant_site2;
+	}
+	public int getReviews() {
+		return reviews;
+	}
+	public void setReviews(int reviews) {
+		this.reviews = reviews;
 	}
 	
 }
