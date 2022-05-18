@@ -30,30 +30,6 @@ public class ReviewController {
 		return list;
 	}
 	
-	
-	/*
-	@RequestMapping(value = "/insertReview", method = RequestMethod.GET)
-	public String insertReviewform() {
-		return "insert";
-	}
-	
-	@RequestMapping(value = "/insertReview", method = RequestMethod.POST)
-	public ModelAndView insertReview(ReviewDTO dto) { 
-		int result = service.insertReview(dto);
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("result", result);
-		mv.setViewName("sub");
-		return mv;
-		
-	}
-	*/
-	
-	
-	//@RequestMapping(value = "/insertReview", method = RequestMethod.GET)
-	//@ResponseBody 
-	//public void insertReviewform() { 
-	//}
-	
 	@RequestMapping(value = "/insertReview", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
 	@ResponseBody 
 	public String insertReview(ReviewDTO dto) {
