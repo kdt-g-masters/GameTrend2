@@ -43,6 +43,9 @@ public interface GameDAO {
 	//위시리스트 게임의 장르
 	public List<GenreDTO> genreOfWishlist(String member_id);
 	
+	//리뷰리스트 게임의 장르
+	public List<GenreDTO> genreOfReviewlist(String member_id);
+	
 	//플랫폼 종류
 	public List<GameDTO> platformList();
 	

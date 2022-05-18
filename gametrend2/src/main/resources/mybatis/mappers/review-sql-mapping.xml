@@ -36,4 +36,10 @@
 		delete from review where member_id=#{member_id}
 	</delete>
 	
+	<!-- 챗봇 - 로그인한 회원의 리뷰리스트 조회 -->
+	<select id="myReviewList" resultType="reviewdto">
+		select * from review where member_id = #{member_id}
+		order by date desc
+	</select>
+	
 </mapper>

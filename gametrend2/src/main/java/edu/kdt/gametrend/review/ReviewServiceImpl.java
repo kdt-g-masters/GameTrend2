@@ -27,5 +27,10 @@ public class ReviewServiceImpl implements ReviewService {
 	public int countReviewgameNo(int game_no) {
 		return dao.countReviewgameNo(game_no);
 	}
+
+	@Override
+	public List<ReviewDTO> myReviewList(String member_id) {
+		return dao.myReviewList(member_id);
+	}
 	
 }

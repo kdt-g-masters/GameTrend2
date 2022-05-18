@@ -5,15 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import edu.kdt.gametrend.game.GameDTO;
 import edu.kdt.gametrend.game.GameService;
 import edu.kdt.gametrend.game.GenreDTO;
+import edu.kdt.gametrend.review.ReviewDTO;
+import edu.kdt.gametrend.review.ReviewService;
 import edu.kdt.gametrend.wishlist.WishlistDTO;
 import edu.kdt.gametrend.wishlist.WishlistService;
 
@@ -31,6 +30,9 @@ public class ChatbotContoller {
 	@Qualifier("wishlistservice")
 	WishlistService wishlistservice;
 	
+	@Autowired
+	@Qualifier("reviewservice")
+	ReviewService reviewservice;
 	
 	@RequestMapping("/chatbottest")
 	public String chatbottest() {
@@ -68,6 +70,20 @@ public class ChatbotContoller {
 		List<GenreDTO> genreofwishlist = gameservice.genreOfWishlist(member_id);
 		System.out.println(genreofwishlist);
 		return genreofwishlist;
+	}
+	@RequestMapping("/chatmyreview")
+	@ResponseBody
+	public List<ReviewDTO> myReviewList(String member_id) { 
+		List<ReviewDTO> myreviewlist = reviewservice.myReviewList(member_id);
+		System.out.println(myreviewlist);
+		return myreviewlist;
+	}
+	@RequestMapping("/genreOfReviewlist")
+	@ResponseBody
+	public List<GenreDTO> genreOfReviewlist(String member_id) { 
+		List<GenreDTO> genreofreviewlist = gameservice.genreOfReviewlist(member_id);
+		System.out.println(genreofreviewlist);
+		return genreofreviewlist;
 	}
 	
 	@RequestMapping("/chatplatform")

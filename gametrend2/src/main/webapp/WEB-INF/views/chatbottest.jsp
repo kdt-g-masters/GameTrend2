@@ -76,19 +76,30 @@
 								$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 							}
 							else{
-								if(reviewlist)
-								$("#record").append("<div class='answer'>["+ memberid +"]회원님의 위시리스트에 포함된 게임들의 장르에요.<br>이 중 가장 좋아하는 장르는 무엇인가요?</div>");
-								$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
-									$.ajax({
-										url : "/genreOfWishlist",
-										type : 'get',
-										data : {"member_id" : memberid},
-										success : function(genrelist){
-											genreList(genrelist);
-											
-										}
-									});
+								var approveReview = 0;
+								for(var i in reviewlist){
+									approveReview += reviewlist[i].approve;
+								}
+								console.log(approveReview);
+								if(approveReview == 0){
+									$("#record").append("<div class='answer'>["+ memberid +"]회원님의 리뷰가 아직 승인되지 않았어요. 조금만 기다리시면 곧 승인여부를 알려드릴께요.</div>");
+									$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+								}
+								else{
+									$("#record").append("<div class='answer'>["+ memberid +"]회원님의 리뷰리스트에 포함된 게임들의 장르에요.<br>이 중 가장 좋아하는 장르는 무엇인가요?</div>");
+									$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
+										$.ajax({
+											url : "/genreOfReviewlist",
+											type : 'get',
+											data : {"member_id" : memberid},
+											success : function(genrelist){
+												genreList(genrelist);
+												
+											}
+										});
 								} // success function
+								}
+								
 							}
 						
 					});
