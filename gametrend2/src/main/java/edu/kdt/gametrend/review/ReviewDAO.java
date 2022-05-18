@@ -17,8 +17,17 @@ public interface ReviewDAO {
 	//리뷰 작성 여부 확인
 	public int reviewCheck(ReviewDTO dto);
 	
+	//리뷰 작성 내용
+	public ReviewDTO reviewMemberGame(ReviewDTO dto);
+	
 	//리뷰 작성
 	public int insertReview(ReviewDTO dto);
+	
+	//리뷰 수정
+	public int updateReview(ReviewDTO dto);
+	
+	//리뷰 삭제
+	public int deleteReview(ReviewDTO dto);
 	
 	/*-------------------- 챗봇 --------------------*/
 	//로그인한 회원의 리뷰리스트 조회
