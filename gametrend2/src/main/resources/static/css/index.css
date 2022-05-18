@@ -251,4 +251,6 @@ a{
 	font-weight: bold;
 }
 
-
+section{
+	position: relative;
+}

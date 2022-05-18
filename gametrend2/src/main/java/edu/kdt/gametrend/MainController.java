@@ -59,4 +59,8 @@ public class MainController {
 		return mv;
 	}
 	
-}
+	@RequestMapping(value ="/template") 
+	public String template() {
+		return "template";
+	}
+	}
