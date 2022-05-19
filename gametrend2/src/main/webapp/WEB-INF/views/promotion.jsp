@@ -45,8 +45,14 @@
 		text-align: center;
 		vertical-align: middle;
 	}
+	.underline{
+	/* text-decoration: underline 10px lime; */
+	display: inline;
+  	box-shadow: inset 0px -6px 0px 0px #c165dd;
+  	border-radius: 3px;
+	}
 	.promotion-info h4{ 
-		margin-top: 10vh; 
+		margin-top: 13vh; 
 	}
 	.promotion-img, .game-list{ 
 		display: inline-block; 
@@ -63,7 +69,7 @@
 		margin: 0 20px;
 	}
 	.line2 {
-		border: 1.5px solid rgba(0,0,0,10%); 
+		border: 1.5px solid rgba(0,0,0,10%);  
 		height:0.1px;
 		margin-left:10vw;
 	}
@@ -81,7 +87,7 @@
 	  <div class="col-lg-12 mainTitle d-flex">
 		<input type="button" id="title" class="btn btn-primary btn-lg" value="플랫폼별 할인 이벤트" readolny />
 	  </div>	
-	  <div class="space" style="height:150px"></div>
+	  <div class="space" style="height:130px"></div>
 	</section>
 	<div class="container-fluid" id="promotion">
 	  <div class="row">
@@ -90,7 +96,11 @@
 		  <div id="box2">
 		    <div class="space" style="height:100px"></div> 
 		    
-		    <div class="promotion-info "><h4>${event.platform}</h4><br> ${event.startDate} ~ ${event.endDate}</div>
+		    <div class="promotion-info ">
+		    <h4> <span class="underline">${event.platform}</span> </h4> 
+		    <br> 
+		    ${event.startDate} ~ ${event.endDate}
+		    </div>
 		    
 		    <div class="promotion-img">
 		      <a href="${event.link}"> 
@@ -109,7 +119,7 @@
 		</c:forEach> 
 	  </div>
 	</div>
-	<div class="space" style="height:300px"></div> 
+	<div class="space" style="height:210px"></div> 
 
 	<!-- footer -->
 	<%@ include file="footer.jsp" %>
