@@ -281,34 +281,42 @@ li:hover a, .link:hover a{
 }
 .recommend-wrap{
 	display: block;
-	width: 900px;
+	width: 1500px;
 	margin:0.1vh 0.1vw 1vh 0.1vw;
 	padding: 0.1vh 0.1vw 0.1vh 0.1vw;
 	overflow: auto;
 	overflow-x: hidden;
+	white-space: nowrap;
 }
 .topgame{
+	color:white;
+	background-color: #8A63FE;
 	border-radius: 5px;
 	padding:0;
-	width: 150px;
+	padding-top: 3px;
+	padding-bottom: 5px;
+	width: 300px;
 }
 .topgame-img {
-	width: 150px;
-	height: 150px;
+	width: 298px;
+	height: 300px;
 }
 .topgame-img img{
+	margin:0;
 	width: 100%;
 	height: inherit;
 	align-items: center;
 	text-align: center;
 }
 .topgame .topgame-name{
-	padding: 5px;
+	padding : 10px;
 	width: inherit;
-	height: 50px;
 	overflow: auto;
 	overflow-y : hidden;
 }
 .topgame a{
-	text-align: rignt;
+	line-height: 100%;
+	padding-left: 10px;
+	text-align: right;
+	color: #d0c1ff;;
 }

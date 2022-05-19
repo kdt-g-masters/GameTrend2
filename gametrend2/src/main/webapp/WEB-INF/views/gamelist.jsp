@@ -17,10 +17,10 @@
 			let moveForm = $("#moveForm");
 			
 			$("section nav a").on('click',function(e){
-				e.preventDefault();
-				$("section nav a").removeClass('active');
-				$(this).addClass('active');
+				/* $("section nav a").removeClass('active');
+				$(this).addClass('active'); */
 				
+				/* e.preventDefault(); */
 				//form태그 내부 name속성이 platform인 inpupt태그에 클릭한 platform종류의 id값 저장
 				moveForm.find("input[name='platform']").val($(this).attr("id"));
 				//pageNum 1로 변경
@@ -46,8 +46,6 @@
 				
 			});
 			
-			
-			
 		});//ready end
 		
 	</script>
@@ -58,7 +56,6 @@
 		.main-thumbnail-box a:hover{
 			color: white;
 		}
-		
 		.title h4{
 			font-size: 1.295em;
 		}
@@ -79,7 +76,7 @@
 		section nav a:active, section nav a:visited, section nav a:link{
 			color: #4a4a4a;
 		}
-		section nav a:hover, section nav a:active{
+		section nav a:hover, section nav a:active, section nav a:visited, section nav a:focus{
 			font-weight: bold;
 		}
 		#paging{
@@ -102,7 +99,6 @@
 		.active{
 			font-weight: bold;
 		}		
-		
 	</style>
 </head>
 <body>
@@ -116,10 +112,11 @@
 		</div>	
 				
 		<nav>
-			<a href="#" id="pc">PC</a>|
-			<a href="#" id="PlayStation">PS</a>|
-			<a href="#" id="Xbox">XBox</a>|
-			<a href="#" id="Switch">Switch</a>
+				<div id="marker"></div>
+				<a href="#" id="pc" class="">PC</a>|
+				<a href="#" id="PlayStation" class="">PS</a>|
+				<a href="#" id="Xbox" class="">XBox</a>|
+				<a href="#" id="Switch" class="">Switch</a>
 		</nav>
 	</section>
 	 <div class="main-thumbnail-part">
