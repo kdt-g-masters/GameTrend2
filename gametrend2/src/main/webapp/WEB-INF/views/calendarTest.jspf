@@ -51,7 +51,7 @@
 	<c:forEach items="${DataPCTest}" var="dataPCtest" varStatus="number">
 		${dataPCtest.platform} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPCtest.name} &nbsp;&nbsp;&nbsp;&nbsp; 
 		${dataPCtest.releaseDate} &nbsp;&nbsp;&nbsp;&nbsp; ${dataPCtest.views} (조회수) &nbsp;&nbsp;&nbsp;&nbsp; 
-		${dataPCtest.reviews} (리뷰수) &nbsp;&nbsp;&nbsp;&nbsp; ${dataPCTest.rating} (별점) 
+		${dataPCtest.reviews} (리뷰수) &nbsp;&nbsp;&nbsp;&nbsp; ${dataPCtest.rating} (별점) 
 		<br>
 		<br>  
 	</c:forEach> 
