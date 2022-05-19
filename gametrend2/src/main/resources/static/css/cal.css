@@ -3,7 +3,7 @@
 /* section calendar */
 
 .sec_cal {
-    width: 650px;
+    width: 800px;
     margin: 0 auto;
     font-family: "NotoSansR";
 }
@@ -83,7 +83,15 @@
 
 .sec_cal .cal_wrap .day {
     display:flex;
-    align-items: center;
+    width: calc(100% / 7);
+    text-align: left;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    border-radius:5px
+}
+.sec_cal .cal_wrap .dayofweek{
+    display:flex;
     justify-content: center;
     width: calc(100% / 7);
     text-align: left;

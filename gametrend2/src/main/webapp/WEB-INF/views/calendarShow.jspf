@@ -4,28 +4,33 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.LinkedList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<script>
+$(document).ready(function() {
+    calendarInit();
+});
+</script>
 	<br> 
 
 	<%= "--- 출시 달력 출력 ---" %>
 	<br><br>  
-
-	
 	<div class="sec_cal">
 		  <div class="cal_nav">
 			    <a href="javascript:;" class="nav-btn go-prev">prev</a>
 			    <div class="year-month"></div>
 			    <a href="javascript:;" class="nav-btn go-next">next</a>
 		  </div>
+		   
 		  <div class="cal_wrap">
 			    <div class="days">
-				      <div class="day">MON</div>
-				      <div class="day">TUE</div>
-				      <div class="day">WED</div>
-				      <div class="day">THU</div>
-				      <div class="day">FRI</div>
-				      <div class="day">SAT</div>
-				      <div class="day">SUN</div>
+				    <div class="dayofweek">MON</div>
+					<div class="dayofweek">TUE</div>
+					<div class="dayofweek">WED</div>
+					<div class="dayofweek">THU</div>
+					<div class="dayofweek">FRI</div>
+					<div class="dayofweek">SAT</div>
+					<div class="dayofweek">SUN</div>
 			    </div>
 			    <div class="dates"></div>
 		  </div>
