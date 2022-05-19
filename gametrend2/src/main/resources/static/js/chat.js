@@ -147,7 +147,46 @@
 			});// ajax end
 			$("#request").val(""); // 질문창 리셋
 		}); // .ch-input input:button end
-		
+		var dragFlag = false;
+		var x, y, pre_x, pre_y;
+
+		$(function () {
+			/* $('.xscroll').scrollLeft(screenX + 500).delay(1000); */
+			$('.xscroll').mousedown(
+				function (e) {
+					dragFlag = true;
+					var obj = $(this);
+					x = obj.scrollLeft();
+					y = obj.scrollTop();
+					pre_x = e.screenX;
+					pre_y = e.screenY;					
+					$(this).css("cursor", "pointer");
+					
+				}
+			);
+	
+			$('.xscroll').mousemove(
+				function (e) {
+					if (dragFlag) {
+						e.preventDefault();
+						var obj = $(this);
+						obj.scrollLeft(x - e.screenX + pre_x);
+						obj.scrollTop(y - e.screenY + pre_y);
+						return false;
+					}
+				});
+			$('.xscroll').mouseup(
+				function () {
+					dragFlag = false;
+					$(this).css("cursor", "default");
+					
+				});
+		 	$('body').mouseup(
+				function () {
+					dragFlag = false;					
+					$(this).css("cursor", "default");
+				}); 
+		});
 	}); //ready onclick
 		
 	function parser(serverdata){ // 값을 보냈을 때 화면에서 바뀌는 부분
@@ -215,11 +254,11 @@
 				type : "post",
 				success : function(gamelist){
 					$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
-					var textanswer = "<div class='recommend-wrap'>";
+					var textanswer = "<div class='recommend-wrap xscroll'>";
 					for(var i = 0; i < gamelist.length; i++){
 						textanswer += "<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
-						+ "</b></div><br><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
-						+"'/></div><br><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
+						+ "</b></div><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
+						+"'/></div><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
 					}
 					$("#record").append(textanswer + "</div>");
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
@@ -235,11 +274,11 @@
 				type : "post",
 				success : function(gamelist){
 					$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
-					var textanswer = "<div class='recommend-wrap'>";
+					var textanswer = "<div class='recommend-wrap xscroll'>";
 					for(var i = 0; i < gamelist.length; i++){
 						textanswer += "<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
-						+ "</b></div><br><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
-						+"'/></div><br><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
+						+ "</b></div><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
+						+"'/></div><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
 					}
 					$("#record").append(textanswer + "</div>");
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);

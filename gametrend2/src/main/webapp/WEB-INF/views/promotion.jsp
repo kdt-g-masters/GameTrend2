@@ -27,12 +27,10 @@
 	#box2{
 		width: 100%;
 		height: 100%;
-		
 	}
-	.row{
-		margin:0 auto;
+	.row{ 
+		margin:0 auto; 
 	}
-	
 	.promotion-info{
 		width: 250px;
 		height: 300px;
@@ -43,16 +41,14 @@
 		text-align: center;
 		vertical-align: middle;
 	}
-	.promotion-info h4{
-		margin-top: 10vh;
-		
+	.promotion-info h4{ 
+		margin-top: 10vh; 
 	}
-
-	.promotion-img, .game-list{
-		display: inline-block;
+	.promotion-img, .game-list{ 
+		display: inline-block; 
 	}
-	.promotion-img img{
-		box-shadow: 5px 5px 10px 80%;
+	.promotion-img img{ 
+		box-shadow: 5px 5px 10px 80%; 
 	}
 	.line { 
 		display:inline-block;
