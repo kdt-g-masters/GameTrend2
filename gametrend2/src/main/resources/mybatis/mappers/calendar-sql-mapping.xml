@@ -216,5 +216,9 @@
 		order by reviews desc, rating desc, views desc; 
 	</select> 
 
+	<select id="allGamedata" parameterType="CalendarDTO" resultType="CalendarDTO"> 
+	    select * from game order by releaseDate desc
+	</select> 
+	
 </mapper>
 
