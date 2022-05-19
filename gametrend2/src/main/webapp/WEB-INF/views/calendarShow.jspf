@@ -13,28 +13,11 @@ $(document).ready(function() {
 </script>
 	<br> 
 
-	<%= "--- 출시 달력 출력 ---" %>
+	<%= "--- 연도별 출시게임 출력 ---" %>
 	<br><br>  
-	<div class="sec_cal">
-		  <div class="cal_nav">
-			    <a href="javascript:;" class="nav-btn go-prev">prev</a>
-			    <div class="year-month"></div>
-			    <a href="javascript:;" class="nav-btn go-next">next</a>
-		  </div>
-		   
-		  <div class="cal_wrap">
-			    <div class="days">
-				    <div class="dayofweek">MON</div>
-					<div class="dayofweek">TUE</div>
-					<div class="dayofweek">WED</div>
-					<div class="dayofweek">THU</div>
-					<div class="dayofweek">FRI</div>
-					<div class="dayofweek">SAT</div>
-					<div class="dayofweek">SUN</div>
-			    </div>
-			    <div class="dates"></div>
-		  </div>
-	</div> 
+	
+	ㅁㅁㅁ
+	<br> 
 	
 	<br> 
 	
