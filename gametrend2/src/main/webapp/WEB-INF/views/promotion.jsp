@@ -69,7 +69,13 @@
 		margin: 0 20px;
 	}
 	.line2 {
-		border: 1.5px solid rgba(0,0,0,10%);  
+		text-aling: center;
+	}
+	.line2:after {
+        content: "";
+        display: block;
+		border: 1.5px solid rgba(0,0,0,10%); 
+		width: 1345px;
 		height:0.1px;
 		margin-left:10vw;
 	}
