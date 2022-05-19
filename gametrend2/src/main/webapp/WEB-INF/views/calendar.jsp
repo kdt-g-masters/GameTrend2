@@ -10,7 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/css/cal.css" rel="stylesheet"/>
 <script src="/jquery-3.6.0.min.js"></script>
+<script src="/cal.js"></script>
 <script>
 	$(document).ready(function() {
 
@@ -37,6 +39,33 @@
 	
 	<!-- 출시 달력 페이지 --> 
 	<%@ include file="calendarShow.jspf" %> 
+	
+	
+	
+	<!-- 달력 테스트 -->
+	<br> 
+	
+	<div class="sec_cal">
+		  <div class="cal_nav">
+			    <a href="javascript:;" class="nav-btn go-prev">prev</a>
+			    <div class="year-month"></div>
+			    <a href="javascript:;" class="nav-btn go-next">next</a>
+		  </div>
+		  <div class="cal_wrap">
+			    <div class="days">
+				      <div class="day">MON</div>
+				      <div class="day">TUE</div>
+				      <div class="day">WED</div>
+				      <div class="day">THU</div>
+				      <div class="day">FRI</div>
+				      <div class="day">SAT</div>
+				      <div class="day">SUN</div>
+			    </div>
+			    <div class="dates"></div>
+		  </div>
+	</div>
+
+	<br> 
 
 
 </body>
