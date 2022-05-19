@@ -49,6 +49,7 @@
 	<br> 
 	<br> 
 	
+	
 	<!-- 달력 테스트 -->
 	<br> 
 	
@@ -71,10 +72,6 @@
 			    <div class="dates"></div>
 		  </div>
 	</div>
-
-	<br> 
-	
-	... 
 	
 	<br>
 	<br>
