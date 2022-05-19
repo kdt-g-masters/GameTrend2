@@ -7,6 +7,7 @@ public class CalendarDTO {
 	String releaseDate; 
 	String views; 
 	String reviews;
+	String rating;
 	
 
 	public String getPlatform() {
@@ -47,6 +48,14 @@ public class CalendarDTO {
 
 	public void setReviews(String reviews) {
 		this.reviews = reviews;
+	}
+	
+	public String getRating() {
+		return rating;
+	}
+
+	public void setRating(String rating) {
+		this.rating = rating;
 	}
 
 }
