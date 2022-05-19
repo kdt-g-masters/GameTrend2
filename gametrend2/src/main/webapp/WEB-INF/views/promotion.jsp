@@ -20,7 +20,7 @@
 		});
 	</script>
 	<style>
-	.container-fluid{
+	#promotion {
 		text-align: center;
 		margin:0 auto;	
 	}
@@ -65,7 +65,6 @@
 	.line2 {
 		border: 1.5px solid rgba(0,0,0,10%); 
 		height:0.1px;
-		
 		margin-left:10vw;
 	}
 	</style>
@@ -82,7 +81,7 @@
 	  </div>	
 	  <div class="space" style="height:150px"></div>
 	</section>
-	<div class="container-fluid">
+	<div class="container-fluid" id="promotion">
 	  <div class="row">
 	    <div class="line2"></div> 
 	    <c:forEach items="${Event}" var="event" varStatus="number">
