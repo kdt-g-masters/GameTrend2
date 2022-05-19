@@ -38,7 +38,7 @@
 	.promotion-info{
 		width: 250px;
 		height: 300px;
-		border: 3px solid #c165dd;
+		border: 0px solid #c165dd;
 		border-radius: 5em 0 0 5em;
 		margin-right: 2em;
 		display: inline-block;
@@ -79,7 +79,7 @@
 	<div class="space" style="height:150px"></div>  
 	<section id="section">
 	  <div class="col-lg-12 mainTitle d-flex">
-		<a id="title" class="btn btn-primary btn-lg" href="">플랫폼별 할인 이벤트</a>
+		<input type="button" id="title" class="btn btn-primary btn-lg" value="플랫폼별 할인 이벤트" readolny />
 	  </div>	
 	  <div class="space" style="height:150px"></div>
 	</section>
