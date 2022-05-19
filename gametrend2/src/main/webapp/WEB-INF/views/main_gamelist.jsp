@@ -7,6 +7,7 @@
 		var x, y, pre_x, pre_y;
 
 		$(function () {
+			/* $('.xscroll').scrollLeft(screenX + 500).delay(1000); */
 			$('.xscroll').mousedown(
 				function (e) {
 					dragFlag = true;
@@ -23,6 +24,7 @@
 			$('.xscroll').mousemove(
 				function (e) {
 					if (dragFlag) {
+						e.preventDefault();
 						var obj = $(this);
 						obj.scrollLeft(x - e.screenX + pre_x);
 						obj.scrollTop(y - e.screenY + pre_y);
