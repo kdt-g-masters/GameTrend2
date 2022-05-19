@@ -99,4 +99,6 @@ public interface CalendarService {
 	// 2021 NS 게임 데이터 정렬 로딩 
 	public List<CalendarDTO> loadOrderedGamedataNS2021();
 
+	/* 최신출시순 게임데이터 테스트 */
+	public List<CalendarDTO> allGamedata();
 }

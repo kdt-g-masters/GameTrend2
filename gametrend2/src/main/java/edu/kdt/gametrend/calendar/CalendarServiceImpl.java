@@ -168,4 +168,10 @@ public class CalendarServiceImpl implements CalendarService {
 		return dao.loadOrderedGamedataNS2021();
 	}
 
+
+	@Override
+	public List<CalendarDTO> allGamedata() {
+		return dao.allGamedata();
+	}
+
 }
