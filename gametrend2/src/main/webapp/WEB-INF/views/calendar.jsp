@@ -37,7 +37,7 @@
 	<%@ include file="calendarCalculating.jspf" %> 
 	
 	
-	<!-- 연도별 출시게임 출력 페이지 --> 
+	<!-- 출시 달력 페이지 --> 
 	<%@ include file="calendarShow.jspf" %> 
 
 	<br> 
