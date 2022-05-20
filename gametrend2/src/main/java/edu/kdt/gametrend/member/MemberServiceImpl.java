@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+
 @Service("MemberServiceImpl")
 public class MemberServiceImpl implements MemberService {
 
@@ -13,7 +14,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 로그인
 	@Override
-	public MemberDTO loginMember(MemberDTO dto) {
+	public MemberDTO loginMember(MemberDTO dto) {		
 		return dao.loginMember(dto);
 	}
 	
@@ -27,7 +28,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean checkId(String id) {
 		String result = dao.checkId(id);
-		System.out.println(result);
+		//System.out.println(result);
 		if(result == null) {
 			return true;
 		}
@@ -35,35 +36,31 @@ public class MemberServiceImpl implements MemberService {
 			return false;
 		}
 	}
-	
-	
-	/*@Override
-	public UserDTO findId(UserDTO dto) {
-		return dao.findId(dto);
-	}*/
-
-	/*@Override
-	public UserDTO findPassword(UserDTO dto) {
-		return dao.findPassword(dto);
-	}*/
-	
 	/*
+	//아이디 찾기(alert로 찾기)
 	@Override
-	public boolean checkId(String id) {
-		String result = dao.checkId(id);
+	public String findId(String name, String phone) {
+		String result = "";
+		try {
+			result = dao.findId(name, phone);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		System.out.println(result);
-		if (result == null) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	@Override
-	public int joinInsertUser(MemberDTO dto) {
-		return dao.joinInsertUser(dto);
+		return result;
 	}
 	*/
+	
+	// 비밀번호 찾기
+	@Override
+	public MemberDTO sendpw_(MemberDTO dto) {
+		return dao.sendpw_(dto);
+	}
+	
+	// 메일로 아이디 찾기
+	@Override
+	public MemberDTO sendid_(MemberDTO dto) {
+		return dao.sendid_(dto);
+	}
 	
 }

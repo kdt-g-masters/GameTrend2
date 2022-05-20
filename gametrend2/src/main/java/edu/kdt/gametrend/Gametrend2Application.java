@@ -16,6 +16,7 @@ import edu.kdt.gametrend.explanation.ExplanationController;
 import edu.kdt.gametrend.explanation.ExplanationDAO;
 import edu.kdt.gametrend.game.GameController;
 import edu.kdt.gametrend.game.GameDAO;
+import edu.kdt.gametrend.member.MailController;
 import edu.kdt.gametrend.member.MemberController;
 import edu.kdt.gametrend.member.MemberDAO;
 import edu.kdt.gametrend.promotion.PromotionController;
@@ -36,7 +37,11 @@ import edu.kdt.gametrend.wishlist.WishlistDAO;
 @ComponentScan(basePackageClasses = ReviewController.class)
 @ComponentScan(basePackageClasses = WishlistController.class)
 @ComponentScan(basePackageClasses = AdminController.class)
+<<<<<<< HEAD
 @ComponentScan(basePackageClasses = ChatbotContoller.class)
+=======
+@ComponentScan(basePackageClasses = MailController.class)
+>>>>>>> devHH
 
 @MapperScan(basePackageClasses = GameDAO.class)
 @MapperScan(basePackageClasses = CarouselDAO.class)
