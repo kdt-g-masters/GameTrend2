@@ -35,7 +35,7 @@
 	
 	<select id="joinWishlistGame" resultMap="WishlistGameMap" resultType="wishlistgamedto">
 		select * from wishlist a, game b
-		where a.game_no = b.no and a.member_id=#{id}
+		where a.game_no = b.no and a.member_id=#{member_id}
 		limit
 		<foreach collection="limit" item="li" separator=",">
 			#{li}

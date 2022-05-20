@@ -134,5 +134,12 @@ public class AdminServiceImpl implements AdminService {
 	public int updateMainimg(CarouselDTO dto) {
 		return dao.updateMainimg(dto);
 	}
+	
+	/*----- 마이 페이지 - 나의 리뷰 -----*/
+	// 승인 여부에 따른 사용자의 리뷰 리스트
+	@Override
+	public List<ReviewGameDTO> selectReviewAppr(String member_id, int approve) {
+		return dao.selectReviewAppr(member_id, approve);
+	}
 
 }

@@ -151,4 +151,12 @@
 		set image=#{image}, title=#{title}, subtitle=#{subtitle}
 		where no=#{no}
 	</update>
+	
+	<!-- 나의 리뷰 -->
+	<!-- 승인 여부에 따른 사용자의 리뷰 리스트 -->
+	<select id="selectReviewAppr" resultMap="reviewGameMap" resultType="reviewgamedto">		
+		select * from review, game
+		where review.game_no = game.no and review.member_id=#{member_id} and review.approve=#{approve}
+		order by date desc
+	</select>
 </mapper>

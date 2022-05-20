@@ -22,7 +22,7 @@ $(document).ready(function(){
 			success: function(a){ 
 				//alert(JSON.stringify(a));
 				if(a == 1){
-				alert("정상 로그인 되셨습니다")
+				alert("정상 로그인 되셨습니다");
 				location.replace('http://localhost:8081/');
 				
 				}else{

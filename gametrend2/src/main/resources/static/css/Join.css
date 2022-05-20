@@ -1,139 +1,171 @@
 @charset "UTF-8";
-@font-face {
-    font-family: 'KoPubDotumMedium';
-     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+
+#joinBgColor {
+	background: white;
 }
 
-* {
-	font-family: 'KoPubDotumMedium';
+#joinBox {
+	width: 80vw;
+	height: 95vh;
+	margin: 15vh auto;
+	border-radius: 2em;
+	background-color: white;
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
 }
-body {
-	background: linear-gradient(to right, #C165DD, #5C27FE);
+
+#leftBox {
+	width: 40vw;
+	height: 95vh;
+	border-radius: 2em 0 0 2em;
+	display: inline-block;
+	margin: 0;
+	background: linear-gradient(to left, white, #5C27FE);
 }
-.mainColor{
-	background-color: #7244FE;
+
+#rightBox {
+	width: 40vw;
+	height: 95vh;
+	border-radius: 0 2em 2em 0;	
+	display: inline-block;
+	margin: 0;
 }
-.wrapper {
-    margin: 0 auto;
-    padding: 10px;
-    box-sizing: border-box;
-    max-width: 600px;
-}
-.text-center{
-	text-align: center;
-}
-.right{
-	float: right;
-	margin-right: 10px;
-}
-.center{
-	margin: 0 auto;
-	text-align: center;
-	align-content: center;
-}
-/* -------- 추가 -------- */
-.sm_msg{
-	color: #7f7c82;
-	font-size: x-small;
-	margin-bottom: 7px;
-}
-.inline{
-	display:inline-block;
-}
-h5{
-	font-size: 1.2em;
+
+main h3 {
+	font-size: 1.7em;
 	font-weight: bold;
 }
+
+main h5{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+main h2 {
+	font-weight: bold;
+}
+
+main h1, h2, h3, h4, h5 {
+	color: #4A4A4A;
+}
+
+.sm_msg{
+	color: #7f7c82;
+	font-size: 0.8em;
+	margin-bottom: 7px;
+}
+
+.inline{
+	display: inline-block;
+}
+
+input[type=text], input[type=password] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	font-size: 1.1em;
+	height: 2.5em;
+	border-radius: 2em;
+	border: 0.01em solid #EFEFEF !important;
+	background-color: #EFEFEF !important;
+	margin-top: 0.1em;
+	margin-bottom: 1em;
+	padding: 0 1em;
+}
+
+input[type=text]:hover, input[type=password]:hover, input[type=text]:focus, input[type=password]:focus {
+	border:0.01em solid #FCA937;
+}
+
+.row {
+	justify-content: space-around;
+}
+
+button:hover {
+	color: #FCA937;
+	background-color: transparent;
+}
+
+#btnCheckId, #btnCerti, #btnConfirm {
+	font-size: 1.1em;
+	height: 2.5em;	
+}
+
+#idAvailable, #pwAvailable {
+	display: none;
+	color: green;
+}
+
+#idNotAvailable, #pwNotAvailable {
+	display: none;
+	color: red;
+}
+
 select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	color:#7f7c82;
-	font-size: 1em;
-	width: 70px;
-	height: 33px;
+	font-size: 1.1em;
+	height: 2.5em;
 	border-radius: 30px;
 	border: 0.01em solid #7f7c82;
 	text-align: center;
 }
+
 select:hover{
-	border:0.01em solid #7244FE;
+	border:0.01em solid #FCA937;
 }
-input[type=text], input[type=password]{
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	font-size: 1em;
-	height: 33px;
-	border-radius: 30px;
-	text-align: center;
-	border: 0.01em solid #7f7c82;
+
+.gender label {
+	font-size: 1.1em;
+	margin-top: 0.3em;
 }
-input[type=text]:hover, input[type=password]:hover, input[type=text]:focus, input[type=password]:focus{
-	border:0.01em solid #7244FE;
+
+#btnCal {
+	padding: 1em;
 }
-#year{
-	width: 100px;
+
+#btnSubmit {
+	background: #5C27FE;
+	border: 0;
+	font-size: 1.1em;
 }
-.gender{
-	width: 300px;
-	height: 33px;
-	font-size: 1em;
+
+#btnCancel {
+	font-size: 1.1em;
 }
+
 #company{
-	width: 80px;
+	margin-right: 0.5em;
+	font-size: 1.1em;
 }
-label, .date{
-	font-size: 1em;
+
+#name {
+	padding: 0 1vw;
+	margin-right: 4vw;
+	margin-left: 4vw;
 }
-.row{
-	justify-content: space-around;
+
+.posRel {
+	position: relative;
 }
-button:hover{
-	color: #7244FE;
-	background-color: transparent;
+
+.posRel #check, #warning {
+	position: absolute;    
+    top: 0.8vh;
+    right: 8vw;
 }
-.box {
-	width: 750px;
-	height: 1000px;
-	padding: 50px;
-	margin: 100px auto;
-	border-radius: 10px;
-	background-color: white;
-	box-shadow: 5px 5px 20px;
+
+.posRel #pwCheck, #pwWarning {
+	position: absolute;    
+    top: 0.8vh;
+    right: 1.3vw;
 }
-.box2 {
-	width: 500px;
-	height: 500px;
-	padding: 50px;
-	margin: 100px auto;
-	border-radius: 10px;
-	background-color: white;
-	box-shadow: 5px 5px 20px;
+
+/* 인증번호  */
+.correct{
+    color : green;
 }
-#resultPageLogo {
-	margin: 50px auto;
-	width: 30%;
-	display: block;
-}
-.resultBox h2, a {
-		text-align: center;
-		margin: 50px auto;
-}
-.resultBox a {
-	margin: 10px auto;
-	width: 300px;
-	display: block;
-}
-#idAvailable, #pwAvailable {
-	display: none;
-	color: green;
-	margin: 5px;
-}
-#idNotAvailable, #pwNotAvailable {
-	display: none;
-	color: red;
-	margin: 5px;
+.incorrect{
+    color : red;
 }
