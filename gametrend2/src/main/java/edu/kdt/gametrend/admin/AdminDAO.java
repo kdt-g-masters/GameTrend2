@@ -70,4 +70,8 @@ public interface AdminDAO {
 	
 	// 메인 이미지 수정
 	public int updateMainimg(CarouselDTO dto);
+	
+	/*----- 마이 페이지 - 나의 리뷰 -----*/
+	// 승인 여부에 따른 사용자의 리뷰 리스트
+	public List<ReviewGameDTO> selectReviewAppr(String member_id, int approve);
 }

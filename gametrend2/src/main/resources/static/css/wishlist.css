@@ -198,4 +198,39 @@ nav {
 nav svg {
 	margin: 5px;
 }
+
+@font-face {
+    font-family: 'KoPubDotumMedium';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+* {
+	font-family: 'KoPubDotumMedium';
+}
+.wishlist {
+	width: 70%;
+	margin: auto;
+}
+.subtext {
+	color: #7F7C82;
+}
+.none {
+	text-decoration: none;
+	color: black;
+}
+.none:hover {
+	color: #A182FE;
+}
+.close {
+	text-align: right;
+	padding: 0;
+	text-decoration: none;
+}
+#close:hover {
+	background-color: #A182FE;
+}
+.nav-item:hover {
+	background-color: #E8E0FF;
+}
 	

@@ -4,9 +4,7 @@ import java.util.List;
 
 import edu.kdt.gametrend.carousel.CarouselDTO;
 import edu.kdt.gametrend.game.GameDTO;
-import edu.kdt.gametrend.member.MemberDTO;
 import edu.kdt.gametrend.promotion.PromotionDTO;
-import edu.kdt.gametrend.review.ReviewDTO;
 
 public interface AdminService {
 	// 관리자 로그인
@@ -65,4 +63,8 @@ public interface AdminService {
 	
 	// 메인 이미지 수정
 	public int updateMainimg(CarouselDTO dto);
+
+	/*----- 마이 페이지 - 나의 리뷰 -----*/
+	// 승인 여부에 따른 사용자의 리뷰 리스트
+	public List<ReviewGameDTO> selectReviewAppr(String member_id, int approve);
 }
