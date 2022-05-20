@@ -45,9 +45,21 @@
 	margin: 0 20vw;
  	height: 700px; 
 	overflow: hidden;
-	overflow-y:scroll;
+	overflow-y:auto;
 
 }
+#releaseDate-tbl::-webkit-scrollbar{
+	display: block;
+	width: 10px;
+}
+#releaseDate-tbl::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #8A63FE, #C165DD);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+ }
+
 .platformbadge {
     display: inline-block;
     padding: 0.35em 0.65em;
@@ -92,17 +104,13 @@
 .pctag:hover,.pstag:hover, .xboxtag:hover, .switchtag:hover{
     color: #fff;
 }
-table{height: inherit; overflow-y:scroll; }
-.table{--bs-table-bg:white;     --bs-table-accent-bg:white;}
 
-thead tr{
-	background: #fff;
-}
+
 thead th{
 	position: sticky;
 	top: 0px;
 	z-index: 99;
-	background: #fff;
+	--bs-table-bg:white; 
 }
 thead th:after{
 	content: "";
