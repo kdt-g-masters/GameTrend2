@@ -49,10 +49,10 @@
 		
 		<div class="ch-input">
 			<div class="initialQuestionList">
-				<span id="mywishlist" class="list">나의 위시리스트</span>
-				<span id="myreview" class="list">내가 쓴 리뷰</span>
-				<span id="myplatform" class="list">내가 가진 게임플랫폼</span>
-				<span id="genre" class="list">내가 선택한 장르</span>
+				<span id="mywishlist" class="list">위시리스트</span>
+				<span id="myreview" class="list">나의 리뷰</span>
+				<span id="myplatform" class="list">게임플랫폼</span>
+				<span id="genre" class="list">게임장르</span>
 			</div> 
 			<div class="input-group mb-3">
 			    <input type="text" id="request" class="form-control" placeholder="질문을 입력하세요." aria-label="Recipient's username" aria-describedby="basic-addon2">
