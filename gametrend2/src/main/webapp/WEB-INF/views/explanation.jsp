@@ -1,28 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
- 
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="/jquery-3.6.0.min.js"></script>
-<script>
-	$(document).ready(function() {
-
-	});
-</script>
 <title>플랫폼소개 페이지</title>
+	<!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/index.css"/>
+	<link rel="stylesheet" href="/css/chat.css"/>
+	<script src="/js/chat.js"></script>
+	<script src="/jquery-3.6.0.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+		});
+	</script>
 </head>
 
 <body>
 
-# 플랫폼별 할인 이벤트 출력 
-<br> 
+	<!-- navbar -->
+	<%@ include file="navbar.jsp" %>
+
+	<!-- section 안에 본인 코드 옮겨넣기 -->
+	<section style="margin-top:60px;">
+	
+		# 플랫폼별 할인 이벤트 출력 
+		<br> 
 
 		<!-- 기본 내용 -->
-		
+	
 		<!-- 컴퓨터와 콘솔 게임기 설명 -->
 		<br>
 		ㅇ 컴퓨터와 콘솔 게임기 에 대하여 : <br> 
@@ -59,41 +71,41 @@
 
 		아래에서 각 플랫폼별 세부 설명 및 특성에 대해서 다루겠다. <br><br> 
 		<br><br><br>
-		
+	
 		<form method="POST" action="/explanation1a" > 
 			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />  
 		</form>
 		<br>
-		
+	
 		<form method="POST" action="/explanation1b" > 
 			<input type="submit" name="loadbtnB" value="PS와 PS 게임은?" />   
 		</form>
 		<br>
-		
+	
 		<form method="POST" action="/explanation1c" > 
 			<input type="submit" name="loadbtnC" value="Xbox와 Xbox 게임은?" />   
 		</form>
 		<br>
-		
+	
 		<form method="POST" action="/explanation1d" >  
 			<input type="submit" name="loadbtnD" value="NS와 NS 게임은?" /> 
 		</form>
 		<br>
 
 		<!-- 페이지 포함 --> 
-		
+	
 		현재 플랫폼 변수 테스트 1: ${flatExpla} <br> 
 		현재 플랫폼 변수 테스트 2 : <c:out value='${flatExpla}'/> <br>
 		<br>   
-	
+
 		<c:if test="${flatExpla == 'PC'}"> 
 			<%@ include file="explanationP1.jspf" %> 
 		</c:if>
-		
+	
 		<c:if test="${flatExpla == 'PS'}"> 
 			<%@ include file="explanationP2.jspf" %>  
 		</c:if>
-		
+	
 		<c:if test="${flatExpla == 'Xbox'}"> 
 			<%@ include file="explanationP3.jspf" %>  
 		</c:if>
@@ -102,6 +114,16 @@
 			<%@ include file="explanationP4.jspf" %>  
 		</c:if>
 
+	</section>
+	<!-- section 안에 본인 코드 옮겨넣기 -->
+	
+	<div class="space" style="height:500px"></div> 
+
+	<!-- footer -->
+	<%@ include file="footer.jsp" %>
+	<%@ include file="chatbottest.jsp" %>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+	
 </body>
 
 </html>
