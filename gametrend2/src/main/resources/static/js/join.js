@@ -27,7 +27,7 @@ $(document).ready(function() {
 			            code = data;			            
 			        }
 				});
-				alert("인증번호가 메일로 전송되었습니다.");; 
+				alert("인증번호가 메일로 전송되었습니다."); 
 
 			}
 	});

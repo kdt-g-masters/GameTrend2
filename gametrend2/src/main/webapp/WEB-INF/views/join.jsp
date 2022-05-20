@@ -194,7 +194,7 @@
 	               <!--  <input type="text" name="certification" class="col-9" placeholder="메일을 전송하면 입력할 수 있습니다." size=31 pattern="[0-9]{6}" required /> -->
 		            	<div class="mail_check_wrap">
                     		<div class="mail_check_input_box" id="mail_check_input_box_false">
-                        	<input type="text" name="certification" class="mail_check_input" placeholder="메일을 전송하면 입력할 수 있습니다." disabled="disabled">
+                        	<input type="text" name="certification" class="mail_check_input" placeholder="인증번호" disabled="disabled">
                     		</div>
                     		<div class="clearfix"></div>
                     		<span id="mail_check_input_box_warn"></span>
