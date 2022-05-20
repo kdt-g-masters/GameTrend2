@@ -71,7 +71,7 @@
 					<tr><th scope="row">${num}</th>
 						<td> ${data.releaseDate} </td>
 						<td class="kindofplatform">
-							<span class="platformbadge"> ${data.platform}</span> 
+							<span class="platformbadge pc"> ${data.platform}</span> 
 						</td>
 						<td> ${data.name} </td> 
 					</tr>
