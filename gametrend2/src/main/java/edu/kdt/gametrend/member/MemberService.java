@@ -10,11 +10,13 @@ public interface MemberService {
 	//회원가입 아이디 중복 확인
 	public boolean checkId(String id);
 	
-	//public UserDTO findId(UserDTO dto);
-	
-	//UserDTO findPassword(UserDTO dto);
-	
-	//public boolean checkId(String id);
-	
-	//public int joinInsertUser(MemberDTO dto);
+	//아이디 찾기(alert로 찾기)
+	//public String findId(String name, String phone);
+
+	//비밀번호 메일로 찾기
+	public MemberDTO sendpw_(MemberDTO dto);
+
+	//아이디 메일로 찾기
+	public MemberDTO sendid_(MemberDTO dto);
+
 }
