@@ -26,8 +26,8 @@ public class CalendarController {
 	@RequestMapping(value="/calendar", method=RequestMethod.POST)
 	public ModelAndView calendarAction2() { 
 		
-		// 게임 데이터 전체 로딩 
-		List<CalendarDTO> gamedata = service.loadGamedata();
+		/* 최신출시순 게임데이터 */
+		List<CalendarDTO> gamedata = service.allGamedata();
 		
 		
 		// PC 게임 데이터 정렬 로딩 테스트 
@@ -159,19 +159,6 @@ public class CalendarController {
 		mv.addObject("DataNS2021", OrderedGamedataNS2021);
 		
 		mv.setViewName("calendar");
-		return mv; 
-		
-	}
-	@RequestMapping(value="/calendartest")
-	public ModelAndView calendarTest() {
-		ModelAndView mv = new ModelAndView(); 
-		
-		// 게임 데이터 전체 로딩 
-		List<CalendarDTO> gamedata = service.allGamedata();
-		
-		mv.addObject("Data", gamedata);
-		
-		mv.setViewName("testcalendar");
 		return mv; 
 		
 	}

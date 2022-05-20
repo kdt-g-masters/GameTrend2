@@ -128,7 +128,6 @@ a{
     border-radius: 0.25rem;
 }
 .hashtag{
-    margin-bottom: 10px;
     font-size: 0.90em;
     font-weight: 300;
     color: #7244FE;
@@ -184,6 +183,7 @@ a{
     border: 1.5px solid #7244FE;
     border-radius: 50rem !important;
 }
+
 .right{
     float: right;
     margin-right: 10px;

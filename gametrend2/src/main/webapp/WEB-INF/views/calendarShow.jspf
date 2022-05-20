@@ -1,23 +1,86 @@
+<%@page import="edu.kdt.gametrend.calendar.CalendarDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Queue" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.LinkedList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<script>
-$(document).ready(function() {
-    calendarInit();
-});
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		if($(".kindofplatform span").text() == "pc") {
+			$(".kindofplatform span").addClass("pc");
+		}
+	})
 </script>
-	<br> 
+<style>
+.allgamelist{
+	text-align: center;
+}
+.pc{
+	border-color : red; 
+	color : red;
+}
 
-	<%= "--- 연도별 출시게임 출력 ---" %>
-	<br><br>  
-	
-	ㅁㅁㅁ
-	<br> 
-	
-	<br> 
-	
+#releaseDate-tbl{
+	margin: 0 30vw;
+}
+.platformbadge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.90em;
+    font-weight: 300;
+    line-height: 1;
+    color:  #7244FE; 
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border: 0.01em solid  #7244FE;
+    border-radius: 2rem;
+}
+.pc {
+    color: red;
+    border: 0.01em solid red;
+}
+/* .platformbadge:hover, .platformbadge:active, .platformbadge.active {
+    color: #fff;
+    background-color: #7244FE;
+    border-color: #7244FE;
+} 
+
+
+</style>
+ 	<div id="releaseDate-tbl">
+		<div class="container-fluid allgamelist">
+			<table class="table">
+				<thead>
+				    <tr>
+				      <th scope="col">번호</th>
+				      <th scope="col">출시일</th>
+				      <th scope="col">플랫폼</th>
+				      <th scope="col">게임명</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				 
+				 <c:set var="num" value="${Data.size()+1}"/>
+				  <c:forEach items="${Data}" var="data" varStatus="number">
+				  	<c:set var="num" value="${num-1}"/>
+					<tr><th scope="row">${num}</th>
+						<td> ${data.releaseDate} </td>
+						<td class="kindofplatform">
+							<span class="platformbadge"> ${data.platform}</span> 
+						</td>
+						<td> ${data.name} </td> 
+					</tr>
+				  </c:forEach>   
+				
+				</tbody>
+			</table>
+		</div>
+	</div>
+    
+  
+
