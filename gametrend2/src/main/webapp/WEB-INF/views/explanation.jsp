@@ -70,7 +70,7 @@
 		이는, 플랫폼 자체의 특성 및 게임 강국 일본과 미국의 여러 환경에 차이로부터 발생하는 결과들이다. <br><br> 
 
 		아래에서 각 플랫폼별 세부 설명 및 특성에 대해서 다루겠다. <br><br> 
-		<br><br><br>
+		<br><br>
 	
 		<form method="POST" action="/explanation1a" > 
 			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />  
@@ -92,11 +92,7 @@
 		</form>
 		<br>
 
-		<!-- 페이지 포함 --> 
-	
-		현재 플랫폼 변수 테스트 1: ${flatExpla} <br> 
-		현재 플랫폼 변수 테스트 2 : <c:out value='${flatExpla}'/> <br>
-		<br>   
+		<!-- 페이지 포함 -->   
 
 		<c:if test="${flatExpla == 'PC'}"> 
 			<%@ include file="explanationP1.jspf" %> 
