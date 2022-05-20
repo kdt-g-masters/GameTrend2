@@ -117,7 +117,7 @@
 	</section>
 	<!-- section 안에 본인 코드 옮겨넣기 -->
 	
-	<div class="space" style="height:500px"></div> 
+	<div class="space" style="height:150px"></div> 
 
 	<!-- footer -->
 	<%@ include file="footer.jsp" %>
