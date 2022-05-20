@@ -38,6 +38,13 @@
 		margin-left: 28vw;
 		font-size: 1.1em;
 	}
+	.underline{
+	/* text-decoration: underline 10px lime; */
+	display: inline;
+  	box-shadow: inset 0px -4px 0px 0px #c165dd;
+  	border-radius: 2px;
+  	font-size: 1.2em;
+	}
 	</style>
 	
 </head>
@@ -61,12 +68,13 @@
 		
 		<div class="line2"></div> 
 		
-		<div class="space" style="height:80px"></div>
+		<div class="space" style="height:75px"></div>
 
 		<!-- 기본 내용 : 컴퓨터와 콘솔 게임기 설명 -->
 		<br>
 		<div class="texts"> 
-		ㅇ 컴퓨터와 콘솔 게임기 에 대하여 : <br> 
+		<b><span class="underline">컴퓨터와 콘솔 게임기 에 대하여 </span></b> <br><br> 
+		
 		우리가 게임을 하기 위해서는, <br>
 		게임을 구동시킬 하드웨어와 게임에 해당하는 소프트웨어가 필요하다. <br><br> 
 
