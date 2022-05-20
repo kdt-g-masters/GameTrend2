@@ -11,6 +11,7 @@
     box-shadow: 0px -0.5px 50px #7244FE;
     background-color: #f3f1f5;
     padding: 2em;
+ 
 }
 .footer-logo{
     float: right;
@@ -18,21 +19,23 @@
 }
 .center{
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
 }
 .copyright, .designed-by, .footer-logo{
     font-size: 0.75rem;
-    line-height: 2;
+    line-height: 1;
 }
+
 </style>
 </head>
 <body>
 <footer>
 	<br>
-	<div class="inner"><div class="footer-logo center"><img src="images/logo.png" width="80px"></div><br>
-	<div class="copyright center">Copyright<time>2022</time>. <a href='#'><b> G-Masters</b></a> all rights reserved.</div>
-	<div class="designed-by center">Designed by <a href='https://getbootstrap.kr/docs/5.1/assets/brand/bootstrap-logo.svg'><b>Bootstrap and G-Masters</b></a></div>
+	<div class="inner">
 	<br>
+		<div class="footer-logo center"><img src="images/logo.png" width="80px"></div>
+		<p class="copyright center">Copyright <time>2022</time>. <a href=''><b> G-Masters</b></a> all rights reserved.</p>
+		<p class="designed-by center">Designed by <a href='https://getbootstrap.kr/docs/5.1/assets/brand/bootstrap-logo.svg'><b>Bootstrap and G-Masters</b></a><p>
 </footer>
 </body>
 </html>
