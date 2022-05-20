@@ -42,8 +42,11 @@
 	/* text-decoration: underline 10px lime; */
 	display: inline;
   	box-shadow: inset 0px -4px 0px 0px #c165dd;
-  	border-radius: 2px;
+  	border-radius: 1px;
   	font-size: 1.2em;
+	}
+	form {
+    display: inline;
 	}
 	</style>
 	

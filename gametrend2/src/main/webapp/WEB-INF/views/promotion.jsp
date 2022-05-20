@@ -49,7 +49,7 @@
 	/* text-decoration: underline 10px lime; */
 	display: inline;
   	box-shadow: inset 0px -6px 0px 0px #c165dd;
-  	border-radius: 3px;
+  	border-radius: 1px;
 	}
 	.promotion-info h4{ 
 		margin-top: 13vh; 
