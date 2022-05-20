@@ -32,7 +32,7 @@ public class MemberController {
 	public String loginAction(HttpServletRequest request, MemberDTO dto) throws Exception {
 		MemberDTO loginUserDTO = service.loginMember(dto);
 		
-	if(loginUserDTO != null) {
+	if(loginUserDTO != null && loginUserDTO.getId() != null) {
 		// 세션
 		HttpSession session = request.getSession();
 		
@@ -51,7 +51,6 @@ public class MemberController {
 	}
 	
 	// 로그아웃
-	/*
 	@RequestMapping(value="/member/logout.do", method = RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mv = new ModelAndView();
@@ -61,19 +60,27 @@ public class MemberController {
 		mv.setViewName("redirect:/");
 		return mv;
 	}
-	*/
-	
-	
+
 	// 아이디 / 비밀번호 찾기 페이지
 	@RequestMapping(value="/login2", method=RequestMethod.GET)
-	public void loginfind() {	
+	public void loginfind() {		
 	}
-		
+	
+	/*
+	//아이디 찾기
+	@RequestMapping(value = "/login2", method = RequestMethod.POST)
+	@ResponseBody 
+	public String Find_id(@RequestParam("name") String name, @RequestParam("phone") String phone ) {
+		String find = service.findId(name, phone);
+		return find;
+	}
+	*/
+
 	// 회원가입 페이지
 	@RequestMapping(value="/join", method=RequestMethod.GET)
 	public void joininsert() {	
 	}
-			
+		
 	// 회원가입
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public ModelAndView joinAction(MemberDTO dto) {
@@ -84,6 +91,7 @@ public class MemberController {
 		mv.setViewName("joinResult");
 		return mv;
 	}
+	
 	
 	// 회원가입 아이디 중복확인 ajax 
 	@RequestMapping(value="/join/checkid", method=RequestMethod.POST, produces={"application/json; charset=utf-8"})
@@ -98,42 +106,13 @@ public class MemberController {
 		}
 	}
 	
+	// 회원가입 결과 페이지
 	@RequestMapping(value="/joinResult", method=RequestMethod.GET)
 	public void joinResult() {	
 	}
-	
-	
-		
-	
-	
-	//아이디 찾기 페이지
-	/*@RequestMapping(value="/login2", method=RequestMethod.GET)
-	public String findIdView() {
-		return "";
-	}*/
-	
-    // 아이디 찾기 
-	/*@RequestMapping(value="/login2", method=RequestMethod.GET , produces = {"application/json;charset=utf-8"} )
-	public String findIdAction(UserDTO dto) {
-		UserDTO findId = service.findId(dto);
-		
-		if(findId == null) { 
-			return "1";
-		} else { 
-			return "2";
-			
-		}
-		
-	}*/
-	
-    /* // 비밀번호 찾기 페이지 이동
-	@RequestMapping(value="find_password_form")
-	public String findPasswordView() {
-		return "member/findPassword";
-	} */
-	
-	
-	//주석처리 안했던 곳
+
+
+	//aa
 	/*@RequestMapping("/index")
 	public String index(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -161,21 +140,6 @@ public class MemberController {
 		mv.addObject("result", row);
 		mv.setViewName("joinResult");
 		return mv;
-	}
-	*/
-	
-	/*
-	// 회원가입 아이디 중복확인 ajax
-	@RequestMapping(value="/join/checkid", method=RequestMethod.POST, produces={"application/json; charset=utf-8"})
-	@ResponseBody
-	public String checkId(String id) {
-		boolean result = service.checkId(id);
-		if (result == true) {
-			return "{\"result\": \"사용 가능한 아이디 입니다.\", \"state\": \"available\"}";
-		}
-		else {			
-			return "{\"result\": \""이미 존재하는 아이디 입니다. 다시 입력해주세요.\", \"state\": \"notAvailable\"}";
-		}
 	}
 	*/
 }

@@ -7,16 +7,8 @@ public class MemberDTO {
 	String name;
 	String birthdate;
 	int gender;
-	String phone;
-	String image;
-	String lastLogin;
-	
-	public String getLastLogin() {
-		return lastLogin;
-	}
-	public void setLastLogin(String lastLogin) {
-		this.lastLogin = lastLogin;
-	}
+	String email;
+
 	public String getId() {
 		return id;
 	}
@@ -47,18 +39,12 @@ public class MemberDTO {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public String getPhone() {
-		return phone;
+	public String getEmail() {
+		return email;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+	public void setEmail(String email) {
+		this.email = email;
+	}	
 	
 	
 }

@@ -312,7 +312,8 @@ li:hover a, .link:hover a{
 	padding : 10px;
 	width: inherit;
 	overflow: auto;
-	overflow-y : hidden;
+	white-space: nowrap;
+	overflow-x : hidden;
 }
 .topgame a{
 	line-height: 100%;

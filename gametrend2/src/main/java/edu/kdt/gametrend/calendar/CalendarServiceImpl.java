@@ -12,12 +12,11 @@ public class CalendarServiceImpl implements CalendarService {
 	@Autowired
 	@Qualifier("CalendarDAO")
 	CalendarDAO dao;
-	
+
 	@Override
-	public List<CalendarDTO> loadGamedata() { 
-		return dao.loadGamedata();
+	public List<CalendarDTO> allGamedata() {
+		return dao.allGamedata();
 	}
-	
 	
 	@Override
 	public List<CalendarDTO> loadOrderedGamedataPCTest() { 
@@ -166,12 +165,6 @@ public class CalendarServiceImpl implements CalendarService {
 	@Override
 	public List<CalendarDTO> loadOrderedGamedataNS2021() { 
 		return dao.loadOrderedGamedataNS2021();
-	}
-
-
-	@Override
-	public List<CalendarDTO> allGamedata() {
-		return dao.allGamedata();
 	}
 
 }
