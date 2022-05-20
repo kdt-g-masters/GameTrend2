@@ -88,7 +88,7 @@
 	                                            </div>
 	                                            <form action="/updateReviewDisappr">
 	                                            <div class="modal-body">
-	                                                <p>미승인 사유를 입력해주세요.</p>
+	                                                <p>비승인 사유를 입력해주세요.</p>
 		                                            <div class="form-group">
 		                                                <label for="inputText3" class="col-form-label">#</label>
 		                                                <input id="inputText3" type="text" class="form-control" value="${ dto.reviewDTO.no }" name="no">

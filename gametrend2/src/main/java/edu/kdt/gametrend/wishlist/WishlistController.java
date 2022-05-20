@@ -20,10 +20,6 @@ public class WishlistController {
 	WishlistService service;
 	
 	/*
-	@RequestMapping("/wishlisttest")
-	public String wishlisttest() {
-		return "wishlist";
-	}
 	
 	//@RequestMapping("/wishlist")
 	public ModelAndView wishlist() {
@@ -57,21 +53,29 @@ public class WishlistController {
 		return list;
 	}
 	
+	*/
+	
+	// 위시리스트 조회
 	@RequestMapping("/wishlist")
-	public ModelAndView myWishlist2(HttpServletRequest request, int page) throws Exception {
+	public ModelAndView myWishlist2(String member_id, HttpServletRequest request, int page) throws Exception {
 		int[] limit = new int[2];
 		limit[0] = (page - 1) * 6;
 		limit[1] = 6;
 		ModelAndView mv = new ModelAndView();
 		HttpSession session = request.getSession();
 		String temp = (String) session.getAttribute("sessionid");
-		List<WishlistGameDTO> list = service.joinWishlistGame(temp, limit);
-		System.out.println(list);
+		List<WishlistGameDTO> list = service.joinWishlistGame(temp, limit);		
 		mv.addObject("wishlist", list);
 		mv.setViewName("wishlist");
 		return mv;
 	}
-	*/
+	
+	// 위시리스트 삭제
+	@RequestMapping("/deleteWishlist")
+	public String deleteWishlist(WishlistDTO dto) {		
+		int row = service.deleteWishlist(dto);		
+		return "redirect:/wishlist?page=1";
+	}
 	
 	//위시리스트 기능
 	@RequestMapping(value = "/gamewishlist", produces = {"application/json;charset=utf-8"})

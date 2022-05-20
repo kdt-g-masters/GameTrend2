@@ -56,6 +56,7 @@ public class AdminController {
 		}
 	}
 	
+	// 관리자 페이지
 	@RequestMapping(value="/adminPage")
 	public ModelAndView adminPage(int page) {
 		int[] limit = new int[2];
@@ -474,5 +475,28 @@ public class AdminController {
 		service.updateMainimg(dto);
 		
 		return "redirect:/adminCarousel";
+	}
+	
+	// 사용자 리뷰 조회
+	@RequestMapping(value="/myreview")
+	public ModelAndView myreview(String member_id) {
+		
+		// 승인된 리뷰
+		List<ReviewGameDTO> apprReviewList = service.selectReviewAppr(member_id, 1);
+		
+		// 승인을 기다리는 리뷰
+		List<ReviewGameDTO> notApprReviewList = service.selectReviewAppr(member_id, 0);
+		
+		// 비승인된 리뷰
+		List<ReviewGameDTO> disApprReviewList = service.selectReviewAppr(member_id, -1);
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("apprReviewList", apprReviewList);
+		mv.addObject("notApprReviewList", notApprReviewList);
+		mv.addObject("disApprReviewList", disApprReviewList);
+		
+		mv.setViewName("myreview");
+		return mv;
 	}
 }
