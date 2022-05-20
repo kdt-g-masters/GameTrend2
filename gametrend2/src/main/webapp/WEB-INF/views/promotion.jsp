@@ -103,7 +103,7 @@
 		    <div class="space" style="height:100px"></div> 
 		    
 		    <div class="promotion-info ">
-		    <h4> <span class="underline">${event.platform}</span> </h4> 
+		    <h4> <span class="underline" style="font-size:1.13em;">${event.platform}</span> </h4> 
 		    <br> 
 		    ${event.startDate} ~ ${event.endDate}
 		    </div>
