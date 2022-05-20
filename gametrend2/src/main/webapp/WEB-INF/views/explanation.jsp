@@ -29,9 +29,14 @@
         content: "";
         display: block;
 		border: 1.5px solid rgba(0,0,0,10%); 
-		width: 1345px;
+		width: 1200px;
 		height:0.1px;
-		margin-left:10vw;
+		margin-left:16.5vw;
+	}
+	.texts { 
+		width: 720px;
+		margin-left: 28vw;
+		font-size: 1.1em;
 	}
 	</style>
 	
@@ -55,9 +60,12 @@
 		</section>
 		
 		<div class="line2"></div> 
+		
+		<div class="space" style="height:80px"></div>
 
 		<!-- 기본 내용 : 컴퓨터와 콘솔 게임기 설명 -->
 		<br>
+		<div class="texts"> 
 		ㅇ 컴퓨터와 콘솔 게임기 에 대하여 : <br> 
 		우리가 게임을 하기 위해서는, <br>
 		게임을 구동시킬 하드웨어와 게임에 해당하는 소프트웨어가 필요하다. <br><br> 
@@ -90,7 +98,8 @@
 		또한, 각 플랫폼별로 출시되는 게임들은 특성에 차이가 있다. <br> 
 		이는, 플랫폼 자체의 특성 및 게임 강국 일본과 미국의 여러 환경에 차이로부터 발생하는 결과들이다. <br><br> 
 
-		아래에서 각 플랫폼별 세부 설명 및 특성에 대해서 다루겠다. <br><br> 
+		아래에서 각 플랫폼별 세부 설명 및 특성에 대해서 다루겠다. <br><br>
+		</div>  
 		<br><br>
 	
 		<form method="POST" action="/explanation1a" > 
@@ -135,7 +144,7 @@
 	</section>
 	<!-- section 안에 본인 코드 옮겨넣기 -->
 	
-	<div class="space" style="height:150px"></div> 
+	<div class="space" style="height:200px"></div> 
 
 	<!-- footer -->
 	<%@ include file="footer.jsp" %>
