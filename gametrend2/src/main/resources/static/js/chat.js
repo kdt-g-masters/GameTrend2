@@ -1,7 +1,7 @@
 /*chatbot.js */
 
 
- $(document).ready(function() {	
+ $(function() {	
 		/*챗봇 버튼 클릭 시 웰컴 메세지 출력*/
 		$(".floating-button").click( function(){
 			$("#ch-window").fadeToggle();
