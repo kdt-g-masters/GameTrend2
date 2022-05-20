@@ -9,11 +9,28 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-
-		if($(".kindofplatform span").text() == "pc") {
-			$(".kindofplatform span").addClass("pc");
-		}
-	})
+		/* //문서 객체 추가 함수
+		var appendDocument = function(){
+			for(var i = 0; i < 20; i++){
+				//문서 객체 생성
+				//$('<h1>Infinity Scroll</h1>').appendTo('body');
+				$('body').append('<h1>Infinity Scroll</h1>');
+			}
+		};
+		//초기 문서 객체 추가
+		appendDocument();
+		//이벤트 연결
+		$(window).scroll(function(){
+			//변수선언
+			var scrollHeight = $(window).scrollTop() + $(window).height();
+			//스크롤이전가려진부분 높이+현재뷰포트높이
+			var documentHeight = $(document).height(); //문서높이
+			//검사
+			if(scrollHeight == documentHeight){ //문서끝에 도달했으면 계속 문서 생성
+				appendDocument();
+			}
+		}); */ 
+	});
 </script>
 <style>
 .allgamelist{
@@ -25,7 +42,11 @@
 }
 
 #releaseDate-tbl{
-	margin: 0 30vw;
+	margin: 0 20vw;
+ 	height: 700px; 
+	overflow: hidden;
+	overflow-y:scroll;
+
 }
 .platformbadge {
     display: inline-block;
@@ -40,47 +61,114 @@
     border: 0.01em solid  #7244FE;
     border-radius: 2rem;
 }
-.pc {
-    color: red;
-    border: 0.01em solid red;
+.pctag {
+    color: #F2508B;
+    border: 0.01em solid #F2508B;
 }
-/* .platformbadge:hover, .platformbadge:active, .platformbadge.active {
+.pctag:hover{
+	background-color: #F2508B;
+}
+.pstag {
+    color: #6084F5;
+    border: 0.01em solid #6084F5;
+}
+.pstag:hover{
+	background-color: #6084F5;
+}
+.xboxtag {
+    color: #1CC7CF;
+    border: 0.01em solid #1CC7CF;
+}
+.xboxtag:hover{
+	background-color: #1CC7CF;
+}
+.switchtag {
+    color: #EBAA30;
+    border: 0.01em solid #EBAA30;
+}
+.switchtag:hover{
+	background-color: #EBAA30;
+}
+.pctag:hover,.pstag:hover, .xboxtag:hover, .switchtag:hover{
     color: #fff;
-    background-color: #7244FE;
-    border-color: #7244FE;
-} 
+}
+table{height: inherit; overflow-y:scroll; }
+.table{--bs-table-bg:white;     --bs-table-accent-bg:white;}
 
+thead tr{
+	background: #fff;
+}
+thead th{
+	position: sticky;
+	top: 0px;
+	z-index: 99;
+	background: #fff;
+}
+thead th:after{
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	width:100%;
+	height: 2px;
+	background-color:black;
+
+}
+/*  tbody{
+	position: relative;
+	top:0;
+}  */
+/* tbody tr:gt(10) td{
+	display: none;
+} */
 
 </style>
- 	<div id="releaseDate-tbl">
-		<div class="container-fluid allgamelist">
-			<table class="table">
-				<thead>
-				    <tr>
-				      <th scope="col">번호</th>
-				      <th scope="col">출시일</th>
-				      <th scope="col">플랫폼</th>
-				      <th scope="col">게임명</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-				 
-				 <c:set var="num" value="${Data.size()+1}"/>
-				  <c:forEach items="${Data}" var="data" varStatus="number">
-				  	<c:set var="num" value="${num-1}"/>
-					<tr><th scope="row">${num}</th>
-						<td> ${data.releaseDate} </td>
-						<td class="kindofplatform">
-							<span class="platformbadge pc"> ${data.platform}</span> 
-						</td>
-						<td> ${data.name} </td> 
-					</tr>
-				  </c:forEach>   
-				
-				</tbody>
-			</table>
-		</div>
-	</div>
+ 
+ <div id="releaseDate-tbl">
+   <div class="container-fluid allgamelist">
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th scope="col" style="font-weight:700;">번호</th>
+	      <th scope="col" style="font-weight:700;">출시일</th>
+	      <th scope="col" style="font-weight:700;">플랫폼</th>
+	      <th scope="col" style="font-weight:700;">게임명</th>
+	    </tr>
+	  </thead>
+	 
+		<tbody> 
+		    <c:set var="num" value="${Data.size()+1}"/>
+			  <c:forEach items="${Data}" var="data" varStatus="number">
+			    <c:set var="num" value="${num-1}"/>
+			      <tr>
+				    <td scope="row" style="font-weight:700;">${num}</td>
+					<td> ${data.releaseDate} </td>
+					<td class="kindofplatform">
+					  <c:choose>
+					    <c:when test="${data.platform == 'pc'}">
+					      <span class="platformbadge pctag"> ${data.platform}</span> 
+					    </c:when>
+					    <c:when test="${data.platform == 'PlayStation'}">
+					      <span class="platformbadge pstag"> ${data.platform}</span> 
+					    </c:when>
+					    <c:when test="${data.platform == 'Xbox'}">
+					      <span class="platformbadge xboxtag"> ${data.platform}</span> 
+				        </c:when>
+					    <c:when test="${data.platform == 'Switch'}">
+					      <span class="platformbadge switchtag"> ${data.platform}</span> 
+					    </c:when>
+				        <c:otherwise>
+					      <span class="platformbadge"> ${data.platform}</span> 
+				        </c:otherwise>
+				      </c:choose>
+				    </td>
+				    <td> ${data.name} </td> 
+				  </tr>
+		      </c:forEach>   
+		</tbody>
+    </table>
+  </div>
+</div>
     
   
 

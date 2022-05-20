@@ -66,9 +66,9 @@
 	<nav class="navbar navbar-light bg-light fixed-top">
 	  <div class="container-fluid">
 		  <div class="d-flex justify-content-start">			
-		    <a class="navbar-brand " href="/">
+		    <a class="navbar-brand " href="/" style="font-weight:900; font-size:14pt">
 		    	<img src="/images/logo_sm.png" width="10%">	    	
-		    	<b>Game Trend</b>
+		    	Game Trend
 		    </a>	  	
 		  </div>
 		  <div class="main-nav d-flex justify-content-center"> 	 
