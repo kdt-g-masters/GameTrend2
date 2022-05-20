@@ -20,6 +20,21 @@
 			
 		});
 	</script>
+	
+	<style>
+	.line2 {
+		text-aling: center;
+	}
+	.line2:after {
+        content: "";
+        display: block;
+		border: 1.5px solid rgba(0,0,0,10%); 
+		width: 1345px;
+		height:0.1px;
+		margin-left:10vw;
+	}
+	</style>
+	
 </head>
 
 <body>
@@ -30,12 +45,18 @@
 	<!-- section 안에 본인 코드 옮겨넣기 -->
 	<section style="margin-top:60px;">
 	
-		# 플랫폼별 할인 이벤트 출력 
-		<br> 
+		<div class="space" style="height:100px"></div> 
+		
+		<section id="section">
+			<div class="col-lg-12 mainTitle d-flex">
+				<input type="button" id="title" class="btn btn-primary btn-lg" value="게임기와 게임에 대하여" readolny />
+			</div>	
+			<div class="space" style="height:130px"></div>
+		</section>
+		
+		<div class="line2"></div> 
 
-		<!-- 기본 내용 -->
-	
-		<!-- 컴퓨터와 콘솔 게임기 설명 -->
+		<!-- 기본 내용 : 컴퓨터와 콘솔 게임기 설명 -->
 		<br>
 		ㅇ 컴퓨터와 콘솔 게임기 에 대하여 : <br> 
 		우리가 게임을 하기 위해서는, <br>
@@ -92,7 +113,8 @@
 		</form>
 		<br>
 
-		<!-- 페이지 포함 -->   
+		<!-- 추가 내용 : 각 플랫폼별 세부 설명 및 특성 --> 
+		<!-- 페이지 포함 -->
 
 		<c:if test="${flatExpla == 'PC'}"> 
 			<%@ include file="explanationP1.jspf" %> 
