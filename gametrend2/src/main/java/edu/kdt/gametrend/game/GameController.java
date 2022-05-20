@@ -69,5 +69,13 @@ public class GameController {
 		List<GameDTO> list = service.gameRecommend(genre);
 		return list;
 	}
-
+	
+	//리뷰수 게임테이블 반영
+	@RequestMapping(value = "/gamereviewcount", produces = {"application/json;charset=utf-8"})
+	@ResponseBody
+	public int gameReviewCount(GameDTO dto) {
+		int reviewcount = service.gameReviewCount(dto);
+		return reviewcount;
+	}
+	
 }

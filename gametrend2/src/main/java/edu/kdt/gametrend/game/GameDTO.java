@@ -32,6 +32,11 @@ public class GameDTO {
 	String genre;
 	
 	public GameDTO() {}
+	public GameDTO(int no, int reviews) {
+		super();
+		this.no = no;
+		this.reviews = reviews;
+	}
 	public GameDTO(int ranking, int no, String name, String thumbnail ) {
 		super();
 		this.ranking = ranking;
@@ -60,7 +65,6 @@ public class GameDTO {
 		this.relevant_site1 = relevant_site1;
 		this.relevant_site2 = relevant_site2;
 	}
-	
 	
 	public int getNo() {
 		return no;

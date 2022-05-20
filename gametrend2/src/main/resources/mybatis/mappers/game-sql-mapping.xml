@@ -59,6 +59,11 @@
 		select * from genre where game_no = #{no}
 	</select>
 	
+	<!-- 리뷰수 게임테이블 반영 -->
+	<update id="gameReviewCount" parameterType="gamedto">
+		update game set reviews=#{reviews} where no=#{no}
+	</update>
+	
 	<!-- 추천 게임 보여주기 -->
 	<select id="gameRecommend" resultType="gamedto" parameterType="String">
 		select game.* from genre 

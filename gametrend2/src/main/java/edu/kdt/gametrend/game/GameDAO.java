@@ -33,6 +33,9 @@ public interface GameDAO {
 	//게임 상세 페이지
 	public GameDTO gameDetail(int no);
 	
+	//리뷰수 게임테이블 반영
+	public int gameReviewCount(GameDTO dto);
+	
 	//게임 상세 페이지 장르 보여주기
 	public List<GenreDTO> gameGenreView(int no);
 	

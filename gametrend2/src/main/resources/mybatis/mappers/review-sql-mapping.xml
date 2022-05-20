@@ -3,30 +3,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.kdt.gametrend.review.ReviewDAO" >
-	<!-- 한 게임의 별점 -->
+	<!-- 게임의 별점 -->
 	<select id="selectStarsgameNo" resultType="reviewdto" parameterType="int">
-		select stars from review where game_no=#{game_no} and approve=1
+		select stars from review where game_no = #{game_no}
 	</select>
 	
-	<!-- 한 게임의 리뷰 갯수 -->
+	<!-- 게임의 리뷰수 -->
 	<select id="countReviewgameNo" resultType="int" parameterType="int">
-		select count(*) from review where game_no=#{game_no}
+		select count(*) from review where game_no = #{game_no}
 	</select>
 	
-	<!-- 한 게임의 리뷰  -->
+	<!-- 게임의 리뷰  -->
 	<select id="selectReviewgameNo" resultType="reviewdto" parameterType="int">
-		select * from review where game_no=#{game_no}
+		select * from review where game_no = #{game_no}
 		order by date desc
 	</select>
 	
 	<!-- 리뷰 작성 여부 확인 -->
 	<select id="reviewCheck" resultType="int">
-		select count(*) from review where game_no=#{game_no} and member_id=#{member_id}
+		select count(*) from review where game_no = #{game_no} and member_id = #{member_id}
 	</select>
 	
 	<!-- 리뷰 작성 내용 -->
 	<select id="reviewMemberGame" resultType="reviewdto" parameterType="reviewdto">
-		select * from review where game_no=#{game_no} and member_id=#{member_id}
+		select * from review where game_no = #{game_no} and member_id = #{member_id}
 	</select>
 	
 	<!-- 리뷰 작성 -->
@@ -37,13 +37,13 @@
 	<!-- 리뷰 수정 -->
 	<update id="updateReview" parameterType="reviewdto">
 		update review 
-		set contents=#{contents}, stars=#{stars}, date=#{date}
+		set contents = #{contents}, stars = #{stars}, date = #{date}
 		where game_no=#{game_no} and member_id=#{member_id}
 	</update>
 	
 	<!-- 리뷰 삭제 -->
 	<delete id="deleteReview" parameterType="reviewdto">
-		delete from review where game_no=#{game_no} and member_id=#{member_id}
+		delete from review where game_no = #{game_no} and member_id = #{member_id}
 	</delete>
 	
 	<!-- 챗봇 - 로그인한 회원의 리뷰리스트 조회 -->

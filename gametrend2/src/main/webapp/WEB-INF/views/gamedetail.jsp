@@ -48,6 +48,7 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function(countreview){
 			$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
+			$("#reviews").attr("value", countreview);
 		}
 	});//ajax end
 	
@@ -171,10 +172,23 @@ $(document).ready(function(){
 		});//check ajax end
 	}//memberid if end
 	
+	//리뷰 별점
+	
+	
+	//리뷰수 게임테이블 반영
+	$.ajax({
+		url: '<%=request.getContextPath() %>/gamereviewcount',
+		data: {'reviews':Number($("#reviews").val()), 'no':${param.no}},
+		dataType: 'json',
+		success: function (a) {
+			alert(Number($("#reviews").val()));
+		}
+	});//ajax end
+	
 	//장르 데이터 분류
 	<%
-	ArrayList arr = (ArrayList)request.getAttribute("gamegenre");
-	GenreDTO genre = (GenreDTO)arr.get(0);
+		ArrayList arr = (ArrayList)request.getAttribute("gamegenre");
+		GenreDTO genre = (GenreDTO)arr.get(0);
 	%>
 	
 	//같은 장르인 게임 추천
@@ -234,22 +248,28 @@ $(document).ready(function(){
 				</div>
 			</div>
 			
+			<%-- 별점 --%>
 			<div class="right b-ground" id="ratings" style="margin-bottom: 10px;">
-				<div style="float: left;">
-					<h2 id="star">별점:<svg id="star5" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-							<path id="star5-1" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg>
-							<svg id="star4" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-							<path id="star4-1" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg>
-							<svg id="star3" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-							<path id="star3-1" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg>
-							<svg id="star2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-							<path id="star2-1" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg>
-							<svg id="star1" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-							<path id="star1-1" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg>
-					</h2>
+				<div style="float: left; margin-bottom: 0;">
+					<!-- 별점 %에 맞게 계산 -->
+					<%
+						GameDTO gamedb = (GameDTO)request.getAttribute("gamedetail");
+						Double gamerating = (gamedb.getRating() * 10)-4.5;
+						Double rating = gamedb.getRating();
+					%>
+					<div class="star-ratings">
+						<span class="star-ratings-fill space-x-2 text-lg" style="width: <%= gamerating %>%">
+							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+						</span>
+						<span class="star-ratings-base space-x-2 text-lg">
+							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+						</span>
+					</div>
 				</div>
+				<div style="float: left; color: #FFFFFF; margin-left: 10px; margin-bottom: 0; margin-top: 10px;">${ gamedetail.rating }</div>
 				
-				<div id="reviewcount" style="float: right;"></div>
+				<div id="reviewcount" style="float: right; margin-bottom: 0;"></div>
+				<input id="reviews" type="text" hidden>
 			</div>
 			
 			<div class="right b-ground" id="explain">
@@ -279,7 +299,13 @@ $(document).ready(function(){
 				<h4>리뷰 쓰기</h4>
 				<form id="reviewForm">
 					<input id="memberid" type="text" value="<%= String.valueOf(session.getAttribute("sessionid")) %>" hidden>
-					별점:<input id="stars" type="text">
+					별점:
+					<span class="star">
+						★★★★★
+						<span>★★★★★</span>
+						<input id="stars" type="range" oninput="drawStar(this.value)" step="1" min="0" max="10">
+					</span>
+					<span id="stardemo"></span>
 					<input id="imagefile" type="file">
 					<%Date now = new Date(); SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); %>
 					<input id="createAt" type="text" value="<%=formatter.format(now) %>" hidden>
@@ -297,7 +323,14 @@ $(document).ready(function(){
 	</main>
 	<div class="space" style="height:500"></div>
 	<%@ include file="footer.jsp" %>
+	<%@ include file="chatbottest.jsp" %>
 
+<script>
+	const drawStar = (val) => {
+		document.querySelector(".star span").style.width = `${val * 10}%`;
+		document.getElementById("stardemo").innerHTML = val; 
+	}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
