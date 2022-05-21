@@ -109,29 +109,30 @@
 		또한, 각 플랫폼별로 출시되는 게임들은 특성에 차이가 있다. <br> 
 		이는, 플랫폼 자체의 특성 및 게임 강국 일본과 미국의 여러 환경에 차이로부터 발생하는 결과들이다. <br><br> 
 
-		아래에서 각 플랫폼별 세부 설명 및 특성에 대해서 다루겠다. <br><br>
-		</div>  
+		아래에서 각 플랫폼별 세부 설명 및 특성에 대해서 다루겠다. <br><br> 
 		<br><br>
 	
 		<form method="POST" action="/explanation1a" > 
 			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />  
 		</form>
-		&nbsp; &nbsp; &nbsp; &nbsp; aa
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 	
 		<form method="POST" action="/explanation1b" > 
 			<input type="submit" name="loadbtnB" value="PS와 PS 게임은?" />   
 		</form>
-		<br>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 	
 		<form method="POST" action="/explanation1c" > 
 			<input type="submit" name="loadbtnC" value="Xbox와 Xbox 게임은?" />   
 		</form>
-		<br>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	
 		<form method="POST" action="/explanation1d" >  
 			<input type="submit" name="loadbtnD" value="NS와 NS 게임은?" /> 
 		</form>
-		<br>
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		
+		<br><br> 
 
 		<!-- 추가 내용 : 각 플랫폼별 세부 설명 및 특성 --> 
 		<!-- 페이지 포함 -->
@@ -151,6 +152,8 @@
 		<c:if test="${flatExpla == 'NS'}"> 
 			<%@ include file="explanationP4.jspf" %>  
 		</c:if>
+		
+		</div> 
 
 	</section>
 	<!-- section 안에 본인 코드 옮겨넣기 -->
