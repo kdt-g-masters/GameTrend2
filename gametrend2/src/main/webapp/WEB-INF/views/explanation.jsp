@@ -110,33 +110,28 @@
 		이는, 플랫폼 자체의 특성 및 게임 강국 일본과 미국의 여러 환경에 차이로부터 발생하는 결과들이다. <br><br> 
 
 		아래에서 각 플랫폼별 세부 설명 및 특성에 대해서 다루겠다. <br><br> 
-		<br><br>
-		
-		
-		<input type="button" id="title" class="btn btn-primary btn-lg" value="PC와 PC 게임은?" style="font-size:1.0em; width: 147px;" readolny />
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; aa
 		<br><br> 
 		
 	
 		<form method="POST" action="/explanation1a" > 
-			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />  
+			<input type="submit" id="title" class="btn btn-primary btn-lg" value="PC와 PC 게임은?" style="font-size:1.0em; width: 147px;" readolny />
 		</form>
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+		&nbsp; &nbsp; &nbsp; 
 	
 		<form method="POST" action="/explanation1b" > 
-			<input type="submit" name="loadbtnB" value="PS와 PS 게임은?" />   
+			<input type="submit" id="title" class="btn btn-primary btn-lg" value="PS와 PS 게임은?" style="font-size:1.0em; width: 147px;" readolny />
 		</form>
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+		&nbsp; &nbsp; &nbsp; 
 	
 		<form method="POST" action="/explanation1c" > 
-			<input type="submit" name="loadbtnC" value="Xbox와 Xbox 게임은?" />   
+			<input type="submit" id="title" class="btn btn-primary btn-lg" value="Xbox와 Xbox 게임은?" style="font-size:1.0em; width: 147px;" readolny />
 		</form>
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		&nbsp; &nbsp; &nbsp; 
 	
 		<form method="POST" action="/explanation1d" >  
-			<input type="submit" name="loadbtnD" value="NS와 NS 게임은?" /> 
+			<input type="submit" id="title" class="btn btn-primary btn-lg" value="NS와 NS 게임은?" style="font-size:1.0em; width: 147px;" readolny /> 
 		</form>
-		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+		&nbsp; &nbsp; &nbsp; 
 		
 		<br><br> 
 
