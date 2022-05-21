@@ -116,22 +116,22 @@
 		<form method="POST" action="/explanation1a" > 
 			<input type="submit" id="title" class="btn btn-primary btn-lg" value="PC와 PC 게임은?" style="font-size:1.0em; width: 147px;" readolny />
 		</form>
-		&nbsp; &nbsp; &nbsp; 
+		&nbsp; &nbsp;
 	
 		<form method="POST" action="/explanation1b" > 
 			<input type="submit" id="title" class="btn btn-primary btn-lg" value="PS와 PS 게임은?" style="font-size:1.0em; width: 147px;" readolny />
 		</form>
-		&nbsp; &nbsp; &nbsp; 
+		&nbsp; &nbsp;
 	
 		<form method="POST" action="/explanation1c" > 
-			<input type="submit" id="title" class="btn btn-primary btn-lg" value="Xbox와 Xbox 게임은?" style="font-size:1.0em; width: 147px;" readolny />
+			<input type="submit" id="title" class="btn btn-primary btn-lg" value="Xbox와 Xbox 게임은?" style="font-size:1.0em; width: 177px;" readolny />
 		</form>
-		&nbsp; &nbsp; &nbsp; 
+		&nbsp; &nbsp;
 	
 		<form method="POST" action="/explanation1d" >  
 			<input type="submit" id="title" class="btn btn-primary btn-lg" value="NS와 NS 게임은?" style="font-size:1.0em; width: 147px;" readolny /> 
 		</form>
-		&nbsp; &nbsp; &nbsp; 
+		&nbsp; &nbsp;
 		
 		<br><br> 
 
