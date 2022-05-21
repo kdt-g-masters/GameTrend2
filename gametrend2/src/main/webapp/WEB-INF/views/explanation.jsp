@@ -131,12 +131,18 @@
 		<form method="POST" action="/explanation1d" >  
 			<input type="submit" id="title" class="btn btn-primary btn-lg" value="NS와 NS 게임은?" style="font-size:1.0em; width: 147px;" readolny /> 
 		</form>
-		&nbsp; &nbsp;
+		&nbsp; &nbsp; 
 		
-		<br><br> 
+		</div> 
+		
+		
+		<div class="space" style="height:130px"></div>
+
 
 		<!-- 추가 내용 : 각 플랫폼별 세부 설명 및 특성 --> 
 		<!-- 페이지 포함 -->
+		
+		<div class="texts"> 
 
 		<c:if test="${flatExpla == 'PC'}"> 
 			<%@ include file="explanationP1.jspf" %> 
@@ -155,6 +161,7 @@
 		</c:if>
 		
 		</div> 
+	
 
 	</section>
 	<!-- section 안에 본인 코드 옮겨넣기 -->
