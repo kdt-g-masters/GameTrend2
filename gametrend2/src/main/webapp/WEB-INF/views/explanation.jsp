@@ -111,6 +111,12 @@
 
 		아래에서 각 플랫폼별 세부 설명 및 특성에 대해서 다루겠다. <br><br> 
 		<br><br>
+		
+		
+		<input type="button" id="title" class="btn btn-primary btn-lg" value="PC와 PC 게임은?" style="font-size:1.0em; width: 147px;" readolny />
+		&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; aa
+		<br><br> 
+		
 	
 		<form method="POST" action="/explanation1a" > 
 			<input type="submit" name="loadbtnA" value="PC와 PC 게임은?" />  
