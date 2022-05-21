@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    ㅇ PC 소개 이미지 : <br> 
+    <b><span class="underline">PC 란? </span></b> <br><br> 
     <img src="images/jm/PC_intro.jpg" width="400" height="250" alt="no search image"> 
     <br> 
     <br>
-
-	ㅇ PC 소개 설명 : <br> 
 	현재의 PC 는, 크게 OS 에 따라 구분할 수 있다. <br> 
 	MS 사의 Windows 와 Apple 사의 Mac OS 와 프리소스 기반의 Linux 가 있으며, <br> 
 	각 OS 들에서 게임을 플레이 할 수 있지만, <br> 
@@ -15,13 +13,13 @@
 	2022년 기준으로는 대부분 Windows 10 64bit 를 기준으로 출시되고 있다. <br> 
 	<br>
 	<br>  
+	<br> 
 	
-	ㅇ PC 게임 이미지 : <br>  
+	<b><span class="underline">PC 게임 이란? </span></b> <br><br>  
 	<img src="images/jm/PC_games.jpg" width="400" height="250" alt="no search image">
 	<br>
 	<br> 
-	
-	ㅇ PC 게임 설명 : <br> 
+	<br> 
 	PC 게임들은, 아래와 같은 특성을 가진다. <br> 
 	1) 멀티 플랫폼 게임들의 주요 출시 대상 <br> 
 	2) 온라인 요소 강화 <br> 

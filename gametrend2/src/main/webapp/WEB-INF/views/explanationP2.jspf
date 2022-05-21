@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    ㅇ PS 소개 이미지 : <br> 
+    <b><span class="underline">PS 란? </span></b> <br><br> 
     <img src="images/jm/PS_intro.png" width="400" height="250" alt="no search image"> 
     <br> 
     <br>
-
-	ㅇ PS 소개 설명 : <br> 
 	PS 란, 일본 기업 Sony 의 게이밍 브랜드 명칭인 PlayStation 의 약자로서, <br> 
 	해당 네이밍의 게임 기기 및 전반적인 게임 서비스를 총칭한다. <br> 
 	PS 는 1990 년대 초에 PS1 이 처음 출시되어, 대략 7년 주기로 새로운 PS 가 출시되어 왔다. <br> 
@@ -15,15 +13,16 @@
 	본 사이트에서는, 아직까지 현역인 8세대 콘솔 PS4 의 게임들에 대해 자세히 다룬다. <br> 
 	<br>
 	<br>  
+	<br> 
 	
-	ㅇ PS 게임 이미지 : <br>  
+	<b><span class="underline">PS 게임 이란? </span></b> <br><br>  
 	<img src="images/jm/PS_games.jpg" width="400" height="250" alt="no search image">
 	<br>
 	<br> 
-	
-	ㅇ PS 게임 설명 : <br> 
+	<br> 
 	PS 게임들은, 전반적으로 남성 성인 연령층을 타켓으로 하며, <br> 
-	대규모 자본 투입 제작 게임이 대표적이고, 이는 소위 블럭버스터 콘솔 게임 이라고 칭할 수 있다. <br> 
+	대규모 자본 투입 제작 게임이 대표적이고, 이는 소위 블럭버스터 콘솔 게임 이라고 칭한다. <br> 
+	경쟁사인 Nintendo 의 스튜디오 들에 비해 신규 IP 가 자주 나오는 편이며, <br> 
 	주로 Sony 산하의 게임 개발 스튜디오들이, 이러한 게임들을 Sony 로 부터 지원받아 제작한다. <br> 
 	또한, 일본 게임사들의 영향으로, PS 게임들은 주로 RPG 계열의 게임들이 강세를 보인다. <br>
 	<br>

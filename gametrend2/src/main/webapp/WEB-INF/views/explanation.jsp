@@ -136,7 +136,7 @@
 		</div> 
 		
 		
-		<div class="space" style="height:130px"></div>
+		<div class="space" style="height:100px"></div>
 
 
 		<!-- 추가 내용 : 각 플랫폼별 세부 설명 및 특성 --> 
@@ -166,7 +166,7 @@
 	</section>
 	<!-- section 안에 본인 코드 옮겨넣기 -->
 	
-	<div class="space" style="height:200px"></div> 
+	<div class="space" style="height:80px"></div> 
 
 	<!-- footer -->
 	<%@ include file="footer.jsp" %>
