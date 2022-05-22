@@ -20,7 +20,9 @@
 	- 2017년 - 
 	<br><br> 
 	
-	2015년 PC 1위 출력 : ${DataPC2015[0].name} 
+	(2015년 PC) 
+	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
+	${DataPC2015[0].name} 
 	<br>
 	<br> 
 	<br> 
