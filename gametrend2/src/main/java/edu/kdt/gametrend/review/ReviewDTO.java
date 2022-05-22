@@ -10,6 +10,7 @@ public class ReviewDTO {
 	Double stars;
 	String image;
 	int approve;
+	String disapprRsn;
 	
 	public int getNo() {
 		return no;
@@ -58,6 +59,12 @@ public class ReviewDTO {
 	}
 	public void setApprove(int approve) {
 		this.approve = approve;
+	}
+	public String getDisapprRsn() {
+		return disapprRsn;
+	}
+	public void setDisapprRsn(String disapprRsn) {
+		this.disapprRsn = disapprRsn;
 	}
 	
 }

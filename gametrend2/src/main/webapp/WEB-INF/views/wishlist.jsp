@@ -57,6 +57,7 @@
 			}); // on end
 		}); // ready end
 	</script>
+	<link href="/css/index.css" rel="stylesheet">
 	<link href="/css/wishlist.css" rel="stylesheet">
 </head>
 <body>
