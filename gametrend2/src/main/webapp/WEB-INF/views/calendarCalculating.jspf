@@ -12,13 +12,13 @@
 	
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	<span class="year">- 2015년 -</span> 
+	<b><span class="year" style="font-size:1.3em;">2015년</span></b>
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	
-	<span class="year">- 2016년 -</span> 
+	<b><span class="year" style="font-size:1.3em;">2016년</span></b> 
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	<span class="year">- 2017년 -</span> 
+	<b><span class="year" style="font-size:1.3em;">2017년</span></b>
 	
 	<br><br><br> 
 	
@@ -26,12 +26,12 @@
 	
 	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
 	${DataPC2015[0].name} 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
 	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
 	${DataPC2016[0].name} 
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;
 	
 	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
 	${DataPC2017[0].name} 
@@ -71,13 +71,15 @@
 	
 	<br><br> 
 	
+	&nbsp;&nbsp;&nbsp;
+	
 	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
 	*해당 년도에 NS 플랫폼 미출시  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
 	*해당 년도에 NS 플랫폼 미출시  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
 	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
 	${DataNS2017[0].name}  
