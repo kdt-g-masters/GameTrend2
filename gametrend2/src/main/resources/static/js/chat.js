@@ -147,46 +147,7 @@
 			});// ajax end
 			$("#request").val(""); // 질문창 리셋
 		}); // .ch-input input:button end
-		var dragFlag = false;
-		var x, y, pre_x, pre_y;
 
-		$(function () {
-			/* $('.xscroll').scrollLeft(screenX + 500).delay(1000); */
-			$('.xscroll').mousedown(
-				function (e) {
-					dragFlag = true;
-					var obj = $(this);
-					x = obj.scrollLeft();
-					y = obj.scrollTop();
-					pre_x = e.screenX;
-					pre_y = e.screenY;					
-					$(this).css("cursor", "pointer");
-					
-				}
-			);
-	
-			$('.xscroll').mousemove(
-				function (e) {
-					if (dragFlag) {
-						e.preventDefault();
-						var obj = $(this);
-						obj.scrollLeft(x - e.screenX + pre_x);
-						obj.scrollTop(y - e.screenY + pre_y);
-						return false;
-					}
-				});
-			$('.xscroll').mouseup(
-				function () {
-					dragFlag = false;
-					$(this).css("cursor", "default");
-					
-				});
-		 	$('body').mouseup(
-				function () {
-					dragFlag = false;					
-					$(this).css("cursor", "default");
-				}); 
-		});
 	}); //ready onclick
 		
 	function parser(serverdata){ // 값을 보냈을 때 화면에서 바뀌는 부분
@@ -256,8 +217,9 @@
 					$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
 					var textanswer = "<div class='recommend-wrap xscroll'>";
 					for(var i = 0; i < gamelist.length; i++){
-						textanswer += "<div class='topgame-wrap'><div class='card topgame' style='width: 20rem;'><img class='card-img-top' src='/images/thumbnail/" 
-						+ gamelist[i].thumbnail+"' alt='"+gamelist[i].name+"'><div class='card-body'><h5 class='card-title topgame-name'>"+gamelist[i].name
+						textanswer += "<div class='topgame-wrap'><div class='card topgame' style='width: 20rem;'>"
+						+"<img class='card-img-top' src='/images/thumbnail/" + gamelist[i].thumbnail+"' alt='"+gamelist[i].name
+						+"'><div class='card-body'><h5 class='card-title topgame-name'>"+gamelist[i].name
 						+"</h5><a href='/gamedetail?no="+gamelist[i].no+"' class='btn btn-primary'>자세히 보기</a></div></div></div>"; 
 					}
 					$("#record").append(textanswer + "</div>");
