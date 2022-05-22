@@ -9,44 +9,84 @@
 	<br>
 
 	<div class="texts2"> 
-
-	<%= "--- 연도별 베스트 출력 ---" %>
-	<br><br>  
-
 	
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	- 2015년 - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-	- 2016년 - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	- 2017년 - 
-	<br><br> 
 	
-	(2015년 PC) 
+	<span class="year">- 2015년 -</span> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+	
+	<span class="year">- 2016년 -</span> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<span class="year">- 2017년 -</span> 
+	
+	<br><br><br> 
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
 	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
 	${DataPC2015[0].name} 
-	<br>
-	<br> 
-	<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
+	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
+	${DataPC2016[0].name} 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	<%= "- PC 2016 베스트 1 출력" %> 
+	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
+	${DataPC2017[0].name} 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<br><br>
+	
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<img src="images/jm/PS_logo.png" width="35" height="35" alt="no search image"> 
+	${DataPS2015[0].name}  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	<img src="images/jm/PS_logo.png" width="35" height="35" alt="no search image"> 
+	${DataPS2016[0].name}  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	<img src="images/jm/PS_logo.png" width="35" height="35" alt="no search image"> 
+	${DataPS2017[0].name}  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
 	<br><br> 
 	
-	2016년 PC 1위 출력 : ${DataPC2016[0].name} 
-	<br>
-	<br> 
-	<br> 
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
+	<img src="images/jm/Xbox_logo.png" width="35" height="35" alt="no search image"> 
+	${DataXbox2015[0].name}  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-	<%= "- PC 2017 베스트 1 출력" %> 
+	<img src="images/jm/Xbox_logo.png" width="35" height="35" alt="no search image"> 
+	${DataXbox2016[0].name}  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+	<img src="images/jm/Xbox_logo.png" width="35" height="35" alt="no search image"> 
+	${DataXbox2017[0].name}  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
 	<br><br> 
 	
-	2017년 PC 1위 출력 : ${DataPC2017[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
+	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
+	*해당 년도에 NS 플랫폼 미출시  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-	<%= "- PC 2018 베스트 1 출력" %> 
+	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
+	*해당 년도에 NS 플랫폼 미출시  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
+	${DataNS2017[0].name}  
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	<br><br> 
+	
+	----- 
+	
 	<br><br> 
 	
 	2018년 PC 1위 출력 : ${DataPC2018[0].name} 
@@ -83,15 +123,6 @@
 	
 	----- 
 	<br><br> 
-	
-
-	<%= "- PS 2015 베스트 1 출력" %> 
-	<br><br> 
-	
-	2015년 PS 1위 출력 : ${DataPS2015[0].name} 
-	<br>
-	<br> 
-	<br> 
 	
 
 	<%= "- PS 2016 베스트 1 출력" %> 
