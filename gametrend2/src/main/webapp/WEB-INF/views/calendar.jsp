@@ -37,7 +37,7 @@
 	}
 	.texts2 { 
 		width: 900px;
-		margin-left: 20vw;
+		margin-left: 23vw;
 		font-size: 1.1em;
 	}
 	.underline{
