@@ -14,7 +14,7 @@
 	<script>
 		$(document).ready(function(){
 	
-		}
+		});
 	</script>
 <style>
 	@font-face {
@@ -36,8 +36,6 @@
 	<%@ include file="navbar.jsp" %>
 	<main>
 	  <h2 class="pt-5 pb-5" style="display: inline-block">나의 리뷰</h2>
-	  <!-- 	  <h3 class="pt-5 pb-5" style="display: inline-block">승인을 기다리는 리뷰</h3>
-	  <h3 class="pt-5 pb-5" style="display: inline-block">비승인된 리뷰</h3> -->
 	  
 	  <div class="row mb-2">
 	    <h3 class="pt-5 pb-5" style="display: inline-block">승인된 리뷰</h3>
@@ -107,9 +105,9 @@
 				  </svg>
 				  ${ dto.reviewDTO.stars }	              
 	            </p>
+	            <p class="card-text mb-auto text-danger">${ dto.reviewDTO.disapprRsn }</p>
 	          </div>
-	          <div class="col-auto d-none d-lg-block">
-	            <!-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
+	          <div class="col-auto d-none d-lg-block">	          
 	            <img class="bd-placeholder-img" width="200" height="200" src="/images/thumbnail/${ dto.gameDTO.thumbnail }" />
 	          </div>
 	        </div>

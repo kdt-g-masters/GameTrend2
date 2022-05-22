@@ -1,5 +1,8 @@
 package edu.kdt.gametrend.member;
 
+import java.io.File;
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -41,6 +45,7 @@ public class MemberController {
 		
 		session.setAttribute("sessionid", loginUserDTO.getId());
 		session.setAttribute("memberInfo", loginUserDTO.getId());
+		session.setAttribute("memberInfoDTO", loginUserDTO);
 		
 			return "1";	
 		}
@@ -142,4 +147,49 @@ public class MemberController {
 		return mv;
 	}
 	*/
+	
+	// 내 정보 수정 페이지
+	@RequestMapping(value="/editMemberInfoForm", method=RequestMethod.GET)
+	public String editMemberInfoForm() {
+		return "editMemberInfo";
+	}
+	
+	// 내 정보 수정 완료
+	@RequestMapping(value="/editMemberInfo", method=RequestMethod.POST)
+	public String editMemberInfo(MemberDTO dto, MultipartFile multipartFile, HttpServletRequest request) throws IOException {
+		
+		// 현재 로그인 사용자
+		HttpSession session = request.getSession();
+		MemberDTO loginDTO = (MemberDTO)session.getAttribute("memberInfoDTO");
+		
+		// 파일 저장 경로
+		String resourceSrc = request.getServletContext().getRealPath("");
+		// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
+		String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\profile";
+		
+		if (!multipartFile.isEmpty()) {
+			// 파일 이름
+			String originName = multipartFile.getOriginalFilename();			
+			String ext = originName.substring(originName.indexOf("."));
+			String fileName = loginDTO.getId() + ext;
+			
+			// 파일 저장
+			File serverfile = new File(savePath, fileName);
+			multipartFile.transferTo(serverfile);
+			
+			// dto에 파일 정보 설정
+			dto.setImage(fileName);			
+		}
+		else {			
+			dto.setImage(loginDTO.getImage());
+		}
+		
+		int row = service.updateMember(dto);		
+		
+		// 수정된 회원 정보 세션에 저장
+		if (row == 1) {			
+			session.setAttribute("memberInfoDTO", dto);
+		}
+		return "redirect:/editMemberInfoForm";
+	}
 }

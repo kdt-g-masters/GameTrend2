@@ -18,5 +18,8 @@ public interface MemberService {
 
 	//아이디 메일로 찾기
 	public MemberDTO sendid_(MemberDTO dto);
+	
+	// 회원 정보 수정
+	public int updateMember(MemberDTO dto);
 
 }

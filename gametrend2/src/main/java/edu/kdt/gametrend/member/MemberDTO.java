@@ -8,6 +8,7 @@ public class MemberDTO {
 	String birthdate;
 	int gender;
 	String email;
+	String image;
 
 	public String getId() {
 		return id;
@@ -44,6 +45,12 @@ public class MemberDTO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}	
 	
 	
