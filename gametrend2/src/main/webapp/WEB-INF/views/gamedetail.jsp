@@ -41,6 +41,9 @@ $(document).ready(function(){
 		}//if end
 	});//on end
 	
+	//리뷰수 변수
+	var reviewsu = "";
+	
 	//게임 상세 페이지 리뷰수
 	$.ajax({
 		url: '<%=request.getContextPath() %>/countreviewgameno',
@@ -48,7 +51,8 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function(countreview){
 			$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
-			$("#reviews").attr("value", countreview);
+			reviewsu = countreview;
+			alert(reviewsu);
 		}
 	});//ajax end
 	
@@ -178,10 +182,10 @@ $(document).ready(function(){
 	//리뷰수 게임테이블 반영
 	$.ajax({
 		url: '<%=request.getContextPath() %>/gamereviewcount',
-		data: {'reviews':Number($("#reviews").val()), 'no':${param.no}},
+		data: {'reviews':Number(reviewsu), 'no':${param.no}},
 		dataType: 'json',
 		success: function (a) {
-			alert(Number($("#reviews").val()));
+			alert(a);
 		}
 	});//ajax end
 	
@@ -197,11 +201,11 @@ $(document).ready(function(){
 		data: {'genre':'<%= genre.getGenre() %>'},
 		dataType: 'json',
 		success: function (list) {
-			var recommend = "<div class='card-group'>";
+			var recommend = "<div>";
 			for (var i = 0; i < list.length; i++){
 				//지금 페이지의 게임 추천에서 제외
 				if(list[i].no != ${param.no}){					
-					recommend += "<div class='card'><a href='/gamedetail?no=" + list[i].no + "'>"
+					recommend += "<div class='card' style='width: 180px'><a href='/gamedetail?no=" + list[i].no + "'>"
 						+ "<img src='/images/thumbnail/" + list[i].thumbnail + "' class='card-img-top' style='height: 160px'>"
 						+ "<div class='card-body'>"
 						+ "<h5 class='card-title'>" + list[i].name + "</h5>"
@@ -249,7 +253,7 @@ $(document).ready(function(){
 			</div>
 			
 			<%-- 별점 --%>
-			<div class="right b-ground" id="ratings" style="margin-bottom: 10px;">
+			<div class="right" id="ratings">
 				<div style="float: left; margin-bottom: 0;">
 					<!-- 별점 %에 맞게 계산 -->
 					<%
@@ -258,21 +262,20 @@ $(document).ready(function(){
 						Double rating = gamedb.getRating();
 					%>
 					<div class="star-ratings">
-						<span class="star-ratings-fill space-x-2 text-lg" style="width: <%= gamerating %>%">
+						<div class="star-ratings-fill space-x-2 text-lg" style="width: <%= gamerating %>%">
 							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-						</span>
-						<span class="star-ratings-base space-x-2 text-lg">
+						</div>
+						<div class="star-ratings-base space-x-2 text-lg">
 							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-						</span>
+						</div>
 					</div>
 				</div>
-				<div style="float: left; color: #FFFFFF; margin-left: 10px; margin-bottom: 0; margin-top: 10px;">${ gamedetail.rating }</div>
+				<div style="float: left; color: gray; margin-left: 10px; margin-bottom: 0; margin-top: 5px; font-size: 20px;">${ gamedetail.rating }/10</div>
 				
 				<div id="reviewcount" style="float: right; margin-bottom: 0;"></div>
-				<input id="reviews" type="text" hidden>
 			</div>
 			
-			<div class="right b-ground" id="explain">
+			<div class="right" id="explain">
 				<h2>게임 설명</h2>
 				<p>${ gamedetail.explanation }</p>
 			</div>
@@ -327,7 +330,7 @@ $(document).ready(function(){
 
 <script>
 	const drawStar = (val) => {
-		document.querySelector(".star span").style.width = `${val * 10}%`;
+		document.querySelector(".star span").style.width = val;
 		document.getElementById("stardemo").innerHTML = val; 
 	}
 </script>

@@ -27,10 +27,10 @@ main .hidden {
 	overflow: hidden;
 }
 main #tema {
-	height: 470px;
+	height: 420px;
 }
 main #tema1 {
-	height: 450px;
+	height: 410px;
 }
 main #img1 {
 	width: 180px;
@@ -83,6 +83,8 @@ main .right {
 }
 main #ratings {
 	height: 80px;
+	margin-bottom: 10px;
+	border-bottom: solid 2px silver;
 }
 main #explain {
 	height: 338px;
