@@ -32,18 +32,18 @@
 			width: 60%;
 			margin: 200px auto;
 		}
-.box {
-    width: 150px;
-    height: 150px; 
-    border-radius: 70%;
-    overflow: hidden;
-    background: #FFFFFF;
-}
-.profile {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+		.box {
+		    width: 150px;
+		    height: 150px; 
+		    border-radius: 70%;
+		    overflow: hidden;
+		    background: #FFFFFF;
+		}
+		.profile {
+		    width: 100%;
+		    height: 100%;
+		    object-fit: cover;
+		}
 	</style>
 </head>
 <body>
@@ -141,7 +141,7 @@
 			        <div class="col-12">                        
 					  <div class="docs-datepicker">
 				        <div class="input-group">
-				          <input type="text" class="form-control docs-date" name="birthDate" aria-label="birthDate" aria-describedby="btnCal" value="${ memberInfoDTO.birthdate }" autocomplete="off">
+				          <input type="text" class="form-control docs-date" name="birthdate" aria-label="birthDate" aria-describedby="btnCal" value="${ memberInfoDTO.birthdate }" autocomplete="off">
 				          <div class="input-group-append" >
 				            <button id="btnCal" name="birthDate" type="button" class="btn btn-outline-secondary docs-datepicker-trigger" disabled>
 				              <i class="fa fa-calendar" aria-hidden="true"></i>
