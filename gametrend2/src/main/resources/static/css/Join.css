@@ -6,7 +6,7 @@
 
 #joinBox {
 	width: 80vw;
-	height: 95vh;
+	height: 100vh;
 	margin: 15vh auto;
 	border-radius: 2em;
 	background-color: white;
@@ -15,7 +15,7 @@
 
 #leftBox {
 	width: 40vw;
-	height: 95vh;
+	height: 100vh;
 	border-radius: 2em 0 0 2em;
 	display: inline-block;
 	margin: 0;
@@ -73,7 +73,7 @@ input[type=text], input[type=password] {
 }
 
 input[type=text]:hover, input[type=password]:hover, input[type=text]:focus, input[type=password]:focus {
-	border:0.01em solid #5C27FE;
+	border:0.01em solid #7244FE;
 }
 
 .row {
@@ -113,7 +113,7 @@ select {
 }
 
 select:hover{
-	border:0.01em solid #5C27FE;
+	border:0.01em solid #7244FE;
 }
 
 .gender label {
@@ -126,7 +126,7 @@ select:hover{
 }
 
 #btnSubmit {
-	background: #5C27FE;
+	background: #7244FE;
 	border: 0;
 	font-size: 1.1em;
 }
@@ -169,3 +169,13 @@ select:hover{
 .incorrect{
     color : red;
 }
+
+#b {
+	width: 300px;
+	height: 100px;   
+ }
+ 
+ #mail_check_input_box_warn{
+  display: inline-block;
+ }
+ 
