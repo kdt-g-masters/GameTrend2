@@ -22,7 +22,7 @@ public class ExplanationController {
 	
 	
 	
-	// 소개 페이지 호출 기본 (PC) 
+	// 소개 페이지 호출 및 로딩 (PC) 
 	@RequestMapping(value="/explanation1a", method=RequestMethod.POST)
 		public ModelAndView explanationAction2(ExplanationDTO dto) { 
 		
@@ -39,7 +39,7 @@ public class ExplanationController {
 		
 	}
 
-	// 소개 페이지 호출 (PS) 
+	// 소개 페이지 호출 및 로딩 (PS) 
 	@RequestMapping(value="/explanation1b", method=RequestMethod.POST)
 		public ModelAndView explanationAction3(ExplanationDTO dto) { 
 			
@@ -53,7 +53,7 @@ public class ExplanationController {
 		
 	}
 
-	// 소개 페이지 호출 (Xbox) 
+	// 소개 페이지 호출 및 로딩 (Xbox) 
 	@RequestMapping(value="/explanation1c", method=RequestMethod.POST)
 		public ModelAndView explanationAction4(ExplanationDTO dto) { 
 		
@@ -67,7 +67,7 @@ public class ExplanationController {
 		
 	}
 
-	// 소개 페이지 호출 (NS) 
+	// 소개 페이지 호출 및 로딩 (NS) 
 	@RequestMapping(value="/explanation1d", method=RequestMethod.POST)
 		public ModelAndView explanationAction5(ExplanationDTO dto) { 
 	

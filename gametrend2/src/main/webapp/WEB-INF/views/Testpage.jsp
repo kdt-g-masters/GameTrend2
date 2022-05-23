@@ -33,7 +33,7 @@ function autoscroll(){
 				//alert(rect.top + ":" + rect.height);
 				scrollTo(0, rect.top + pageYOffset);//현재선택요소스크롤
 				//scrollTo(0,0);//페이지 상단 이동
-				scrollTo(0, document.documentElement.scrollHeight);//페이지하단 이동
+				//scrollTo(0, document.documentElement.scrollHeight);//페이지하단 이동
 				
 			}
 		}
@@ -121,7 +121,7 @@ function autoscroll(){
 	<br><br> 
 	
 	<div class="box" id="sec1">#sec1</div> 
-	<br><br> 
+	<br><br>  
 	
 
 </body>
