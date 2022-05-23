@@ -38,7 +38,7 @@ public class MemberController {
 		
 		//로그인 상태로 설정
 		session.setAttribute("isLogOn", true);
-		
+		//로그인 정보 세션에 저장
 		session.setAttribute("sessionid", loginUserDTO.getId());
 		session.setAttribute("memberInfo", loginUserDTO.getId());
 		
@@ -78,7 +78,7 @@ public class MemberController {
 
 	// 회원가입 페이지
 	@RequestMapping(value="/join", method=RequestMethod.GET)
-	public void joininsert() {	
+	public void joinForm() {	
 	}
 		
 	// 회원가입
@@ -105,41 +105,5 @@ public class MemberController {
 			return "{\"result\": \"이미 존재하는 아이디 입니다. 다시 입력해주세요.\", \"state\": \"notAvailable\"}";
 		}
 	}
-	
-	// 회원가입 결과 페이지
-	@RequestMapping(value="/joinResult", method=RequestMethod.GET)
-	public void joinResult() {	
-	}
-
-
-	//aa
-	/*@RequestMapping("/index")
-	public String index(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		String temp = (String) session.getAttribute("sessionid");
-		if (temp != null) {
-			System.out.println("세션에 저장된 아이디: " + temp);
-		}
-		return "index";
-	}
-	
-	@RequestMapping("/join")
-	public String joinForm() {
-		return "join";
-	} 여기까지*/
-	
-	
-	
-	
-	/*
-	@RequestMapping("/join/insertuser")
-	public ModelAndView joinInsertUser(MemberDTO dto) {
-		int row = service.joinInsertUser(dto);
 		
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("result", row);
-		mv.setViewName("joinResult");
-		return mv;
-	}
-	*/
 }

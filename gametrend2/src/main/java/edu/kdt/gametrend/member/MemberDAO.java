@@ -19,4 +19,5 @@ public interface MemberDAO {
 	public MemberDTO sendpw_(MemberDTO dto);
 	//메일로 아이디 찾기
 	public MemberDTO sendid_(MemberDTO dto);
+
 }

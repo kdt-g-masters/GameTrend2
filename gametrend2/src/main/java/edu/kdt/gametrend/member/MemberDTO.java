@@ -5,10 +5,18 @@ public class MemberDTO {
 	String id;
 	String password;
 	String name;
-	String birthdate;
+	String birthDate;
 	int gender;
 	String email;
-
+	String image;
+	
+	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public String getId() {
 		return id;
 	}
@@ -27,11 +35,11 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBirthdate() {
-		return birthdate;
+	public String getBirthDate() {
+		return birthDate;
 	}
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
 	}
 	public int getGender() {
 		return gender;
