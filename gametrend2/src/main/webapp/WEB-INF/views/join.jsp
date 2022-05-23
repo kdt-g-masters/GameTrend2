@@ -194,29 +194,26 @@
 		            	<div class="mail_check_wrap">
                     		<div class="mail_check_input_box" id="mail_check_input_box_false">
                         	<input type="text" id = "btnConfirm" name="certification" class="mail_check_input" placeholder="인증번호" disabled="disabled" required >
-                    		</div> 
                     		<div class="clearfix"></div>
+                    		</div> 
                     		<span id="mail_check_input_box_warn"></span>
                 		</div>
-		             
-		            
+	              </div>                	      
+      	        </div>
 		             
 		           <!--  Button trigger modal -->
 		            <!-- <button type="button" id="btnConfirm" class="btn text-white btn-sm btn-primary col-3 mx-2" data-bs-toggle="modal" data-bs-target="#Checking">확인</button>	 -->                
 	               
 	              
-	              </div>                	      
-      	        </div>
       	        
-		        <div class="row d-flex center mt-5">         
-		            <!-- 취소 -->
-		            <button type="button" id="btnCancel" class="btn btn-outline-primary mx-1">취소</button> 
+		        <div class="row d-flex center mt-5" id = "b">         
 		            <!-- 가입하기 -->
-		            <button type="submit" id="btnSubmit" class="btn btn-primary mx-1">가입하기</button>		     
+		            <button type="submit" id="btnSubmit" class="btn btn-primary mx-1" >가입하기</button>
+		            <!-- 취소하기 -->
+		            <button type="button" id="btnCancel" class="btn btn-outline-primary mx-1">취소</button> 		     		            
 		        </div>      	        	      	    
 	      	  </form>
-	      	            
-	        </div>
+	      	</div>
 	      </div>	      
 	    </div>
 	  </div>
