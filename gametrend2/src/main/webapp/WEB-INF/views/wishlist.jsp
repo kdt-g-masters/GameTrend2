@@ -62,7 +62,7 @@
 </head>
 <body>
 	<%@ include file="navbar.jsp" %>
-	<div class="wishlist mt-5 mb-5">	
+	<div class="wishlist">	
 	  <h2 class="pt-5 pb-5" style="display: inline-block">위시리스트</h2>
 	  <ul class="row row-cols-1 row-cols-md-3 g-4 row list-unstyled" id="change">
 		<c:forEach items="${ wishlist }" var="wishlistgame">

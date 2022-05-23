@@ -17,15 +17,6 @@
 		});
 	</script>
 <style>
-	@font-face {
-	    font-family: 'KoPubDotumMedium';
-	     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/KoPubDotumMedium.woff') format('woff');
-	    font-weight: normal;
-	    font-style: normal;
-	}
-	* {
-		font-family: 'KoPubDotumMedium';		
-	}
 	main {
 		width: 60%;
 		margin: 200px auto;
