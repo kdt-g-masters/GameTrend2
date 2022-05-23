@@ -64,13 +64,10 @@ public class MemberServiceImpl implements MemberService {
 		return dao.sendid_(dto);
 	}
 
-<<<<<<< HEAD
 	// 회원 정보 수정
 	@Override
 	public int updateMember(MemberDTO dto) {
 		return dao.updateMember(dto);
 	}
-	
-=======
->>>>>>> devHH
+
 }

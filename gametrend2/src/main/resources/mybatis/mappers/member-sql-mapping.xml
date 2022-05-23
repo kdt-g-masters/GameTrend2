@@ -36,14 +36,11 @@
 		select * from member where name = #{name} and email = #{email}
 	</select>
 	
-<<<<<<< HEAD
 	<!-- 회원 정보 수정 -->
 	<update id="updateMember" parameterType="memberdto">
 		update member
 		set password=#{password}, name=#{name}, birthdate=#{birthdate}, gender=#{gender}, image=#{image}
 		where id=#{id}
 	</update>	
-	
-=======
->>>>>>> devHH
+
 </mapper>

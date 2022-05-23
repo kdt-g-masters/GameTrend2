@@ -9,18 +9,8 @@ public class MemberDTO {
 	int gender;
 	String email;
 	String image;
-<<<<<<< HEAD
-
-=======
 	
 	
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
->>>>>>> devHH
 	public String getId() {
 		return id;
 	}

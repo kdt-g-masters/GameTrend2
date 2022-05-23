@@ -111,13 +111,6 @@ public class MemberController {
 		}
 	}
 		
-<<<<<<< HEAD
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("result", row);
-		mv.setViewName("joinResult");
-		return mv;
-	}
-	*/
 	
 	// 내 정보 수정 페이지
 	@RequestMapping(value="/editMemberInfoForm", method=RequestMethod.GET)
@@ -163,6 +156,5 @@ public class MemberController {
 		}
 		return "redirect:/editMemberInfoForm";
 	}
-=======
->>>>>>> devHH
+
 }
