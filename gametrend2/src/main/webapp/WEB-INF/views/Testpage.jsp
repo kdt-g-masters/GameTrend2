@@ -15,12 +15,57 @@
 
 	});
 </script>
+<script>
+var select = document.getElementsByClassName("select");
+//alert(select.length);
+for(var i = 0; i < select.length; i++){
+ select[i].addEventListener('click', autoscroll, false);
+ select[i].onclick = function(){this..}
+}//for end
+
+
+function autoscroll(){
+		var text = this.innerHTML;
+		var box = document.getElementsByClassName("box");
+		for(j in box){
+			if(box[j].innerHTML == text){
+				var rect = box[j].getBoundingClientRect();//top left height 
+				//alert(rect.top + ":" + rect.height);
+				scrollTo(0, rect.top + pageYOffset);//현재선택요소스크롤
+				//scrollTo(0,0);//페이지 상단 이동
+				scrollTo(0, document.documentElement.scrollHeight);//페이지하단 이동
+				
+			}
+		}
+	}//onclick function end;
+
+</script>	
+<style> 
+.select {
+	display:inline-block;
+	margin:10px;
+	padding:10px;
+	background-color: purple;	
+	cursor : grab;
+}
+.box{
+	display:inline-block;
+	padding:100px;
+	margin:30px;
+	margin-left:0;
+	background-color: yellow;
+}
+</style>
 <title>테스트 페이지</title>
 </head>
 
 <body>
 
-	설명 페이지로 이동할 거임 <br><br> 
+	<span class="select">#sec1</span> 
+	<br><br> 
+
+	설명 페이지로 이동할 거임 
+	<br><br> 
 	
 	<input type="button" name="movetoexpla" value="설명 페이지로 이동(onclick)" onClick="location.href= 'http://localhost:8081/explanation' " /> 
 	<br>
@@ -73,8 +118,11 @@
 		  </div>
 	</div>
 	
-	<br>
-	<br>
+	<br><br> 
+	
+	<div class="box" id="sec1">#sec1</div> 
+	<br><br> 
+	
 
 </body>
 
