@@ -24,6 +24,9 @@ public interface ReviewService {
 	//리뷰 삭제
 	public int deleteReview(ReviewDTO dto);
 	
+	//리뷰수 게임테이블 반영
+	public int gameReviewCount(GameReviewsDTO dto);
+	
 	/*-------------------- 챗봇 --------------------*/
 	//로그인한 회원의 리뷰리스트 조회
 	public List<ReviewDTO> myReviewList(String member_id);

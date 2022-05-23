@@ -46,6 +46,11 @@
 		delete from review where game_no = #{game_no} and member_id = #{member_id}
 	</delete>
 	
+	<!-- 리뷰수 게임테이블 반영 -->
+	<update id="gameReviewCount" parameterType="gamereviewsdto">
+		update game set reviews=#{reviews} where no=#{no}
+	</update>
+	
 	<!-- 챗봇 - 로그인한 회원의 리뷰리스트 조회 -->
 	<select id="myReviewList" resultType="reviewdto">
 		select * from review where member_id = #{member_id}

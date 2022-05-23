@@ -123,4 +123,18 @@ public class ReviewController {
 		return review;
 	}
 	
+	//리뷰수 게임테이블 반영
+	@RequestMapping(value = "/gamereviewcount", produces = {"application/json;charset=utf-8"})
+	@ResponseBody
+	public int gameReviewCount(int no) {
+		GameReviewsDTO dto = new GameReviewsDTO();
+		dto.setNo(no);
+		
+		//리뷰수 dto에 값 넣기
+		int countreview = service.countReviewgameNo(no);
+		dto.setReviews(countreview);
+		
+		int reviewcount = service.gameReviewCount(dto);
+		return reviewcount;
+	}
 }

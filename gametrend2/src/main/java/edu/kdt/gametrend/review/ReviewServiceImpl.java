@@ -55,6 +55,12 @@ public class ReviewServiceImpl implements ReviewService {
 		return dao.countReviewgameNo(game_no);
 	}
 	
+	//리뷰수 게임 테이블 반영
+	@Override
+	public int gameReviewCount(GameReviewsDTO dto) {
+		return dao.gameReviewCount(dto);
+	}
+	
 	/*-------------------- 챗봇 --------------------*/
 	//로그인한 회원의 리뷰리스트 조회
 	@Override

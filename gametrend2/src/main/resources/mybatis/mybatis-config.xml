@@ -17,5 +17,6 @@
 		<typeAlias type="edu.kdt.gametrend.admin.AdminDTO" alias="admindto"/>
 		<typeAlias type="edu.kdt.gametrend.game.GenreDTO" alias="genredto"/>
 		<typeAlias type="edu.kdt.gametrend.admin.ReviewGameDTO" alias="reviewgamedto"/>
+		<typeAlias type="edu.kdt.gametrend.review.GameReviewsDTO" alias="gamereviewsdto"/>
 	</typeAliases>
 </configuration>

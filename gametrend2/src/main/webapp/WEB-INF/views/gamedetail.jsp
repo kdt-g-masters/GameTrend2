@@ -52,7 +52,6 @@ $(document).ready(function(){
 		success: function(countreview){
 			$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
 			reviewsu = countreview;
-			alert(reviewsu);
 		}
 	});//ajax end
 	
@@ -227,10 +226,9 @@ $(document).ready(function(){
 	//리뷰수 게임테이블 반영
 	$.ajax({
 		url: '<%=request.getContextPath() %>/gamereviewcount',
-		data: {'reviews':Number(reviewsu), 'no':${param.no}},
+		data: {'no':${param.no}},
 		dataType: 'json',
 		success: function (a) {
-			alert(a);
 		}
 	});//ajax end
 	
