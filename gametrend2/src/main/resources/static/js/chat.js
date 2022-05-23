@@ -239,10 +239,12 @@
 					$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
 					var textanswer = "<div class='recommend-wrap xscroll'>";
 					for(var i = 0; i < gamelist.length; i++){
-						textanswer += "<div class='link topgame'><div class='topgame-name'><b>"+ gamelist[i].name 
-						+ "</b></div><div class='topgame-img'><img src='/images/thumbnail/" + gamelist[i].thumbnail
-						+"'/></div><a href='/gamedetail?no="+gamelist[i].no+"'>자세히 보기 ▷</a></div>";
+						textanswer += "<div class='topgame-wrap'><div class='card topgame' style='width: 20rem;'>"
+						+"<img class='card-img-top' src='/images/thumbnail/" + gamelist[i].thumbnail+"' alt='"+gamelist[i].name
+						+"'><div class='card-body'><h5 class='card-title topgame-name'>"+gamelist[i].name
+						+"</h5><a href='/gamedetail?no="+gamelist[i].no+"' class='btn btn-primary'>자세히 보기</a></div></div></div>"; 
 					}
+					textanswer += "<a href='#' id='prev'></a><a href='#' id='next'></a>";
 					$("#record").append(textanswer + "</div>");
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 				}

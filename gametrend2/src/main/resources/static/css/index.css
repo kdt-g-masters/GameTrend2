@@ -112,6 +112,7 @@ a{
     border-color: #7244FE;
 }
 .rank{
+	font-size: 1.1em;
     border-radius: 0.25rem;
     background-color: #7244FE;
 }
@@ -126,6 +127,7 @@ a{
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.25rem;
+    margin-bottom: 0.5vh;
 }
 .hashtag{
     font-size: 0.90em;

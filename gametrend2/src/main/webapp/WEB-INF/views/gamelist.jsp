@@ -17,8 +17,8 @@
 			let moveForm = $("#moveForm");
 			
 			$("section nav a").on('click',function(e){
-				/* $("section nav a").removeClass('active');
-				$(this).addClass('active'); */
+				$("section nav a").removeClass('active');
+				$(this).addClass('active');
 				
 				/* e.preventDefault(); */
 				//form태그 내부 name속성이 platform인 inpupt태그에 클릭한 platform종류의 id값 저장
@@ -35,7 +35,7 @@
 				
 				e.preventDefault();
 				var location = document.querySelector(".main-thumbnail-part").offsetTop;
-				window.scrollTo({top:location, behavior:'smooth'});
+				window.scrollTo({top:'location', behavior:'smooth'});
 				
 				//form태그 내부 pageNum과 관련된 input태그 value속성 값에 클릭한 a태그의 페이지 번호 삽입
 				moveForm.find("input[name='pageNum']").val($(this).attr("href"));
@@ -55,6 +55,11 @@
 		}
 		.main-thumbnail-box a:hover{
 			color: white;
+		}
+		.main-thumbnail-box a:hover .rank{
+			background-color: #fff;
+			color: #7244FE;
+			border-color: transparent;
 		}
 		.title h4{
 			font-size: 1.295em;
@@ -79,9 +84,11 @@
 		section nav a:hover, section nav a:active, section nav a:visited, section nav a:focus{
 			font-weight: bold;
 		}
+		section nav a.active{
+			font-weight: bold;
+		}
 		#paging{
 			margin-top: 5vh;
-		
 		}
 		#paging a{
 			width: 100%;
@@ -95,10 +102,7 @@
 			color: white;
 			font-weight: bold;
 		}
-		/* index.css에 적용할 것 */
-		.active{
-			font-weight: bold;
-		}		
+	
 	</style>
 </head>
 <body>
@@ -153,7 +157,7 @@
 				<ul class="btn-group col-sm-2" role="group" aria-label="First group">
 					<!-- 이전 페이지 버튼 -->
 					<c:if test="${ pageMaker.prev }">
-						<li class="btn btn-outline-primary"><a href="${ pageMaker.startPage-1 }">
+						<li class="btn btn-outline-primary" data-bs-target=".main-thumbnail-part"><a href="${ pageMaker.startPage-1 }">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
 								  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
 								</svg>
@@ -161,13 +165,13 @@
 					</c:if>
 					<!-- 각 번호 페이지 버튼 -->
 					<c:forEach begin="${ pageMaker.startPage }" end="${ pageMaker.endPage }" var="idx">
-						<li class="btn btn-outline-primary ${ pageMaker.cri.pageNum == idx ? 'active': ''}">
+						<li class="btn btn-outline-primary ${ pageMaker.cri.pageNum == idx ? 'active': ''}" data-bs-target=".main-thumbnail-part">
 							<a href="${idx}">${idx}</a>
 						</li>
 					</c:forEach>
 					<!-- 다음 페이지 버튼 -->
 					<c:if test = "${ pageMaker.next }">
-						<li class="btn btn-outline-primary"><a href="${ pageMaker.endPage + 1 }">
+						<li class="btn btn-outline-primary" data-bs-target=".main-thumbnail-part"><a href="${ pageMaker.endPage + 1 }">
 							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
 							  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
 							</svg>

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -23,7 +24,8 @@ public class ExplanationController {
 	
 	
 	// 소개 페이지 호출 및 로딩 (PC) 
-	@RequestMapping(value="/explanation1a", method=RequestMethod.POST)
+	@RequestMapping(value="/explanation1a")
+	@ResponseBody
 		public ModelAndView explanationAction2(ExplanationDTO dto) { 
 		
 		 
@@ -40,7 +42,8 @@ public class ExplanationController {
 	}
 
 	// 소개 페이지 호출 및 로딩 (PS) 
-	@RequestMapping(value="/explanation1b", method=RequestMethod.POST)
+	@RequestMapping(value="/explanation1b")
+	@ResponseBody
 		public ModelAndView explanationAction3(ExplanationDTO dto) { 
 			
 		// 플랫폼 소개 로딩
@@ -54,7 +57,8 @@ public class ExplanationController {
 	}
 
 	// 소개 페이지 호출 및 로딩 (Xbox) 
-	@RequestMapping(value="/explanation1c", method=RequestMethod.POST)
+	@RequestMapping(value="/explanation1c")
+	@ResponseBody
 		public ModelAndView explanationAction4(ExplanationDTO dto) { 
 		
 		// 플랫폼 소개 로딩
@@ -68,7 +72,8 @@ public class ExplanationController {
 	}
 
 	// 소개 페이지 호출 및 로딩 (NS) 
-	@RequestMapping(value="/explanation1d", method=RequestMethod.POST)
+	@RequestMapping(value="/explanation1d")
+	@ResponseBody
 		public ModelAndView explanationAction5(ExplanationDTO dto) { 
 	
 		// 플랫폼 소개 로딩
