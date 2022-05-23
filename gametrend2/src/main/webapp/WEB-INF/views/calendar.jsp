@@ -50,9 +50,7 @@
 	form {
     display: inline;
 	}
-	.year{
-	color: #c165dd;
-	}
+	
 	</style>
 	
 </head>
@@ -63,11 +61,7 @@
 	<%@ include file="navbar.jsp" %>
 	
 	<section style="margin-top:60px;">
-	  <div class="space" style="height:100px"></div>
-	  <div class="col-lg-12 mainTitle d-flex">
-	    <a id="title" class="btn btn-primary btn-lg" href="">연도별 게임 순위</a>
-	  </div>	
-	  <div class="space" style="height:130px"></div>
+	  
 	  <!-- 연도별 베스트 출력 페이지 -->
 	  <%@ include file="calendarCalculating.jspf" %> 
 	</section>

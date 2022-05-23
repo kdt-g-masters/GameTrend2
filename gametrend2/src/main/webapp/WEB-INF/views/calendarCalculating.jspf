@@ -4,317 +4,239 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.LinkedList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script type="text/javascript">
+		$(document).ready(function(){
+		 	var slides = $("ul.slides"),
+			    slide = $("ul.slides li"),
+			    currentIdx = 0,
+			    slideCnt = slide.length,
+			    prevBtn = $(".prev"),
+			    nextBtn = $(".next"),
+			    slideWidth = 400,
+			    slideMargin = 30; 
+			 slides.css("width",(slideWidth + slideMargin)*slideCnt - slideMargin + 'px'); 
+			
+			 function moveSlide(num){
+				 slides.css("left", -num * 430+ 'px'); 
+				 currentIdx = num;
+			}
+			 
+			nextBtn.on('click',() => {
+				if(currentIdx < slideCnt - 3){
+					moveSlide(currentIdx + 1);
+				}else{
+					moveSlide(0);
+				}
+			});
+			prevBtn.on('click',() => {
+				if(currentIdx > 0){
+					moveSlide(currentIdx - 1);
+				}
+				else{
+					moveSlide(slideCnt - 3);
+				}
+			});
+			
+		});
+		
+	</script>
+<style>
+	.year{
+	color: #c165dd;
+	}
+	.include-control{
+		text-align: center;
+	}
+	.controls{
+		display: inline-block;
+		text-align: center;
+		z-index: 99999;
+	}
+	.controls span{
+		color: #c165dd;
+		padding-bottom: 0;	
+	}
+.slide-wrapper{
+	position: relative;
+	text-align: center;
+	width:1260px;
+	height: 500px;
+	margin: 0 auto;
+	overflow: hidden;
+	white-space: nowrap;
+}
+ul.slides, li{
+	padding: 0;
+	list-style: none;
+}
+.slides{
+	position: absolute;
+	left:0;	top:50px;
+	transition: left 0.5s ease-out;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.slides li:not(:last-child){
+	float: left;
+	margin-right: 30px;
+	width: 400px;
+}
+.topgamedata{
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	
+}
+.topgamedata .year{
+	font-size:1.5em;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+.game img{
+	margin-right: 5px;
+}
+ .game{
+ 	text-align: left;
+	margin: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+} 
+.topgamedata hr{
+ 	margin:	0 auto;
+    border: 0.01px solid gray;
+    opacity: 20%;
+}
+ li:hover{
+	background: inherit;
+	color: inherit;
+} 
 
+</style>
+	<div class="space" style="height:100px"></div>
+	  <div class="col-lg-12 mainTitle">
+	  	<div class="include-control">
+	  	<div class="controls">
+			<span class="prev">
+			  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+			  </svg>
+			</span>
+		</div>
+			
+		
+	    <a id="title" class="btn btn-primary btn-lg" href="">연도별 Top 게임</a>
+	    <div class="controls">
+	    	<span class="next">
+				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+				  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+				</svg>
+			</span>
+		</div>
+		</div>
+	  </div>	
 
-	<br>
-
-	<div class="texts2"> 
-	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<b><span class="year" style="font-size:1.3em;">2015년</span></b>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-	
-	<b><span class="year" style="font-size:1.3em;">2016년</span></b> 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<b><span class="year" style="font-size:1.3em;">2017년</span></b>
-	
-	<br><br><br> 
-	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
-	${DataPC2015[0].name} 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
-	${DataPC2016[0].name} 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	&nbsp;&nbsp;
-	
-	<img src="images/jm/PC_logo.png" width="35" height="35" alt="no search image"> 
-	${DataPC2017[0].name} 
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<br><br>
-	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<img src="images/jm/PS_logo.png" width="35" height="35" alt="no search image"> 
-	${DataPS2015[0].name}  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-	<img src="images/jm/PS_logo.png" width="35" height="35" alt="no search image"> 
-	${DataPS2016[0].name}  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-	<img src="images/jm/PS_logo.png" width="35" height="35" alt="no search image"> 
-	${DataPS2017[0].name}  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<br><br> 
-	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<img src="images/jm/Xbox_logo.png" width="35" height="35" alt="no search image"> 
-	${DataXbox2015[0].name}  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-	<img src="images/jm/Xbox_logo.png" width="35" height="35" alt="no search image"> 
-	${DataXbox2016[0].name}  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-	<img src="images/jm/Xbox_logo.png" width="35" height="35" alt="no search image"> 
-	${DataXbox2017[0].name}  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<br><br> 
-	
-	&nbsp;&nbsp;&nbsp;
-	
-	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
-	*해당 년도에 NS 플랫폼 미출시  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
-	*해당 년도에 NS 플랫폼 미출시  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-
-	<img src="images/jm/NS_logo.png" width="35" height="35" alt="no search image"> 
-	${DataNS2017[0].name}  
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	
-	<br><br> 
-	
-	----- 
-	
-	<br><br> 
-	
-	2018년 PC 1위 출력 : ${DataPC2018[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- PC 2019 베스트 1 출력" %> 
-	<br><br> 
-	
-	2019년 PC 1위 출력 : ${DataPC2019[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-	
-	<%= "- PC 2020 베스트 1 출력" %> 
-	<br><br> 
-	
-	2020년 PC 1위 출력 : ${DataPC2020[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- PC 2021 베스트 1 출력" %> 
-	<br><br> 
-	
-	2021년 PC 1위 출력 : ${DataPC2021[0].name} 
-	<br>
-	<br> 
-	
-	
-	----- 
-	<br><br> 
-	
-
-	<%= "- PS 2016 베스트 1 출력" %> 
-	<br><br> 
-	
-	2016년 PS 1위 출력 : ${DataPS2016[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- PS 2017 베스트 1 출력" %> 
-	<br><br> 
-	
-	2017년 PS 1위 출력 : ${DataPS2017[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- PS 2018 베스트 1 출력" %> 
-	<br><br> 
-	
-	2018년 PS 1위 출력 : ${DataPS2018[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- PS 2019 베스트 1 출력" %> 
-	<br><br> 
-	
-	2019년 PS 1위 출력 : ${DataPS2019[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- PS 2020 베스트 1 출력" %> 
-	<br><br> 
-	
-	2020년 PS 1위 출력 : ${DataPS2020[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- PS 2021 베스트 1 출력" %> 
-	<br><br> 
-	
-	2021년 PS 1위 출력 : ${DataPS2021[0].name} 
-	<br>
-	<br> 
-	
-	
-	----- 
-	<br><br> 
-	
-
-	<%= "- Xbox 2015 베스트 1 출력" %> 
-	<br><br> 
-	
-	2015년 Xbox 1위 출력 : ${DataXbox2015[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- Xbox 2016 베스트 1 출력" %> 
-	<br><br> 
-	
-	2016년 Xbox 1위 출력 : ${DataXbox2016[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- Xbox 2017 베스트 1 출력" %> 
-	<br><br> 
-	
-	2017년 Xbox 1위 출력 : ${DataXbox2017[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- Xbox 2018 베스트 1 출력" %> 
-	<br><br> 
-	
-	2018년 Xbox 1위 출력 : ${DataXbox2018[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- Xbox 2019 베스트 1 출력" %> 
-	<br><br> 
-	
-	2019년 Xbox 1위 출력 : ${DataXbox2019[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- Xbox 2020 베스트 1 출력" %> 
-	<br><br> 
-	
-	2020년 Xbox 1위 출력 : ${DataXbox2020[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- Xbox 2021 베스트 1 출력" %> 
-	<br><br> 
-	
-	2021년 Xbox 1위 출력 : ${DataXbox2021[0].name} 
-	<br>
-	<br> 
-	
-	
-	----- 
-	<br><br> 
-	
-
-	<%= "- NS 2015 베스트 1 출력" %> 
-	<br><br> 
-	
-	2015년 NS 1위 출력 : *해당 년도에 NS 플랫폼 미출시 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- NS 2016 베스트 1 출력" %> 
-	<br><br> 
-	
-	2016년 NS 1위 출력 : *해당 년도에 NS 플랫폼 미출시 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- NS 2017 베스트 1 출력" %> 
-	<br><br> 
-	
-	2017년 NS 1위 출력 : ${DataNS2017[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- NS 2018 베스트 1 출력" %> 
-	<br><br> 
-	
-	2018년 NS 1위 출력 : ${DataNS2018[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- NS 2019 베스트 1 출력" %> 
-	<br><br> 
-	
-	2019년 NS 1위 출력 : ${DataNS2019[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- NS 2020 베스트 1 출력" %> 
-	<br><br> 
-	
-	2020년 NS 1위 출력 : ${DataNS2020[0].name} 
-	<br>
-	<br> 
-	<br> 
-	
-
-	<%= "- NS 2021 베스트 1 출력" %> 
-	<br><br> 
-	
-	2021년 NS 1위 출력 : ${DataNS2021[0].name} 
-	<br>
-	<br> 
-
-	
-	---------------- 
-	<br> 
-	
+	<div class="slide-wrapper">
+		
+		<ul class="slides">
+			<li id="2015" class="topgamedata">
+				<div class="year">2015년</div>
+				<div class="game"><img src="images/jm/PC_logo.png" width="35" height="35" alt="pc"> 
+				${DataPC2015[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/PS_logo.png" width="35" height="35" alt="ps"> 
+				${DataPS2015[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/Xbox_logo.png" width="35" height="35" alt="xbox"> 
+				${DataXbox2015[0].name}</div> 
+				<hr>
+				<div class="game"><img src="images/jm/NS_logo.png" width="35" height="35" alt="switch"> 
+				*해당 년도에 NS 플랫폼 미출시</div> 
+			</li>
+			<li id="2016" class="topgamedata">
+				<div class="year">2016년</div>
+				<div class="game"><img src="images/jm/PC_logo.png" width="35" height="35" alt="pc"> 
+				${DataPC2016[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/PS_logo.png" width="35" height="35" alt="ps"> 
+				${DataPS2016[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/Xbox_logo.png" width="35" height="35" alt="xbox"> 
+				${DataXbox2016[0].name}</div> 
+				<hr>
+				<div class="game"><img src="images/jm/NS_logo.png" width="35" height="35" alt="switch"> 
+				*해당 년도에 NS 플랫폼 미출시</div> 
+			</li>
+			<li id="2017" class="topgamedata">
+				<div class="year">2017년</div>
+				<div class="game"><img src="images/jm/PC_logo.png" width="35" height="35" alt="pc"> 
+				${DataPC2017[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/PS_logo.png" width="35" height="35" alt="ps"> 
+				${DataPS2017[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/Xbox_logo.png" width="35" height="35" alt="xbox"> 
+				${DataXbox2017[0].name}</div> 
+				<hr>
+				<div class="game"><img src="images/jm/NS_logo.png" width="35" height="35" alt="switch"> 
+				${DataNS2017[0].name}</div> 			 
+			</li>
+			<li id="2018" class="topgamedata">
+				<div class="year">2018년</div>
+				<div class="game"><img src="images/jm/PC_logo.png" width="35" height="35" alt="pc"> 
+				${DataPC2018[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/PS_logo.png" width="35" height="35" alt="ps"> 
+				${DataPS2018[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/Xbox_logo.png" width="35" height="35" alt="xbox"> 
+				${DataXbox2018[0].name}</div> 
+				<hr>
+				<div class="game"><img src="images/jm/NS_logo.png" width="35" height="35" alt="switch"> 
+				${DataNS2018[0].name}</div> 			 
+			</li>
+			<li id="2019" class="topgamedata">
+				<div class="year">2019년</div>
+				<div class="game"><img src="images/jm/PC_logo.png" width="35" height="35" alt="pc"> 
+				${DataPC2019[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/PS_logo.png" width="35" height="35" alt="ps"> 
+				${DataPS2019[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/Xbox_logo.png" width="35" height="35" alt="xbox"> 
+				${DataXbox2019[0].name}</div> 
+				<hr>
+				<div class="game"><img src="images/jm/NS_logo.png" width="35" height="35" alt="switch"> 
+				${DataNS2019[0].name}</div> 			 
+			</li>
+			<li id="2020" class="topgamedata">
+				<div class="year">2020년</div>
+				<div class="game"><img src="images/jm/PC_logo.png" width="35" height="35" alt="pc"> 
+				${DataPC2020[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/PS_logo.png" width="35" height="35" alt="ps"> 
+				${DataPS2020[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/Xbox_logo.png" width="35" height="35" alt="xbox"> 
+				${DataXbox2020[0].name}</div> 
+				<hr>
+				<div class="game"><img src="images/jm/NS_logo.png" width="35" height="35" alt="switch"> 
+				${DataNS2020[0].name}</div> 			 
+			</li>
+			<li id="2020" class="topgamedata">
+				<div class="year">2021년</div>
+				<div class="game"><img src="images/jm/PC_logo.png" width="35" height="35" alt="pc"> 
+				${DataPC2021[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/PS_logo.png" width="35" height="35" alt="ps"> 
+				${DataPS2021[0].name}</div>
+				<hr>
+				<div class="game"><img src="images/jm/Xbox_logo.png" width="35" height="35" alt="xbox"> 
+				${DataXbox2021[0].name}</div> 
+				<hr>
+				<div class="game"><img src="images/jm/NS_logo.png" width="35" height="35" alt="switch"> 
+				${DataNS2021[0].name}</div> 			 
+			</li>
+		</ul>
+		
 	</div>
- 
- 
+	 
