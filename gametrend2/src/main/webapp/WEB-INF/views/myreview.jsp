@@ -10,21 +10,25 @@
 	<!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/index.css"/>
+	<link rel="stylesheet" href="/css/chat.css"/>
+	<script src="/js/chat.js"></script>
 	<script src="/jquery-3.6.0.min.js"></script>
 	<script>
 		$(document).ready(function(){
 	
 		});
 	</script>
-<style>
-	main {
-		width: 60%;
-		margin: 200px auto;
-	}
-</style>
+	<style>
+		main {
+			width: 60%;
+			margin: 200px auto;
+		}
+	</style>
 </head>
 <body>
+	<!-- navbar -->
 	<%@ include file="navbar.jsp" %>
+	
 	<main>
 	  <h2 class="pt-5 pb-5" style="display: inline-block">나의 리뷰</h2>
 	  
@@ -106,9 +110,11 @@
 	    </c:forEach>
 	  </div>	  
 	</main>
-	<div class="space" style="height:500"></div>
-	<%@ include file="footer.jsp" %>
+	<div class="space" style="height:500px"></div>
 	
+	<!-- footer -->
+	<%@ include file="footer.jsp" %>
+	<%@ include file="chatbottest.jsp" %>
  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

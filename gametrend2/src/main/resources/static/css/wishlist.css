@@ -12,15 +12,14 @@
 .none:hover {
 	color: #A182FE;
 }
-.close {
+.delWish {
 	text-align: right;
 	padding: 0;
 	text-decoration: none;
 }
-#close:hover {
+#delWish:hover {
 	background-color: #A182FE;
 }
 .nav-item:hover {
 	background-color: #E8E0FF;
 }
-	
