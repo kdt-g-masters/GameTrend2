@@ -11,6 +11,7 @@
 }
 .none:hover {
 	color: #A182FE;
+	background: #FFFFFF;
 }
 .delWish {
 	text-align: right;
@@ -20,6 +21,10 @@
 #delWish:hover {
 	background-color: #A182FE;
 }
-.nav-item:hover {
-	background-color: #E8E0FF;
+.paging ul {
+	width: 9vw;
+}
+.wishlist ul li:hover {
+	background: transparent;
+	color: #A182FE;
 }

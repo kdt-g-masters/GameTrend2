@@ -16,49 +16,7 @@
 	<script src="/js/chat.js"></script>	
 	<script>
 		$(document).ready(function() {
-			$("#pagingBtn2").on('click', function() {
-				$.ajax({
-					url: '<%= request.getContextPath() %>/wishlist/paging',
-					data: {'userId': 'ccc', 'page': '1'},
-					type: 'get',
-					dataType: 'json',
-					success: function(data) {
-						var wishlist = data
-						var temp = "";
-						var wishlistgame;
-						temp += "<c:forEach items=" + wishlist + " var='" + wishlistgame + "'>";
-						$.each(wishlist, function(key, value) {
-							var gameDTOthumbnail = "${value.gameDTO.thumbnail}";
-							var gameDTOname = "${value.gameDTO.name}";
-							var gameDTOexplanation = "${value.gameDTO.explanation}";
-							
-							temp += "<li class='col'>";	  	
-							temp += '<div class="card h-100">';
-							temp += '<a class="close" href="#">';
-							temp += '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16" color="#7F7C82" id="close">';
-							temp += '<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>';
-							temp += '<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>';
-							temp += '</svg>';					
-							temp +=	'</a>';
-							temp +=	'<a href="#"  class="none">';
-							temp += "<img src='/resources/images/thumbnail/" + gameDTOthumbnail + "' class='card-img-top' alt='...'>";
-							temp += '<div class="card-body">';
-							temp += '<h5 class="card-title"><b>' + gameDTOname + '</b></h5>';
-							temp += '<p class="card-text subtext">' + gameDTOexplanation + '</p>';
-							temp += '</div>';
-							temp += '</div>';
-							temp += '</a>';
-							temp += '</li>';																								
-							
-						}); // each end
-						temp += '</c:forEach>';
-						$('#change').html(temp);
-					}, // success end
-					error: function(request, status, error) {
-						$('#change').html("<h3>데이터가 존재하지 않습니다.</h3>");
-					}
-				}); // ajax end
-			}); // on end
+
 		}); // ready end
 	</script>
 
@@ -92,15 +50,7 @@
 		</c:forEach>		  
 	  </ul>
 	</div>
-	<div class="row center">  
-		<div class="paging" role="toolbar" aria-label="Toolbar with button groups">
-			<ul class="btn-group col-xs-2" role="group" aria-label="First group">
-				<li class="btn btn-outline-primary active" id="pagingBtn1">1</li>
-				<li class="btn btn-outline-primary" id="pagingBtn2">2</li>
-				<li class="btn btn-outline-primary" id="pagingBtn3">3</li>
-			</ul>
-		</div>
-	</div>
+
 	<div class="space" style="height:500px"></div>
 	
 	<!-- footer -->
