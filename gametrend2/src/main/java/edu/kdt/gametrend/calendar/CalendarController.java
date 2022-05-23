@@ -135,6 +135,21 @@ public class CalendarController {
 		return "calendar"; 
 		
 	}
+	
+	// 테스트 페이지 로딩 
+	@RequestMapping(value="/calendartest")
+	public ModelAndView calendarTest() {
+		ModelAndView mv = new ModelAndView(); 
+		
+		// 게임 데이터 전체 로딩 
+		List<CalendarDTO> gamedata = service.allGamedata();
+		
+		mv.addObject("Data", gamedata);
+		
+		mv.setViewName("testcalendar");
+		return mv; 
+		
+	}
 
 }
 
