@@ -5,7 +5,7 @@ public class MemberDTO {
 	String id;
 	String password;
 	String name;
-	String birthDate;
+	String birthdate;
 	int gender;
 	String email;
 	String image;
@@ -29,11 +29,11 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getBirthDate() {
-		return birthDate;
+	public String getBirthdate() {
+		return birthdate;
 	}
-	public void setBirthDate(String birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
 	public int getGender() {
 		return gender;

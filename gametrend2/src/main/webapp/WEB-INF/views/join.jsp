@@ -129,9 +129,9 @@
 			        <div class="col-12">                        
 					  <div class="docs-datepicker">
 				        <div class="input-group">
-				          <input type="text" class="form-control docs-date" name="birthDate" aria-label="birthDate" aria-describedby="btnCal" placeholder="날짜 선택" autocomplete="off" required>
+				          <input type="text" class="form-control docs-date" name="birthdate" aria-label="birthdate" aria-describedby="btnCal" placeholder="날짜 선택" autocomplete="off" required>
 				          <div class="input-group-append" >
-				            <button id="btnCal" name="birthDate" type="button" class="btn btn-outline-secondary docs-datepicker-trigger" disabled>
+				            <button id="btnCal" name="birthdate" type="button" class="btn btn-outline-secondary docs-datepicker-trigger" disabled>
 				              <i class="fa fa-calendar" aria-hidden="true"></i>
 				            </button>
 				          </div>

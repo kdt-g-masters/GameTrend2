@@ -10,7 +10,7 @@
 	
 	<!-- 회원가입 -->
 	<insert id="joinMember" parameterType="memberdto">
-		insert into member values(#{id}, #{password}, #{name}, #{birthDate}, #{gender}, #{email}, #{image})
+		insert into member values(#{id}, #{password}, #{name}, #{birthdate}, #{gender}, #{email}, #{image})
 	</insert>
 		 
 	<!-- 회원가입 아이디 중복 확인 -->
