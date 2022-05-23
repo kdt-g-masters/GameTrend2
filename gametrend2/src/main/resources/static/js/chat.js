@@ -1,7 +1,7 @@
 /*chatbot.js */
 
 
- $(function() {	
+ $(document).ready(function() {	
 		/*챗봇 버튼 클릭 시 웰컴 메세지 출력*/
 		$(".floating-button").click( function(){
 			$("#ch-window").fadeToggle();
@@ -222,6 +222,7 @@
 						+"'><div class='card-body'><h5 class='card-title topgame-name'>"+gamelist[i].name
 						+"</h5><a href='/gamedetail?no="+gamelist[i].no+"' class='btn btn-primary'>자세히 보기</a></div></div></div>"; 
 					}
+					textanswer += "<a href='#' id='prev'></a><a href='#' id='next'></a>";
 					$("#record").append(textanswer + "</div>");
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 				}
@@ -260,7 +261,7 @@
 				success : function(reviewlist){
 					console.log(reviewlist);
 					if(reviewlist.length == 0){
-						$("#record").append("<div class='answer'>["+ memberid +"]회원님 아직 리뷰를 작성하지 않으셨군요?<br>인기게임순위에서 리뷰를 작성해보세요.</div>");
+						$("#record").append("<div class='answer'>["+ memberid +"]님 아직 리뷰를 작성하지 않으셨군요?<br>인기게임순위에서 리뷰를 작성해보세요.</div>");
 						$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 					}
 					else{
@@ -270,11 +271,11 @@
 						}
 						console.log(approveReview);
 						if(approveReview == 0){
-							$("#record").append("<div class='answer'>["+ memberid +"]회원님의 리뷰가 아직 승인되지 않았어요. 조금만 기다리시면 곧 승인여부를 알려드릴께요.</div>");
+							$("#record").append("<div class='answer'>["+ memberid +"]님의 리뷰가 아직 승인되지 않았어요. 조금만 기다리시면 곧 승인여부를 알려드릴께요.</div>");
 							$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 						}
 						else{
-							$("#record").append("<div class='answer'>["+ memberid +"]회원님의 리뷰리스트에 포함된 게임들의 장르에요.<br>이 중 가장 좋아하는 장르는 무엇인가요?</div>");
+							$("#record").append("<div class='answer'>["+ memberid +"]님의 리뷰리스트에 포함된 게임들의 장르에요.<br>이 중 가장 좋아하는 장르는 무엇인가요?</div>");
 							$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 							$.ajax({
 								url : "/genreOfReviewlist",
@@ -304,11 +305,11 @@
 				success : function(wishlist){
 					console.log(wishlist);
 					if(wishlist.length == 0){
-						$("#record").append("<div class='answer'>["+ memberid +"]회원님의 위시리스트가 없어요ㅠㅠ <br>인기게임순위에서 ♡를 눌러 위시리스트를 추가해보세요.</div>");
+						$("#record").append("<div class='answer'>["+ memberid +"]님의 위시리스트가 없어요ㅠㅠ <br>인기게임순위에서 ♡를 눌러 위시리스트를 추가해보세요.</div>");
 						$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 					}
 					else{
-						$("#record").append("<div class='answer'>["+ memberid +"]회원님의 위시리스트에 포함된 게임들의 장르에요.<br>장르 하나를 선택하면 게임을 추천해드릴께요.</div>");
+						$("#record").append("<div class='answer'>["+ memberid +"]님의 위시리스트에 포함된 게임들의 장르에요.<br>장르 하나를 선택하면 게임을 추천해드릴께요.</div>");
 						$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 						$.ajax({
 							url : "/genreOfWishlist",

@@ -289,6 +289,7 @@ li:hover a, .link:hover a{
 	overflow: auto;
 	overflow-x: hidden;
 	white-space: nowrap;
+	position: relative;
 }
 .topgame-wrap::-webkit-scrollbar{
 	display: block;
@@ -303,13 +304,13 @@ li:hover a, .link:hover a{
  }
 .topgame-wrap{
 	display: inline-block;
-	
 }
 .topgame{
 	color:gray;
 	padding:0;
 	padding-bottom: 5px;
 	width: 300px;
+	overflow: hidden;
 }
 .card-img-top {
     height: 300px;
@@ -336,4 +337,38 @@ li:hover a, .link:hover a{
 }
 .topgame .btn:hover{
 	box-shadow: 0.2em 0.2em 1em rgba(0,0,0,30%);
+}
+.topgame-wrap.animated{
+	-webkit-transition: left .3s ease-in;
+	transition: left .3s ease-in;
+}
+#prev, #next{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translateY(-50%);
+	z-index: 99999;
+	display: inline-block;
+	width: 5em;
+	height: 5em;
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-transition: all .3s ease-in;
+	transition: all .3s ease-in;
+}
+#prev.disabled, #next.disabled{
+	display: none;
+}
+#prev{ 
+	background-image: url('arrow-left-out.svg'); margin-left: -100px;
+}
+#prev:hover{
+	background-image: url('arrow-left-over.svg');
+}
+#next{
+	background-image: url('arrow-right-out.svg');
+	margin-left: 100px;
+}
+#next:hover{
+	background-image:url('arrow-right-over.svg');
 }
