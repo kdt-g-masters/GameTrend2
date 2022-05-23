@@ -10,9 +10,9 @@
 	
 	<!-- 회원가입 -->
 	<insert id="joinMember" parameterType="memberdto">
-		insert into member values(#{id}, #{password}, #{name}, #{birthdate}, #{gender}, #{email})
+		insert into member values(#{id}, #{password}, #{name}, #{birthDate}, #{gender}, #{email}, #{image})
 	</insert>
-		
+		 
 	<!-- 회원가입 아이디 중복 확인 -->
 	<select id="checkId" resultType="String" parameterType="String">
 		select id from member
@@ -36,6 +36,7 @@
 		select * from member where name = #{name} and email = #{email}
 	</select>
 	
+<<<<<<< HEAD
 	<!-- 회원 정보 수정 -->
 	<update id="updateMember" parameterType="memberdto">
 		update member
@@ -43,4 +44,6 @@
 		where id=#{id}
 	</update>	
 	
+=======
+>>>>>>> devHH
 </mapper>

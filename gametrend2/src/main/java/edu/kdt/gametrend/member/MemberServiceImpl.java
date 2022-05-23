@@ -23,6 +23,7 @@ public class MemberServiceImpl implements MemberService {
 	public int joinMember(MemberDTO dto) {
 		return dao.joinMember(dto);
 	}
+
 	
 	//회원가입 아이디 중복 체크
 	@Override
@@ -63,10 +64,13 @@ public class MemberServiceImpl implements MemberService {
 		return dao.sendid_(dto);
 	}
 
+<<<<<<< HEAD
 	// 회원 정보 수정
 	@Override
 	public int updateMember(MemberDTO dto) {
 		return dao.updateMember(dto);
 	}
 	
+=======
+>>>>>>> devHH
 }

@@ -73,18 +73,18 @@ input[type=text], input[type=password] {
 }
 
 input[type=text]:hover, input[type=password]:hover, input[type=text]:focus, input[type=password]:focus {
-	border:0.01em solid #FCA937;
+	border:0.01em solid #5C27FE;
 }
 
 .row {
 	justify-content: space-around;
 }
-
+/* 
 button:hover {
-	color: #FCA937;
+	color: #5C27FE;
 	background-color: transparent;
 }
-
+ */
 #btnCheckId, #btnCerti, #btnConfirm {
 	font-size: 1.1em;
 	height: 2.5em;	
@@ -113,7 +113,7 @@ select {
 }
 
 select:hover{
-	border:0.01em solid #FCA937;
+	border:0.01em solid #5C27FE;
 }
 
 .gender label {

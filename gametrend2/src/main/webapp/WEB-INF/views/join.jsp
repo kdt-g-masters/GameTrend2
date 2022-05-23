@@ -54,7 +54,7 @@
 	      	        <h5 class="inline">아이디</h5>
 	      	        <p class="sm_msg mx-2">최대 20자까지 입력 가능합니다.</p>
 	      	      </div>
-	      	      <div class="col-12 d-flex posRel">
+	      	      <div class="col-12 d-flex posRel"> 
 	      	        <input type="text" id="inputMemberId" name="id" class="flex-fill" placeholder="아이디 입력" maxlength="20" size="31" pattern="[a-zA-Z0-9]{0, 20}" required />
 		            <!-- 중복확인 결과 아이콘 -->
 		            <div id="check">
@@ -100,8 +100,8 @@
 		          <div class="col-12 d-flex posRel">
 		            <input type="password" id="password_1" name="password_1" class="flex-fill" size="21" required />&nbsp;&nbsp;
 		            <!-- 비밀번호 확인 -->
-		            <input type="password" id="password" name="password" class="flex-fill" size="21" required />
-                    <div id="pwCheck">
+		             <input type="password" id="password" name="password" class="flex-fill" size="21" required />                    
+            		<div id="pwCheck">
 	                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16" id="pwAvailable">
 				        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 				        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
@@ -129,7 +129,7 @@
 			        <div class="col-12">                        
 					  <div class="docs-datepicker">
 				        <div class="input-group">
-				          <input type="text" class="form-control docs-date" name="birthDate" aria-label="birthDate" aria-describedby="btnCal" placeholder="날짜 선택" autocomplete="off">
+				          <input type="text" class="form-control docs-date" name="birthDate" aria-label="birthDate" aria-describedby="btnCal" placeholder="날짜 선택" autocomplete="off" required>
 				          <div class="input-group-append" >
 				            <button id="btnCal" name="birthDate" type="button" class="btn btn-outline-secondary docs-datepicker-trigger" disabled>
 				              <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -163,7 +163,7 @@
 	              </div>
 	              <div class="col-12 d-flex">
 	                <!-- 이메일 텍스트 -->
-	                <input type="text" id="email" name="email" class="col-6 ml-2"/>
+	                <input type="text" id="email" name="email" class="col-6 ml-2" required/>
 	                <!-- 인증번호(모달) -->   
 	                <!-- Button trigger modal -->
 	                <button type="button" id="btnCerti" class="btn text-white btn-sm btn-primary col-3 mx-2" data-bs-toggle="modal" data-bs-target="#CertificationNumber">메일전송</button>		          
@@ -190,27 +190,26 @@
 		            	  -->               
 	              </div>
 	              <div class="col-12 d-flex">
-	                <!-- 인증번호 텍스트칸 -->
-	               <!--  <input type="text" name="certification" class="col-9" placeholder="메일을 전송하면 입력할 수 있습니다." size=31 pattern="[0-9]{6}" required /> -->
+	                <!-- 인증번호 텍스트칸 -->	              
 		            	<div class="mail_check_wrap">
                     		<div class="mail_check_input_box" id="mail_check_input_box_false">
-                        	<input type="text" name="certification" class="mail_check_input" placeholder="인증번호" disabled="disabled">
-                    		</div>
+                        	<input type="text" id = "btnConfirm" name="certification" class="mail_check_input" placeholder="인증번호" disabled="disabled" required >
+                    		</div> 
                     		<div class="clearfix"></div>
                     		<span id="mail_check_input_box_warn"></span>
                 		</div>
+		             
 		            
-		            
-		            <!-- 
-		            Button trigger modal
-		            <button type="button" id="btnConfirm" class="btn text-white btn-sm btn-primary col-3 mx-2" data-bs-toggle="modal" data-bs-target="#Checking">확인</button>	                
-	               -->
+		             
+		           <!--  Button trigger modal -->
+		            <!-- <button type="button" id="btnConfirm" class="btn text-white btn-sm btn-primary col-3 mx-2" data-bs-toggle="modal" data-bs-target="#Checking">확인</button>	 -->                
+	               
 	              
 	              </div>                	      
       	        </div>
       	        
 		        <div class="row d-flex center mt-5">         
-		            <!-- 취소 --> 
+		            <!-- 취소 -->
 		            <button type="button" id="btnCancel" class="btn btn-outline-primary mx-1">취소</button> 
 		            <!-- 가입하기 -->
 		            <button type="submit" id="btnSubmit" class="btn btn-primary mx-1">가입하기</button>		     

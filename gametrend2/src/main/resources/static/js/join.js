@@ -46,7 +46,7 @@ $(document).ready(function() {
 		    
 		});
 	
-	// 회원가입
+	// 회원가입 아이디 중복
 	
 	var joinAvailable = false;
 	$("#btnCheckId").on('click', function() {
@@ -95,6 +95,7 @@ $(document).ready(function() {
 			joinAvailable = false;
 		}
 	});
+	
 	$("form").on('submit', pass);
 	function pass(e) {
 		if (joinAvailable == false) {
@@ -114,8 +115,16 @@ $(document).ready(function() {
 			alert("전화번호 형식을 확인해주세요.");
 			e.preventDefault();
 		}	
-		*/	
+*/		
+		if($(".mail_check_input").val() != code){
+			alert("인증번호를 다시 확인해 주세요.");
+			e.preventDefault();
+		}
 		
+		if($("#btnConfirm").attr("disabled")){
+			alert("인증번호를 입력해 주세요.");
+			e.preventDefault();
+		}
 				
 	}
 	

@@ -19,6 +19,10 @@ public interface MemberDAO {
 	public MemberDTO sendpw_(MemberDTO dto);
 	//메일로 아이디 찾기
 	public MemberDTO sendid_(MemberDTO dto);
+<<<<<<< HEAD
 	// 회원 정보 수정
 	public int updateMember(MemberDTO dto);
+=======
+
+>>>>>>> devHH
 }
