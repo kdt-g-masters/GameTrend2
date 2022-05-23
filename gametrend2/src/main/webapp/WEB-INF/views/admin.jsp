@@ -58,7 +58,7 @@
                                 <div class="card">
                                     <h5 class="card-header">게임 추가</h5>
                                     <div class="card-body p-0">
-                                        <div class="table-responsive">
+                                        <div class="table-responsive datePickerVisible">
                                             <table class="table">
                                                 <thead class="bg-light">
                                                     <tr class="border-0">

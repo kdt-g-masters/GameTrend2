@@ -58,7 +58,7 @@
                                 <div class="card">
                                     <h5 class="card-header">프로모션 추가</h5>
                                     <div class="card-body p-0">
-                                        <div class="table-responsive">
+                                        <div class="table-responsive datePickerVisible">
                                         	<form action="addPromotion" method="post" enctype="multipart/form-data" id="formPromotion">
 	                                            <table class="table">
 	                                                <thead class="bg-light">
