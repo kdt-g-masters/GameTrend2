@@ -41,6 +41,9 @@ $(document).ready(function(){
 		}//if end
 	});//on end
 	
+	//리뷰수 변수
+	var reviewsu = "";
+	
 	//게임 상세 페이지 리뷰수
 	$.ajax({
 		url: '<%=request.getContextPath() %>/countreviewgameno',
@@ -48,7 +51,8 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function(countreview){
 			$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
-			$("#reviews").attr("value", countreview);
+			reviewsu = countreview;
+			alert(reviewsu);
 		}
 	});//ajax end
 	
@@ -59,7 +63,14 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function (list) {
 			for(var i = 0; i < list.length; i++){
-				$('#review1').append("<div style=\"background-color: black;\"><p>" + list[i].member_id + "<br>" +list[i].date + "</p><p>" + list[i].contents + "</p></div>");
+				$('#review1').append("<div style=\"background-color: #FFFFFF; color: black;  margin-bottom: 30px;\"><p><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 16 16'>"
+						+	'<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>'
+						+	'<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>'
+						+	'</svg>' + list[i].member_id + "<br>"
+						+	'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date-fill" viewBox="0 0 16 16">'
+						+	'<path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zm5.402 9.746c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z"/>'
+						+	'<path d="M16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-6.664-1.21c-1.11 0-1.656-.767-1.703-1.407h.683c.043.37.387.82 1.051.82.844 0 1.301-.848 1.305-2.164h-.027c-.153.414-.637.79-1.383.79-.852 0-1.676-.61-1.676-1.77 0-1.137.871-1.809 1.797-1.809 1.172 0 1.953.734 1.953 2.668 0 1.805-.742 2.871-2 2.871zm-2.89-5.435v5.332H5.77V8.079h-.012c-.29.156-.883.52-1.258.777V8.16a12.6 12.6 0 0 1 1.313-.805h.632z"/>'
+						+	'</svg>' + list[i].date + "</p><p>" + list[i].contents + "</p></div>");
 			}
 		}
 	});//ajax end
@@ -129,7 +140,6 @@ $(document).ready(function(){
 						data: {'member_id':memberid, 'game_no':${param.no}},
 						dataType: 'json',
 						success: function (review) {
-							$("#stars").attr("value", review.stars);
 							$("#contents").append(review.contents);
 						}
 					});//review ajax end
@@ -178,10 +188,10 @@ $(document).ready(function(){
 	//리뷰수 게임테이블 반영
 	$.ajax({
 		url: '<%=request.getContextPath() %>/gamereviewcount',
-		data: {'reviews':Number($("#reviews").val()), 'no':${param.no}},
+		data: {'reviews':Number(reviewsu), 'no':${param.no}},
 		dataType: 'json',
 		success: function (a) {
-			alert(Number($("#reviews").val()));
+			alert(a);
 		}
 	});//ajax end
 	
@@ -197,12 +207,12 @@ $(document).ready(function(){
 		data: {'genre':'<%= genre.getGenre() %>'},
 		dataType: 'json',
 		success: function (list) {
-			var recommend = "<div class='card-group'>";
+			var recommend = "<div class='hidden1'>";
 			for (var i = 0; i < list.length; i++){
 				//지금 페이지의 게임 추천에서 제외
 				if(list[i].no != ${param.no}){					
-					recommend += "<div class='card'><a href='/gamedetail?no=" + list[i].no + "'>"
-						+ "<img src='/images/thumbnail/" + list[i].thumbnail + "' class='card-img-top' style='height: 160px'>"
+					recommend += "<div class='card' style='width: 180px; float: left;'><a href='/gamedetail?no=" + list[i].no + "'>"
+						+ "<img src='/images/thumbnail/" + list[i].thumbnail + "' class='card-img-top' style='width: 180px; height: 160px;'>"
 						+ "<div class='card-body'>"
 						+ "<h5 class='card-title'>" + list[i].name + "</h5>"
 						+ "<p class='card-text'>" + list[i].platform + "</p>"
@@ -249,7 +259,7 @@ $(document).ready(function(){
 			</div>
 			
 			<%-- 별점 --%>
-			<div class="right b-ground" id="ratings" style="margin-bottom: 10px;">
+			<div class="right" id="ratings">
 				<div style="float: left; margin-bottom: 0;">
 					<!-- 별점 %에 맞게 계산 -->
 					<%
@@ -258,21 +268,20 @@ $(document).ready(function(){
 						Double rating = gamedb.getRating();
 					%>
 					<div class="star-ratings">
-						<span class="star-ratings-fill space-x-2 text-lg" style="width: <%= gamerating %>%">
+						<div class="star-ratings-fill space-x-2 text-lg" style="width: <%= gamerating %>%">
 							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-						</span>
-						<span class="star-ratings-base space-x-2 text-lg">
+						</div>
+						<div class="star-ratings-base space-x-2 text-lg">
 							<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-						</span>
+						</div>
 					</div>
 				</div>
-				<div style="float: left; color: #FFFFFF; margin-left: 10px; margin-bottom: 0; margin-top: 10px;">${ gamedetail.rating }</div>
+				<div style="float: left; color: gray; margin-left: 10px; margin-bottom: 0; margin-top: 5px; font-size: 20px;">${ gamedetail.rating }/10</div>
 				
 				<div id="reviewcount" style="float: right; margin-bottom: 0;"></div>
-				<input id="reviews" type="text" hidden>
 			</div>
 			
-			<div class="right b-ground" id="explain">
+			<div class="right" id="explain">
 				<h2>게임 설명</h2>
 				<p>${ gamedetail.explanation }</p>
 			</div>
@@ -289,18 +298,18 @@ $(document).ready(function(){
 			<img class="img2" src="/images/screenshot/${ gamedetail.screenshot4 }">
 		</div>
 		
-		<h3>리뷰</h3>
-		<div class="hidden">
+		<div class="hidden zone-line">
+			<h3>리뷰</h3>
 			<div class="left b-ground" id="review1">
 				<p>리뷰내용</p>
 			</div>
 			
-			<div class="right b-ground">
+			<div class="right bor-review">
 				<h4>리뷰 쓰기</h4>
 				<form id="reviewForm">
 					<input id="memberid" type="text" value="<%= String.valueOf(session.getAttribute("sessionid")) %>" hidden>
 					별점:
-					<span class="star">
+					<span class="review-star">
 						★★★★★
 						<span>★★★★★</span>
 						<input id="stars" type="range" oninput="drawStar(this.value)" step="1" min="0" max="10">
@@ -309,7 +318,7 @@ $(document).ready(function(){
 					<input id="imagefile" type="file">
 					<%Date now = new Date(); SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); %>
 					<input id="createAt" type="text" value="<%=formatter.format(now) %>" hidden>
-					<textarea id="contents" rows="10" cols="70" style="width: 80%;"></textarea>
+					<textarea id="contents" rows="10" cols="70" style="width: 80%; border: solid 1px silver;"></textarea>
 					<input id="approve" type="text" value="0" hidden>
 					<br>
 					<input id="reviewinsert" class="btn btn-primary me-2 mainColor" type="button" value="리뷰 입력">
@@ -317,17 +326,19 @@ $(document).ready(function(){
 			</div>
 		</div>
 		
-		<h3>게임 추천</h3>
-		<div id="gamerecommend"></div>
+		<div class="zone-line">
+			<h3>게임 추천</h3>
+			<div id="gamerecommend"></div>
+		</div>
 		
 	</main>
-	<div class="space" style="height:500"></div>
+	<div class="space" style="height:500;"></div>
 	<%@ include file="footer.jsp" %>
 	<%@ include file="chatbottest.jsp" %>
 
 <script>
 	const drawStar = (val) => {
-		document.querySelector(".star span").style.width = `${val * 10}%`;
+		document.querySelector(".review-star span").style.width = `${val * 10}%`;
 		document.getElementById("stardemo").innerHTML = val; 
 	}
 </script>

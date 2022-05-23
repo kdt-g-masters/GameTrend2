@@ -62,5 +62,11 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDTO sendid_(MemberDTO dto) {
 		return dao.sendid_(dto);
 	}
+
+	// 회원 정보 수정
+	@Override
+	public int updateMember(MemberDTO dto) {
+		return dao.updateMember(dto);
+	}
 	
 }

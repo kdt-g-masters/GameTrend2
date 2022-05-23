@@ -13,7 +13,8 @@
 		<id property="contents" column="contents" />
 		<id property="stars" column="stars" />
 		<id property="image" column="image" />
-		<id property="approve" column="approve" />		
+		<id property="approve" column="approve" />
+		<id property="disapprRsn" column="disapprRsn" />		
 	</resultMap>
 	<resultMap type="edu.kdt.gametrend.game.GameDTO" id="gameMap">
 		<id property="no" column="no" />

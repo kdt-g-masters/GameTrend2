@@ -38,7 +38,6 @@ import edu.kdt.gametrend.wishlist.WishlistDAO;
 @ComponentScan(basePackageClasses = AdminController.class)
 @ComponentScan(basePackageClasses = ChatbotContoller.class)
 
-
 @MapperScan(basePackageClasses = GameDAO.class)
 @MapperScan(basePackageClasses = CarouselDAO.class)
 @MapperScan(basePackageClasses = MemberDAO.class)
