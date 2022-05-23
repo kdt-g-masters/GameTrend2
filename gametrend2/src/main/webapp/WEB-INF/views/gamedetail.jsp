@@ -41,8 +41,6 @@ $(document).ready(function(){
 		}//if end
 	});//on end
 	
-	//리뷰수 변수
-	var reviewsu = "";
 	
 	//게임 상세 페이지 리뷰수
 	$.ajax({
@@ -50,8 +48,7 @@ $(document).ready(function(){
 		data: {'game_no':${param.no}} ,
 		dataType: 'json',
 		success: function(countreview){
-			$("#reviewcount").html("<h3>리뷰수=" + countreview + "</h3>");
-			reviewsu = countreview;
+			$("#reviewcount").html("<h3>리뷰수" + countreview + "</h3>");
 		}
 	});//ajax end
 	
@@ -62,7 +59,7 @@ $(document).ready(function(){
 		dataType: 'json',
 		success: function (list) {
 			for(var i = 0; i < list.length; i++){
-				$('#review1').append("<div style=\"background-color: #FFFFFF; color: black;  margin-bottom: 30px;\"><p><img src='/images/logo.png' style='width: 16px; height: 16px;'>"
+				$('#review1').append("<div style=\"background-color: #FFFFFF; color: black;  margin-bottom: 30px;\"><p><img src='/images/logo.png' style='width: 25px; height: 25px;'>"
 						+	list[i].member_id + "<br>"
 						+	'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date-fill" viewBox="0 0 16 16">'
 						+	'<path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zm5.402 9.746c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z"/>'
@@ -341,9 +338,9 @@ $(document).ready(function(){
 				<p>리뷰내용</p>
 			</div>
 			
-			<div class="right bor-review">
+			<div id="reviewForm" class="right bor-review">
 				<h4>리뷰 쓰기</h4>
-				<form id="reviewForm">
+				<form>
 					<input id="memberid" type="text" value="<%= String.valueOf(session.getAttribute("sessionid")) %>" hidden>
 					별점:
 					<span class="review-star">

@@ -10,12 +10,12 @@
 	
 	<!-- 게임의 리뷰수 -->
 	<select id="countReviewgameNo" resultType="int" parameterType="int">
-		select count(*) from review where game_no = #{game_no}
+		select count(*) from review where game_no = #{game_no} and approve = 1
 	</select>
 	
 	<!-- 게임의 리뷰  -->
 	<select id="selectReviewgameNo" resultType="reviewdto" parameterType="int">
-		select * from review where game_no = #{game_no}
+		select * from review where game_no = #{game_no} and approve = 1
 		order by date desc
 	</select>
 	
