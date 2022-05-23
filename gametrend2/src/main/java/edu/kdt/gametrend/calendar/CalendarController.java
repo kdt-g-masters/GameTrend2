@@ -16,7 +16,7 @@ public class CalendarController {
 	@Qualifier("CalendarServiceImpl")
 	CalendarService service;
 	
-	// 달력 페이지 호출  
+	// 달력 페이지 호출 및 로딩 
 	@RequestMapping(value="/calendar", method=RequestMethod.GET) 
 		public ModelAndView calendarAction1() {
 			ModelAndView mv = new ModelAndView();
