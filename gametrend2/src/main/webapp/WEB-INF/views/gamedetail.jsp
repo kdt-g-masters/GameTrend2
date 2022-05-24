@@ -178,9 +178,11 @@ $(document).ready(function(){
 							$("#contents").append(review.contents);
 							if(review.approve == 0){
 								$("#reviewapprove").append("리뷰 승인 대기중");
+								$("#reviewapprove").css("color", "orange");
 							}
 							else if(review.approve == -1){
 								$("#reviewapprove").append("리뷰 승인 거부");
+								$("#reviewapprove").css("color", "red");
 							}
 						}
 					});//review ajax end
