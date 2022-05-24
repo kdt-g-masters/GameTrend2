@@ -23,13 +23,25 @@
 		$(".initialQuestionList span").on('click',function(){
 			/*초기 리스트*/
 			var kindQ =  $(this).attr("id");
-			//나의 위시리스트 선택시
+			//위시리스트 선택시
 			if(kindQ == "mywishlist")	{basedOnWishlist(memberid);}
-			//내가 쓴 리뷰 선택시
+			//나의 리뷰 선택시
 			else if(kindQ == "myreview")	{basedOnReview(memberid);}	
 		});
 		/*---------------------------------------------------------*/
+		var slides = $("ul.topgames"),
+			slide = $("ul.topgames li"),
+			currentIdx = 0,
+			slideCnt = slide.length,
+			slideWidth = 310,
+			slideMargin = 50,
+			prevBtn = $(".prev")
+			nextBtn = $(".next");
 		
+		prevBtn.on('click',function(){ alert(slideCnt);})
+		function moveSlide(num){
+			slides.css("width",num * )
+		}
 	 });
 	
 	</script>

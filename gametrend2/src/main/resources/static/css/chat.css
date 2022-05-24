@@ -278,45 +278,19 @@ li:hover a, .link:hover a{
 	display: flex;
 	justify-content: space-evenly;
 }
-.initialQuestionList::-webkit-scrollbar{
-	display: none;
-}
-.recommend-wrap{
-	display: inline-block;
-	margin:0.1vh 0.1vw 1vh 0.1vw;
-	padding: 0.1vh 0.1vw 0.1vh 0.1vw;
-	padding-right: 20vw;
-	overflow: auto;
-	overflow-x: hidden;
-	white-space: nowrap;
-	position: relative;
-}
-.topgame-wrap::-webkit-scrollbar{
-	display: block;
-	height: 10px;
-}
-.topgame-wrap::-webkit-scrollbar-thumb {
-    background: linear-gradient(to right, #8A63FE, #C165DD);
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    background-clip: padding-box;
-    border: 2px solid transparent;
- }
-.topgame-wrap{
-	display: inline-block;
-}
 .topgame{
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
 	color:gray;
 	padding:0;
-	padding-bottom: 5px;
-	width: 300px;
-	overflow: hidden;
 }
 .card-img-top {
     height: 300px;
     object-fit: cover;
 }
 .topgame-name{
+	text-align:left;
 	font-size: 12pt;
 	font-weight:bold;
 	padding : 10px;
@@ -333,42 +307,49 @@ li:hover a, .link:hover a{
 	font-size: 10pt;
 	display: flex;
 	justify-content: center;
-	
 }
 .topgame .btn:hover{
 	box-shadow: 0.2em 0.2em 1em rgba(0,0,0,30%);
 }
-.topgame-wrap.animated{
-	-webkit-transition: left .3s ease-in;
-	transition: left .3s ease-in;
+.topgame-wrapper{
+	position: relative;
+	text-align: center;
+	width:330px;
+	height: 413px;
+	margin: 0 auto;
+	margin-left: 0.3vw;
+	overflow: hidden;
+	white-space: nowrap;
 }
-#prev, #next{
+ul.topgames, li{
+	padding: 0;
+	list-style: none;
+}
+.topgames{
 	position: absolute;
-	top:50%;
-	left: 50%;
-	transform: translateY(-50%);
-	z-index: 99999;
-	display: inline-block;
-	width: 5em;
-	height: 5em;
-	background-position: center center;
-	background-repeat: no-repeat;
-	-webkit-transition: all .3s ease-in;
-	transition: all .3s ease-in;
+	left:0;	top:0;
+	width: 1050px;
+	transition: left 0.5s ease-out;
+	overflow: hidden;
+	white-space: nowrap;
 }
-#prev.disabled, #next.disabled{
-	display: none;
+.topgames li:not(:last-child){
+	float: left;
+	margin-right: 30px;
+	width: 300px;
 }
-#prev{ 
-	background-image: url('arrow-left-out.svg'); margin-left: -100px;
+ li:hover{
+	background: inherit;
+	color: inherit;
+} 
+.controls{
+	width:330px;
+	text-align: center;
+	cursor: pointer;
 }
-#prev:hover{
-	background-image: url('arrow-left-over.svg');
-}
-#next{
-	background-image: url('arrow-right-out.svg');
-	margin-left: 100px;
-}
-#next:hover{
-	background-image:url('arrow-right-over.svg');
+.controls span{
+	color: #7244FE;
+	padding-bottom: 0;
+	margin: 0 30px;	 
+	
 }

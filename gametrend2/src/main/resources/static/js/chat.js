@@ -2,6 +2,7 @@
 
 
  $(document).ready(function() {	
+		
 		/*챗봇 버튼 클릭 시 웰컴 메세지 출력*/
 		$(".floating-button").click( function(){
 			$("#ch-window").fadeToggle();
@@ -147,7 +148,9 @@
 			});// ajax end
 			$("#request").val(""); // 질문창 리셋
 		}); // .ch-input input:button end
-
+		
+			
+		
 	}); //ready onclick
 		
 	function parser(serverdata){ // 값을 보냈을 때 화면에서 바뀌는 부분
@@ -215,15 +218,22 @@
 				type : "post",
 				success : function(gamelist){
 					$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
-					var textanswer = "<div class='recommend-wrap xscroll'>";
+					var textanswer = "<div class='topgame-wrapper'><ul class='topgames'>"; 
+					
 					for(var i = 0; i < gamelist.length; i++){
-						textanswer += "<div class='topgame-wrap'><div class='card topgame' style='width: 20rem;'>"
-						+"<img class='card-img-top' src='/images/thumbnail/" + gamelist[i].thumbnail+"' alt='"+gamelist[i].name
-						+"'><div class='card-body'><h5 class='card-title topgame-name'>"+gamelist[i].name
-						+"</h5><a href='/gamedetail?no="+gamelist[i].no+"' class='btn btn-primary'>자세히 보기</a></div></div></div>"; 
+						textanswer += "<li class='card topgame'>"
+							+"<img class='card-img-top' src='/images/thumbnail/" + gamelist[i].thumbnail+"' alt='"+gamelist[i].name
+							+"'><div class='card-body'><h5 class='card-title topgame-name'>"+gamelist[i].name
+							+"</h5><a href='/gamedetail?no="+gamelist[i].no+"' class='btn btn-primary'>자세히 보기</a></div></li>"; 
 					}
-					textanswer += "<a href='#' id='prev'></a><a href='#' id='next'></a>";
-					$("#record").append(textanswer + "</div>");
+					textanswer += "</ul></div><div class='include-control'><div class='controls'><span class='prev'>"
+						+"<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-arrow-left-circle' viewBox='0 0 16 16'>"
+						+"<path fill-rule='evenodd' d='M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z'/>"
+					    +"</svg></span><span class='next'>"
+			    		+"<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-arrow-right-circle' viewBox='0 0 16 16'>"
+						+"<path fill-rule='evenodd' d='M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/>"
+						+"</svg></span></div></div>";
+					$("#record").append(textanswer);
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 				}
 			});//ajax end
@@ -237,15 +247,22 @@
 				type : "post",
 				success : function(gamelist){
 					$("#record").append("<div class='answer'>[" + genre + "] 장르 TOP" + gamelist.length + " 게임 추천</div>");
-					var textanswer = "<div class='recommend-wrap xscroll'>";
+					var textanswer = "<div class='topgame-wrapper'><ul class='topgames'>"; 
+					
 					for(var i = 0; i < gamelist.length; i++){
-						textanswer += "<div class='topgame-wrap'><div class='card topgame' style='width: 20rem;'>"
-						+"<img class='card-img-top' src='/images/thumbnail/" + gamelist[i].thumbnail+"' alt='"+gamelist[i].name
-						+"'><div class='card-body'><h5 class='card-title topgame-name'>"+gamelist[i].name
-						+"</h5><a href='/gamedetail?no="+gamelist[i].no+"' class='btn btn-primary'>자세히 보기</a></div></div></div>"; 
+						textanswer += "<li class='card topgame'>"
+							+"<img class='card-img-top' src='/images/thumbnail/" + gamelist[i].thumbnail+"' alt='"+gamelist[i].name
+							+"'><div class='card-body'><h5 class='card-title topgame-name'>"+gamelist[i].name
+							+"</h5><a href='/gamedetail?no="+gamelist[i].no+"' class='btn btn-primary'>자세히 보기</a></div></li>"; 
 					}
-					textanswer += "<a href='#' id='prev'></a><a href='#' id='next'></a>";
-					$("#record").append(textanswer + "</div>");
+					textanswer += "</ul></div><div class='include-control'><div class='controls'><span class='prev'>"
+						+"<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-arrow-left-circle' viewBox='0 0 16 16'>"
+						+"<path fill-rule='evenodd' d='M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z'/>"
+					    +"</svg></span><span class='next'>"
+			    		+"<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-arrow-right-circle' viewBox='0 0 16 16'>"
+						+"<path fill-rule='evenodd' d='M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/>"
+						+"</svg></span></div></div>";
+					$("#record").append(textanswer);
 					$("#record-box").scrollTop($("#record-box")[0].scrollHeight);
 				}
 			});//ajax end
