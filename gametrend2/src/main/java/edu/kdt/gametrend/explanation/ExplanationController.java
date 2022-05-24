@@ -26,7 +26,7 @@ public class ExplanationController {
 	// 소개 페이지 호출 및 로딩 (PC) 
 	@RequestMapping(value="/explanation1a")
 	@ResponseBody
-		public ModelAndView explanationAction2() { 
+		public ModelAndView explanationAction2(ExplanationDTO dto) throws Exception{ 
 		
 		 
 //		ExplanationDTO explanationdata = service.loadExplanation(dto);
@@ -44,7 +44,7 @@ public class ExplanationController {
 	// 소개 페이지 호출 및 로딩 (PS) 
 	@RequestMapping(value="/explanation1b")
 	@ResponseBody
-		public ModelAndView explanationAction3() { 
+		public ModelAndView explanationAction3(ExplanationDTO dto) throws Exception{ 
 			
 		// 플랫폼 소개 로딩
 		String delivery="PS";
@@ -59,7 +59,7 @@ public class ExplanationController {
 	// 소개 페이지 호출 및 로딩 (Xbox) 
 	@RequestMapping(value="/explanation1c")
 	@ResponseBody
-		public ModelAndView explanationAction4() { 
+		public ModelAndView explanationAction4(ExplanationDTO dto) throws Exception{ 
 		
 		// 플랫폼 소개 로딩
 		String delivery="Xbox";
@@ -74,7 +74,7 @@ public class ExplanationController {
 	// 소개 페이지 호출 및 로딩 (NS) 
 	@RequestMapping(value="/explanation1d")
 	@ResponseBody
-		public ModelAndView explanationAction5() { 
+		public ModelAndView explanationAction5(ExplanationDTO dto) throws Exception{ 
 	
 		// 플랫폼 소개 로딩
 		String delivery="NS";
@@ -92,6 +92,6 @@ public class ExplanationController {
 	/*
 	 * @RequestMapping(value="/Testpage", method=RequestMethod.GET) public String
 	 * explanationAction3() { return "Testpage"; }
-	 */	
+	 */
 
 }
