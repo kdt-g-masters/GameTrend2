@@ -29,19 +29,7 @@
 			else if(kindQ == "myreview")	{basedOnReview(memberid);}	
 		});
 		/*---------------------------------------------------------*/
-		var slides = $("ul.topgames"),
-			slide = $("ul.topgames li"),
-			currentIdx = 0,
-			slideCnt = slide.length,
-			slideWidth = 310,
-			slideMargin = 50,
-			prevBtn = $(".prev")
-			nextBtn = $(".next");
 		
-		prevBtn.on('click',function(){ alert(slideCnt);})
-		function moveSlide(num){
-			slides.css("width",num * )
-		}
 	 });
 	
 	</script>
@@ -90,7 +78,23 @@
 	  </div>
 	</div>
 	
+	<script type="text/javascript">
 	
+	/* 	var slides = $("ul.topgames"),
+				slide = $("ul.topgames li"),
+				currentIdx = 0,
+				slideCnt = slide.length,
+				slideWidth = 310,
+				slideMargin = 50,
+				prevBtn = $(".prev")
+				nextBtn = $(".next");
+			
+			prevBtn.on('click',function(){ alert(slideCnt);})
+			function moveSlide(num){/* 
+				slides.css("width",num * ) */
+			} */
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	
 </body>
 </html>
