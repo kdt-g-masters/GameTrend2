@@ -176,6 +176,12 @@ $(document).ready(function(){
 						dataType: 'json',
 						success: function (review) {
 							$("#contents").append(review.contents);
+							if(review.approve == 0){
+								$("#reviewapprove").append("리뷰 승인 대기중");
+							}
+							else if(review.approve == -1){
+								$("#reviewapprove").append("리뷰 승인 거부");
+							}
 						}
 					});//review ajax end
 					
@@ -349,6 +355,7 @@ $(document).ready(function(){
 						<input id="stars" type="range" oninput="drawStar(this.value)" step="1" min="0" max="10">
 					</span>
 					<span id="stardemo"></span>
+					<span id="reviewapprove"></span>
 					<input id="imagefile" type="file">
 					<%Date now = new Date(); SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); %>
 					<input id="createAt" type="text" value="<%=formatter.format(now) %>" hidden>
