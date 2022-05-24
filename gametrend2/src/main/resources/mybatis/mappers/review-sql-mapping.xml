@@ -31,7 +31,7 @@
 	
 	<!-- 리뷰 작성 -->
 	<insert id="insertReview" parameterType="reviewdto">
-		insert into review values(null, #{member_id}, #{game_no}, #{date}, #{contents}, #{stars}, #{image}, #{approve})
+		insert into review values(null, #{member_id}, #{game_no}, #{date}, #{contents}, #{stars}, #{image}, #{approve}, null)
 	</insert>
 	
 	<!-- 리뷰 수정 -->
