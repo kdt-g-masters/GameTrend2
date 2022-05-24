@@ -84,7 +84,7 @@
 	            <a class="nav-link active" href="gamelist">인기게임순위</a>
 	          </li>
 	          <li class="nav-item">
-	            <a class="nav-link active" href="calendar">게임달력</a>
+	            <a class="nav-link active" href="calendar">게임출시정보</a>
 	          </li>
 	          <li class="nav-item">
 	            <form method="POST" action="/promotion" > 

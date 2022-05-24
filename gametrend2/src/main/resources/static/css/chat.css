@@ -342,12 +342,12 @@ ul.topgames, li{
 	background: inherit;
 	color: inherit;
 } 
-.controls{
+.chat-controls{
 	width:330px;
 	text-align: center;
 	cursor: pointer;
 }
-.controls span{
+.chat-controls span{
 	color: #7244FE;
 	padding-bottom: 0;
 	margin: 0 30px;	 
