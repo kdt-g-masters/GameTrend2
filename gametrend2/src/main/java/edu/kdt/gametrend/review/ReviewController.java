@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import edu.kdt.gametrend.game.GameDTO;
+
 @Controller
 public class ReviewController {
 	@Autowired
@@ -41,14 +43,16 @@ public class ReviewController {
 	//리뷰 작성 & 리뷰 여부 확인
 	@RequestMapping(value = "/insertReview", method = RequestMethod.POST, produces = {"application/json;charset=utf-8"})
 	@ResponseBody
-	public String insertReview(ReviewDTO dto) {
+	public String insertReview(ReviewDTO dto, MultipartFile image, HttpServletRequest request) throws IOException {
+		
 		//리뷰 유무 확인
 		int check = service.reviewCheck(dto);
-		if(check == 0) {
-			/*
+		
+		if(check == 0) {		
 			// 파일 저장 경로
 			String resourceSrc = request.getServletContext().getRealPath("");
-			String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\review";
+			// resourceSrc: GameTrend2\gametrend2\src\main\webapp\
+			String savePath = resourceSrc.substring(0, resourceSrc.lastIndexOf("webapp")) + "resources\\static\\images\\review";	
 			
 			if (!image.isEmpty()) {
 				// 파일 이름
@@ -66,8 +70,8 @@ public class ReviewController {
 			}
 			else {
 				dto.setImage(null);
-			}
-			*/
+			}			
+			 
 			int result = service.insertReview(dto);
 			if(result == 1) { 
 				return "{\"check\":\"리뷰 작성 완료\"}"; 

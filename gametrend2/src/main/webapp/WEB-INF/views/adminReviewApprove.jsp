@@ -60,7 +60,15 @@
 			                                <div class="card-header">
 		                                        ${ dto.reviewDTO.member_id }
 		                                    </div>
-		                                    <img class="img-fluid mx-auto" src="/images/review/logo.png" alt="Card image cap" width="300">
+		                                    <c:choose>
+		                                      <c:when test="${ dto.reviewDTO.image eq null }">
+		                                    	  <img class="img-fluid mx-auto" src="/images/review/logo.png" alt="Card image cap" width="300">
+		                                      </c:when>
+		                                      <c:otherwise>
+		                                        <img class="img-fluid mx-auto" src="/images/review/${ dto.reviewDTO.image }" alt="Card image cap" width="300">
+		                                      </c:otherwise>
+		                                    </c:choose>
+		                                    
 		                                    <div class="card-body">
 		                                        <h3 class="card-title">${ dto.gameDTO.name }</h3>
 		                                        <p class="card-text">${ dto.reviewDTO.contents }</p>

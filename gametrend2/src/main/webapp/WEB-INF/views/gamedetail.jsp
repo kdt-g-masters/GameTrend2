@@ -21,6 +21,8 @@ $(document).ready(function(){
 	//세션 아이디 값 가져오기
 	var memberid = '<%= String.valueOf(session.getAttribute("sessionid")) %>';
 	
+	var form = $('reviewForm')[0];
+	
 	//리뷰 작성
 	$("#reviewinsert").on('click', function () {
 		if(memberid == "null"){
@@ -30,8 +32,11 @@ $(document).ready(function(){
 		else{
 			$.ajax({
 				url: '<%=request.getContextPath() %>/insertReview' ,
-				data: {'member_id':$("#memberid").val(), 'game_no':${param.no}, 'contents':$("#contents").val(), 'stars':$("#stars").val(), 'date':$("#createAt").val(), 'image':$("#imagefile").val(), 'approve':$("#approve").val() } ,
+				data: {'member_id':$("#memberid").val(), 'game_no':${param.no}, 'contents':$("#contents").val(), 'stars':$("#stars").val(), 'date':$("#createAt").val(), 'image':$("#imagefile").val(), 'approve':$("#approve").val(), 'imagefile': $("#imagefile").val() } ,
 				type: 'POST' ,
+				enctype: 'multipart-form-data',
+				processData: false,
+				contentType: false,
 				dataType: 'json',
 				success: function (a) {
 					alert(JSON.stringify(a));
@@ -348,7 +353,7 @@ $(document).ready(function(){
 			
 			<div id="reviewForm" class="right bor-review">
 				<h4>리뷰 쓰기</h4>
-				<form>
+				<form id="reviewForm">
 					<input id="memberid" type="text" value="<%= String.valueOf(session.getAttribute("sessionid")) %>" hidden>
 					별점:
 					<span class="review-star">
