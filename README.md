@@ -131,7 +131,7 @@
 
 ### ERD
 
-![ERD](/README_asset/ERD.png)
+![ERD](/README_asset/ERD.PNG)
 
 ### 화면 흐름도
 
