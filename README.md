@@ -8,6 +8,10 @@
 
 `2022.05.04.` - `2022.05.23.` (3주)
 
+### 팀 활동
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Backhand%20Index%20Pointing%20Right%20Light%20Skin%20Tone.png" alt="Backhand Index Pointing Right Light Skin Tone" width="30" height="30" /> [<img src="https://img.shields.io/badge/trello-0052CC?style=for-the-badge&logo=trello&logoColor=white">](https://trello.com/b/h83y2C8Y/game-trend)
+
 <br>
 
 # 📌 기술 스택
@@ -169,7 +173,3 @@
 | 팀장 <br>DB 데이터 구축 <br>게임 정보 제공 기능 <br>문서화 <br>발표 | <br>상세 정보(리뷰, 추천, 별점) 제공 기능                       | <br>관리자 기능 (게임 등록, 구매 인증) <br>마이페이지             | PM <br>DB 모델링 <br>랭킹 기능 <br>챗봇                           | <br>회원 관리 <br>이메일 인증                                     |
 
 <br>
-
----
-
-<b>Game Trend 팀 활동</b> | [Trello](https://trello.com/b/h83y2C8Y/game-trend)
