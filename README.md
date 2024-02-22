@@ -1,4 +1,4 @@
-<img src="./README_asset/logo.png" width="300"/>
+<img src="./README_asset/cover_image.png"/>
 
 <br>
 
